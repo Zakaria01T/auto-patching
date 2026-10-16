@@ -1,0 +1,9 @@
+data/uploads/
+.env
+*.gguf
+*.safetensors
+*.bin
+models/
+.venv/
+venv/
+__pycache__/
