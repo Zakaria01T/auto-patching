@@ -1,3 +1,7 @@
+# App packages only. Scanner pins are in requirements-scanners.txt.
+# Semgrep cannot share this environment: it pins opentelemetry-api 1.37,
+# and FastAPI 0.143.2 requires opentelemetry-api >= 1.44.
+# See docs/scanners.md.
 fastapi==0.143.2
 uvicorn==0.54.0
 streamlit==1.66

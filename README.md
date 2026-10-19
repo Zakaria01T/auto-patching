@@ -36,6 +36,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+Semgrep, Bandit, Flawfinder, and cppcheck are installed separately. Commands and versions are in [docs/scanners.md](docs/scanners.md).
+
 Copy `.env.example` to `.env` and fill in your own values.
 
 ## Start the project
