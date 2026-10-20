@@ -1,0 +1,5 @@
+# Separate from requirements.txt. Semgrep 1.181.0 pins opentelemetry-api 1.37,
+# and FastAPI 0.143.2 requires opentelemetry-api >= 1.44.
+semgrep==1.181.0
+bandit==1.9.4
+flawfinder==2.0.20

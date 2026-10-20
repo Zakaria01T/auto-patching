@@ -1,9 +1,12 @@
-data/uploads/
+data/
+*.token
+token.txt
 .env
 *.gguf
 *.safetensors
 *.bin
 models/
 .venv/
+.venv-scanners/
 venv/
 __pycache__/
