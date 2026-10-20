@@ -1,0 +1,6 @@
+﻿{
+  "id": "REPLACE_ME",
+  "language": "python | c",
+  "class": "sql_injection | xss | command_injection | buffer_overflow",
+  "cwe": "CWE-000"
+}
