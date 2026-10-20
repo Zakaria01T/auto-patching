@@ -12,8 +12,8 @@ The prototype ships with a prompted local code model. A small LoRA adapter is tr
 
 Training uses a free Colab or Kaggle GPU, so it has no cash cost.
 
-- Colab: a Tesla T4 with about 15 GB of memory was opened and checked on 19 October 2026 (see `docs/training.md`). Free notebooks run at most 12 hours.
-- Kaggle: two Tesla T4 GPUs (15 GB each) were opened and checked on 20 October 2026, with 30 GiB of RAM and a 12 hour session. Kaggle's documentation names a free Tesla P100 and a weekly quota of 30 hours or sometimes higher, so the T4 option is what this account showed.
+- Kaggle (main): two Tesla T4 GPUs (15 GB each) were opened and checked on 20 October 2026, with 30 GiB of RAM and a 12 hour session. Kaggle's documentation names a free Tesla P100 and a weekly quota of 30 hours or sometimes higher, so the T4 option is what this account showed.
+- Colab (backup): a Tesla T4 with about 15 GB of memory was opened and checked on 19 October 2026 (see `docs/training.md`). Free notebooks run at most 12 hours.
 
 The free tiers are meant for interactive work. Colab prohibits web service offerings not related to interactive compute, so they are not used to serve the model to the team.
 
