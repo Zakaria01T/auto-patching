@@ -5,16 +5,15 @@ import requests
 import streamlit as st
 
 
-# API CONTRACT 
 API_URL = os.getenv("API_URL", "http://localhost:8000")
-UPLOAD_PATH = "/upload"
+UPLOAD_PATH = "/jobs"
 UPLOAD_FIELD = "file"
-KEY_JOB_ID = "job_id"
+KEY_JOB_ID = "id"
 KEY_STATUS = "status"
 KEY_LANGUAGE = "language"
 KEY_ERROR = "detail"
 REQUEST_TIMEOUT_S = 15
-MAX_FILE_SIZE_MB = 200
+MAX_FILE_SIZE_MB = 1
 
 UPLOAD_URL = f"{API_URL.rstrip('/')}{UPLOAD_PATH}"
 
@@ -673,7 +672,7 @@ with center:
                 #type=["py", "c"],
                 help=(
                     "Accepted formats: Python (.py) and C (.c). "
-                    "Maximum size: 200 MB."
+                    "Maximum size: 1 MB."
                 ),
             )
 
@@ -717,9 +716,12 @@ with center:
                         except ValueError:
                             st.error("The API returned an invalid JSON response.")
                         else:
-                            st.session_state["last_job"] = data
-                            st.session_state["last_filename"] = uploaded.name
-                            st.success("File submitted successfully.")
+                            if data.get(KEY_STATUS) == "rejected":
+                                st.error(data.get("message") or "The API rejected this file.")
+                            else:
+                                st.session_state["last_job"] = data
+                                st.session_state["last_filename"] = uploaded.name
+                                st.success("File submitted successfully.")
                     else:
                         st.error(
                             f"API error {response.status_code}: "
@@ -732,7 +734,7 @@ with center:
         """
         <div class="legal-note">
             <strong>File types:</strong> Python (.py) and C (.c).
-            <strong>Maximum size:</strong> 200 MB.
+            <strong>Maximum size:</strong> 1 MB.
             <br><br>
             By submitting a file, you confirm that you are authorized to share
             its contents for security analysis. Avoid uploading secrets,
