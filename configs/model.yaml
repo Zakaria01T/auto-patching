@@ -1,0 +1,3 @@
+model:
+  tag: "qwen2.5-coder:3b"
+  temperature: 0.0

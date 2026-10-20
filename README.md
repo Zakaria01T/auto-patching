@@ -104,3 +104,6 @@ API_URL=http://host:port streamlit run ui/app.py
 $env:API_URL = "http://host:port"
 streamlit run ui/app.py
 ```
+## Model Configuration (Sprint 1 - P5 si driss)
+- **Ollama Tag:** `qwen2.5-coder:3b`
+- **Config File:** `configs/model.yaml`
