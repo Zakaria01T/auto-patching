@@ -14,6 +14,7 @@ This file lists the external sources behind the numbers in `docs/costs.md`, `doc
 | 8 | Kaggle, Efficient GPU Usage Tips | https://www.kaggle.com/docs/efficient-gpu-usage | 20 Oct 2026 | Free access to Tesla P100 GPUs. The weekly quota resets weekly and is 30 hours or sometimes higher. Interactive sessions stay active until a 60 minute idle timeout. |
 | 9 | Kaggle, Notebooks Documentation | https://www.kaggle.com/docs/notebooks | 20 Oct 2026 | One free Tesla P100 per notebook. Free GPUs can queue at busy times. "Save & Run All" must finish within 12 hours. |
 | 10 | Colab T4 check | our own `nvidia-smi` run | 19 Oct 2026 | A Tesla T4 with 15360 MiB. The Resources panel reported up to 5 hours 30 minutes. This is our own observation, not a web page. |
+| 11 | Kaggle T4 x2 check | our own `nvidia-smi` run | 20 Oct 2026 | Two Tesla T4 GPUs with 15360 MiB each. The session panel showed a 12 hour session, 30 GiB of RAM and 57.6 GiB of disk. This is our own observation, not a web page. |
 
 ## Not used
 
