@@ -109,6 +109,9 @@ Allowed statuses: `uploaded`, `scanning`, `clean`, `patching`, `validating`,
 ```bash
 python -m pytest
 ```
+## Model Configuration (Sprint 1 - P5 si driss)
+- **Ollama Tag:** `qwen2.5-coder:3b`
+- **Config File:** `configs/model.yaml`
 
 ## Team rules
 
