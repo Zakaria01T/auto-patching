@@ -70,3 +70,37 @@ python -m pytest
 
 - Model weights and uploaded files are never committed.
 - Add every new package to `requirements.txt` with an exact version (`name==x.y.z`).
+
+
+## Start the project
+
+Run each command in its own terminal, with the virtual environment active.
+
+**1. API**
+
+```bash
+uvicorn api.main:app --reload
+```
+
+Check it: open http://localhost:8000/health. It should show `{"status":"ok"}`.
+
+**2. Upload page**
+
+```bash
+streamlit run ui/app.py
+```
+
+Streamlit prints a local address (usually http://localhost:8501). The upload page should open there.
+
+By default the page calls the API at `http://localhost:8000`, so nothing else is needed when the API runs on your machine with the command above.
+
+**If the API runs elsewhere** (another port or another computer), set `API_URL` before starting Streamlit:
+
+```bash
+# Mac / Linux / Git Bash
+API_URL=http://host:port streamlit run ui/app.py
+
+# Windows PowerShell
+$env:API_URL = "http://host:port"
+streamlit run ui/app.py
+```
