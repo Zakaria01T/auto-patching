@@ -20,7 +20,7 @@ Some folders are empty on purpose. Each is filled by the sprint that builds that
 
 ## Setup
 
-Requirements: Python 3.11 and Git.
+Requirements: Python 3.11 or newer, and Git.
 
 ```bash
 git clone https://github.com/Zakaria01T/auto-patching.git
@@ -60,38 +60,6 @@ streamlit run ui/app.py
 
 Streamlit prints a local address (usually http://localhost:8501). The upload page should open there.
 
-## Run the tests
-
-```bash
-python -m pytest
-```
-
-## Team rules
-
-- Model weights and uploaded files are never committed.
-- Add every new package to `requirements.txt` with an exact version (`name==x.y.z`).
-
-
-## Start the project
-
-Run each command in its own terminal, with the virtual environment active.
-
-**1. API**
-
-```bash
-uvicorn api.main:app --reload
-```
-
-Check it: open http://localhost:8000/health. It should show `{"status":"ok"}`.
-
-**2. Upload page**
-
-```bash
-streamlit run ui/app.py
-```
-
-Streamlit prints a local address (usually http://localhost:8501). The upload page should open there.
-
 By default the page calls the API at `http://localhost:8000`, so nothing else is needed when the API runs on your machine with the command above.
 
 **If the API runs elsewhere** (another port or another computer), set `API_URL` before starting Streamlit:
@@ -104,3 +72,45 @@ API_URL=http://host:port streamlit run ui/app.py
 $env:API_URL = "http://host:port"
 streamlit run ui/app.py
 ```
+
+## API (sprint 2: upload and language detection)
+
+Windows PowerShell: use `curl.exe`. On Mac/Linux use `curl`.
+
+### Upload a file
+
+```
+curl.exe -F "file=@docs/samples/sample.py" http://localhost:8000/jobs
+curl.exe -F "file=@docs/samples/sample.c" http://localhost:8000/jobs
+curl.exe -F "file=@docs/samples/notes.txt" http://localhost:8000/jobs
+```
+
+Expected: `sample.py` gives `"language":"python"`, `sample.c` gives `"language":"c"`,
+and `notes.txt` gives `"status":"rejected"`.
+
+### Read a job
+
+```
+curl.exe http://localhost:8000/jobs/<id>
+```
+
+An unknown id returns 404.
+
+### Response shape
+
+Every job has exactly nine fields: `id`, `status`, `language`, `filename`,
+`findings`, `diff`, `explanation`, `attempts`, `decision`.
+In this sprint the last five are always `null`.
+Allowed statuses: `uploaded`, `scanning`, `clean`, `patching`, `validating`,
+`accepted`, `needs_human`, `rejected`.
+
+## Run the tests
+
+```bash
+python -m pytest
+```
+
+## Team rules
+
+- Model weights and uploaded files are never committed.
+- Add every new package to `requirements.txt` with an exact version (`name==x.y.z`).
