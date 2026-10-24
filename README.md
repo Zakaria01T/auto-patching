@@ -113,6 +113,10 @@ python -m pytest
 - **Ollama Tag:** `qwen2.5-coder:3b`
 - **Config File:** `configs/model.yaml`
 
+## LoRA training
+
+LoRA fine-tuning is part of the project: an adapter is trained and compared with the prompted model. Training runs on a free Kaggle notebook (two Tesla T4 GPUs), with Colab as the backup. Details and the checks behind this are in [docs/training.md](docs/training.md) and [docs/costs.md](docs/costs.md).
+
 ## Team rules
 
 - Model weights and uploaded files are never committed.
