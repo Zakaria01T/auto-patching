@@ -1,6 +1,6 @@
 # Costs
 
-This file records how the optional LoRA adapter is trained, what running the model costs, and which numbers are assumptions.
+This file records how the LoRA adapter is trained, what running the model costs, and which numbers are assumptions.
 
 No model is served by the pipeline yet. Where the demo model is hosted is decided after the demo is built, so both options stay here.
 
