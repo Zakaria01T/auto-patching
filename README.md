@@ -110,9 +110,9 @@ Allowed statuses: `uploaded`, `scanning`, `clean`, `patching`, `validating`,
 python -m pytest
 ```
 
-## LoRA training (optional)
+## LoRA training
 
-The prompted local model is the default. The optional LoRA adapter is trained on a free Kaggle notebook (two Tesla T4 GPUs), with Colab as the backup. Details and the checks behind this are in [docs/training.md](docs/training.md) and [docs/costs.md](docs/costs.md).
+LoRA fine-tuning is part of the project: an adapter is trained and compared with the prompted model. Training runs on a free Kaggle notebook (two Tesla T4 GPUs), with Colab as the backup. Details and the checks behind this are in [docs/training.md](docs/training.md) and [docs/costs.md](docs/costs.md).
 
 ## Team rules
 
