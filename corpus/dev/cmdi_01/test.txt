@@ -1,0 +1,2 @@
+Input: host = "localhost"
+Normal result: sends one ping to localhost and returns exit code 0

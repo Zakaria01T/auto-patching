@@ -1,0 +1,2 @@
+Input: comment = "Nice post"
+Normal result: "<div class='comment'>Nice post</div>"

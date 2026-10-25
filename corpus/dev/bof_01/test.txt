@@ -1,0 +1,2 @@
+Input: input = "Alice" (5 characters)
+Normal result: "Alice" is copied into buf with no error
