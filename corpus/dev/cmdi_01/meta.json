@@ -1,0 +1,6 @@
+{
+    "id":  "cmdi_01",
+    "language":  "python",
+    "class":  "command_injection",
+    "cwe":  "CWE-78"
+}
