@@ -2,7 +2,7 @@
 
 This file records how Semgrep, Bandit, Flawfinder, and cppcheck are installed, which versions ran on the demo machine, and the commands that prove each one runs.
 
-No project rules and no finding schema are part of this step. The shared finding format is a sprint 2 task with P1. Until that format exists, `findings` in `docs/job.md` stays `null`.
+The install steps below are unchanged. `scanner/scan.py` now runs them, and Semgrep uses the rules in `scanner/rules/`.
 
 ## Where this sits in the project
 
@@ -10,10 +10,10 @@ Auto-patching takes an uploaded Python or C file, scans it, and later asks a mod
 
 - `api/main.py` serves `GET /health`.
 - `ui/app.py` accepts a `.py` or `.c` upload and prints the filename.
-- `docs/job.md` defines the job JSON. `findings`, `diff`, `explanation`, `attempts`, and `decision` stay `null` this sprint.
-- `scanner/` is empty on purpose. Do not fill it in while following this file.
+- `docs/job.md` defines the job JSON. The API still leaves `findings` null until a job stores the list from `scan()`.
+- `scanner/scan.py` runs the commands below and returns one finding list.
 
-Python files will later be scanned with Semgrep and Bandit. C files will later be scanned with Flawfinder and cppcheck. Raw tool output is not the job JSON.
+Python files are scanned with Semgrep and Bandit. C files are scanned with Flawfinder and cppcheck. `scan()` returns the finding fields, not the raw tool output.
 
 ## Versions on the demo machine
 
@@ -158,6 +158,8 @@ Without the quiet flags, a clean file still means "nothing found":
 - Flawfinder prints `No hits found.`
 - cppcheck prints `Checking ...` unless `-q` is set.
 
-## Leave for sprint 2
+## What `scan()` runs
 
-Do not add rule files, and do not decide the JSON shape of a finding. That work is shared with P1. `scanner/` stays empty until then.
+`from scanner.scan import scan` calls these tools. Python uses Semgrep and Bandit. C uses Flawfinder and cppcheck. Semgrep reads the rules committed in `scanner/rules/`. A clean file returns `[]`.
+
+Each hit is mapped onto `file`, `line`, `cwe`, `severity`, `rule_id`, `language`, and `owasp`. `severity` is `high`, `medium`, or `low`. The same file, line, and CWE from two tools is one finding.
