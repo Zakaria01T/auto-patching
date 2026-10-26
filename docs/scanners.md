@@ -160,6 +160,8 @@ Without the quiet flags, a clean file still means "nothing found":
 
 ## What `scan()` runs
 
-`from scanner.scan import scan` calls these tools. Python uses Semgrep and Bandit. C uses Flawfinder and cppcheck. Semgrep reads the rules committed in `scanner/rules/`. A clean file returns `[]`.
+`from scanner.scan import scan` calls these tools. Python uses Semgrep and Bandit. C uses Flawfinder and cppcheck. Semgrep reads `scanner/rules/python.yaml`. Bandit, Flawfinder, and cppcheck use their own checks. `scanner/rules/c.yaml` is not used by `scan()`. A clean file returns `[]`.
 
 Each hit is mapped onto `file`, `line`, `cwe`, `severity`, `rule_id`, `language`, and `owasp`. `severity` is `high`, `medium`, or `low`. The same file, line, and CWE from two tools is one finding.
+
+Uploading a file does not call `scan()`. The API saves the bytes at `data/uploads/<id>/original` and leaves the job at `uploaded`. The next step is to call `scan(path, language)` with that path and the job's `language`, then store the returned list in `findings`. An empty list means status `clean`. A list with hits stays `scanning`. `diff`, `explanation`, `attempts`, and `decision` stay `null`.
