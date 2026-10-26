@@ -74,9 +74,10 @@ def _bindir() -> Path | None:
 def _tool(name: str) -> str:
     folder = _bindir()
     if folder is not None:
-        candidate = folder / name
-        if candidate.is_file() and os.access(candidate, os.X_OK):
-            return str(candidate)
+        for candidate_name in (name, name + ".exe"):
+            candidate = folder / candidate_name
+            if candidate.is_file() and os.access(candidate, os.X_OK):
+                return str(candidate)
     found = shutil.which(name)
     if found:
         return found
