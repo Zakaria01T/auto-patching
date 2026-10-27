@@ -1,9 +1,10 @@
 import html
+import json
 import os
 
 import requests
 import streamlit as st
-
+import time
 
 API_URL = os.getenv("API_URL", "http://localhost:8000")
 UPLOAD_PATH = "/jobs"
@@ -16,6 +17,20 @@ REQUEST_TIMEOUT_S = 15
 MAX_FILE_SIZE_MB = 1
 
 UPLOAD_URL = f"{API_URL.rstrip('/')}{UPLOAD_PATH}"
+JOB_PATH = "/jobs"
+POLL_INTERVAL_S = 1
+POLL_TIMEOUT_S = 500
+
+TERMINAL_STATUSES = {"clean", "rejected", "accepted", "needs_human"}
+REASON_KEYS = (
+    "message",
+    "reason",
+    "rejection_reason",
+    "detail",
+    "error",
+    "cause",
+    "errors",
+)
 
 
 st.set_page_config(
@@ -267,6 +282,11 @@ div[data-testid="stSegmentedControl"] button[aria-checked="true"] {
     color: #94A9C3 !important;
 }
 
+[data-testid="stTextInput"] input:disabled {
+    opacity: .5 !important;
+    cursor: not-allowed !important;
+}
+
 [data-testid="stFormSubmitButton"] {
     width: 100% !important;
 }
@@ -287,6 +307,12 @@ div[data-testid="stSegmentedControl"] button[aria-checked="true"] {
     background: #A7CAFF !important;
     border-color: #A7CAFF !important;
     transform: translateY(-1px);
+}
+
+[data-testid="stFormSubmitButton"] button:disabled {
+    opacity: .45 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
 }
 /* === LEGAL NOTE === */
 
@@ -484,6 +510,104 @@ def format_error(resp: requests.Response) -> str:
     return str(detail)
 
 
+def extract_reason(data: dict) -> str | None:
+    if not isinstance(data, dict):
+        return None
+
+    for key in REASON_KEYS:
+        value = data.get(key)
+        if not value:
+            continue
+        if isinstance(value, list):
+            return "; ".join(
+                str(item.get("msg", item)) if isinstance(item, dict) else str(item)
+                for item in value
+            )
+        if isinstance(value, dict):
+            return json.dumps(value, ensure_ascii=False)
+        return str(value)
+
+    return None
+
+
+ALLOWED_EXTENSIONS = (".py", ".c")
+
+
+def validate_file(uploaded) -> list[str]:
+    errors = []
+
+    name = uploaded.name.lower()
+    if not name.endswith(ALLOWED_EXTENSIONS):
+        ext = os.path.splitext(uploaded.name)[1] or "(none)"
+        errors.append(
+            f"Unsupported file type: {ext}. Only Python (.py) and C (.c) files are accepted."
+        )
+
+    if uploaded.size == 0:
+        errors.append("The file is empty (0 B).")
+    elif uploaded.size > MAX_FILE_SIZE_MB * 1024 * 1024:
+        errors.append(f"The file exceeds the {MAX_FILE_SIZE_MB} MB limit.")
+
+    return errors
+
+
+def is_done(data: dict) -> bool:
+    return (
+        data.get(KEY_STATUS) in TERMINAL_STATUSES
+        or isinstance(data.get("findings"), list)
+    )
+
+
+def poll_job(job_id: str) -> dict:
+    job_url = f"{API_URL.rstrip('/')}{JOB_PATH}/{job_id}"
+    deadline = time.monotonic() + POLL_TIMEOUT_S
+
+    while time.monotonic() < deadline:
+        response = requests.get(
+            job_url,
+            timeout=REQUEST_TIMEOUT_S,
+        )
+
+        if not response.ok:
+            raise RuntimeError(
+                f"Job API error {response.status_code}: "
+                f"{format_error(response)}"
+            )
+
+        data = response.json()
+
+        if is_done(data):
+            return data
+
+        time.sleep(POLL_INTERVAL_S)
+
+    raise TimeoutError(
+        "The scan is taking too long or failed on the server. "
+        "Please try again."
+    )
+
+
+def pick(finding: dict, *keys, default="-"):
+    for k in keys:
+        if finding.get(k) not in (None, ""):
+            return finding[k]
+    return default
+
+
+def render_findings(findings: list, filename: str = "-") -> None:
+    rows = [
+        {
+            "File": filename,
+            "Line": pick(f, "line"),
+            "CWE": pick(f, "cwe"),
+            "Severity": str(pick(f, "severity")).capitalize(),
+        }
+        for f in findings
+        if isinstance(f, dict)
+    ]
+    st.dataframe(rows, hide_index=True, use_container_width=True)
+
+
 def show_result(data: dict) -> None:
     job_id = html.escape(str(data.get(KEY_JOB_ID, "-")))
     status = html.escape(str(data.get(KEY_STATUS, "-")))
@@ -641,29 +765,20 @@ with center:
 
     if mode == "URL":
         with st.form("url_form", border=False):
-            target_url = st.text_input(
+            st.text_input(
                 "Source URL",
                 placeholder="https://example.com/source.py",
+                disabled=True,
             )
 
-            st.caption("Enter a URL pointing to a Python or C source file.")
+            st.caption("URL analysis is not available yet. Please upload a file.")
 
-            url_submitted = st.form_submit_button(
+            st.form_submit_button(
                 "Analyze URL  →",
                 type="primary",
                 use_container_width=True,
+                disabled=True,
             )
-
-        if url_submitted:
-            if not target_url.strip():
-                st.warning("Please enter a URL.")
-            elif not target_url.strip().lower().startswith(("https://", "http://")):
-                st.warning("Enter a valid URL starting with http:// or https://.")
-            else:
-                st.info(
-                    "URL submission requires a dedicated backend endpoint. "
-                    "Your current API contract only defines the file upload route."
-                )
 
     else:
         with st.form("upload_form", border=False):
@@ -685,8 +800,9 @@ with center:
         if submitted:
             if uploaded is None:
                 st.warning("Please select a Python or C file.")
-            elif uploaded.size > MAX_FILE_SIZE_MB * 1024 * 1024:
-                st.error(f"The file exceeds the {MAX_FILE_SIZE_MB} MB limit.")
+            elif local_errors := validate_file(uploaded):
+                for msg in local_errors:
+                    st.error(msg)
             else:
                 try:
                     with st.spinner("Submitting file..."):
@@ -717,11 +833,50 @@ with center:
                             st.error("The API returned an invalid JSON response.")
                         else:
                             if data.get(KEY_STATUS) == "rejected":
-                                st.error(data.get("message") or "The API rejected this file.")
+                                reason = extract_reason(data)
+                                st.error(
+                                    f"File rejected: {reason}"
+                                    if reason
+                                    else "The API rejected this file."
+                                )
                             else:
-                                st.session_state["last_job"] = data
-                                st.session_state["last_filename"] = uploaded.name
-                                st.success("File submitted successfully.")
+                                job_id = data.get("job_id") or data.get("id")
+
+                                if not job_id:
+                                    st.error("The API response contains no job ID.")
+                                else:
+                                    try:
+                                        with st.spinner("Scanning your file..."):
+                                            result = poll_job(str(job_id))
+
+                                        st.session_state["last_job"] = result
+                                        st.session_state["last_filename"] = uploaded.name
+
+                                        status = result.get("status")
+                                        findings = result.get("findings")
+
+                                        if status == "clean":
+                                            st.success("Scan completed: clean, no findings detected.")
+                                        elif status == "rejected":
+                                            reason = extract_reason(result)
+                                            st.error(
+                                                f"File rejected: {reason}"
+                                                if reason
+                                                else "The API rejected this file."
+                                            )
+                                        elif isinstance(findings, list) and findings:
+                                            st.warning(
+                                                f"Scan completed: {len(findings)} finding(s) detected."
+                                            )
+                                        else:
+                                            st.info(
+                                                f"Scan finished with status: {status}"
+                                            )
+
+                                    except requests.exceptions.RequestException as exc:
+                                        st.error(f"Unable to retrieve the job: {exc}")
+                                    except (RuntimeError, TimeoutError, ValueError) as exc:
+                                        st.error(str(exc))
                     else:
                         st.error(
                             f"API error {response.status_code}: "
@@ -765,12 +920,36 @@ with center:
         )
 
         show_result(st.session_state["last_job"])
+    
+    # Findings
+
     st.markdown(
-        '<div class="section-title">Findings</div>'
-        '<div class="result" style="text-align:center;color:#AFC0D5;padding:2rem;">'
-        'Findings arrive in sprint 2.</div>',
+        '<div id="findings"></div>'
+        '<div class="section-title">Findings</div>',
         unsafe_allow_html=True,
     )
+
+    job = st.session_state.get("last_job")
+
+    if job:
+        status = job.get("status")
+        findings = job.get("findings")
+
+        if status == "clean":
+            st.success("Clean — no findings detected.")
+        elif status == "rejected":
+            st.error(
+                f"The file was rejected: "
+                f"{extract_reason(job) or 'no reason provided.'}"
+            )
+        elif isinstance(findings, list) and findings:
+            render_findings(
+                findings,
+                job.get("filename")
+                or st.session_state.get("last_filename", "-"),
+            )
+        else:
+            st.info(f"Job status: {status}")
 
 # FOOTER 
 
