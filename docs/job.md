@@ -18,8 +18,8 @@ The JSON object must contain exactly the following fields:
 The `status` field must strictly use one of the following values, listed in order of the pipeline:
 1. `uploaded`
 2. `scanning`
-3. `clean`
-4. `patching`
+3. `clean` (Definition: No findings exist and the model was not called)
+4. `patching` (Definition: A finding exists and the model was asked)
 5. `validating`
 6. `accepted`
 7. `needs_human`
@@ -33,10 +33,10 @@ For the current sprint, only the following fields are allowed to be populated wi
 * `status`
 * `language`
 * `filename`
-
-The following fields must remain `null` for this sprint:
 * `findings`
 * `diff`
 * `explanation`
 * `attempts`
+
+The following fields must remain `null` for this sprint:
 * `decision`
