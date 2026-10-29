@@ -1,0 +1,2 @@
+Input: path = "/tmp"
+Normal result: returns the list of file names inside /tmp

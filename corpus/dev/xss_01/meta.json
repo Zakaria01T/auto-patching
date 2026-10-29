@@ -1,0 +1,6 @@
+{
+    "id":  "xss_01",
+    "language":  "python",
+    "class":  "xss",
+    "cwe":  "CWE-79"
+}

@@ -1,0 +1,2 @@
+Input: customer_id = 7
+Normal result: returns only the orders that belong to customer 7

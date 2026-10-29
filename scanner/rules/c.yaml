@@ -1,0 +1,12 @@
+rules:
+  - id: c-unchecked-copy
+    languages: [c]
+    severity: ERROR
+    message: Copy into a buffer without a size check
+    metadata:
+      cwe: "CWE-120: Buffer Copy without Checking Size of Input"
+    pattern-either:
+      - pattern: strcpy(...)
+      - pattern: strcat(...)
+      - pattern: sprintf(...)
+      - pattern: gets(...)

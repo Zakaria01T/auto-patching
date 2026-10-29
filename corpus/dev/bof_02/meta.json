@@ -1,0 +1,6 @@
+{
+    "id":  "bof_02",
+    "language":  "c",
+    "class":  "buffer_overflow",
+    "cwe":  "CWE-120"
+}

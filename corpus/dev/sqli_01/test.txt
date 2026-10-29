@@ -1,0 +1,2 @@
+Input: username = "alice"
+Normal result: returns the one row for user alice, e.g. [(1, "alice")]
