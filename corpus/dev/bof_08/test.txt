@@ -1,0 +1,2 @@
+Input: src = "abcde", len = 5
+Normal result: the 5 bytes are copied into buf with no error

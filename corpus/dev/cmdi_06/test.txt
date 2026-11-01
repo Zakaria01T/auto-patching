@@ -1,0 +1,2 @@
+Input: filename = "old.log"
+Normal result: old.log is deleted and exit code 0 is returned

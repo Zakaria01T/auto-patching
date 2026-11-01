@@ -1,0 +1,2 @@
+Input: path = "/tmp"
+Normal result: returns the size of /tmp, e.g. "4.0K /tmp"

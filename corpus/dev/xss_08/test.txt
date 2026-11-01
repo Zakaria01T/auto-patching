@@ -1,0 +1,2 @@
+Input: title = "My Blog"
+Normal result: "<head><title>My Blog</title></head>"

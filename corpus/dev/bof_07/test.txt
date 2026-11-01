@@ -1,0 +1,2 @@
+Input: first = "Sara", last = "Lee"
+Normal result: name becomes "Sara Lee" with no error

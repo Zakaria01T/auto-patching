@@ -1,0 +1,2 @@
+Input: folder = "docs"
+Normal result: creates backup.tar.gz with the contents of docs and returns exit code 0

@@ -1,0 +1,2 @@
+Input: term = "python"
+Normal result: returns the titles that contain the word python

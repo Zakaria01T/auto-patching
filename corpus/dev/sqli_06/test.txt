@@ -1,0 +1,2 @@
+Input: name = "notebook"
+Normal result: returns the row for the product named notebook

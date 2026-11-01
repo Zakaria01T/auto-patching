@@ -1,0 +1,2 @@
+Input: name = "alice"
+Normal result: path becomes "/home/alice" with no error

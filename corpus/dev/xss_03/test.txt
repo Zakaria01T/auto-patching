@@ -1,0 +1,2 @@
+Input: message = "File not found"
+Normal result: "<p class='error'>File not found</p>"

@@ -1,0 +1,2 @@
+Input: pattern = "ERROR"
+Normal result: starts grep and finds the lines of app.log that contain ERROR
