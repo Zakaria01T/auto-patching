@@ -61,4 +61,4 @@ rules:
     metadata:
       cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation"
       owasp: "A03:2021-Injection"
-    pattern-regex: (?i)f["'][^"']*<[a-z][^"']*\{
+    pattern-regex: (?i)f["'].*?<[a-z][^>]*>.*?\{

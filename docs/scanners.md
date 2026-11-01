@@ -6,11 +6,11 @@ The install steps below are unchanged. `scanner/scan.py` now runs them, and Semg
 
 ## Where this sits in the project
 
-Auto-patching takes an uploaded Python or C file, scans it, and later asks a model for a patch. The current code only has the edges of that pipeline:
+Auto-patching takes an uploaded Python or C file, scans it, and later asks a model for a patch.
 
-- `api/main.py` serves `GET /health`.
-- `ui/app.py` accepts a `.py` or `.c` upload and prints the filename.
-- `docs/job.md` defines the job JSON. The API still leaves `findings` null until a job stores the list from `scan()`.
+- `api/main.py` serves `GET /health`, `POST /jobs`, and `GET /jobs/{id}`.
+- `ui/app.py` uploads a `.py` or `.c` file and shows clean, or file, line, CWE, and severity.
+- `docs/job.md` defines the job JSON. The API stores the list from `scan()` in `findings`.
 - `scanner/scan.py` runs the commands below and returns one finding list.
 
 Python files are scanned with Semgrep and Bandit. C files are scanned with Flawfinder and cppcheck. `scan()` returns the finding fields, not the raw tool output.
@@ -164,4 +164,14 @@ Without the quiet flags, a clean file still means "nothing found":
 
 Each hit is mapped onto `file`, `line`, `cwe`, `severity`, `rule_id`, `language`, and `owasp`. `severity` is `high`, `medium`, or `low`. The same file, line, and CWE from two tools is one finding.
 
-Uploading a file does not call `scan()`. The API saves the bytes at `data/uploads/<id>/original` and leaves the job at `uploaded`. The next step is to call `scan(path, language)` with that path and the job's `language`, then store the returned list in `findings`. An empty list means status `clean`. A list with hits stays `scanning`. `diff`, `explanation`, `attempts`, and `decision` stay `null`.
+`POST /jobs` saves the upload at `data/uploads/<id>/original` and answers with status `uploaded`. A background task then calls `scan(path, language)` with that path and the job's `language`. An empty list sets status `clean` and `findings` to `[]`. A list with hits stays `scanning` and stores `findings`. `diff`, `explanation`, `attempts`, and `decision` stay `null`.
+
+Checked with `scan()` on the cases already in the repo:
+
+- `docs/samples/sample.py` returns `[]`.
+- `corpus/dev/sqli_01/source.py` returns `CWE-89`.
+- `corpus/dev/xss_01/source.py` returns `CWE-79`.
+- `corpus/dev/cmdi_01/source.py` returns `CWE-78`.
+- `corpus/dev/bof_01/source.c` returns `CWE-120`.
+
+`bof_01` also returns `CWE-119` from Flawfinder. The case counts because `CWE-120` is in the list.
