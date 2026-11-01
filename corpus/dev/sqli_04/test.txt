@@ -1,0 +1,2 @@
+Input: user_id = 3, email = "bob@example.com"
+Normal result: the email of user 3 is changed to bob@example.com

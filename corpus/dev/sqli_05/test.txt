@@ -1,0 +1,2 @@
+Input: token = "abc123"
+Normal result: the one session with token abc123 is deleted

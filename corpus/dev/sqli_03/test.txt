@@ -1,0 +1,2 @@
+Input: name = "alice", email = "alice@example.com"
+Normal result: one new row for alice is added to users

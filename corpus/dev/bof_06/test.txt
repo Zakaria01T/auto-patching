@@ -1,0 +1,2 @@
+Input: stdin = "cat"
+Normal result: prints "cat"

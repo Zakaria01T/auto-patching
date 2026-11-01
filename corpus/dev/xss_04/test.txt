@@ -1,0 +1,2 @@
+Input: term = "laptops"
+Normal result: "<h2>Results for laptops</h2>"

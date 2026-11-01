@@ -1,0 +1,2 @@
+Input: name = "Sara", bio = "Loves hiking"
+Normal result: "<div><h3>Sara</h3><p>Loves hiking</p></div>"

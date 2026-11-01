@@ -1,0 +1,6 @@
+{
+    "id":  "sqli_05",
+    "language":  "python",
+    "class":  "sql_injection",
+    "cwe":  "CWE-89"
+}

@@ -1,0 +1,2 @@
+Input: text = "Buy milk"
+Normal result: "<li>Buy milk</li>"

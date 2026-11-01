@@ -1,0 +1,2 @@
+Input: stdin = "hello"
+Normal result: prints "hello"

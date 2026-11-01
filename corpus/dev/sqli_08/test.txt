@@ -1,0 +1,2 @@
+Input: username = "alice"
+Normal result: one login record for alice is added
