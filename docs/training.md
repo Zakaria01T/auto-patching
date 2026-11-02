@@ -8,7 +8,7 @@ Each row has three fields:
 
 | Field | Content |
 | --- | --- |
-| `finding` | The finding the scanner reported, with the seven fields `file`, `line`, `cwe`, `severity`, `rule_id`, `language`, `owasp` (see "Shared rules" in [sprint-detection.md](sprint-detection.md)) |
+| `finding` | The finding the scanner reported, with the seven fields `file`, `line`, `cwe`, `severity`, `rule_id`, `language`, `owasp` (see [findings.md](findings.md)) |
 | `vulnerable_code` | The flawed code the finding points at |
 | `repair` | The same code after the human repair |
 
