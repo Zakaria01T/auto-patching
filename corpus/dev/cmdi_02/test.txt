@@ -1,2 +1,2 @@
-Input: path = "/tmp"
-Normal result: returns the list of file names inside /tmp
+Input: path = "docs" (a folder with one file, readme.md)
+Normal result: returns b"readme.md\n"

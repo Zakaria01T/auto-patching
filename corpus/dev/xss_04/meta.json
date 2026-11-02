@@ -2,5 +2,6 @@
     "id":  "xss_04",
     "language":  "python",
     "class":  "xss",
-    "cwe":  "CWE-79"
+    "cwe":  "CWE-79",
+    "reviewer":  null
 }

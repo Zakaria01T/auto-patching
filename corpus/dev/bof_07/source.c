@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <string.h>
 
 void full_name(const char *first, const char *last) {
@@ -5,4 +6,5 @@ void full_name(const char *first, const char *last) {
     strcpy(name, first);
     strcat(name, " ");
     strcat(name, last);
+    puts(name);
 }

@@ -1,2 +1,2 @@
-Input: pattern = "ERROR"
-Normal result: starts grep and finds the lines of app.log that contain ERROR
+Input: pattern = "ERROR" (app.log contains the line "ERROR disk full")
+Normal result: returns the lines of app.log that contain ERROR, e.g. b"ERROR disk full\n"
