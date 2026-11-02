@@ -1,2 +1,2 @@
 Input: path = "docs" (a folder with one file, readme.md)
-Normal result: returns a size line ending in docs, e.g. "4.0Kdocs"
+Normal result: returns a size line ending in docs, e.g. "8.0K<TAB>docs" (the size depends on the filesystem)
