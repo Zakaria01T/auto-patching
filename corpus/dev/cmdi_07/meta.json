@@ -2,5 +2,6 @@
     "id":  "cmdi_07",
     "language":  "python",
     "class":  "command_injection",
-    "cwe":  "CWE-78"
+    "cwe":  "CWE-78",
+    "reviewer":  null
 }

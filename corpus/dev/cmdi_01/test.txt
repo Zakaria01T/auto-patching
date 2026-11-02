@@ -1,2 +1,3 @@
 Input: host = "localhost"
 Normal result: sends one ping to localhost and returns exit code 0
+Needs: the ping binary (iputils-ping) in the sandbox image. localhost works with no network.

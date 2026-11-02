@@ -2,5 +2,6 @@
     "id":  "sqli_05",
     "language":  "python",
     "class":  "sql_injection",
-    "cwe":  "CWE-89"
+    "cwe":  "CWE-89",
+    "reviewer":  null
 }

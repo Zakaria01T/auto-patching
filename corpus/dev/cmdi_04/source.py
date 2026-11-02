@@ -1,5 +1,5 @@
 import subprocess
 
 
-def lookup_domain(domain):
-    return subprocess.call(f"nslookup {domain}", shell=True)
+def count_lines(filename):
+    return subprocess.check_output(f"wc -l {filename}", shell=True)

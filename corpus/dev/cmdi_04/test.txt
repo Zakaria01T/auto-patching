@@ -1,2 +1,2 @@
-Input: domain = "example.com"
-Normal result: prints the DNS answer for example.com and returns exit code 0
+Input: filename = "notes.txt" (a file with 2 lines)
+Normal result: returns b"2 notes.txt\n"

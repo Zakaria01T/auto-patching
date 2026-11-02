@@ -2,5 +2,6 @@
     "id":  "bof_06",
     "language":  "c",
     "class":  "buffer_overflow",
-    "cwe":  "CWE-120"
+    "cwe":  "CWE-120",
+    "reviewer":  null
 }

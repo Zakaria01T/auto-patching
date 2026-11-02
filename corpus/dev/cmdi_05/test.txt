@@ -1,2 +1,3 @@
 Input: filename = "notes.txt"
 Normal result: returns the contents of notes.txt
+Needs: a notes.txt file with known content.

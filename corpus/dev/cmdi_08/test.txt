@@ -1,2 +1,2 @@
-Input: path = "/tmp"
-Normal result: returns the size of /tmp, e.g. "4.0K /tmp"
+Input: path = "docs" (a folder with one file, readme.md)
+Normal result: returns a size line ending in docs, e.g. "8.0K<TAB>docs" (the size depends on the filesystem)
