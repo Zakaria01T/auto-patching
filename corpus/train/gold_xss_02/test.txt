@@ -1,0 +1,2 @@
+Input: url = "https://example.com/sara", label = "Sara"
+Normal result: "<a href='https://example.com/sara'>Sara</a>"

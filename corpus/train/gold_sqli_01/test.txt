@@ -1,0 +1,2 @@
+Input: number = "A-100"
+Normal result: [(1, 50.0)]

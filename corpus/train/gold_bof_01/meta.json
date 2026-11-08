@@ -1,0 +1,9 @@
+{
+    "id":  "gold_bof_01",
+    "language":  "c",
+    "class":  "buffer_overflow",
+    "cwe":  "CWE-120",
+    "explanation":  "Bounded the append to the space left in the buffer, so long names are truncated instead of overflowing.",
+    "source":  "gold:corpus/train/gold_bof_01",
+    "reviewer":  null
+}
