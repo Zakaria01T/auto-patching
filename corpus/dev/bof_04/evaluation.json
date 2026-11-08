@@ -1,0 +1,8 @@
+{
+  "class": "buffer_overflow",
+  "scenario": 4,
+  "target": "read_line",
+  "test_sha256": "c488d321b64285e9a5e3879d037fcde0373cded90aaa47c74e7e33a8c77a8b85",
+  "expected": "hello",
+  "stdin": "hello"
+}

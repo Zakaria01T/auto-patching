@@ -1,0 +1,8 @@
+{
+  "class": "buffer_overflow",
+  "scenario": 3,
+  "target": "build_path",
+  "test_sha256": "f32895512896523c207f0cd4be27e267eaaf2f0b6d13eaa77fb510bdddc03fa4",
+  "expected": "/home/alice\n",
+  "stdin": ""
+}

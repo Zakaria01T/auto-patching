@@ -1,0 +1,10 @@
+{
+  "class": "xss",
+  "scenario": 2,
+  "target": "render_comment",
+  "test_sha256": "f014c6b0573f2cc93da76c0e150fa6252ac6ae981367b4f5b4a7927581a6424d",
+  "normal_args": [
+    "Nice post"
+  ],
+  "expected": "<div class='comment'>Nice post</div>"
+}

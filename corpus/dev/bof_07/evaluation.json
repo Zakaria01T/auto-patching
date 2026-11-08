@@ -1,0 +1,8 @@
+{
+  "class": "buffer_overflow",
+  "scenario": 7,
+  "target": "full_name",
+  "test_sha256": "3d3ff79714ee6a098a8f9a4e9d84389821eaaf015d2ef699e5bd2caa091c1afd",
+  "expected": "Sara Lee\n",
+  "stdin": ""
+}

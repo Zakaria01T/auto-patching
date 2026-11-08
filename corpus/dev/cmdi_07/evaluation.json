@@ -1,0 +1,9 @@
+{
+  "class": "command_injection",
+  "scenario": 7,
+  "target": "search_log",
+  "test_sha256": "0a826cf990b7f33db2d26ea2b7e23e6e41bf5702bfb0ebbd21a4dad72f224d71",
+  "normal_args": [
+    "ERROR"
+  ]
+}

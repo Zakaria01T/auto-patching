@@ -1,0 +1,6 @@
+{
+  "class": "sql_injection",
+  "scenario": 7,
+  "target": "search_books",
+  "test_sha256": "7314196984a94ce7c4e7c3fc8d2e346f60a41805d22322555cb4914ded059642"
+}

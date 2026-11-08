@@ -1,0 +1,9 @@
+{
+  "class": "command_injection",
+  "scenario": 4,
+  "target": "count_lines",
+  "test_sha256": "b1678c404304d48c42452493d13f670fa51bdb2e070a73a66efef5e1e17399e1",
+  "normal_args": [
+    "notes.txt"
+  ]
+}

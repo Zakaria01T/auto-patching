@@ -1,0 +1,9 @@
+{
+  "class": "command_injection",
+  "scenario": 6,
+  "target": "remove_file",
+  "test_sha256": "4f17a19eb8f3cbdd64955070a56ec3ec8e0e52e125e7e1833b93071d3971aa42",
+  "normal_args": [
+    "old.log"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "class": "xss",
+  "scenario": 4,
+  "target": "search_results",
+  "test_sha256": "cfc75ee788927a74ff9c39c5b07e0af413a6f6dcd0cf2a8377a7ce98b16cb39f",
+  "normal_args": [
+    "laptops"
+  ],
+  "expected": "<h2>Results for laptops</h2>"
+}

@@ -1,0 +1,6 @@
+{
+  "class": "sql_injection",
+  "scenario": 5,
+  "target": "delete_session",
+  "test_sha256": "d4ddd3f371437d8cf9312ffa16515b6739637866597b6a8171dffe6547c518c4"
+}

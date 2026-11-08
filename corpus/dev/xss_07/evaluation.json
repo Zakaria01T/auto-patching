@@ -1,0 +1,10 @@
+{
+  "class": "xss",
+  "scenario": 7,
+  "target": "list_item",
+  "test_sha256": "ffa8275feb6b21aa376c234bb0f033c6f7cdc5068d44fde798962730d66df592",
+  "normal_args": [
+    "Buy milk"
+  ],
+  "expected": "<li>Buy milk</li>"
+}
