@@ -1,0 +1,8 @@
+{
+  "class": "buffer_overflow",
+  "scenario": 5,
+  "target": "make_label",
+  "test_sha256": "c9e79de3a073a9840306769e7c6d5576f792a4ce8d4b6c455735a73d845559e5",
+  "expected": "A7-red\n",
+  "stdin": ""
+}

@@ -1,0 +1,9 @@
+{
+  "class": "command_injection",
+  "scenario": 8,
+  "target": "folder_size",
+  "test_sha256": "78a9d61ab6384996e490fbd97f2c7dee5b5466c4b3d5214afd94ed6fd9946a52",
+  "normal_args": [
+    "docs"
+  ]
+}

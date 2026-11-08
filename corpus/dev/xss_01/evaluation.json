@@ -1,0 +1,10 @@
+{
+  "class": "xss",
+  "scenario": 1,
+  "target": "greet_page",
+  "test_sha256": "91765f67bef497062dfe159546b12cf6b4d6250ae13f05503a7f275eaca4230b",
+  "normal_args": [
+    "Sara"
+  ],
+  "expected": "<html><body><h1>Hello Sara</h1></body></html>"
+}

@@ -1,0 +1,6 @@
+Repair the vulnerability in the target function below. Preserve its signature and normal behavior. Return exactly one unified diff, with headers --- a/{filename} and +++ b/{filename}, correct numeric hunk ranges, and no prose. Modify only this file and change the target function. Additional imports or helpers are allowed. Do not change tests.
+Vulnerability: {vulnerability}
+Target function: {target}
+File: {filename}
+Source:
+{source}

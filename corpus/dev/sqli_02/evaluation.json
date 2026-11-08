@@ -1,0 +1,6 @@
+{
+  "class": "sql_injection",
+  "scenario": 2,
+  "target": "find_orders",
+  "test_sha256": "f1fcf2bddc0ac398c69ca9bb4ac7fe45929b977221d5895b53ae6450bfbb9c06"
+}

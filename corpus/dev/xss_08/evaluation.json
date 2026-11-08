@@ -1,0 +1,10 @@
+{
+  "class": "xss",
+  "scenario": 8,
+  "target": "page_title",
+  "test_sha256": "186fc32a2ee64d4f27e10d64ef2efe4c7a35443026f078d442503558a271a642",
+  "normal_args": [
+    "My Blog"
+  ],
+  "expected": "<head><title>My Blog</title></head>"
+}

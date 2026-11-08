@@ -1,0 +1,9 @@
+{
+  "class": "command_injection",
+  "scenario": 3,
+  "target": "backup_folder",
+  "test_sha256": "e2022cb9d6f3e0c37187406afbd2adddd3952ecf6ef8255fb845d1be53c37c7a",
+  "normal_args": [
+    "docs"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "class": "xss",
+  "scenario": 6,
+  "target": "profile_card",
+  "test_sha256": "e6f54d6b3f100527a3425fb40bf78a834d5b02559f683e0c27572ad30da223ab",
+  "normal_args": [
+    "Sara",
+    "Loves hiking"
+  ],
+  "expected": "<div><h3>Sara</h3><p>Loves hiking</p></div>"
+}

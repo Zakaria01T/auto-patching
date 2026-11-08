@@ -1,0 +1,6 @@
+{
+  "class": "sql_injection",
+  "scenario": 3,
+  "target": "add_user",
+  "test_sha256": "9a1839846523fed8f4fd8ff50d86ab6c749d34a7d402f14548d6b1cffbbc329a"
+}

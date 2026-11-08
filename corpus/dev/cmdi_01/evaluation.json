@@ -1,0 +1,9 @@
+{
+  "class": "command_injection",
+  "scenario": 1,
+  "target": "ping_host",
+  "test_sha256": "4ce1e0d63b769fae2173b044c3332e184485a13623197f613bd607e9351ff327",
+  "normal_args": [
+    "localhost"
+  ]
+}

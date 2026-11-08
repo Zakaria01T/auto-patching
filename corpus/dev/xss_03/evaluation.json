@@ -1,0 +1,10 @@
+{
+  "class": "xss",
+  "scenario": 3,
+  "target": "error_page",
+  "test_sha256": "023ca28368b66c7accaca98bcee0b7cb8da907579ae930759975314a30fdf692",
+  "normal_args": [
+    "File not found"
+  ],
+  "expected": "<p class='error'>File not found</p>"
+}

@@ -1,0 +1,9 @@
+{
+  "class": "command_injection",
+  "scenario": 2,
+  "target": "list_dir",
+  "test_sha256": "1a68e9185336fa423ef9eee341d127c3a9011a74dcfd12a134929f91338fbd13",
+  "normal_args": [
+    "docs"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "class": "sql_injection",
+  "scenario": 6,
+  "target": "get_product",
+  "test_sha256": "ce2656ed32e524d43d22df3556c155c27d8b87890e1e3c4385d7452b6f7af577"
+}

@@ -1,0 +1,6 @@
+{
+  "class": "sql_injection",
+  "scenario": 4,
+  "target": "update_email",
+  "test_sha256": "9dbec75192ca38b1fe0b57ee37d3f5084b2048683b125d832834ecc6710a2fb0"
+}

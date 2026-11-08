@@ -1,0 +1,8 @@
+{
+  "class": "buffer_overflow",
+  "scenario": 1,
+  "target": "copy_name",
+  "test_sha256": "80e866e835c4fb0740c20657a5d166bf1f2057eb503f97dfbc7025ed8ad056bf",
+  "expected": "Alice\n",
+  "stdin": ""
+}

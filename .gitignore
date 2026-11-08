@@ -10,3 +10,6 @@ models/
 .venv-scanners/
 venv/
 __pycache__/
+# Reproducible evaluation artifacts (archive externally, never overwrite).
+model-compare/results/
+model-compare/config.local.json

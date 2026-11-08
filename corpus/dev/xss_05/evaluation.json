@@ -1,0 +1,11 @@
+{
+  "class": "xss",
+  "scenario": 5,
+  "target": "profile_link",
+  "test_sha256": "804cf5f6b8afc48cbddcde3a4cc89002c93206fd69892231091ba6f34f641833",
+  "normal_args": [
+    "https://example.com/sara",
+    "Sara"
+  ],
+  "expected": "<a href='https://example.com/sara'>Sara</a>"
+}

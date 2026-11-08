@@ -1,0 +1,16 @@
+{
+  "models": [
+    {"type": "prompted", "tag": "qwen2.5-coder:3b", "checkpoint": "REPLACE_WITH_OLLAMA_DIGEST"},
+    {"type": "fine-tuned", "tag": "repair-lora:v1", "checkpoint": "REPLACE_WITH_OLLAMA_DIGEST"}
+  ],
+  "prompt_version": "v1",
+  "generation_parameters": {"temperature": 0.0, "seed": 42, "num_predict": 2048, "num_ctx": 8192},
+  "inference_timeout": 180,
+  "check_timeout": 180,
+  "image": "sha256:REPLACE_WITH_FULL_LOCAL_IMAGE_ID",
+  "memory": "1g",
+  "cpus": 1,
+  "pids_limit": 128,
+  "ollama_url": "http://localhost:11434",
+  "scanner_configuration": "project-original-v1"
+}

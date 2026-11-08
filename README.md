@@ -10,7 +10,9 @@ ui/          Streamlit upload and result page
 scanner/     SAST tools and the finding format
 patcher/     Prompt builder and the Ollama call
 sandbox/     Docker image and validation loop
-benchmark/   Dev cases now; sealed benchmark in sprint 5
+corpus/dev/  32 development cases for experimentation
+benchmark/   Sealed final evaluation cases (currently empty)
+model-compare/ Shared model evaluation harness and methodology
 docs/        Business plan and notes
 tests/       Automated tests (run by CI)
 data/        Runtime data (data/uploads is not committed)
@@ -121,3 +123,8 @@ LoRA fine-tuning is part of the project: an adapter is trained and compared with
 
 - Model weights and uploaded files are never committed.
 - Add every new package to `requirements.txt` with an exact version (`name==x.y.z`).
+
+## Reproducible repair evaluation
+
+See [model-compare](model-compare/README.md) for the five metrics, isolated DEV
+execution, model comparison reports and the explicitly authorized final procedure.
