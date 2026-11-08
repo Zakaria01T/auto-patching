@@ -1,0 +1,9 @@
+{
+    "id":  "gold_cmdi_02",
+    "language":  "python",
+    "class":  "command_injection",
+    "cwe":  "CWE-78",
+    "explanation":  "Removed shell=True and passed the filename as one argument, after -- so it cannot be read as an option.",
+    "source":  "gold:corpus/train/gold_cmdi_02",
+    "reviewer":  null
+}

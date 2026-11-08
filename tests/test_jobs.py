@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-
+from pathlib import Path
 from api import main
 
 client = TestClient(main.app)
@@ -104,3 +104,9 @@ def test_unknown_job_returns_404(tmp_path, monkeypatch):
 def test_invalid_status_is_refused():
     with pytest.raises(ValueError):
         main.to_contract({"id": "x", "status": "done"})
+        
+def test_job_doc_lists_every_field_and_status():
+    doc = Path(__file__).resolve().parent.parent / "docs" / "job.md"
+    text = doc.read_text(encoding="utf-8")
+    for name in main.CONTRACT_FIELDS + main.STATUSES:
+        assert f"`{name}`" in text, f"docs/job.md does not mention {name}"

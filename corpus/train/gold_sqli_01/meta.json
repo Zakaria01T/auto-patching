@@ -1,0 +1,9 @@
+{
+    "id":  "gold_sqli_01",
+    "language":  "python",
+    "class":  "sql_injection",
+    "cwe":  "CWE-89",
+    "explanation":  "Replaced string concatenation with a parameterized query so the invoice number is bound as data.",
+    "source":  "gold:corpus/train/gold_sqli_01",
+    "reviewer":  null
+}

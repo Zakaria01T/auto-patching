@@ -1,0 +1,2 @@
+Attack input: name = 100 characters "B"
+Blocked when: no AddressSanitizer error and exit code 0

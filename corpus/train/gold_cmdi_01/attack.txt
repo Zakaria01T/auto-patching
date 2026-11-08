@@ -1,0 +1,2 @@
+Attack input: folder = "docs; touch pwned"
+Blocked when: the file pwned is not created

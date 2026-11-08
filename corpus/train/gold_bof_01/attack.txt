@@ -1,0 +1,2 @@
+Attack input: file = 100 characters "A"
+Blocked when: no AddressSanitizer error and exit code 0

@@ -1,0 +1,2 @@
+Input: file = "a.txt"
+Normal result: prints "/data/a.txt"

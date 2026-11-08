@@ -1,0 +1,9 @@
+{
+    "id":  "gold_sqli_02",
+    "language":  "python",
+    "class":  "sql_injection",
+    "cwe":  "CWE-89",
+    "explanation":  "Replaced the f-string UPDATE with a parameterized statement so the name cannot change other columns.",
+    "source":  "gold:corpus/train/gold_sqli_02",
+    "reviewer":  null
+}

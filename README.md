@@ -102,7 +102,8 @@ An unknown id returns 404.
 
 Every job has exactly nine fields: `id`, `status`, `language`, `filename`,
 `findings`, `diff`, `explanation`, `attempts`, `decision`.
-In this sprint the last five are always `null`.
+`findings` is `[]` after a clean scan and a list when something is found.
+`diff`, `explanation`, `attempts` and `decision` stay `null`.
 Allowed statuses: `uploaded`, `scanning`, `clean`, `patching`, `validating`,
 `accepted`, `needs_human`, `rejected`.
 

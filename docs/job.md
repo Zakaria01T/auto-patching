@@ -27,16 +27,28 @@ The `status` field must strictly use one of the following values, listed in orde
 
 **Warning:** Do not invent or use private status names such as `done` or `ok`.
 
-## Current Sprint Constraints
-For the current sprint, only the following fields are allowed to be populated with data:
+## Current Wave Constraints
+In this wave, only the following fields may be populated with data:
 * `id`
 * `status`
 * `language`
 * `filename`
 * `findings`
+
+`findings` is `null` until the scan has finished. After that:
+* `[]` (an empty list) means the scan found nothing. The status is `clean`.
+* A non-empty list means the scan found something. The status stays `scanning`. Each item has the fields defined in `docs/findings.md`.
+
+A rejected upload is never scanned, so its `findings` stays `null`.
+
+If the scan itself crashes, the status stays `scanning` and `findings` stays `null`. This case is not decided yet and may change.
+
+The following fields must remain `null` in this wave:
 * `diff`
 * `explanation`
 * `attempts`
 
 The following fields must remain `null` for this sprint:
 * `decision`
+
+No model is called in this wave, so `patching` is not used yet.

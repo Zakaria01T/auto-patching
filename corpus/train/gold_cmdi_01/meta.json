@@ -1,0 +1,9 @@
+{
+    "id":  "gold_cmdi_01",
+    "language":  "python",
+    "class":  "command_injection",
+    "cwe":  "CWE-78",
+    "explanation":  "Replaced os.system with an argument list and no shell, with -- so the folder cannot act as an option.",
+    "source":  "gold:corpus/train/gold_cmdi_01",
+    "reviewer":  null
+}
