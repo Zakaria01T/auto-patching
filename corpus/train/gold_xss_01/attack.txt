@@ -1,0 +1,2 @@
+Attack input: name = "<script>alert(1)</script>"
+Blocked when: the output does not contain "<script>"

@@ -1,0 +1,9 @@
+{
+    "id":  "gold_xss_02",
+    "language":  "python",
+    "class":  "xss",
+    "cwe":  "CWE-79",
+    "explanation":  "Escaped both values and only allow http and https URLs, so javascript: links are dropped.",
+    "source":  "gold:corpus/train/gold_xss_02",
+    "reviewer":  null
+}

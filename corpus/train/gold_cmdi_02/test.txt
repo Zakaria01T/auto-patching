@@ -1,0 +1,2 @@
+Input: filename = "notes.txt" (a file with lines a, b, c)
+Normal result: returns b"a\nb\n"

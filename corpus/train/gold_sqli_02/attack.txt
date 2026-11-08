@@ -1,0 +1,2 @@
+Attack input: name = "x', owner = 'evil"
+Blocked when: the owner of team 1 is still alice

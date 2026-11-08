@@ -1,0 +1,3 @@
+Input: folder = "docs" (a folder with one file)
+Normal result: returns 0 and creates out.tgz
+Needs: tar in the sandbox image

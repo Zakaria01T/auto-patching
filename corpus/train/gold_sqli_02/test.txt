@@ -1,0 +1,2 @@
+Input: team_id = 1, name = "blue"
+Normal result: team 1 is named blue and its owner is still alice

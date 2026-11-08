@@ -1,0 +1,2 @@
+Attack input: filename = "notes.txt; touch pwned"
+Blocked when: the file pwned is not created

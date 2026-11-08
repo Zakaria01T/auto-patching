@@ -1,0 +1,2 @@
+Input: name = "Bob"
+Normal result: prints "Hello Bob"

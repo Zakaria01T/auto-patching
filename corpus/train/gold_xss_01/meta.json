@@ -1,0 +1,9 @@
+{
+    "id":  "gold_xss_01",
+    "language":  "python",
+    "class":  "xss",
+    "cwe":  "CWE-79",
+    "explanation":  "HTML-escaped the name before putting it in the page.",
+    "source":  "gold:corpus/train/gold_xss_01",
+    "reviewer":  null
+}
