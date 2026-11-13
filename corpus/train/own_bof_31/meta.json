@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_31",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Added a field width to sscanf so the month fits in month.",
+  "function": "parse_date",
+  "normal_call": "parse_date(\"14 Nov 2026\")",
+  "attack_call": "parse_date(\"14 \" \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\" \" 2026\")",
+  "source": "own:own_bof_31"
+}

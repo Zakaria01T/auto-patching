@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_21",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Added a field width to sscanf so the command fits in cmd.",
+  "function": "parse_command",
+  "normal_call": "parse_command(\"jump 3\")",
+  "attack_call": "parse_command(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\" \" 3\")",
+  "source": "own:own_bof_21"
+}

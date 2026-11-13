@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_34",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Built the menu line with snprintf limited to the size of item.",
+  "function": "menu_item",
+  "normal_call": "menu_item(\"soup\", \"4.50\")",
+  "attack_call": "menu_item(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", \"4.50\")",
+  "source": "own:own_bof_34"
+}

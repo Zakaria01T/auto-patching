@@ -1,0 +1,10 @@
+{
+  "id": "juliet_121_dest_char_declare_cat",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Replaced strcat with strncat limited to the space left in the destination.",
+  "function": "append_text",
+  "call": "append_text()",
+  "source": "juliet:C/testcases/CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cat_01.c (CWE-121)"
+}

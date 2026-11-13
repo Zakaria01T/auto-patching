@@ -1,0 +1,10 @@
+{
+  "id": "juliet_121_CWE806_char_alloca_memcpy",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Capped the number of bytes copied at the destination size.",
+  "function": "copy_block",
+  "call": "copy_block()",
+  "source": "juliet:C/testcases/CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memcpy_01.c (CWE-121)"
+}

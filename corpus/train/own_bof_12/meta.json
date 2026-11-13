@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_12",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Replaced sprintf with snprintf limited to the size of p.",
+  "function": "temp_path",
+  "normal_call": "temp_path(\"/var\", 7)",
+  "attack_call": "temp_path(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", 7)",
+  "source": "own:own_bof_12"
+}

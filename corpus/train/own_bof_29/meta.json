@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_29",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Limited the number of copied values to the size of window.",
+  "function": "sensor_window",
+  "normal_call": "sensor_window((double[2]){1.5, 2.5}, 2)",
+  "attack_call": "sensor_window((double[64]){1.0}, 64)",
+  "source": "own:own_bof_29"
+}

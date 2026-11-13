@@ -82,3 +82,51 @@ Notes:
 ### Review
 
 Each repair is reviewed by a second person (P5 or P6), recorded in the `reviewer` field of its `meta.json`. `gold.jsonl` is rebuilt with `--require-reviewer` after the review.
+## C buffer overflow rows
+
+[`training/c_rows.jsonl`](../training/c_rows.jsonl) holds 74 `buffer_overflow` rows in the schema above: 39 built from Juliet C/C++ 1.3 and 35 written for this project. The cases live in `corpus/train/juliet_*` and `corpus/train/own_bof_*` (`vulnerable.c`, `repair.c`, `meta.json`). They do not start with `gold_`, so `training/build_rows.py` is unchanged.
+
+### Sources
+
+- **Juliet (39 rows).** Baseline cases (flow variant 01) of `CWE121_Stack_Based_Buffer_Overflow` and `CWE122_Heap_Based_Buffer_Overflow` (see [sources.md](sources.md)). Only the vulnerable `bad()` function is used. Juliet's own good versions fix the input or the buffer size (176 of the 184 baseline cases use `goodG2B`) and leave the copy unchanged, so the repair that bounds the copy is written by `juliet_extract.py`. Comments that name the flaw, `dataBadBuffer` and the unused `dataGoodBuffer` are removed; Juliet helpers become plain C.
+- **Own cases (35 rows).** Small functions that take input, like the dev and gold cases: `strcpy`, `strcat`, `sprintf`, `memcpy`, `strncpy` and `strncat` with a wrong bound, `sscanf` without a width, into stack arrays, struct fields and heap buffers. The names and patterns of `corpus/dev/bof_*` and the gold repairs are avoided. They were written with an AI assistant and checked as below.
+
+Every row is labelled `buffer_overflow` / `CWE-120`, the class and CWE of [findings.md](findings.md). The original Juliet CWE stays in `source`.
+
+### Validation
+
+`check.py` runs in Docker with the network off. A pair is kept only if:
+
+1. the team scanner reports CWE-120 on a line the repair changes (that finding is the row's `finding`);
+2. both versions compile with `gcc -std=c11 -fsanitize=address`;
+3. the vulnerable version stops with an AddressSanitizer error on the attack (a 200-character input; Juliet cases have the long data built in) and the repair exits 0 without one;
+4. own cases: a normal input gives the same output on both versions.
+
+The scanner result on the repair is recorded only: it still reports CWE-120 on 20 of the 35 own repairs and all 39 Juliet repairs (any `strncpy`, `memcpy` or fixed-size array).
+
+`export.py` then compares each vulnerable function (comments, includes and whitespace removed) with `corpus/dev/`, the gold repairs and `benchmark/`, and drops exact matches and pairs with a similarity of 0.85 or more. None matched; the closest is `own_bof_13` against `corpus/dev/bof_08` (0.76). `benchmark/` is empty today, so the check has to run again before it is sealed.
+
+### Counts
+
+| Step | Juliet | Own |
+| --- | --- | --- |
+| Start | 184 baseline `.c` files | 36 cases |
+| Family filter | 75 (dropped: 48 `wchar_t`, 30 off-by-one, 12 index checks, 8 struct field overruns, 6 allocation sizes, 3 `sizeof` of a pointer, 2 multibyte lengths) | 36 |
+| Scanner reports CWE-120 on the copy | 39 (dropped: 15 copy loops, 15 `memmove`, 6 `snprintf`) | 35 (dropped: `vsprintf`, reported as CWE-134) |
+| AddressSanitizer and normal behaviour | 39 | 35 |
+| Deduplication | **39** | **35** |
+
+Per-pair results are in `training/c_dataset/check.json`, `juliet_extract.json` and `dedupe.json`.
+
+### Rebuild
+
+Juliet is not in the repository (153 MB). Download it from the SARD page in [sources.md](sources.md) and unzip it outside the repository, then from the repository root:
+
+```bash
+python3 training/c_dataset/juliet_extract.py <unzipped>/C/testcases
+python3 training/c_dataset/own_cases.py
+docker run --rm --network none -v "$PWD":/repo:ro -v "$PWD/training/c_dataset":/work autopatch-casecheck python /work/check.py
+python3 training/c_dataset/export.py
+```
+
+`autopatch-casecheck` is `python:3.12-slim` with gcc, cppcheck and `requirements-scanners.txt`.
