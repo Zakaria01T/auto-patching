@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_04",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Replaced strcpy with snprintf limited to the size of tag.",
+  "function": "print_level",
+  "normal_call": "print_level(\"WARN\")",
+  "attack_call": "print_level(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "source": "own:own_bof_04"
+}

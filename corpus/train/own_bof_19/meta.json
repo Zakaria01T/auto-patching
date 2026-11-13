@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_19",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Bounded each strncat by the space left in tags instead of the full buffer size.",
+  "function": "tag_list",
+  "normal_call": "tag_list(\"red\", \"blue\")",
+  "attack_call": "tag_list(\"red\", \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "source": "own:own_bof_19"
+}

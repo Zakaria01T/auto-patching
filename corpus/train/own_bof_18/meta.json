@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_18",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Bounded strncat by the space left in w instead of the length of the input.",
+  "function": "add_prefix",
+  "normal_call": "add_prefix(\"view\")",
+  "attack_call": "add_prefix(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "source": "own:own_bof_18"
+}

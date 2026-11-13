@@ -1,6 +1,6 @@
 # Sources
 
-This file lists the external sources behind the numbers in `docs/costs.md`, `docs/training.md`, and `docs/model.md`. Each row has the page, the date it was opened, and the claim it supports. They can be merged into the shared sources page.
+This file lists the external sources behind the numbers and data in `docs/costs.md`, `docs/training.md`, and `docs/model.md`. Each row has the page, the date it was opened, and the claim it supports. They can be merged into the shared sources page.
 
 | # | Title | URL | Date opened | Claim |
 | --- | --- | --- | --- | --- |
@@ -15,6 +15,8 @@ This file lists the external sources behind the numbers in `docs/costs.md`, `doc
 | 9 | Kaggle, Notebooks Documentation | https://www.kaggle.com/docs/notebooks | 20 Oct 2026 | One free Tesla P100 per notebook. Free GPUs can queue at busy times. "Save & Run All" must finish within 12 hours. |
 | 10 | Colab T4 check | our own `nvidia-smi` run | 19 Oct 2026 | A Tesla T4 with 15360 MiB. The Resources panel reported up to 5 hours 30 minutes. This is our own observation, not a web page. |
 | 11 | Kaggle T4 x2 check | our own `nvidia-smi` run | 20 Oct 2026 | Two Tesla T4 GPUs with 15360 MiB each. The session panel showed a 12 hour session, 30 GiB of RAM and 57.6 GiB of disk. This is our own observation, not a web page. |
+| 12 | Juliet C/C++ 1.3 (NIST SARD test suite 112) | https://samate.nist.gov/SARD/test-suites/112 | 13 Nov 2026 | Author: NSA Center for Assured Software. Not subject to copyright protection in the US (17 USC 105), so in the public domain; where NIST may claim foreign rights, released under CC0 1.0. File `2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip`, SHA-256 `ada9d7e1c323d283446df3f55bdee0d00bda1fed786785fe98764d58688f38eb` (matches the page). Source of the vulnerable functions of 39 rows in `training/c_rows.jsonl`. |
+| 13 | Juliet Test Suite v1.2 for C/C++ User Guide (in the 1.3 zip, `doc/`) | https://samate.nist.gov/SARD/test-suites/112 | 13 Nov 2026 | Section 3.3: flow variant 01 is the simplest form of each flaw, with no added control or data flow. |
 
 ## Not used
 

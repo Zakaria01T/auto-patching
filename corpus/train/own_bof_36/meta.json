@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_36",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Replaced sprintf with snprintf limited to the 24-byte heap buffer.",
+  "function": "copy_lines",
+  "normal_call": "copy_lines(\"one\", \"two\")",
+  "attack_call": "copy_lines(\"one\", \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "source": "own:own_bof_36"
+}

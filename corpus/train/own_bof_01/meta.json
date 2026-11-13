@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_01",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Replaced strcpy with snprintf limited to the size of name.",
+  "function": "save_username",
+  "normal_call": "save_username(\"alice\")",
+  "attack_call": "save_username(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "source": "own:own_bof_01"
+}

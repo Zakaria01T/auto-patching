@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_22",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Added field widths to sscanf so the key and value fit in their buffers.",
+  "function": "parse_setting",
+  "normal_call": "parse_setting(\"mode=dark\")",
+  "attack_call": "parse_setting(\"mode=\" \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "source": "own:own_bof_22"
+}
