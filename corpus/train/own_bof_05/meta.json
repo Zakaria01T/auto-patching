@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_05",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Built the URL with one snprintf limited to the size of url instead of two strcat calls.",
+  "function": "make_url",
+  "normal_call": "make_url(\"example.org\", \"/index\")",
+  "attack_call": "make_url(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", \"/index\")",
+  "source": "own:own_bof_05"
+}

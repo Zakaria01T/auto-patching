@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_32",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Capped the prefix length at the buffer size minus the terminator.",
+  "function": "line_prefix",
+  "normal_call": "line_prefix(\"GET /home\", 3)",
+  "attack_call": "line_prefix(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", 150)",
+  "source": "own:own_bof_32"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "juliet_121_src_char_declare_cpy",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Replaced strcpy with strncpy limited to the destination size and terminated the string.",
+  "function": "copy_text",
+  "call": "copy_text()",
+  "source": "juliet:C/testcases/CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_01.c (CWE-121)"
+}

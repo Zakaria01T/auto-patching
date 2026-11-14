@@ -1,0 +1,3236 @@
+[
+ {
+  "id": "juliet_121_CWE805_char_alloca_loop",
+  "dir": "candidates/juliet_121_CWE805_char_alloca_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_char_alloca_memcpy",
+  "dir": "candidates/juliet_121_CWE805_char_alloca_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 medium FF1004"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 medium FF1004"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_alloca_memmove",
+  "dir": "candidates/juliet_121_CWE805_char_alloca_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_char_alloca_ncat",
+  "dir": "candidates/juliet_121_CWE805_char_alloca_ncat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1010"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1010",
+   "CWE-126@16 low FF1022"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_alloca_ncpy",
+  "dir": "candidates/juliet_121_CWE805_char_alloca_ncpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1008"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1008"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1008"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_alloca_snprintf",
+  "dir": "candidates/juliet_121_CWE805_char_alloca_snprintf",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_loop",
+  "dir": "candidates/juliet_121_CWE805_char_declare_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_memcpy",
+  "dir": "candidates/juliet_121_CWE805_char_declare_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 medium FF1004"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_memmove",
+  "dir": "candidates/juliet_121_CWE805_char_declare_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_ncat",
+  "dir": "candidates/juliet_121_CWE805_char_declare_ncat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 low FF1010"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 low FF1010",
+   "CWE-126@15 low FF1022"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_ncpy",
+  "dir": "candidates/juliet_121_CWE805_char_declare_ncpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 low FF1008"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 low FF1008"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1008"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_snprintf",
+  "dir": "candidates/juliet_121_CWE805_char_declare_snprintf",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_alloca_loop",
+  "dir": "candidates/juliet_121_CWE805_int64_t_alloca_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@10 medium allocaCalled"
+  ],
+  "scanner_repair": [
+   "None@10 medium allocaCalled"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_alloca_memcpy",
+  "dir": "candidates/juliet_121_CWE805_int64_t_alloca_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@10 medium allocaCalled",
+   "CWE-120@14 medium FF1004"
+  ],
+  "scanner_repair": [
+   "None@10 medium allocaCalled",
+   "CWE-120@14 medium FF1004"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_alloca_memmove",
+  "dir": "candidates/juliet_121_CWE805_int64_t_alloca_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@10 medium allocaCalled"
+  ],
+  "scanner_repair": [
+   "None@10 medium allocaCalled"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_declare_loop",
+  "dir": "candidates/juliet_121_CWE805_int64_t_declare_loop",
+  "kept": false,
+  "scanner_vulnerable": [],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_declare_memcpy",
+  "dir": "candidates/juliet_121_CWE805_int64_t_declare_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@13 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-120@13 medium FF1004"
+  ],
+  "finding": {
+   "line": 13,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_declare_memmove",
+  "dir": "candidates/juliet_121_CWE805_int64_t_declare_memmove",
+  "kept": false,
+  "scanner_vulnerable": [],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int_alloca_loop",
+  "dir": "candidates/juliet_121_CWE805_int_alloca_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int_alloca_memcpy",
+  "dir": "candidates/juliet_121_CWE805_int_alloca_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-120@13 medium FF1004"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-120@13 medium FF1004"
+  ],
+  "finding": {
+   "line": 13,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int_alloca_memmove",
+  "dir": "candidates/juliet_121_CWE805_int_alloca_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int_declare_loop",
+  "dir": "candidates/juliet_121_CWE805_int_declare_loop",
+  "kept": false,
+  "scanner_vulnerable": [],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_int_declare_memcpy",
+  "dir": "candidates/juliet_121_CWE805_int_declare_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@12 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-120@12 medium FF1004"
+  ],
+  "finding": {
+   "line": 12,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int_declare_memmove",
+  "dir": "candidates/juliet_121_CWE805_int_declare_memmove",
+  "kept": false,
+  "scanner_vulnerable": [],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_struct_alloca_loop",
+  "dir": "candidates/juliet_121_CWE805_struct_alloca_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@14 medium allocaCalled"
+  ],
+  "scanner_repair": [
+   "None@14 medium allocaCalled"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_struct_alloca_memcpy",
+  "dir": "candidates/juliet_121_CWE805_struct_alloca_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@14 medium allocaCalled",
+   "CWE-120@26 medium FF1004"
+  ],
+  "scanner_repair": [
+   "None@14 medium allocaCalled",
+   "CWE-120@26 medium FF1004"
+  ],
+  "finding": {
+   "line": 26,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0 -- 0\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_struct_alloca_memmove",
+  "dir": "candidates/juliet_121_CWE805_struct_alloca_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@14 medium allocaCalled"
+  ],
+  "scanner_repair": [
+   "None@14 medium allocaCalled"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_struct_declare_loop",
+  "dir": "candidates/juliet_121_CWE805_struct_declare_loop",
+  "kept": false,
+  "scanner_vulnerable": [],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE805_struct_declare_memcpy",
+  "dir": "candidates/juliet_121_CWE805_struct_declare_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@25 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-120@25 medium FF1004"
+  ],
+  "finding": {
+   "line": 25,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0 -- 0\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_struct_declare_memmove",
+  "dir": "candidates/juliet_121_CWE805_struct_declare_memmove",
+  "kept": false,
+  "scanner_vulnerable": [],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_loop",
+  "dir": "candidates/juliet_121_CWE806_char_alloca_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-126@16 low FF1022"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-126@16 low FF1022"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_memcpy",
+  "dir": "candidates/juliet_121_CWE806_char_alloca_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 medium FF1004",
+   "CWE-126@15 low FF1022"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-126@15 low FF1022",
+   "CWE-120@18 medium FF1004"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_memmove",
+  "dir": "candidates/juliet_121_CWE806_char_alloca_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-126@15 low FF1022"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-126@15 low FF1022"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_ncat",
+  "dir": "candidates/juliet_121_CWE806_char_alloca_ncat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 low FF1010",
+   "CWE-126@15 low FF1022"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 low FF1010",
+   "CWE-126@15 low FF1022"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_ncpy",
+  "dir": "candidates/juliet_121_CWE806_char_alloca_ncpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 low FF1008",
+   "CWE-126@15 low FF1022"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 low FF1008"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1008"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_snprintf",
+  "dir": "candidates/juliet_121_CWE806_char_alloca_snprintf",
+  "kept": false,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-126@15 low FF1022"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_loop",
+  "dir": "candidates/juliet_121_CWE806_char_declare_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-126@15 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-126@15 low FF1022"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_memcpy",
+  "dir": "candidates/juliet_121_CWE806_char_declare_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 medium FF1004",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022",
+   "CWE-120@17 medium FF1004"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_memmove",
+  "dir": "candidates/juliet_121_CWE806_char_declare_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_ncat",
+  "dir": "candidates/juliet_121_CWE806_char_declare_ncat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1010",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1010",
+   "CWE-126@14 low FF1022"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_ncpy",
+  "dir": "candidates/juliet_121_CWE806_char_declare_ncpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1008",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1008"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1008"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_snprintf",
+  "dir": "candidates/juliet_121_CWE806_char_declare_snprintf",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_121_dest_char_alloca_cat",
+  "dir": "candidates/juliet_121_dest_char_alloca_cat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 high FF1005"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1010",
+   "CWE-126@16 low FF1022"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_dest_char_alloca_cpy",
+  "dir": "candidates/juliet_121_dest_char_alloca_cpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 high FF1001"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1008"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_dest_char_declare_cat",
+  "dir": "candidates/juliet_121_dest_char_declare_cat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 low FF1010",
+   "CWE-126@15 low FF1022"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_dest_char_declare_cpy",
+  "dir": "candidates/juliet_121_dest_char_declare_cpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@12 medium FF1013",
+   "CWE-120@15 low FF1008"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_121_src_char_alloca_cat",
+  "dir": "candidates/juliet_121_src_char_alloca_cat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 high FF1005"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 low FF1010",
+   "CWE-126@15 low FF1022"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_src_char_alloca_cpy",
+  "dir": "candidates/juliet_121_src_char_alloca_cpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 high FF1001"
+  ],
+  "scanner_repair": [
+   "None@9 medium allocaCalled",
+   "CWE-119@14 medium FF1013",
+   "CWE-120@15 low FF1008"
+  ],
+  "finding": {
+   "line": 15,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_src_char_declare_cat",
+  "dir": "candidates/juliet_121_src_char_declare_cat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1010",
+   "CWE-126@14 low FF1022"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_121_src_char_declare_cpy",
+  "dir": "candidates/juliet_121_src_char_declare_cpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@8 medium FF1013",
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1008"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_loop",
+  "dir": "candidates/juliet_122_c_CWE805_char_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@14 medium FF1013",
+   "CWE-788@19 high arrayIndexOutOfBounds",
+   "CWE-788@21 high arrayIndexOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-119@14 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_memcpy",
+  "dir": "candidates/juliet_122_c_CWE805_char_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 medium FF1004",
+   "CWE-788@16 high bufferAccessOutOfBounds",
+   "CWE-788@17 high arrayIndexOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 medium FF1004"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_memmove",
+  "dir": "candidates/juliet_122_c_CWE805_char_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-788@16 high bufferAccessOutOfBounds",
+   "CWE-788@17 high arrayIndexOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_ncat",
+  "dir": "candidates/juliet_122_c_CWE805_char_ncat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1010",
+   "CWE-788@16 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1010",
+   "CWE-126@16 low FF1022"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_ncpy",
+  "dir": "candidates/juliet_122_c_CWE805_char_ncpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1008",
+   "CWE-788@16 high bufferAccessOutOfBounds",
+   "CWE-788@17 high arrayIndexOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1008"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1008"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_snprintf",
+  "dir": "candidates/juliet_122_c_CWE805_char_snprintf",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-788@16 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_int64_t_loop",
+  "dir": "candidates/juliet_122_c_CWE805_int64_t_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-788@18 high arrayIndexOutOfBounds"
+  ],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_int64_t_memcpy",
+  "dir": "candidates/juliet_122_c_CWE805_int64_t_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@14 medium FF1004",
+   "CWE-788@14 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-120@14 medium FF1004"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_int64_t_memmove",
+  "dir": "candidates/juliet_122_c_CWE805_int64_t_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-788@14 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_int_loop",
+  "dir": "candidates/juliet_122_c_CWE805_int_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-788@17 high arrayIndexOutOfBounds"
+  ],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_int_memcpy",
+  "dir": "candidates/juliet_122_c_CWE805_int_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@13 medium FF1004",
+   "CWE-788@13 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-120@13 medium FF1004"
+  ],
+  "finding": {
+   "line": 13,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_int_memmove",
+  "dir": "candidates/juliet_122_c_CWE805_int_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-788@13 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_struct_loop",
+  "dir": "candidates/juliet_122_c_CWE805_struct_loop",
+  "kept": false,
+  "scanner_vulnerable": [],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE805_struct_memcpy",
+  "dir": "candidates/juliet_122_c_CWE805_struct_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@26 medium FF1004",
+   "CWE-788@26 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [
+   "CWE-120@26 medium FF1004"
+  ],
+  "finding": {
+   "line": 26,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "0 -- 0\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_struct_memmove",
+  "dir": "candidates/juliet_122_c_CWE805_struct_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-788@26 high bufferAccessOutOfBounds"
+  ],
+  "scanner_repair": [],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_loop",
+  "dir": "candidates/juliet_122_c_CWE806_char_loop",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-126@15 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-126@15 low FF1022"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_memcpy",
+  "dir": "candidates/juliet_122_c_CWE806_char_memcpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 medium FF1004",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022",
+   "CWE-120@17 medium FF1004"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_memmove",
+  "dir": "candidates/juliet_122_c_CWE806_char_memmove",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_ncat",
+  "dir": "candidates/juliet_122_c_CWE806_char_ncat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1010",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1010",
+   "CWE-126@14 low FF1022"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_ncpy",
+  "dir": "candidates/juliet_122_c_CWE806_char_ncpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1008",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1008"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1008"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_snprintf",
+  "dir": "candidates/juliet_122_c_CWE806_char_snprintf",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-126@14 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "juliet_122_c_dest_char_cat",
+  "dir": "candidates/juliet_122_c_dest_char_cat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1010",
+   "CWE-126@16 low FF1022"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_dest_char_cpy",
+  "dir": "candidates/juliet_122_c_dest_char_cpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@16 low FF1008"
+  ],
+  "finding": {
+   "line": 16,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_src_char_cat",
+  "dir": "candidates/juliet_122_c_src_char_cat",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1010",
+   "CWE-126@14 low FF1022"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "juliet_122_c_src_char_cpy",
+  "dir": "candidates/juliet_122_c_src_char_cpy",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@13 medium FF1013",
+   "CWE-120@14 low FF1008"
+  ],
+  "finding": {
+   "line": 14,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  }
+ },
+ {
+  "id": "own_bof_01",
+  "dir": "candidates/own_bof_01",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "user=AAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "user=alice\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "user=alice\n"
+  }
+ },
+ {
+  "id": "own_bof_02",
+  "dir": "candidates/own_bof_02",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@11 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@11 low FF1022",
+   "CWE-120@15 high FF1001"
+  ],
+  "finding": {
+   "line": 11,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "host name too long\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "example.org:80\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "example.org:80\n"
+  }
+ },
+ {
+  "id": "own_bof_03",
+  "dir": "candidates/own_bof_03",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@9 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-120@9 low FF1008"
+  ],
+  "finding": {
+   "line": 9,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "token AAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "token ab12cd34\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "token ab12cd34\n"
+  }
+ },
+ {
+  "id": "own_bof_04",
+  "dir": "candidates/own_bof_04",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "[AAAAAAA]\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "[WARN]\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "[WARN]\n"
+  }
+ },
+ {
+  "id": "own_bof_05",
+  "dir": "candidates/own_bof_05",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1005",
+   "CWE-120@7 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "https://AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "https://example.org/index\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "https://example.org/index\n"
+  }
+ },
+ {
+  "id": "own_bof_06",
+  "dir": "candidates/own_bof_06",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1005",
+   "CWE-120@7 medium FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1010",
+   "CWE-126@6 low FF1022",
+   "CWE-120@7 low FF1010",
+   "CWE-126@7 low FF1022"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "notes.txt\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "notes.txt\n"
+  }
+ },
+ {
+  "id": "own_bof_07",
+  "dir": "candidates/own_bof_07",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@6 low FF1022",
+   "CWE-120@10 high FF1005"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1005"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "query too long\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "search?q=lamps\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "search?q=lamps\n"
+  }
+ },
+ {
+  "id": "own_bof_08",
+  "dir": "candidates/own_bof_08",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1001",
+   "CWE-120@7 low FF1005",
+   "CWE-120@8 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "sam@mail.com\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "sam@mail.com\n"
+  }
+ },
+ {
+  "id": "own_bof_09",
+  "dir": "candidates/own_bof_09",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "tea: 3.50\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "tea: 3.50\n"
+  }
+ },
+ {
+  "id": "own_bof_10",
+  "dir": "candidates/own_bof_10",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "kim did AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "kim did login\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "kim did login\n"
+  }
+ },
+ {
+  "id": "own_bof_11",
+  "dir": "candidates/own_bof_11",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Accept: AAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Accept: text/html\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Accept: text/html\n"
+  }
+ },
+ {
+  "id": "own_bof_12",
+  "dir": "candidates/own_bof_12",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "/var/tmp7\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "/var/tmp7\n"
+  }
+ },
+ {
+  "id": "own_bof_13",
+  "dir": "candidates/own_bof_13",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@10 medium FF1004"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "packet too large\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "5 bytes, first h\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "5 bytes, first h\n"
+  }
+ },
+ {
+  "id": "own_bof_14",
+  "dir": "candidates/own_bof_14",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@7 low FF1022",
+   "CWE-120@8 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@7 low FF1022",
+   "CWE-120@10 medium FF1004"
+  ],
+  "finding": {
+   "line": 8,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "bob\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "bob\n"
+  }
+ },
+ {
+  "id": "own_bof_15",
+  "dir": "candidates/own_bof_15",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 medium FF1004",
+   "CWE-126@6 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@6 low FF1022",
+   "CWE-120@9 medium FF1004"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "api-key-1\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "api-key-1\n"
+  }
+ },
+ {
+  "id": "own_bof_16",
+  "dir": "candidates/own_bof_16",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@6 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-120@8 medium FF1004"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "1\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "4\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "4\n"
+  }
+ },
+ {
+  "id": "own_bof_17",
+  "dir": "candidates/own_bof_17",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1008",
+   "CWE-126@6 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1008"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1008"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Report\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Report\n"
+  }
+ },
+ {
+  "id": "own_bof_18",
+  "dir": "candidates/own_bof_18",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1010",
+   "CWE-126@6 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1010",
+   "CWE-126@6 low FF1022"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "pre_AAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "pre_view\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "pre_view\n"
+  }
+ },
+ {
+  "id": "own_bof_19",
+  "dir": "candidates/own_bof_19",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1010",
+   "CWE-120@7 low FF1010",
+   "CWE-120@8 low FF1010"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1010",
+   "CWE-126@6 low FF1022",
+   "CWE-120@7 low FF1010",
+   "CWE-126@7 low FF1022",
+   "CWE-120@8 low FF1010",
+   "CWE-126@8 low FF1022"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "low",
+   "rule_id": "FF1010"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "red,AAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "red,blue\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "red,blue\n"
+  }
+ },
+ {
+  "id": "own_bof_20",
+  "dir": "candidates/own_bof_20",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-119@6 medium invalidscanf",
+   "CWE-120@6 high FF1021"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1021"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1021"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAA, Ada\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Lovelace, Ada\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Lovelace, Ada\n"
+  }
+ },
+ {
+  "id": "own_bof_21",
+  "dir": "candidates/own_bof_21",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-119@7 medium invalidscanf",
+   "CWE-120@7 high FF1021"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@7 low FF1021"
+  ],
+  "finding": {
+   "line": 7,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1021"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": ""
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "jump x3\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "jump x3\n"
+  }
+ },
+ {
+  "id": "own_bof_22",
+  "dir": "candidates/own_bof_22",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-119@6 medium invalidscanf",
+   "CWE-120@6 high FF1021"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 low FF1021"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1021"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "mode -> AAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "mode -> dark\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "mode -> dark\n"
+  }
+ },
+ {
+  "id": "own_bof_23",
+  "dir": "candidates/own_bof_23",
+  "kept": false,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-134@8 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-134@8 high FF1019"
+  ],
+  "reason": "scanner does not report CWE-120 on the copy"
+ },
+ {
+  "id": "own_bof_24",
+  "dir": "candidates/own_bof_24",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1001"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@6 low FF1022",
+   "CWE-120@10 high FF1001"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "invalid address\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "ip 10.0.0.1\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "ip 10.0.0.1\n"
+  }
+ },
+ {
+  "id": "own_bof_25",
+  "dir": "candidates/own_bof_25",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 medium FF1004",
+   "CWE-126@6 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@6 low FF1022",
+   "CWE-120@9 medium FF1004"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "FRA\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "FRA\n"
+  }
+ },
+ {
+  "id": "own_bof_26",
+  "dir": "candidates/own_bof_26",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@9 high FF1001"
+  ],
+  "scanner_repair": [],
+  "finding": {
+   "line": 9,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "nice post\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "nice post\n"
+  }
+ },
+ {
+  "id": "own_bof_27",
+  "dir": "candidates/own_bof_27",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Firefox/120\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Firefox/120\n"
+  }
+ },
+ {
+  "id": "own_bof_28",
+  "dir": "candidates/own_bof_28",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "acme-00042\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "acme-00042\n"
+  }
+ },
+ {
+  "id": "own_bof_29",
+  "dir": "candidates/own_bof_29",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@6 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-120@8 medium FF1004"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "1.0\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "1.5\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "1.5\n"
+  }
+ },
+ {
+  "id": "own_bof_30",
+  "dir": "candidates/own_bof_30",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1015"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "photo.png\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "photo.png\n"
+  }
+ },
+ {
+  "id": "own_bof_31",
+  "dir": "candidates/own_bof_31",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-119@7 medium invalidscanf",
+   "CWE-120@7 high FF1021"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@7 low FF1021"
+  ],
+  "finding": {
+   "line": 7,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1021"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": ""
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Nov 14, 2026\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "Nov 14, 2026\n"
+  }
+ },
+ {
+  "id": "own_bof_32",
+  "dir": "candidates/own_bof_32",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 medium FF1004"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@8 medium FF1004"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "GET\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "GET\n"
+  }
+ },
+ {
+  "id": "own_bof_33",
+  "dir": "candidates/own_bof_33",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1001",
+   "CWE-120@7 medium FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "See you soon -- sent from app\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "See you soon -- sent from app\n"
+  }
+ },
+ {
+  "id": "own_bof_34",
+  "dir": "candidates/own_bof_34",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@6 high FF1001",
+   "CWE-120@7 medium FF1005",
+   "CWE-120@8 high FF1005"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013"
+  ],
+  "finding": {
+   "line": 6,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1001"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "AAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "soup ... 4.50\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "soup ... 4.50\n"
+  }
+ },
+ {
+  "id": "own_bof_35",
+  "dir": "candidates/own_bof_35",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-119@5 medium FF1013",
+   "CWE-120@11 medium FF1004",
+   "CWE-126@11 low FF1022"
+  ],
+  "scanner_repair": [
+   "CWE-119@5 medium FF1013",
+   "CWE-126@11 low FF1022",
+   "CWE-120@16 medium FF1004"
+  ],
+  "finding": {
+   "line": 11,
+   "cwe": "CWE-120",
+   "severity": "medium",
+   "rule_id": "FF1004"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "session id too long\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "s-1234 1\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "s-1234 1\n"
+  }
+ },
+ {
+  "id": "own_bof_36",
+  "dir": "candidates/own_bof_36",
+  "kept": true,
+  "scanner_vulnerable": [
+   "CWE-120@9 high FF1015"
+  ],
+  "scanner_repair": [],
+  "finding": {
+   "line": 9,
+   "cwe": "CWE-120",
+   "severity": "high",
+   "rule_id": "FF1015"
+  },
+  "attack_vulnerable": {
+   "compiled": true,
+   "asan": true,
+   "exit": 1,
+   "stdout": ""
+  },
+  "attack_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "one|AAAAAAAAAAAAAAAAAAA\n"
+  },
+  "normal_vulnerable": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "one|two\n"
+  },
+  "normal_repair": {
+   "compiled": true,
+   "asan": false,
+   "exit": 0,
+   "stdout": "one|two\n"
+  }
+ }
+]

@@ -1,0 +1,1215 @@
+[
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE129_connect_socket_01.c",
+  "variant": "CWE129_connect_socket",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_01.c",
+  "variant": "CWE129_fgets",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE129_fscanf_01.c",
+  "variant": "CWE129_fscanf",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE129_large_01.c",
+  "variant": "CWE129_large",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE129_listen_socket_01.c",
+  "variant": "CWE129_listen_socket",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_01.c",
+  "variant": "CWE129_rand",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE131_loop_01.c",
+  "variant": "CWE131_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wrong size in the allocation: the fix belongs to malloc/alloca"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE131_memcpy_01.c",
+  "variant": "CWE131_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wrong size in the allocation: the fix belongs to malloc/alloca"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_01.c",
+  "variant": "CWE131_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wrong size in the allocation: the fix belongs to malloc/alloca"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE135_01.c",
+  "variant": "CWE135",
+  "kept": false,
+  "step": "family",
+  "reason": "multibyte string length (CWE-135), not our class"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_01.c",
+  "variant": "CWE193_char_alloca_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_01.c",
+  "variant": "char_type_overrun_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s01/CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memmove_01.c",
+  "variant": "char_type_overrun_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_loop_01.c",
+  "variant": "CWE193_char_alloca_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_memcpy_01.c",
+  "variant": "CWE193_char_alloca_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_memmove_01.c",
+  "variant": "CWE193_char_alloca_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_ncpy_01.c",
+  "variant": "CWE193_char_alloca_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_cpy_01.c",
+  "variant": "CWE193_char_declare_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_loop_01.c",
+  "variant": "CWE193_char_declare_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_memcpy_01.c",
+  "variant": "CWE193_char_declare_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_memmove_01.c",
+  "variant": "CWE193_char_declare_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_ncpy_01.c",
+  "variant": "CWE193_char_declare_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_cpy_01.c",
+  "variant": "CWE193_wchar_t_alloca_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_loop_01.c",
+  "variant": "CWE193_wchar_t_alloca_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_memcpy_01.c",
+  "variant": "CWE193_wchar_t_alloca_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_memmove_01.c",
+  "variant": "CWE193_wchar_t_alloca_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_ncpy_01.c",
+  "variant": "CWE193_wchar_t_alloca_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s02/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_cpy_01.c",
+  "variant": "CWE193_wchar_t_declare_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_loop_01.c",
+  "variant": "CWE193_wchar_t_declare_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_memcpy_01.c",
+  "variant": "CWE193_wchar_t_declare_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_memmove_01.c",
+  "variant": "CWE193_wchar_t_declare_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_ncpy_01.c",
+  "variant": "CWE193_wchar_t_declare_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_loop_01.c",
+  "variant": "CWE805_char_alloca_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_alloca_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_memcpy_01.c",
+  "variant": "CWE805_char_alloca_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_alloca_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_memmove_01.c",
+  "variant": "CWE805_char_alloca_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_alloca_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncat_01.c",
+  "variant": "CWE805_char_alloca_ncat",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_alloca_ncat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncpy_01.c",
+  "variant": "CWE805_char_alloca_ncpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_alloca_ncpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_snprintf_01.c",
+  "variant": "CWE805_char_alloca_snprintf",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_alloca_snprintf"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_loop_01.c",
+  "variant": "CWE805_char_declare_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_declare_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_memcpy_01.c",
+  "variant": "CWE805_char_declare_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_declare_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_memmove_01.c",
+  "variant": "CWE805_char_declare_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_declare_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncat_01.c",
+  "variant": "CWE805_char_declare_ncat",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_declare_ncat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncpy_01.c",
+  "variant": "CWE805_char_declare_ncpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_declare_ncpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_01.c",
+  "variant": "CWE805_char_declare_snprintf",
+  "kept": true,
+  "id": "juliet_121_CWE805_char_declare_snprintf"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_loop_01.c",
+  "variant": "CWE805_int64_t_alloca_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_int64_t_alloca_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_memcpy_01.c",
+  "variant": "CWE805_int64_t_alloca_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_int64_t_alloca_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_memmove_01.c",
+  "variant": "CWE805_int64_t_alloca_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_int64_t_alloca_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_loop_01.c",
+  "variant": "CWE805_int64_t_declare_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_int64_t_declare_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_memcpy_01.c",
+  "variant": "CWE805_int64_t_declare_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_int64_t_declare_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_memmove_01.c",
+  "variant": "CWE805_int64_t_declare_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_int64_t_declare_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_loop_01.c",
+  "variant": "CWE805_int_alloca_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_int_alloca_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memcpy_01.c",
+  "variant": "CWE805_int_alloca_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_int_alloca_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memmove_01.c",
+  "variant": "CWE805_int_alloca_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_int_alloca_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_loop_01.c",
+  "variant": "CWE805_int_declare_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_int_declare_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memcpy_01.c",
+  "variant": "CWE805_int_declare_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_int_declare_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01.c",
+  "variant": "CWE805_int_declare_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_int_declare_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_alloca_loop_01.c",
+  "variant": "CWE805_struct_alloca_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_struct_alloca_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_alloca_memcpy_01.c",
+  "variant": "CWE805_struct_alloca_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_struct_alloca_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_alloca_memmove_01.c",
+  "variant": "CWE805_struct_alloca_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_struct_alloca_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_declare_loop_01.c",
+  "variant": "CWE805_struct_declare_loop",
+  "kept": true,
+  "id": "juliet_121_CWE805_struct_declare_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_declare_memcpy_01.c",
+  "variant": "CWE805_struct_declare_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE805_struct_declare_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_declare_memmove_01.c",
+  "variant": "CWE805_struct_declare_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE805_struct_declare_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_loop_01.c",
+  "variant": "CWE805_wchar_t_alloca_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_memcpy_01.c",
+  "variant": "CWE805_wchar_t_alloca_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_memmove_01.c",
+  "variant": "CWE805_wchar_t_alloca_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_ncat_01.c",
+  "variant": "CWE805_wchar_t_alloca_ncat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_ncpy_01.c",
+  "variant": "CWE805_wchar_t_alloca_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_01.c",
+  "variant": "CWE805_wchar_t_alloca_snprintf",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_loop_01.c",
+  "variant": "CWE805_wchar_t_declare_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_memcpy_01.c",
+  "variant": "CWE805_wchar_t_declare_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_memmove_01.c",
+  "variant": "CWE805_wchar_t_declare_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_ncat_01.c",
+  "variant": "CWE805_wchar_t_declare_ncat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_ncpy_01.c",
+  "variant": "CWE805_wchar_t_declare_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_snprintf_01.c",
+  "variant": "CWE805_wchar_t_declare_snprintf",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_loop_01.c",
+  "variant": "CWE806_char_alloca_loop",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_alloca_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memcpy_01.c",
+  "variant": "CWE806_char_alloca_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_alloca_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memmove_01.c",
+  "variant": "CWE806_char_alloca_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_alloca_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_ncat_01.c",
+  "variant": "CWE806_char_alloca_ncat",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_alloca_ncat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_ncpy_01.c",
+  "variant": "CWE806_char_alloca_ncpy",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_alloca_ncpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_01.c",
+  "variant": "CWE806_char_alloca_snprintf",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_alloca_snprintf"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_loop_01.c",
+  "variant": "CWE806_char_declare_loop",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_declare_loop"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memcpy_01.c",
+  "variant": "CWE806_char_declare_memcpy",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_declare_memcpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memmove_01.c",
+  "variant": "CWE806_char_declare_memmove",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_declare_memmove"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncat_01.c",
+  "variant": "CWE806_char_declare_ncat",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_declare_ncat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_01.c",
+  "variant": "CWE806_char_declare_ncpy",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_declare_ncpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_snprintf_01.c",
+  "variant": "CWE806_char_declare_snprintf",
+  "kept": true,
+  "id": "juliet_121_CWE806_char_declare_snprintf"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_loop_01.c",
+  "variant": "CWE806_wchar_t_alloca_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_memcpy_01.c",
+  "variant": "CWE806_wchar_t_alloca_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_memmove_01.c",
+  "variant": "CWE806_wchar_t_alloca_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_ncat_01.c",
+  "variant": "CWE806_wchar_t_alloca_ncat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_ncpy_01.c",
+  "variant": "CWE806_wchar_t_alloca_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_snprintf_01.c",
+  "variant": "CWE806_wchar_t_alloca_snprintf",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_loop_01.c",
+  "variant": "CWE806_wchar_t_declare_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_memcpy_01.c",
+  "variant": "CWE806_wchar_t_declare_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_memmove_01.c",
+  "variant": "CWE806_wchar_t_declare_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_ncat_01.c",
+  "variant": "CWE806_wchar_t_declare_ncat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s07/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_ncpy_01.c",
+  "variant": "CWE806_wchar_t_declare_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_snprintf_01.c",
+  "variant": "CWE806_wchar_t_declare_snprintf",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_01.c",
+  "variant": "dest_char_alloca_cat",
+  "kept": true,
+  "id": "juliet_121_dest_char_alloca_cat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cpy_01.c",
+  "variant": "dest_char_alloca_cpy",
+  "kept": true,
+  "id": "juliet_121_dest_char_alloca_cpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cat_01.c",
+  "variant": "dest_char_declare_cat",
+  "kept": true,
+  "id": "juliet_121_dest_char_declare_cat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cpy_01.c",
+  "variant": "dest_char_declare_cpy",
+  "kept": true,
+  "id": "juliet_121_dest_char_declare_cpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_alloca_cat_01.c",
+  "variant": "dest_wchar_t_alloca_cat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_alloca_cpy_01.c",
+  "variant": "dest_wchar_t_alloca_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01.c",
+  "variant": "dest_wchar_t_declare_cat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cpy_01.c",
+  "variant": "dest_wchar_t_declare_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cat_01.c",
+  "variant": "src_char_alloca_cat",
+  "kept": true,
+  "id": "juliet_121_src_char_alloca_cat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cpy_01.c",
+  "variant": "src_char_alloca_cpy",
+  "kept": true,
+  "id": "juliet_121_src_char_alloca_cpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cat_01.c",
+  "variant": "src_char_declare_cat",
+  "kept": true,
+  "id": "juliet_121_src_char_declare_cat"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_01.c",
+  "variant": "src_char_declare_cpy",
+  "kept": true,
+  "id": "juliet_121_src_char_declare_cpy"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_alloca_cat_01.c",
+  "variant": "src_wchar_t_alloca_cat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_alloca_cpy_01.c",
+  "variant": "src_wchar_t_alloca_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_declare_cat_01.c",
+  "variant": "src_wchar_t_declare_cat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_declare_cpy_01.c",
+  "variant": "src_wchar_t_declare_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__wchar_t_type_overrun_memcpy_01.c",
+  "variant": "wchar_t_type_overrun_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ },
+ {
+  "file": "CWE121_Stack_Based_Buffer_Overflow/s09/CWE121_Stack_Based_Buffer_Overflow__wchar_t_type_overrun_memmove_01.c",
+  "variant": "wchar_t_type_overrun_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s01/CWE122_Heap_Based_Buffer_Overflow__char_type_overrun_memcpy_01.c",
+  "variant": "char_type_overrun_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s01/CWE122_Heap_Based_Buffer_Overflow__char_type_overrun_memmove_01.c",
+  "variant": "char_type_overrun_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_01.c",
+  "variant": "CWE131_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wrong size in the allocation: the fix belongs to malloc/alloca"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_01.c",
+  "variant": "CWE131_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wrong size in the allocation: the fix belongs to malloc/alloca"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_01.c",
+  "variant": "CWE131_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wrong size in the allocation: the fix belongs to malloc/alloca"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__CWE135_01.c",
+  "variant": "CWE135",
+  "kept": false,
+  "step": "family",
+  "reason": "multibyte string length (CWE-135), not our class"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE129_connect_socket_01.c",
+  "variant": "c_CWE129_connect_socket",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE129_fgets_01.c",
+  "variant": "c_CWE129_fgets",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE129_fscanf_01.c",
+  "variant": "c_CWE129_fscanf",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE129_large_01.c",
+  "variant": "c_CWE129_large",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE129_listen_socket_01.c",
+  "variant": "c_CWE129_listen_socket",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE129_rand_01.c",
+  "variant": "c_CWE129_rand",
+  "kept": false,
+  "step": "family",
+  "reason": "array index check (CWE-129), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_cpy_01.c",
+  "variant": "c_CWE193_char_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_loop_01.c",
+  "variant": "c_CWE193_char_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s06/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_memcpy_01.c",
+  "variant": "c_CWE193_char_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_memmove_01.c",
+  "variant": "c_CWE193_char_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_ncpy_01.c",
+  "variant": "c_CWE193_char_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_cpy_01.c",
+  "variant": "c_CWE193_wchar_t_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_loop_01.c",
+  "variant": "c_CWE193_wchar_t_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_memcpy_01.c",
+  "variant": "c_CWE193_wchar_t_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_memmove_01.c",
+  "variant": "c_CWE193_wchar_t_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_ncpy_01.c",
+  "variant": "c_CWE193_wchar_t_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "off-by-one: the fix belongs to the buffer size, not the copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_loop_01.c",
+  "variant": "c_CWE805_char_loop",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_char_loop"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memcpy_01.c",
+  "variant": "c_CWE805_char_memcpy",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_char_memcpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memmove_01.c",
+  "variant": "c_CWE805_char_memmove",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_char_memmove"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncat_01.c",
+  "variant": "c_CWE805_char_ncat",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_char_ncat"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01.c",
+  "variant": "c_CWE805_char_ncpy",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_char_ncpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_snprintf_01.c",
+  "variant": "c_CWE805_char_snprintf",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_char_snprintf"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_loop_01.c",
+  "variant": "c_CWE805_int64_t_loop",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_int64_t_loop"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memcpy_01.c",
+  "variant": "c_CWE805_int64_t_memcpy",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_int64_t_memcpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memmove_01.c",
+  "variant": "c_CWE805_int64_t_memmove",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_int64_t_memmove"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_loop_01.c",
+  "variant": "c_CWE805_int_loop",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_int_loop"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_01.c",
+  "variant": "c_CWE805_int_memcpy",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_int_memcpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_01.c",
+  "variant": "c_CWE805_int_memmove",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_int_memmove"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_struct_loop_01.c",
+  "variant": "c_CWE805_struct_loop",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_struct_loop"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_struct_memcpy_01.c",
+  "variant": "c_CWE805_struct_memcpy",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_struct_memcpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_struct_memmove_01.c",
+  "variant": "c_CWE805_struct_memmove",
+  "kept": true,
+  "id": "juliet_122_c_CWE805_struct_memmove"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_loop_01.c",
+  "variant": "c_CWE805_wchar_t_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s08/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memcpy_01.c",
+  "variant": "c_CWE805_wchar_t_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.c",
+  "variant": "c_CWE805_wchar_t_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_ncat_01.c",
+  "variant": "c_CWE805_wchar_t_ncat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_ncpy_01.c",
+  "variant": "c_CWE805_wchar_t_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_snprintf_01.c",
+  "variant": "c_CWE805_wchar_t_snprintf",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_loop_01.c",
+  "variant": "c_CWE806_char_loop",
+  "kept": true,
+  "id": "juliet_122_c_CWE806_char_loop"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memcpy_01.c",
+  "variant": "c_CWE806_char_memcpy",
+  "kept": true,
+  "id": "juliet_122_c_CWE806_char_memcpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memmove_01.c",
+  "variant": "c_CWE806_char_memmove",
+  "kept": true,
+  "id": "juliet_122_c_CWE806_char_memmove"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_ncat_01.c",
+  "variant": "c_CWE806_char_ncat",
+  "kept": true,
+  "id": "juliet_122_c_CWE806_char_ncat"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_ncpy_01.c",
+  "variant": "c_CWE806_char_ncpy",
+  "kept": true,
+  "id": "juliet_122_c_CWE806_char_ncpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_snprintf_01.c",
+  "variant": "c_CWE806_char_snprintf",
+  "kept": true,
+  "id": "juliet_122_c_CWE806_char_snprintf"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_loop_01.c",
+  "variant": "c_CWE806_wchar_t_loop",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s09/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_memcpy_01.c",
+  "variant": "c_CWE806_wchar_t_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_memmove_01.c",
+  "variant": "c_CWE806_wchar_t_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_ncat_01.c",
+  "variant": "c_CWE806_wchar_t_ncat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_ncpy_01.c",
+  "variant": "c_CWE806_wchar_t_ncpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_snprintf_01.c",
+  "variant": "c_CWE806_wchar_t_snprintf",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cat_01.c",
+  "variant": "c_dest_char_cat",
+  "kept": true,
+  "id": "juliet_122_c_dest_char_cat"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_01.c",
+  "variant": "c_dest_char_cpy",
+  "kept": true,
+  "id": "juliet_122_c_dest_char_cpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_dest_wchar_t_cat_01.c",
+  "variant": "c_dest_wchar_t_cat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_dest_wchar_t_cpy_01.c",
+  "variant": "c_dest_wchar_t_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_src_char_cat_01.c",
+  "variant": "c_src_char_cat",
+  "kept": true,
+  "id": "juliet_122_c_src_char_cat"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_src_char_cpy_01.c",
+  "variant": "c_src_char_cpy",
+  "kept": true,
+  "id": "juliet_122_c_src_char_cpy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_src_wchar_t_cat_01.c",
+  "variant": "c_src_wchar_t_cat",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s10/CWE122_Heap_Based_Buffer_Overflow__c_src_wchar_t_cpy_01.c",
+  "variant": "c_src_wchar_t_cpy",
+  "kept": false,
+  "step": "family",
+  "reason": "wide characters: our cases and scanner examples use char"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s11/CWE122_Heap_Based_Buffer_Overflow__sizeof_double_01.c",
+  "variant": "sizeof_double",
+  "kept": false,
+  "step": "family",
+  "reason": "sizeof of a pointer (CWE-467 style), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s11/CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_01.c",
+  "variant": "sizeof_int64_t",
+  "kept": false,
+  "step": "family",
+  "reason": "sizeof of a pointer (CWE-467 style), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s11/CWE122_Heap_Based_Buffer_Overflow__sizeof_struct_01.c",
+  "variant": "sizeof_struct",
+  "kept": false,
+  "step": "family",
+  "reason": "sizeof of a pointer (CWE-467 style), not a copy"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s11/CWE122_Heap_Based_Buffer_Overflow__wchar_t_type_overrun_memcpy_01.c",
+  "variant": "wchar_t_type_overrun_memcpy",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ },
+ {
+  "file": "CWE122_Heap_Based_Buffer_Overflow/s11/CWE122_Heap_Based_Buffer_Overflow__wchar_t_type_overrun_memmove_01.c",
+  "variant": "wchar_t_type_overrun_memmove",
+  "kept": false,
+  "step": "family",
+  "reason": "overrun of a struct field: not a copy into a too-small buffer"
+ }
+]

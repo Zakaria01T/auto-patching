@@ -1,0 +1,10 @@
+{
+  "id": "juliet_121_CWE805_char_alloca_ncpy",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Limited strncpy to the destination size instead of the source length.",
+  "function": "copy_text",
+  "call": "copy_text()",
+  "source": "juliet:C/testcases/CWE121_Stack_Based_Buffer_Overflow/s03/CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncpy_01.c (CWE-121)"
+}

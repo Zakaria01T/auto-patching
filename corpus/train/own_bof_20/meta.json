@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_20",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Added field widths to sscanf so each word fits in its buffer.",
+  "function": "parse_name",
+  "normal_call": "parse_name(\"Ada Lovelace\")",
+  "attack_call": "parse_name(\"Ada \" \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\")",
+  "source": "own:own_bof_20"
+}

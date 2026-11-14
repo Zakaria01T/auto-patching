@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_13",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Rejected payloads larger than the buffer before memcpy.",
+  "function": "copy_packet",
+  "normal_call": "copy_packet(\"hello\", 5)",
+  "attack_call": "copy_packet(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", 200)",
+  "source": "own:own_bof_13"
+}

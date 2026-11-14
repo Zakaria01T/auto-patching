@@ -1,0 +1,8 @@
+#include <stdio.h>
+#include <string.h>
+
+void temp_path(const char *dir, int id) {
+    char p[20];
+    sprintf(p, "%s/tmp%d", dir, id);
+    puts(p);
+}

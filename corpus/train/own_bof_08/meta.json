@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_08",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Built the address with snprintf limited to the size of mail.",
+  "function": "email_address",
+  "normal_call": "email_address(\"sam\", \"mail.com\")",
+  "attack_call": "email_address(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", \"mail.com\")",
+  "source": "own:own_bof_08"
+}

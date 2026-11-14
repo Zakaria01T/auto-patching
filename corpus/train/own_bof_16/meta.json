@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_16",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Limited the number of copied integers to the size of local.",
+  "function": "copy_ints",
+  "normal_call": "copy_ints((int[3]){4, 5, 6}, 3)",
+  "attack_call": "copy_ints((int[64]){1}, 64)",
+  "source": "own:own_bof_16"
+}

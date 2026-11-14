@@ -1,0 +1,11 @@
+{
+  "id": "own_bof_09",
+  "language": "c",
+  "class": "buffer_overflow",
+  "cwe": "CWE-120",
+  "explanation": "Replaced sprintf with snprintf limited to the size of line.",
+  "function": "format_price",
+  "normal_call": "format_price(\"tea\", 350)",
+  "attack_call": "format_price(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\", 350)",
+  "source": "own:own_bof_09"
+}

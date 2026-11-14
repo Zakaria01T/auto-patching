@@ -1,0 +1,594 @@
+[
+ {
+  "id": "juliet_121_CWE805_char_alloca_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.31
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_alloca_ncat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.32
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_alloca_ncpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.33
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.34
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_ncat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.37
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_char_declare_ncpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.36
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_alloca_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.43
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int64_t_declare_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.41
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int_alloca_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.46
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_int_declare_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.44
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_struct_alloca_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.28
+  }
+ },
+ {
+  "id": "juliet_121_CWE805_struct_declare_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.31
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.33
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_ncat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.33
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_alloca_ncpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.34
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.36
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_ncat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.37
+  }
+ },
+ {
+  "id": "juliet_121_CWE806_char_declare_ncpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.39
+  }
+ },
+ {
+  "id": "juliet_121_dest_char_alloca_cat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.33
+  }
+ },
+ {
+  "id": "juliet_121_dest_char_alloca_cpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.36
+  }
+ },
+ {
+  "id": "juliet_121_dest_char_declare_cat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.38
+  }
+ },
+ {
+  "id": "juliet_121_dest_char_declare_cpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.4
+  }
+ },
+ {
+  "id": "juliet_121_src_char_alloca_cat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.37
+  }
+ },
+ {
+  "id": "juliet_121_src_char_alloca_cpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.35
+  }
+ },
+ {
+  "id": "juliet_121_src_char_declare_cat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.42
+  }
+ },
+ {
+  "id": "juliet_121_src_char_declare_cpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.4
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.3
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_ncat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_03/source.c",
+   "ratio": 0.29
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_char_ncpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.32
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_int64_t_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.39
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_int_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.42
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE805_struct_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.28
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_memcpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.32
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_ncat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.3
+  }
+ },
+ {
+  "id": "juliet_122_c_CWE806_char_ncpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.33
+  }
+ },
+ {
+  "id": "juliet_122_c_dest_char_cat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_03/source.c",
+   "ratio": 0.29
+  }
+ },
+ {
+  "id": "juliet_122_c_dest_char_cpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.35
+  }
+ },
+ {
+  "id": "juliet_122_c_src_char_cat",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.34
+  }
+ },
+ {
+  "id": "juliet_122_c_src_char_cpy",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.33
+  }
+ },
+ {
+  "id": "own_bof_01",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/train/gold_bof_02/vulnerable.c",
+   "ratio": 0.61
+  }
+ },
+ {
+  "id": "own_bof_02",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.39
+  }
+ },
+ {
+  "id": "own_bof_03",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.5
+  }
+ },
+ {
+  "id": "own_bof_04",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.59
+  }
+ },
+ {
+  "id": "own_bof_05",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_05/source.c",
+   "ratio": 0.61
+  }
+ },
+ {
+  "id": "own_bof_06",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_03/source.c",
+   "ratio": 0.58
+  }
+ },
+ {
+  "id": "own_bof_07",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_03/source.c",
+   "ratio": 0.67
+  }
+ },
+ {
+  "id": "own_bof_08",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_07/source.c",
+   "ratio": 0.69
+  }
+ },
+ {
+  "id": "own_bof_09",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_05/source.c",
+   "ratio": 0.6
+  }
+ },
+ {
+  "id": "own_bof_10",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_05/source.c",
+   "ratio": 0.65
+  }
+ },
+ {
+  "id": "own_bof_11",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_05/source.c",
+   "ratio": 0.69
+  }
+ },
+ {
+  "id": "own_bof_12",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_02/source.c",
+   "ratio": 0.64
+  }
+ },
+ {
+  "id": "own_bof_13",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.76
+  }
+ },
+ {
+  "id": "own_bof_14",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_07/source.c",
+   "ratio": 0.43
+  }
+ },
+ {
+  "id": "own_bof_15",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_01/source.c",
+   "ratio": 0.6
+  }
+ },
+ {
+  "id": "own_bof_16",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.56
+  }
+ },
+ {
+  "id": "own_bof_17",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/train/gold_bof_01/vulnerable.c",
+   "ratio": 0.62
+  }
+ },
+ {
+  "id": "own_bof_18",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_03/source.c",
+   "ratio": 0.59
+  }
+ },
+ {
+  "id": "own_bof_19",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_07/source.c",
+   "ratio": 0.64
+  }
+ },
+ {
+  "id": "own_bof_20",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.52
+  }
+ },
+ {
+  "id": "own_bof_21",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.58
+  }
+ },
+ {
+  "id": "own_bof_22",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.48
+  }
+ },
+ {
+  "id": "own_bof_24",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_01/source.c",
+   "ratio": 0.68
+  }
+ },
+ {
+  "id": "own_bof_25",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_01/source.c",
+   "ratio": 0.53
+  }
+ },
+ {
+  "id": "own_bof_26",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_01/source.c",
+   "ratio": 0.55
+  }
+ },
+ {
+  "id": "own_bof_27",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/train/gold_bof_02/vulnerable.c",
+   "ratio": 0.64
+  }
+ },
+ {
+  "id": "own_bof_28",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_02/source.c",
+   "ratio": 0.62
+  }
+ },
+ {
+  "id": "own_bof_29",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.54
+  }
+ },
+ {
+  "id": "own_bof_30",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_05/source.c",
+   "ratio": 0.72
+  }
+ },
+ {
+  "id": "own_bof_31",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_06/source.c",
+   "ratio": 0.51
+  }
+ },
+ {
+  "id": "own_bof_32",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_01/source.c",
+   "ratio": 0.56
+  }
+ },
+ {
+  "id": "own_bof_33",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_07/source.c",
+   "ratio": 0.57
+  }
+ },
+ {
+  "id": "own_bof_34",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_07/source.c",
+   "ratio": 0.68
+  }
+ },
+ {
+  "id": "own_bof_35",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_08/source.c",
+   "ratio": 0.45
+  }
+ },
+ {
+  "id": "own_bof_36",
+  "kept": true,
+  "closest_protected": {
+   "path": "corpus/dev/bof_05/source.c",
+   "ratio": 0.6
+  }
+ }
+]
