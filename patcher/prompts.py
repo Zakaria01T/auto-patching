@@ -92,13 +92,22 @@ def select_example(finding):
         raise ValueError("language must be python or c")
     # Verify root before enumerating or reading any examples.
     train_path(TRAIN)
-    examples = [load_example(path.parent) for path in sorted(TRAIN.glob("*/meta.json"))]
-    candidates = [e for e in examples if e["language"] == language and e["cwe"] == finding.get("cwe")]
-    if not any(e["language"] == language for e in examples):
+    has_language = False
+    candidates = []
+    for path in sorted(TRAIN.glob("*/meta.json")):
+        meta = json.loads(train_path(path).read_text(encoding="utf-8"))
+        if meta.get("language") == language:
+            has_language = True
+            if meta.get("cwe") == finding.get("cwe"):
+                candidates.append(path.parent)
+    if not has_language:
         raise ValueError(f"corpus/train/ has no example for language {language}")
-    if not candidates:
-        raise ValueError("no same-CWE train example; similar-CWE mapping requires an explicit decision")
-    return candidates[0]["path"]
+    for folder in candidates:
+        try:
+            return load_example(folder)["path"]
+        except FileNotFoundError:
+            continue
+    raise ValueError("no same-CWE train example; similar-CWE mapping requires an explicit decision")
 
 
 def database_context(source, finding, db_driver, driver_evidence, sql_present):
