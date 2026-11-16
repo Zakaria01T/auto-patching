@@ -1,6 +1,6 @@
 {
   "models": [
-    {"type": "prompted", "tag": "qwen2.5-coder:3b", "checkpoint": "REPLACE_WITH_OLLAMA_DIGEST"},
+    {"type": "prompted", "tag": "qwen2.5-coder:7b", "checkpoint": "REPLACE_WITH_OLLAMA_DIGEST"},
     {"type": "fine-tuned", "tag": "repair-lora:v1", "checkpoint": "REPLACE_WITH_OLLAMA_DIGEST"}
   ],
   "prompt_version": "v1",

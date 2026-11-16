@@ -1,10 +1,27 @@
 # Model
 
-This file records which model tag has been run locally through Ollama, how it ran, and what its first answer looked like.
+This file records the base model of the project, which tags have been run locally through Ollama, and what the first answers looked like.
 
-No model is wired into the pipeline yet, and the base model for the project is not decided. This is a check that one tag runs, not a benchmark.
+## Base model: `qwen2.5-coder:7b`
 
-## Tag that has been run
+Decided by the team on 3 November 2026. `configs/model.yaml` pins `qwen2.5-coder:7b`; the LoRA adapter is trained on the same base, `Qwen/Qwen2.5-Coder-7B-Instruct`, so the prompted and the fine-tuned model can be compared.
+
+| Item | Value |
+| --- | --- |
+| Tag | `qwen2.5-coder:7b` |
+| Ollama image ID | `dae161e27b0e` |
+| Size | 4.7 GB |
+| License | Apache-2.0 (the 3B is under the Qwen research license, non-commercial) |
+
+Why the 7B: on the 32 dev cases, asking for the whole fixed file, it fixed 18 against 14 for the 3B, and every answer applied (32 of 32, against 23). It still runs on a laptop CPU, at about 13 to 18 seconds per answer. The LoRA adapter is trained with QLoRA on one Kaggle T4.
+
+```bash
+ollama pull qwen2.5-coder:7b
+```
+
+The 3B check below is kept as the first record of a tag running locally.
+
+## First tag that was run: `qwen2.5-coder:3b`
 
 | Item | Value |
 | --- | --- |
@@ -44,4 +61,4 @@ This is one prompt on one small input, so it says nothing about a fix rate.
 
 ## Not decided here
 
-The base model for the product (this 3B tag, a 7B tag on a rented GPU, or another model) and where it is served. That decision is made with P2 and P5.
+Where the model is served for the demo (laptop CPU or a rented GPU).
