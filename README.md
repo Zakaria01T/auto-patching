@@ -113,7 +113,7 @@ Allowed statuses: `uploaded`, `scanning`, `clean`, `patching`, `validating`,
 python -m pytest
 ```
 ## Model Configuration (Sprint 1 - P5 si driss)
-- **Ollama Tag:** `qwen2.5-coder:3b`
+- **Ollama Tag:** `qwen2.5-coder:7b` (base model decided by the team on 2026-11-03, see [docs/model.md](docs/model.md))
 - **Config File:** `configs/model.yaml`
 
 ## LoRA training
