@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0162",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because an f-string interpolates value directly inside single quotes in the SELECT query. Crafted input in value could alter the query logic to expose unauthorized project records. The repair replaces string interpolation with an unquoted %s placeholder and binds (value,) as a tuple parameter in cursor.execute().",
+    "source": "synthetic:row_045",
+    "reviewer": null
+}

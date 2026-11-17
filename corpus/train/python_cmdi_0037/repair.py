@@ -1,0 +1,3 @@
+def inspect_comment_path(path):
+    from pathlib import Path
+    return Path(path).read_bytes()

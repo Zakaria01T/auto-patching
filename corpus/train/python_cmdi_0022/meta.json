@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0022",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is concatenated into subprocess.check_output('ls ' + user_input, shell=True). Crafted input with shell operators could execute arbitrary OS commands. The repair removes shell=True via shlex.split('ls ' + user_input), preventing shell chaining, but still permits argument/flag injection into ls and raises ValueError on unbalanced quotes.",
+    "source": "cybernative:row_1574",
+    "reviewer": null
+}

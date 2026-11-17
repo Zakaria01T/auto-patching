@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0032",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is percent-formatted directly into a shell redirection command passed to os.system(). Crafted input containing shell metacharacters could execute arbitrary OS commands. The repair eliminates shell execution entirely by writing user_input directly to myfile.txt with Python file I/O.",
+    "source": "cybernative:row_3591",
+    "reviewer": null
+}

@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0021",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because the % operator interpolates project_id, user_id, and money directly into the INSERT query string. Crafted values in any argument could alter the SQL statement to manipulate transaction records or execute unintended SQL. The repair replaces the % formatting operator with a comma, passing (project_id, user_id, money) as bound parameters to self.cursor.execute().",
+    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
+    "reviewer": null
+}

@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0062",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because self.access_token is percent-formatted directly inside single quotes in the SELECT query. An attacker supplying a crafted access token could manipulate the query to bypass authentication or read arbitrary account records. The repair switches to an unquoted %s placeholder and passes self.access_token to self.db.get(), though safety depends on the unseen self.db.get implementation.",
+    "source": "sven:github.com/bonbondirac/tsunami/commit/396cc394bd6daaf0ee9c16b1b55a4082eeaac208",
+    "reviewer": null
+}

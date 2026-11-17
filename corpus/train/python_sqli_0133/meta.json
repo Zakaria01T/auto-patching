@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0133",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(server_id) embeds server_id directly into the SELECT query before self.cur.execute(). Crafted input in server_id could alter the WHERE clause to return role records across servers. The repair uses a %s placeholder and binds (server_id,) as a 1-tuple in self.cur.execute().",
+    "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
+    "reviewer": null
+}

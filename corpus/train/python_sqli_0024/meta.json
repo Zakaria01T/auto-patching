@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0024",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because sourcebyinstitution is percent-formatted inside double quotes in the SQLite query. Crafted input containing quotes could alter the query logic and expose unauthorized records. The repair replaces the formatted value with a '?' placeholder and binds (sourcebyinstitution,) as a tuple in sqlite.execute(), separating data from SQL syntax.",
+    "source": "sven:github.com/miku/siskin/commit/7fa398d2fea72bf2e8b4808f75df4b3d35ae959a",
+    "reviewer": null
+}

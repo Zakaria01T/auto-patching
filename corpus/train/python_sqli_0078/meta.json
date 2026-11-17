@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0078",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(top_num) embeds top_num directly into the LIMIT clause of cmd. Crafted input passed to top_num could alter the query structure to expose unauthorized data. The repair replaces .format() with a %s placeholder and passes data = [top_num, ] to execute_query(), though complete safety depends on the unseen execute_query implementation.",
+    "source": "sven:github.com/thugasin/udacity-homework-logAnalyzer/commit/506f25f9a1caee7f17034adf7c75e0efbc88082b",
+    "reviewer": null
+}

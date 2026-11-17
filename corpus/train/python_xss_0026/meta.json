@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0026",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "This function is vulnerable to Cross-Site Scripting (CWE-79) because an f-string embeds unescaped value directly inside an HTML <li> element. An attacker submitting crafted HTML markup in blog text could execute arbitrary scripts in viewers' browsers. The repair escapes value using html.escape(value, quote=True), blocking HTML injection (the scanner flag persists due to the f-string HTML pattern).",
+    "source": "synthetic:row_027",
+    "reviewer": null
+}

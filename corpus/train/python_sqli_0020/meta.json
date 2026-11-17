@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0020",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(key, value) embeds key and value directly into the INSERT statement passed to cur.execute(). Untrusted input in either argument could break out of the single quotes and execute arbitrary SQL. The repair attempts parameterization with (?, ?), which is invalid in psycopg2 (requires %s) and will fail silently due to the bare except block.",
+    "source": "sven:github.com/tadaren/reply_bot/commit/5aeafa7e9597a766992af9ff8189e1f050b6579b",
+    "reviewer": null
+}

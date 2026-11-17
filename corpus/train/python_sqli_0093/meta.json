@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0093",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(name) embeds name directly inside single quotes in the SELECT statement. Crafted input in name could alter the query to extract unauthorized database records. The repair uses named placeholder %(name)s, but passes a positional tuple (name, ) instead of a dictionary {'name': name}, causing a runtime binding error.",
+    "source": "sven:github.com/tylarb/KarmaBoi-PCF/commit/c1d00a27d7f6b7eb6f15a3dacd4269654a32c10a",
+    "reviewer": null
+}

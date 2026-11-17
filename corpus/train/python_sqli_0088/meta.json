@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0088",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This route is vulnerable to SQL injection (CWE-89) because percent-formatting embeds form input content (as well as cmt_id) directly into SQL queries before cursor.execute(). An attacker submitting crafted comment content could break out of single quotes to modify arbitrary database rows. The repair converts all three queries to unquoted %s placeholders with parameter tuples passed to cursor.execute().",
+    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+    "reviewer": null
+}

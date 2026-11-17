@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0021",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "This function is vulnerable to Cross-Site Scripting (CWE-79) because value is concatenated into an HTML <span> element and marked safe with mark_safe(), disabling Django auto-escaping. Crafted member input containing HTML or script syntax could execute client-side scripts in users' browsers. The repair replaces mark_safe() and concatenation with format_html(), automatically escaping value.",
+    "source": "synthetic:row_021",
+    "reviewer": null
+}

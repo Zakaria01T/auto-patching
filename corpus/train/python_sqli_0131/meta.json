@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0131",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This endpoint is vulnerable to SQL injection (CWE-89) because the HTTP query parameter tag is interpolated directly inside single quotes via .format(tag). An attacker supplying crafted input in tag could manipulate the SELECT statement to leak unauthorized database records. The repair passes args={'tag': tag} to db.exec(sql, args) with quoted '{tag}' in SQL, which cannot be verified as safe without seeing db.exec and resembles string formatting.",
+    "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
+    "reviewer": null
+}

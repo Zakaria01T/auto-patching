@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0035",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because eid is concatenated directly inside single quotes in the SQL query. An attacker providing crafted email input during login could alter the SELECT query and manipulate authentication checks. The repair uses a %s placeholder and passes (eid, ) as a bound tuple to g.conn.execute(), preventing SQL syntax injection.",
+    "source": "sven:github.com/Daniel-Bu/w4111-project1/commit/fe04bedc72e62fd4c4ee046a9af29fd81e9b3340",
+    "reviewer": null
+}

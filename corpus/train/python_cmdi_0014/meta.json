@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0014",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This route is vulnerable to OS command injection (CWE-78) because HTTP POST form input data is passed directly to os.system(data), allowing remote attackers to execute arbitrary OS commands. The repair strips non-alphanumeric characters but retains shell=True in subprocess.Popen(), leaving it insecure because an attacker can still invoke any alphanumeric executable on PATH without an allowlist.",
+    "source": "cybernative:row_639",
+    "reviewer": null
+}

@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0058",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because percent-formatting interpolates user_id directly into the CTE SQL string before cursor.execute(). If non-integer or crafted input reaches user_id, it could manipulate the query to disclose unauthorized database rows. The repair removes string formatting and passes (user_id, user_id, user_id) as bound parameters to cursor.execute().",
+    "source": "sven:github.com/young-goons/rifflo-server/commit/fb311df76713b638c9486250f9badb288ffb2189",
+    "reviewer": null
+}

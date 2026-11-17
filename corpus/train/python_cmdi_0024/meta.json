@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0024",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because raw user_input is passed directly to os.system(command), permitting arbitrary shell execution. The repair restricts user_input to an exact-match allowlist ['ls', 'pwd'], which blocks arbitrary injection, though it unnecessarily retains shell=True in subprocess.Popen() instead of passing a list with shell=False.",
+    "source": "cybernative:row_1750",
+    "reviewer": null
+}

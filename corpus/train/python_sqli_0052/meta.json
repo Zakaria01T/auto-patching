@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0052",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This route uses dynamic SQL percent-formatting (%d) for cmt_id, which is a CWE-89 anti-pattern, although Flask's <int:cmt_id> converter and %d formatting prevent string injection when invoked normally. If called directly without integer coercion, unsafe string construction could risk query manipulation. The repair converts both queries to parameterized %s statements with (cmt_id,) tuples.",
+    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+    "reviewer": null
+}

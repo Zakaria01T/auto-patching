@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0149",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because self.title and self.entry_id are concatenated directly inside single quotes in the UPDATE query string. Crafted input in title or entry_id could alter the UPDATE statement to overwrite arbitrary records. The repair uses '?' placeholders and passes quote_tuple to db_execute(), though safe binding cannot be verified without seeing db_execute.",
+    "source": "sven:github.com/peterlebrun/jdk/commit/000238566fbe55ba09676c3d57af04ae207235ae",
+    "reviewer": null
+}

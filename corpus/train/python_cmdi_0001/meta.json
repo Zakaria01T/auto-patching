@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0001",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This method is vulnerable to OS command injection (CWE-78) because profile_name, self.user, message, and timeout are formatted into a shell command string passed to os.system(cmd). Crafted notification text containing double quotes or shell metacharacters could execute arbitrary OS commands. The repair replaces os.system() with subprocess.Popen(cmd) using an argument list and shell=False by default, preventing shell interpretation.",
+    "source": "sven:github.com/bit-team/backintime/commit/cef81d0da93ff601252607df3db1a48f7f6f01b3",
+    "reviewer": null
+}

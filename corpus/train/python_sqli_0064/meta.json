@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0064",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because eight values are concatenated directly inside single quotes in the INSERT query passed to c.execute(). Untrusted input in any argument could break out of the string literals and execute arbitrary SQL against the database. The repair uses '?' placeholders and binds all eight values in a tuple parameter.",
+    "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
+    "reviewer": null
+}

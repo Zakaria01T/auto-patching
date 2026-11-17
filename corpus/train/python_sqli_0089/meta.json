@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0089",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This route is vulnerable to SQL injection (CWE-89) because the HTTP query parameter varga (and database-derived artha) are percent-formatted directly inside single quotes in two SQLite queries. An attacker controlling varga could manipulate the SELECT queries to read unauthorized database tables. The repair updates both cur.execute() calls to use '?' placeholders with parameter lists [varga] and [varga, artha].",
+    "source": "sven:github.com/aupasana/amara-quiz/commit/6ceb5dc8ec38b4a3f1399e578ab970f7e3354922",
+    "reviewer": null
+}

@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0071",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because f-strings interpolate search directly inside single quotes in both SQLite SELECT queries. Crafted input in search could alter the queries to disclose unauthorized database data. The repair updates both conn.execute() calls to use '?' placeholders with (search,) parameter tuples.",
+    "source": "sven:github.com/BeatButton/beattie/commit/ab36b2053ee09faf4cc9a279cf7a4c010864cb29",
+    "reviewer": null
+}

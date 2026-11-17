@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0019",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is concatenated directly into subprocess.run('ls ' + user_input, shell=True). Crafted input containing shell operators could execute arbitrary OS commands. The repair applies shlex.quote(user_input) while keeping shell=True, which protects POSIX shells but remains ineffective on non-POSIX shells such as Windows and allows flag injection into ls.",
+    "source": "cybernative:row_1409",
+    "reviewer": null
+}

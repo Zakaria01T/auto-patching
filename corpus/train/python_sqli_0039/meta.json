@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0039",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because code is concatenated directly inside single quotes in sql_command before DB_CURSOR.execute(). Crafted input passed as code could alter the query to extract unauthorized database records. The repair replaces the concatenated variable with a %s placeholder and passes (code,) as a tuple parameter to DB_CURSOR.execute(), preventing injection.",
+    "source": "sven:github.com/nus-mtp/cs-modify/commit/79b4b1dd7eba5445751808e4c50b49d2dd08366b",
+    "reviewer": null
+}

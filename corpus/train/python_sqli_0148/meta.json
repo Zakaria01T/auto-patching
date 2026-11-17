@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0148",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This route is vulnerable to SQL injection (CWE-89) because the HTTP query parameter sloka_number is percent-formatted directly inside single quotes in two SQLite SELECT queries. An attacker sending a crafted sloka_number (with valid dot-separated parts) could break out of the literal and read arbitrary database data. The repair updates both cur.execute() calls to use '?' placeholders with [sloka_number].",
+    "source": "sven:github.com/aupasana/amara-quiz/commit/6ceb5dc8ec38b4a3f1399e578ab970f7e3354922",
+    "reviewer": null
+}

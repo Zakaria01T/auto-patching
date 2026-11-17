@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0087",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format() embeds listing_tags_table_name, listing_id, and tag values directly into the INSERT query string. Crafted tags could alter the SQL syntax and execute arbitrary database commands. The repair is broken: it attempts to parameterize the table name with %s (which DB-API drivers quote as a string literal, causing a SQL syntax error) and omits the comma in VALUES (%s %s).",
+    "source": "sven:github.com/tasbir49/BreadWinner/commit/332a9f2c619be399ae94244bb8bd0977fc62bc16",
+    "reviewer": null
+}

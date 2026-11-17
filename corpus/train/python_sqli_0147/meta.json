@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0147",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method uses %d percent-formatting to construct a DELETE statement (a CWE-89 anti-pattern), though %d enforces integer input at runtime. The repair replaces %d with a %s placeholder and passes params=[postid] separately to sql.deleteDB(), though parameter binding safety depends on the unseen sql.deleteDB implementation.",
+    "source": "sven:github.com/ShaominLi/Twitter_project/commit/5329d91f9e569c95184053c8e7ef596949c33ce9",
+    "reviewer": null
+}

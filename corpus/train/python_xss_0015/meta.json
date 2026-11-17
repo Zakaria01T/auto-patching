@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0015",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "This function is vulnerable to Cross-Site Scripting (CWE-79) because .format(value) embeds untrusted input directly into an HTML <section> returned in an HttpResponse without escaping. Crafted input containing HTML or script markup could execute client-side code in victims' browsers. The repair uses Django's format_html(), ensuring value is escaped prior to rendering.",
+    "source": "synthetic:row_014",
+    "reviewer": null
+}

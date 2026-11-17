@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0033",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because raw user_input is executed via subprocess.Popen(..., shell=True), enabling arbitrary shell command execution. The repair removes shell=True and tokenizes input with shlex.split(user_input), which stops shell metacharacter chaining but remains insecure because the caller can still execute any arbitrary binary and arguments without an allowlist.",
+    "source": "cybernative:row_4625",
+    "reviewer": null
+}

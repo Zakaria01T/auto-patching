@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0027",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because raw user input is passed directly to os.system(user_input), permitting arbitrary shell command execution. The repair remains completely vulnerable because subprocess.run(user_input, shell=True, check=True) still executes raw user input inside a system shell.",
+    "source": "cybernative:row_2179",
+    "reviewer": null
+}

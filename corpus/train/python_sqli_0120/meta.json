@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0120",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because inverter_serial is percent-formatted directly inside single quotes in the SQLite SELECT query. Crafted input in inverter_serial could alter the query to extract unauthorized database records. The repair replaces string formatting with an unquoted '?' placeholder and binds (inverter_serial,) as a 1-tuple in self.c.execute().",
+    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
+    "reviewer": null
+}

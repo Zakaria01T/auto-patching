@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0066",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This endpoint is vulnerable to SQL injection (CWE-89) because query parameters tag1 and tag2 are concatenated directly inside single quotes in the SQL query. Crafted input in either parameter could manipulate the SELECT statement to read arbitrary database data. The repair passes args separately to db.exec(sql, args) with '{player1}' and '{player2}' inside single quotes, which cannot be verified as safe without inspecting db.exec.",
+    "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
+    "reviewer": null
+}

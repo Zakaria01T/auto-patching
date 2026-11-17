@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0054",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because from_date_added is percent-formatted directly into the SQLite query inside self.cursor.execute(). Untrusted input in from_date_added could manipulate the SELECT statement to return unauthorized encrypted records or trigger arbitrary queries. The repair uses a '?' placeholder and binds (from_date_added,) as a tuple parameter.",
+    "source": "sven:github.com/imachug/ZeroMailProxy/commit/8f62d024c6c4c957079d147e59f26d15c07dc888",
+    "reviewer": null
+}

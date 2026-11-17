@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0064",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because path is concatenated directly into subprocess.check_output(\"sha256sum \" + path, shell=True). Crafted input containing shell metacharacters could execute arbitrary OS commands. The repair eliminates subprocess and shell execution by computing the SHA-256 digest natively with hashlib.sha256(Path(path).read_bytes()).hexdigest().",
+    "source": "synthetic:row_096",
+    "reviewer": null
+}

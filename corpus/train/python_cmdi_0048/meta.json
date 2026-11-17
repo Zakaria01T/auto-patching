@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0048",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because path is concatenated directly into os.popen(\"file \" + path), which invokes a system shell. Crafted input containing shell metacharacters could execute arbitrary OS commands on the host. The repair replaces os.popen() with subprocess.check_output([\"file\", \"--\", path], text=True) using shell=False and '--', preventing both shell injection and option injection (the residual scanner flag reflects a generic subprocess rule).",
+    "source": "synthetic:row_080",
+    "reviewer": null
+}

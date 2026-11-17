@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0002",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "This function is vulnerable to OS command injection (CWE-78) because username and encPass are concatenated directly into a shell command string passed to os.system(). Crafted input in username containing shell metacharacters could execute arbitrary commands on the system. The repair uses subprocess.call() with an argument list and shell=False by default, eliminating shell command injection.",
+    "source": "sven:github.com/Internet-of-People/titania-os/commit/9b7805119938343fcac9dc929d8882f1d97cf14a",
+    "reviewer": null
+}

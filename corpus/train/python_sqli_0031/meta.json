@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0031",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because f-strings interpolate lang directly into both the INSERT and SELECT queries passed to cur.execute(). An attacker controlling lang could break out of single quotes to execute arbitrary SQL statements. The repair updates both queries to use unquoted %s placeholders with (lang, ) parameter tuples so the driver treats lang strictly as data.",
+    "source": "sven:github.com/Elbertbiggs360/dvdrental/commit/ad144ae2a08a332498d0831bc255170d57ba754b",
+    "reviewer": null
+}

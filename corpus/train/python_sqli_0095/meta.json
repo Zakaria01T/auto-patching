@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0095",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because percent-formatting embeds ts, inv_serial, and telemetry values directly into the SQLite INSERT query. Crafted values in data could alter the SQL command and corrupt database records. The repair uses '?' placeholders and passes all four values as a bound tuple to self.c.execute().",
+    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
+    "reviewer": null
+}

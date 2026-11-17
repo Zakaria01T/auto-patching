@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0096",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "This method is vulnerable to SQL injection (CWE-89) because self.table, mType, value, and id are percent-formatted directly into the UPDATE query. Crafted values in value, mType, or identifier could alter the UPDATE statement and corrupt records. The repair binds value and id using $1/$2 placeholders in self._query(query, *args), though self.table and column name mType remain percent-formatted and self._query is not shown.",
+    "source": "sven:github.com/cheshire3/cheshire3/commit/d350363b4ea10f102c24c8f26d7b76b006323e8e",
+    "reviewer": null
+}
