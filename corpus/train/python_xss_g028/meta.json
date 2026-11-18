@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g028",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped license plate with html.escape before inserting into permit span.",
+    "source": "generated:openrouter/nvidia/nemotron-3-ultra-550b-a55b:free:2026-11-18:candidates/xss-02.jsonl:9",
+    "reviewer": null
+}

@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g004",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the video path as the value of ffmpeg's -i argument in a subprocess.run list without invoking a shell.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:6",
+    "reviewer": null
+}

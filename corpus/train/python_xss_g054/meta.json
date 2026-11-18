@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g054",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the notice message with html.escape before inserting it into the broadcast banner.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-03.jsonl:15",
+    "reviewer": null
+}

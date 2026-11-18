@@ -1,9 +1,0 @@
-{
-    "id": "python_xss_0001",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "This template filter is vulnerable to Cross-Site Scripting (CWE-79) because it marks raw serialized JSON with mark_safe(), disabling Django auto-escaping. When rendered inside HTML or inline script tags, untrusted values containing HTML or script-closing sequences can execute arbitrary JavaScript in victims' browsers. The repair translates characters using _safe_js_escapes before mark_safe(), though completeness cannot be verified because _safe_js_escapes is not defined in this snippet.",
-    "source": "sven:github.com/djblets/djblets/commit/77a68c03cd619a0996f3f37337b8c39ca6643d6e",
-    "reviewer": null
-}

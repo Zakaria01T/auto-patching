@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0008",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because str(tid_num) is concatenated directly into the SQL query string. Crafted input in tid_num could manipulate the WHERE condition to retrieve unauthorized rows. The repair switches to a '?' placeholder and passes tid_num separately to self.query, but the repair cannot be fully verified without seeing self.query and passes a bare scalar instead of a sequence.",
-    "source": "sven:github.com/pukkapies/urop2019/commit/3ca2e2c291d2d5fe262d20a8e0520bdfb622432b",
-    "reviewer": null
-}

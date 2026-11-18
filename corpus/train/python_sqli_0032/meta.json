@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0032",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because percent-formatting embeds judge directly inside single quotes in the UPDATE query. Crafted input in judge could alter the WHERE clause to grant judge status to unintended players. The repair uses a '?' placeholder, but passes the bare string judge instead of a 1-tuple (judge,), which fails in standard sqlite3 execute() calls.",
-    "source": "sven:github.com/iScrE4m/XLeague/commit/59cab6e5fd8bd5e47f2418a7c71cb1d4e3cad0d2",
-    "reviewer": null
-}

@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0004",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because base (derived from url) is percent-formatted into four os.system() shell command strings. A crafted URL whose basename includes shell metacharacters could execute arbitrary OS commands during verification. The repair converts all four calls to subprocess.check_call() with argument lists and shell=False by default.",
-    "source": "sven:github.com/rillian/rust-build/commit/b8af51e5811fcb35eff9e1e3e91c98490e7a7dcb",
-    "reviewer": null
-}

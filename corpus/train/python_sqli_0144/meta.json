@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because an f-string embeds attacker-controllable HTTP request fields (such as user_agent, referrer, and full_path) directly inside single quotes in the INSERT query. An attacker sending crafted headers or URLs could escape the string literals and execute arbitrary SQL statements. The repair uses unquoted %s placeholders and passes all five values as a bound tuple to cursor.execute().",
+    "explanation": "Uses unquoted %s placeholders and passes all five values as a bound tuple to cursor.execute().",
     "source": "sven:github.com/onewyoming/onewyoming/commit/54fc7b076fda2de74eeb55e6b75b28e09ef231c2",
     "reviewer": null
 }

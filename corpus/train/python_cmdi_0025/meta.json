@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0025",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is concatenated into subprocess.Popen('ls ' + user_input, shell=True). Crafted input containing shell operators could execute arbitrary OS commands. The repair enforces a single alphabetic argument and calls subprocess.Popen(['ls', args[0]]) with shell=False, eliminating both shell and flag injection.",
-    "source": "cybernative:row_1871",
-    "reviewer": null
-}

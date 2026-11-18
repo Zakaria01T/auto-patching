@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because str(index) is concatenated directly into the PostgreSQL SELECT query. Untrusted input passed as index could manipulate the WHERE clause to extract unauthorized database records. The repair replaces concatenation with a %s placeholder and binds (index, ) as a 1-tuple in cur.execute(), separating query logic from data.",
+    "explanation": "Replaces concatenation with a %s placeholder and binds (index, ) as a 1-tuple in cur.execute(), separating query logic from data.",
     "source": "sven:github.com/sepehr125/arxiv-doc2vec-recommender/commit/f23a4c32e6192b145017f64734b0a9a384c9123a",
     "reviewer": null
 }

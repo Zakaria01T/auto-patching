@@ -5,7 +5,7 @@ def post(self):
         return jsonify({"msg": "Missing email"}), 400
 
     data = database_utilities.execute_query(
-        f"""select * from admins where email = %s""", (json_data['email'], ))
+        """select * from admins where email = %s""", (json_data['email'], ))
     if data:
         email = data[0]['email']
         access_token = create_access_token(identity=email)

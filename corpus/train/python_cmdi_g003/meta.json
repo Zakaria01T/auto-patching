@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g003",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the upload path and destination as separate unzip arguments to subprocess.run instead of interpolating them into a shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:4",
+    "reviewer": null
+}

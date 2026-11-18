@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because language[0] is percent-formatted directly inside double quotes in the SQLite INSERT query. Crafted input containing double quotes could escape the literal and execute arbitrary SQL. The repair uses an unquoted '?' placeholder and binds t = (language[0], ) as a 1-tuple in self.cursor.execute().",
+    "explanation": "Uses an unquoted '?' placeholder and binds t = (language[0], ) as a 1-tuple in self.cursor.execute().",
     "source": "sven:github.com/ecosl-developers/ecosl/commit/8af050a513338bf68ff2a243e4a2482d24e9aa3a",
     "reviewer": null
 }

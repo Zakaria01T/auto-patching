@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0066",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because an f-string interpolates path directly into subprocess.run(..., shell=True). Crafted input containing shell operators could execute arbitrary OS commands. The repair uses an argument list [\"wc\", \"-c\", \"--\", path] with shell=False and '--', preventing shell and flag injection.",
-    "source": "synthetic:row_098",
-    "reviewer": null
-}

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(id=id) embeds id directly into the SELECT query inside db.execute(). Crafted input in id could alter the query to disclose unauthorized database data. The repair replaces formatting with a %s placeholder and binds (id,) as a tuple parameter so the driver safely escapes the value.",
+    "explanation": "Replaces formatting with a %s placeholder and binds (id,) as a tuple parameter so the driver safely escapes the value.",
     "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
     "reviewer": null
 }

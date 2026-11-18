@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function uses dynamic SQL formatting (.format(w=w, l=l)), which is a CWE-89 anti-pattern, although int(winner) and int(loser) already reject non-integer strings before formatting. If integer validation were removed or bypassed via custom objects, crafted values could alter the INSERT statement. The repair replaces .format() with %s placeholders and passes (w,l) as bound parameters to c.execute().",
+    "explanation": "Replaces .format() with %s placeholders and passes (w,l) as bound parameters to c.execute().",
     "source": "sven:github.com/tdnelson2/tournament-db/commit/00f3caeed0e12e806c2808d100908698777d9e98",
     "reviewer": null
 }

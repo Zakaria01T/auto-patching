@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g002",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Built a tar argument list with -- before the folder and passed it to subprocess.run without a shell.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:3",
+    "reviewer": null
+}

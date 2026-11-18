@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because f-strings embed user profile attributes (first_name, nickname, last_name, language, chat_id) directly into the INSERT statement. A user setting crafted profile strings could escape single quotes and execute arbitrary SQL. The repair substitutes %s placeholders and passes parameters as a tuple to db.add(), though complete safety depends on the unseen db.add wrapper.",
+    "explanation": "Substitutes %s placeholders and passes parameters as a tuple to db.add().",
     "source": "sven:github.com/RandyRomero/photoGPSbot/commit/0e9f57f13e61863b3672f5730e27f149da00786a",
     "reviewer": null
 }

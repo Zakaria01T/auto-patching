@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0062",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because path is concatenated directly into subprocess.check_output(\"cat \" + path, shell=True). Crafted input with shell metacharacters could execute arbitrary OS commands. The repair eliminates external process and shell execution entirely by reading the file directly via Path(path).read_bytes().",
-    "source": "synthetic:row_094",
-    "reviewer": null
-}

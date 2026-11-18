@@ -10,8 +10,8 @@ def set_language(self, lang):
     self.language = lang
 
     query = ("UPDATE users "
-             f"SET language=%s "
-             f"WHERE chat_id=%s")
+             "SET language=%s "
+             "WHERE chat_id=%s")
 
     parameters = self.language, self.chat_id
     try:

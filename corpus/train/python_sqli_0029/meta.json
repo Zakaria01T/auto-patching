@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because an f-string directly embeds user_id inside single quotes in the DELETE query. An attacker controlling user_id could alter the WHERE clause to delete arbitrary user accounts. The repair replaces the interpolated expression with %s and passes (user_id, ) separately, though complete safety cannot be verified without seeing database_utilities.execute_query.",
+    "explanation": "Replaces the interpolated expression with %s and passes (user_id, ) separately.",
     "source": "sven:github.com/sgosal2/tiger-boards-backend/commit/4670109dd613df2f2fe7e8403ebd149df2b55485",
     "reviewer": null
 }

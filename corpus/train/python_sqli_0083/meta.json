@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because the % operator formats money, user_id, and project_id directly into three SQL statements before self.cursor.execute(). Untrusted values could alter the UPDATE or INSERT queries to manipulate balances or database records. The repair passes parameter tuples as the second argument to all three execute() calls, ensuring proper driver-level binding.",
+    "explanation": "Passes parameter tuples as the second argument to all three execute() calls, ensuring proper driver-level binding.",
     "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
     "reviewer": null
 }

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because an f-string embeds email directly inside single quotes in the SELECT query. Crafted input in email could manipulate the query to disclose unauthorized admin accounts. The repair replaces the interpolated expression with %s and passes (email, ) separately, though complete safety cannot be verified without seeing database_utilities.execute_query.",
+    "explanation": "Replaces the interpolated expression with %s and passes (email, ) separately.",
     "source": "sven:github.com/sgosal2/tiger-boards-backend/commit/4670109dd613df2f2fe7e8403ebd149df2b55485",
     "reviewer": null
 }

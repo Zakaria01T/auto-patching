@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g008",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the folder after -- as an argument list item to subprocess.run rather than concatenating it into a du shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:10",
+    "reviewer": null
+}

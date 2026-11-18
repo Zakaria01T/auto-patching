@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g036",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped device name with html.escape before inserting into label.",
+    "source": "generated:openrouter/nvidia/nemotron-3-ultra-550b-a55b:free:2026-11-18:candidates/xss-02.jsonl:17",
+    "reviewer": null
+}

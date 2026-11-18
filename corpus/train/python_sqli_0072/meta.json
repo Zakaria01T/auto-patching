@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0072",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(data) embeds user input directly inside single quotes in the INSERT query. Crafted input in data could break out of the string literal and execute arbitrary SQL commands. The repair switches to a %s placeholder, but passes bare data instead of a 1-tuple (data,) to cursor.execute(), causing a binding failure in standard DB-API drivers.",
-    "source": "sven:github.com/rwolf527/crimemap/commit/50b0695e0b4c46165e6146f6fac4cd6871d9fdf6",
-    "reviewer": null
-}

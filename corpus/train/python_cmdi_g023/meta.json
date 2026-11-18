@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g023",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Restricted the record type to an allow-list and passed the host through dig's -q option as a separate argument instead of a shell string.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:7",
+    "reviewer": null
+}

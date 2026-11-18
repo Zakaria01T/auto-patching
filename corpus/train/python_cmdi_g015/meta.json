@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g015",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the directory after -- to ls through a subprocess.check_output argument list, removing the shell.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:18",
+    "reviewer": null
+}

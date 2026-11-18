@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g009",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the URL after -- to curl as a list argument, removing the shell from subprocess.check_output.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:11",
+    "reviewer": null
+}

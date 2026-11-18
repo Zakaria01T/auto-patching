@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g005",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the username with markupsafe.escape before formatting it into the profile badge.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:5",
+    "reviewer": null
+}

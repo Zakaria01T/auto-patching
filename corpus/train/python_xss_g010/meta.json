@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g010",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Restricted the job URL to http and https schemes and escaped it with html.escape before building the link.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:10",
+    "reviewer": null
+}

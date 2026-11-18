@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because form parameter search is percent-formatted directly inside single quotes in the SQL query passed to db.query(). An attacker submitting crafted search input could alter the SELECT statement to read arbitrary database contents. The repair uses a $1 positional placeholder and passes search separately, though parameter binding depends on the external db.query implementation not shown.",
+    "explanation": "Uses a $1 positional placeholder and passes search separately.",
     "source": "sven:github.com/jcortes0309/wiki_flask/commit/a6bf5316abe2eb528adf36c8241a013fd02c5ffa",
     "reviewer": null
 }

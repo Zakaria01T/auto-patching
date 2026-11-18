@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This login route is vulnerable to SQL injection (CWE-89) because .format(user, password) interpolates form fields directly inside single quotes in cur.execute(). An attacker submitting crafted credentials could alter the query logic to bypass authentication without valid credentials. The repair uses '?' placeholders and passes [user, password] as a parameter list so the database binds both values safely.",
+    "explanation": "Uses '?' placeholders and passes [user, password] as a parameter list so the database binds both values safely.",
     "source": "sven:github.com/ChemiKyle/Waterspots/commit/3f9d5099496336f3f34c48abf0cf55acaaa29011",
     "reviewer": null
 }

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because percent-formatting embeds name directly inside single quotes in the INSERT query. Crafted input in name could break out of the string literal to execute arbitrary SQL commands. The repair removes the surrounding quotes around %s and passes (name,) as a parameter tuple to cursor.execute(), isolating data from SQL syntax.",
+    "explanation": "Removes the surrounding quotes around %s and passes (name,) as a parameter tuple to cursor.execute(), isolating data from SQL syntax.",
     "source": "sven:github.com/sarahkcaplan/tournament/commit/40aba5686059f5f398f6323b1483412c56140cc0",
     "reviewer": null
 }

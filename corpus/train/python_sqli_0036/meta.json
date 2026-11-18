@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because an f-string embeds user-controlled search_string directly into the SQL query inside cur.execute(). An attacker submitting crafted search terms could break out of the single quotes and execute arbitrary SQL statements. The repair uses a %s placeholder inside to_tsquery(%s) and passes (search_string, ) as a bound tuple to cur.execute().",
+    "explanation": "Uses a %s placeholder inside to_tsquery(%s) and passes (search_string, ) as a bound tuple to cur.execute().",
     "source": "sven:github.com/Elbertbiggs360/dvdrental/commit/ad144ae2a08a332498d0831bc255170d57ba754b",
     "reviewer": null
 }

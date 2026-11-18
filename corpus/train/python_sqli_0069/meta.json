@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because the result of getTitle(submission) is concatenated directly inside single quotes in the SQLite query. Crafted title text could alter the SELECT statement to expose unauthorized database data. The repair uses a '?' placeholder and passes [getTitle(submission)] as a bound parameter list to cursor.execute().",
+    "explanation": "Uses a '?' placeholder and passes [getTitle(submission)] as a bound parameter list to cursor.execute().",
     "source": "sven:github.com/LiquidFun/Reddit-GeoGuessr-Tracking-Bot/commit/0cad2d52e24b05da32789fbc8face7a9999a71f9",
     "reviewer": null
 }

@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g036",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Restricted the encoding to an allow-list, opened the output in Python, and passed the source as a separate argument after -- to subprocess.run.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:20",
+    "reviewer": null
+}

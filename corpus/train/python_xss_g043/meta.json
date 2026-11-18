@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g043",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Passed the donor name through Django format_html for automatic escaping before rendering the receipt.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-03.jsonl:4",
+    "reviewer": null
+}

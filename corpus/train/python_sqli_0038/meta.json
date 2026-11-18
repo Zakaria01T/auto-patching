@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because user-supplied form content is percent-formatted directly into the INSERT query string. An attacker submitting crafted comment text could break out of the single quotes and execute arbitrary SQL commands. The repair replaces string interpolation with %s placeholders and passes (msg_id, user_id, content, c_time) as a parameter tuple to cursor.execute().",
+    "explanation": "Replaces string interpolation with %s placeholders and passes (msg_id, user_id, content, c_time) as a parameter tuple to cursor.execute().",
     "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
     "reviewer": null
 }

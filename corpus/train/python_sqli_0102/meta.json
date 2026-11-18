@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(playlist_id=playlist_id) inserts playlist_id directly into the SELECT query inside db.execute(). Crafted input in playlist_id could alter the WHERE clause to access unauthorized database data. The repair replaces string formatting with a %s placeholder and binds (playlist_id,) as a tuple parameter, separating SQL code from data.",
+    "explanation": "Replaces string formatting with a %s placeholder and binds (playlist_id,) as a tuple parameter, separating SQL code from data.",
     "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
     "reviewer": null
 }

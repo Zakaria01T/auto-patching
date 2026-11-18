@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0063",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function uses %i percent-formatting to construct an UPDATE statement (a CWE-89 anti-pattern), though %i rejects non-integer strings at runtime. The repair replaces %i with '?' placeholders, but passes Played and ID as separate positional arguments instead of a single tuple (Played, ID), which raises a TypeError in standard sqlite3.Cursor.execute().",
-    "source": "sven:github.com/iScrE4m/XLeague/commit/59cab6e5fd8bd5e47f2418a7c71cb1d4e3cad0d2",
-    "reviewer": null
-}

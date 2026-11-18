@@ -1,9 +1,0 @@
-{
-    "id": "python_xss_0002",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "This template tag is vulnerable to Cross-Site Scripting (CWE-79) because user display names, URLs, and sizes are percent-formatted directly into raw HTML without escaping. A user setting a crafted full name or username could inject HTML attributes or markup to execute scripts in viewers' browsers. The repair uses Django's format_html(), which automatically HTML-escapes all interpolated arguments.",
-    "source": "sven:github.com/djblets/djblets/commit/77ac64642ad530bf69e390c51fc6fdcb8914c8e7",
-    "reviewer": null
-}

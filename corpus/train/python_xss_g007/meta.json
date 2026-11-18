@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g007",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the error detail with html.escape before formatting it into the error box.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:7",
+    "reviewer": null
+}

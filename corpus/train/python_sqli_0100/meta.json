@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0100",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(scene) inserts scene directly inside single quotes in the SELECT statement. Crafted scene values could alter the query to extract unauthorized database records. The repair passes args={'scene': scene} to db.exec(sql, args) with quoted '{scene}' in SQL, which cannot be verified as safe without seeing db.exec and resembles string formatting.",
-    "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
-    "reviewer": null
-}

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This login method is vulnerable to SQL injection (CWE-89) because .format(username, password) embeds user credentials directly inside single quotes in select_query. An attacker supplying crafted username or password input could alter the WHERE clause to bypass authentication. The repair uses '?' placeholders and passes (username, password) as a bound tuple to cursor.execute().",
+    "explanation": "Uses '?' placeholders and passes (username, password) as a bound tuple to cursor.execute().",
     "source": "sven:github.com/AnetaStoycheva/Programming101_HackBulgaria/commit/c0d6f4b8fe83a375832845a45952b5153e4c34f3",
     "reviewer": null
 }

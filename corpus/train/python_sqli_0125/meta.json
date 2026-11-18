@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format() inserts new_pass and logged_user.get_client_id() directly inside single quotes in the UPDATE query. A user setting a crafted password containing quotes could alter the UPDATE statement to overwrite arbitrary client records. The repair uses '?' placeholders and binds both values as a tuple in cursor.execute().",
+    "explanation": "Uses '?' placeholders and binds both values as a tuple in cursor.execute().",
     "source": "sven:github.com/AnetaStoycheva/Programming101_HackBulgaria/commit/c0d6f4b8fe83a375832845a45952b5153e4c34f3",
     "reviewer": null
 }

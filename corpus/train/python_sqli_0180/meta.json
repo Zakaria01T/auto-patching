@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0180",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because value is concatenated directly inside single quotes in the UPDATE query. Untrusted input in value could manipulate the WHERE clause and modify arbitrary audit records. The repair uses an unquoted %s placeholder and binds (value,) as a 1-tuple in cursor.execute().",
-    "source": "synthetic:row_063",
-    "reviewer": null
-}

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(name=name) interpolates name directly inside single quotes in the INSERT query. Crafted input in name could escape the literal and execute arbitrary SQL statements. The repair uses an unquoted %s placeholder and binds (name,) as a 1-tuple in db.execute().",
+    "explanation": "Uses an unquoted %s placeholder and binds (name,) as a 1-tuple in db.execute().",
     "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
     "reviewer": null
 }

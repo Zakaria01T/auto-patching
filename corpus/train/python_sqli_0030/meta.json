@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(rno = rno) injects rno directly into the SQL query before self.cursor.execute(). Crafted input in rno could manipulate the query logic and bypass ride verification or extract data. The repair uses a named :rno placeholder and passes {'rno': rno} to execute(), ensuring the database driver binds the parameter safely.",
+    "explanation": "Uses a named :rno placeholder and passes {'rno': rno} to execute(), ensuring the database driver binds the parameter safely.",
     "source": "sven:github.com/kenboo98/291-Mini-Project-I/commit/3080ccb687c79c83954ce703faee8fcceec8c9eb",
     "reviewer": null
 }

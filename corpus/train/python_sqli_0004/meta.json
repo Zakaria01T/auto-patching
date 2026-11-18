@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0004",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(TABLE_NAME, pth) embeds pth directly inside single quotes in the SQL command. An attacker controlling pth could break out of the string literal to alter the query and extract unauthorized data. The repair parameterizes pth using a '?' placeholder and tuple params=(pth,), though TABLE_NAME remains formatted into the query and self._run_command's binding behavior is not visible here.",
-    "source": "sven:github.com/Highstaker/Picture-sender-telegram-bot/commit/db4bc6adb41e086418761426ff4958a81c30adca",
-    "reviewer": null
-}

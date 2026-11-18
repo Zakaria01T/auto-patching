@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0172",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because an f-string embeds value directly inside single quotes in the SELECT query. Crafted input in value could manipulate the query logic and disclose unauthorized member records. The repair substitutes an unquoted %s placeholder and passes (value,) as a bound parameter tuple to cursor.execute().",
-    "source": "synthetic:row_055",
-    "reviewer": null
-}

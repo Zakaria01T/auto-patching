@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) due to concatenating str(submission.id) directly into the SQLite query inside cursor.execute(). If submission.id contains attacker-controlled characters, it could alter the query structure to read unauthorized data. The repair replaces concatenation with a '?' placeholder and passes [str(submission.id)] as a bound parameter list so SQLite separates query logic from data.",
+    "explanation": "Replaces concatenation with a '?' placeholder and passes [str(submission.id)] as a bound parameter list so SQLite separates query logic from data.",
     "source": "sven:github.com/LiquidFun/Reddit-GeoGuessr-Tracking-Bot/commit/0cad2d52e24b05da32789fbc8face7a9999a71f9",
     "reviewer": null
 }

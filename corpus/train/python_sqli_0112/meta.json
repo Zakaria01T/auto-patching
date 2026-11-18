@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0112",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because tag is concatenated directly inside single quotes in the SQL query string passed to self.query(). Crafted input in tag could manipulate the WHERE clause to access unauthorized rows. The repair uses a '?' placeholder and passes tag separately to self.query, though safety cannot be verified without seeing self.query and because a bare scalar is passed instead of a sequence.",
-    "source": "sven:github.com/pukkapies/urop2019/commit/3ca2e2c291d2d5fe262d20a8e0520bdfb622432b",
-    "reviewer": null
-}

@@ -7,7 +7,7 @@ def _add_to_db(user):
     """
     query = ("INSERT INTO users (chat_id, first_name, nickname, "
              "last_name, language) "
-             f"VALUES (%s, %s, %s, %s, %s)")
+             "VALUES (%s, %s, %s, %s, %s)")
 
     parameters = (user.chat_id, user.first_name, user.nickname,
                   user.last_name, user.language)

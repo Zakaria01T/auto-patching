@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g006",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the search pattern after -- as its own grep argument to subprocess.check_output instead of embedding it in a shell string.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:8",
+    "reviewer": null
+}

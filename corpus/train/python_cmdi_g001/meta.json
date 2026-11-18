@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g001",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the host as a separate argument after -- to subprocess.run instead of concatenating it into an os.system shell string.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:1",
+    "reviewer": null
+}

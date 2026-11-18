@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0070",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because self.entry_id and CURRENT_DATESTAMP are concatenated directly into the UPDATE query string. Untrusted input in self.entry_id could alter the WHERE predicate and modify unrelated rows. The repair switches to '?' placeholders and passes quote_tuple to db_execute(), though safe binding cannot be confirmed without seeing db_execute.",
-    "source": "sven:github.com/peterlebrun/jdk/commit/000238566fbe55ba09676c3d57af04ae207235ae",
-    "reviewer": null
-}

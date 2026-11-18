@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0025",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "Although flagged as SQL injection (CWE-89) for formatting top_limit into query with %d, top_limit is already coerced to an integer via int() before interpolation, so injection is not reachable in the vulnerable snippet. Still, dynamic query formatting is an unsafe pattern if refactored later. The repair switches to a '?' placeholder, but passes a bare string str(top_limit) instead of a 1-tuple (top_limit,), which will raise a binding error for multi-digit limits in SQLite.",
-    "source": "sven:github.com/OpCode1300/sopel-karma/commit/e4d49f7b3d88f8874c7862392f3f4c2065a25695",
-    "reviewer": null
-}

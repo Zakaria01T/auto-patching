@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0007",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is concatenated into a shell string executed via subprocess.check_output(..., shell=True). Crafted input with shell separators could execute arbitrary OS commands. The repair passes ['ls', user_input] as a list to subprocess.check_output() without shell=True, preventing shell command injection (though '--' is omitted for flag-injection hardening).",
-    "source": "cybernative:row_56",
-    "reviewer": null
-}

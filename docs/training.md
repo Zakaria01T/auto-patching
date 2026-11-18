@@ -130,3 +130,57 @@ python3 training/c_dataset/export.py
 ```
 
 `autopatch-casecheck` is `python:3.12-slim` with gcc, cppcheck and `requirements-scanners.txt`.
+
+## Python rows
+
+[`training/python_rows.jsonl`](../training/python_rows.jsonl) holds 215 Python rows in the schema above: 106 `sql_injection`, 62 `xss`, 47 `command_injection`. The cases live in `corpus/train/python_*` (`vulnerable.py`, `repair.py`, `meta.json`).
+
+### Sources
+
+| Source | SQL injection | XSS | Command injection | Total |
+| --- | --- | --- | --- | --- |
+| `sven:` (SVEN, real commits) | 101 | 0 | 1 | 102 |
+| `synthetic:` (LLM, PR #22) | 5 | 3 | 5 | 13 |
+| `cybernative:` (LLM, CyberNative DPO) | 0 | 0 | 5 | 5 |
+| `generated:` (DeepSeek v4.1 Flash) | 0 | 40 | 36 | 76 |
+| `generated:` (Nemotron 3 Ultra) | 0 | 19 | 0 | 19 |
+| Total | 106 | 62 | 47 | 215 |
+
+113 of 215 rows are LLM-generated. Real XSS and command injection data is still thin: one real row in 109.
+
+### Cleaning (`clean.py`)
+
+The 280 rows of PR #22 were re-scanned with `scanner/scan.py`. 176 of them named rules that are not in `scanner/rules` (`python-sql-execute-dynamic`, `python-sql-percent-or-format`, `python-command-popen-getoutput`, `python-xss-mark-safe`, `python-xss-html-percent-or-format`), so each `finding` is now the repo scanner's own: the row's CWE, a rule the repair no longer reports, preferably on a changed line. A row was dropped when:
+
+| Reason | Rows |
+| --- | --- |
+| Near duplicate (0.85) of a kept row | 68 |
+| The explanation names a defect in the repair (bare scalar instead of a tuple, table name still formatted, ...) | 33 |
+| The scanner still reports the rule on the repair (12 of them false positives: escaped HTML built by concatenation, or a clean query) | 21 |
+| Command injection repair keeps a shell (`shell=True`, `os.system`, `os.popen`) | 17 |
+| No finding of the row's CWE on the vulnerable version | 10 |
+| Explanation still hedged after cutting | 5 |
+| Command injection repair leaves a user value where it can be read as an option | 4 |
+| Quoted SQL placeholder (`'%s'`, `'{name}'`) | 2 |
+
+280 rows → 120. Every explanation is cut to its "The repair ..." sentence without the hedge; the `flags` field is gone. Per-case decisions: `training/python_dataset/clean.json`.
+
+### Generated rows (`validate.py`)
+
+Candidates were written by free models through OpenCode, in a container with no access to the repository, from the prompts in `training/python_dataset/prompts/`; the raw output is in `candidates/`. A candidate becomes a row only if both versions are one function of at most 30 lines and parse; the explanation is one sentence of at most 30 words without hedges; the scanner reports the class's CWE on the vulnerable version and no longer reports that rule on the repair; command injection repairs keep no shell and pass no user value where it can be read as an option (it must follow `--` or an option flag, or the function rejects a leading `-` or checks an allow-list); XSS repairs escape; and the vulnerable function is less than 0.85 similar to `corpus/dev/`, the gold cases, `benchmark/` and every other row. 100 candidates → 95 rows (3 argument injection, 1 near duplicate, 1 repair that does not escape). Per-candidate decisions: `validate.json`.
+
+A random sample of 20 generated rows was read by a second model (Claude Sonnet) for what the scanner cannot check (correct fix, same behaviour on normal input, realistic code): 17 OK, 2 minor (one strict size check, one contrived request source), 1 argument injection, which led to the option check above.
+
+### Limits
+
+- Scanner false positives: the HTML rules flag any concatenation or f-string that builds HTML, even after `html.escape`, so the XSS repairs build HTML with `str.format` or `format_html`.
+- The repo scanner does not flag `str.format` or `%` HTML, `mark_safe` (except Bandit B308) or `subprocess.getoutput`; such bugs are not in the data.
+- The generated rows are not yet reviewed by a person (`reviewer` is `null`).
+
+### Rebuild
+
+```bash
+training/python_dataset/build.sh
+```
+
+It restores the PR #22 rows (commit `1c2a952`), runs `clean.py`, then `validate.py` on the candidates, in the `autopatch-casecheck` image with the network off. The model runs are not repeated: the candidates are kept in the repository.

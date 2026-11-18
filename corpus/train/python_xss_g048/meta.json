@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g048",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Passed the bidder name through Django format_html for automatic escaping before building the bid row.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-03.jsonl:9",
+    "reviewer": null
+}

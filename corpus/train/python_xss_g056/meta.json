@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g056",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the recipient name with markupsafe.escape before inserting it into the label preview.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-03.jsonl:17",
+    "reviewer": null
+}

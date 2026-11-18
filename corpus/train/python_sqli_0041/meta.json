@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(event_id) interpolates event_id directly into the DELETE query. An attacker supplying crafted input as event_id could alter the WHERE condition and delete unintended rows from the events table. The repair replaces string formatting with a %s placeholder and passes (event_id,) as a parameter tuple to self.cur.execute(), separating SQL syntax from data.",
+    "explanation": "Replaces string formatting with a %s placeholder and passes (event_id,) as a parameter tuple to self.cur.execute(), separating SQL syntax from data.",
     "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
     "reviewer": null
 }
