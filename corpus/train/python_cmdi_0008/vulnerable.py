@@ -1,3 +1,3 @@
-def execute_command(user_input):
-    command = "ls -l " + user_input
-    os.system(command)
+def delete_folder(path):
+    import os
+    os.system("rm -rf " + path)

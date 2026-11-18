@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0003",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because filename, basename, and target are interpolated directly into three os.system() shell command strings. Crafted filenames or target paths containing shell operators could execute arbitrary OS commands. The repair replaces all three os.system() calls with subprocess.check_call() using argument lists and shell=False by default, preventing shell injection.",
-    "source": "sven:github.com/rillian/rust-build/commit/b8af51e5811fcb35eff9e1e3e91c98490e7a7dcb",
-    "reviewer": null
+  "id": "python_cmdi_0003",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Removes external process and shell execution completely by computing the SHA-256 digest in Python with hashlib.sha256(Path(path).read_bytes()).hexdigest().",
+  "source": "synthetic:row_071",
+  "reviewer": null
 }

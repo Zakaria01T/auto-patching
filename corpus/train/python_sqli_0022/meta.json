@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0022",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because the URL path parameter page_name is percent-formatted directly into the SQL query passed to db.query(). An attacker requesting a crafted path could manipulate the SELECT statement to read unauthorized data. The repair switches to a $1 placeholder and passes page_name separately, though parameter binding safety depends on the external db.query implementation not shown.",
-    "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
-    "reviewer": null
+  "id": "python_sqli_0022",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Switches to a '?' placeholder, but passes a bare string str(top_limit) instead of a 1-tuple (top_limit,), which will raise a binding error for multi-digit limits in SQLite.",
+  "source": "sven:github.com/OpCode1300/sopel-karma/commit/e4d49f7b3d88f8874c7862392f3f4c2065a25695",
+  "reviewer": null
 }

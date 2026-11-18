@@ -1,3 +1,4 @@
-def render_notification_html(value):
-    from html import escape
-    return "<div class=\"notification\">" + escape(value, quote=True) + "</div>"
+def greet(user):
+    from django.utils.html import format_html
+    from django.utils.translation import gettext as _
+    return format_html(_("Hello {}"), user.username)

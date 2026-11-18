@@ -1,3 +1,6 @@
-def render_team_html(value):
-    from html import escape
-    return f"<li data-kind=\"team\">{escape(value, quote=True)}</li>"
+def example(value):
+    from markupsafe import Markup, escape
+    from django.utils.html import format_html
+    import html
+    import bleach
+    return render_template("profile.html", bio=user_bio)

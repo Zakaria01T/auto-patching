@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0098",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because current_num is percent-formatted directly inside double quotes in the SQLite SELECT query. Crafted input containing double quotes could escape the literal and alter the query. The repair replaces formatting with an unquoted '?' placeholder and binds (current_num,) as a 1-tuple in cursor.execute().",
-    "source": "sven:github.com/lord63/a_bunch_of_code/commit/c0d67a1312306fd1257c354bfb5d6cac7643aa29",
-    "reviewer": null
+  "id": "python_sqli_0098",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Passes args={'tag': tag} to db.exec(sql, args) with quoted '{tag}' in SQL, which cannot be verified as safe without seeing db.exec and resembles string formatting.",
+  "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
+  "reviewer": null
 }

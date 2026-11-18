@@ -1,3 +1,3 @@
-def execute_command(user_input):
-    # Vulnerable code - This may lead to command injection
-    os.system(user_input)
+def copy_report(src, dst):
+    import os
+    os.system("cp %s %s" % (src, dst))

@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0086",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because classNoSpace, derived from the URL path parameter classNum, is concatenated directly into the MySQL SELECT query. Crafted path segments could manipulate the query to disclose unauthorized database data. The repair uses a %s placeholder, but omits the trailing comma in (classNoSpace), passing a bare string instead of a 1-tuple and breaking parameter binding.",
-    "source": "sven:github.com/CaitlinKennedy/Tech-Track/commit/20ef2d4010f9497b8221524edd0c706e2c6a4147",
-    "reviewer": null
+  "id": "python_sqli_0086",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses an unquoted %s placeholder, but passes bare data instead of a 1-tuple (data,) to cursor.execute(), causing a DB-API parameter-binding error for strings.",
+  "source": "sven:github.com/JeremiahO/crimemap/commit/c17537fcd7aa4e2a26f7ca5cefaeb356ff646858",
+  "reviewer": null
 }

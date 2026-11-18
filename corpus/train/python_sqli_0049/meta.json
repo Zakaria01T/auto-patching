@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0049",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because sid is percent-formatted directly inside single quotes in the SELECT query. Untrusted input in id could alter the query to extract unauthorized database records. The repair uses a $1 positional placeholder for sid and passes it to self._query(query, sid), though self.table remains percent-formatted and self._query is not shown.",
-    "source": "sven:github.com/cheshire3/cheshire3/commit/d350363b4ea10f102c24c8f26d7b76b006323e8e",
-    "reviewer": null
+  "id": "python_sqli_0049",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses '?' placeholders and passes (str(value), str(chat_id)) as a bound tuple to conn.execute().",
+  "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
+  "reviewer": null
 }

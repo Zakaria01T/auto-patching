@@ -1,8 +1,5 @@
-def update_date_modified(self):
-  sql = "UPDATE jdk_entries " + \
-    "SET date_last_modified = " + CURRENT_DATESTAMP + " " + \
-    "WHERE jdk_entries.id = '" + self.entry_id + "';"
-
-  db_execute(sql)
-
-  return None
+def save_accepted_transaction(self, user_id, project_id, money):
+    self.cursor.execute("update users set money = money - %s where id = %s"%(money, user_id))
+    self.cursor.execute("update projects set money = money + %s where id = %s" % (money, project_id))
+    self.cursor.execute("insert into transactions (project_id, user_id, money, timestamp, state) values (%s, %s, %s, now(), 'accepted' )" % (project_id, user_id, money))
+    self.db.commit()

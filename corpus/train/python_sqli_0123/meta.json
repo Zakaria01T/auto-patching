@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0123",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function uses %i percent-formatting to construct an UPDATE statement (a CWE-89 anti-pattern), though %i rejects non-integer strings at runtime. The repair replaces %i with a '?' placeholder, but passes bare ID instead of a 1-tuple (ID,) to db.execute(), which raises a binding TypeError/ValueError in standard sqlite3 drivers.",
-    "source": "sven:github.com/iScrE4m/XLeague/commit/59cab6e5fd8bd5e47f2418a7c71cb1d4e3cad0d2",
-    "reviewer": null
+  "id": "python_sqli_0123",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses unquoted %s placeholders and passes all five values as a bound tuple to cursor.execute().",
+  "source": "sven:github.com/onewyoming/onewyoming/commit/54fc7b076fda2de74eeb55e6b75b28e09ef231c2",
+  "reviewer": null
 }

@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0059",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(scene, ym_date) embeds scene and parsed date components directly inside single quotes in the SQL query. Crafted values in scene or date could alter the query to extract unauthorized database records. The repair passes args separately to db.exec(sql, args) using '{scene}' and '%{date}%' inside single quotes, which cannot be verified as safe without seeing db.exec.",
-    "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
-    "reviewer": null
+  "id": "python_sqli_0059",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Updates both conn.execute() calls to use '?' placeholders with (search,) parameter tuples.",
+  "source": "sven:github.com/BeatButton/beattie/commit/ab36b2053ee09faf4cc9a279cf7a4c010864cb29",
+  "reviewer": null
 }

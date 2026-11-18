@@ -1,3 +1,8 @@
-def get(self, email):
-    """ Fetch data for admin with the corresponding email """
-    return database_utilities.execute_query(f"""select * from admins where email = %s""", (email, ))
+@app.route("/search", methods = ["POST"])
+def search_pages():
+    search = request.form.get("search")
+    page = db.query("select title from page where title = $1", search).namedresult()
+    if len(page) == 0:
+        return redirect("/%s" % search)
+    else:
+        return place_holder(search)

@@ -1,12 +1,6 @@
-def execute_command(user_input):
-    # Validate input to prevent command injection
-    if any(char in user_input for char in [';', '&', '|']):
-        print("Invalid input. Please enter a valid filename.")
-        return
-
-    command = ['ls', user_input]
-    try:
-        output = subprocess.check_output(command, stderr=subprocess.STDOUT)
-        print(output.decode())
-    except subprocess.CalledProcessError as e:
-        print(f"Command failed with error: {e}")
+def download(url):
+    import urllib.request
+    from urllib.parse import urlparse
+    if urlparse(url).scheme not in ("http", "https"):
+        raise ValueError("unsupported URL scheme")
+    urllib.request.urlretrieve(url, "page.html")

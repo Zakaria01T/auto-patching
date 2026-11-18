@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0159",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because percent-formatting embeds value directly inside single quotes in the DELETE statement. Untrusted input in value could manipulate the WHERE predicate and delete arbitrary rows from dashboard. The repair uses an unquoted %s placeholder and binds (value,) as a 1-tuple in cursor.execute().",
-    "source": "synthetic:row_042",
-    "reviewer": null
-}

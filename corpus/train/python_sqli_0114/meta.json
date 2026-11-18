@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0114",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format() interpolates title, start_time, time_zone, server_id, and description directly inside single quotes in the INSERT query. Crafted input in any field could escape the string literal and execute arbitrary SQL commands. The repair replaces formatted placeholders with unquoted %s and passes all five values as a bound tuple to self.cur.execute().",
-    "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
-    "reviewer": null
+  "id": "python_sqli_0114",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces %d with %s placeholders and passes params=[friendid,userid] separately to sql.insertDB().",
+  "source": "sven:github.com/ShaominLi/Twitter_project/commit/5329d91f9e569c95184053c8e7ef596949c33ce9",
+  "reviewer": null
 }

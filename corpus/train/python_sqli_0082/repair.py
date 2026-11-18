@@ -1,11 +1,23 @@
-def add_input(self, data):
-    connection = self.connect()
-    try:
-        # The following introduces a deliberate security flaw. 
-        # See section on SQL injection below
-        query = "INSERT INTO crimes (description) VALUES(%s);"
-        with connection.cursor() as cursor:
-            cursor.execute(query, data)
-            connection.commit()
-    finally:
-        connection.close()
+@app.route('/delete_crawl', methods=['POST'])
+@is_logged_in
+def delete_crawl():
+
+        # Get Form Fields
+        cid = request.form['cid']
+
+        # Create cursor
+        cur = mysql.connection.cursor()
+
+        # Get user by username
+        result = cur.execute("""DELETE FROM Crawls WHERE cid = %s""" (cid,))
+
+        # Commit to DB
+        mysql.connection.commit()
+
+        # Close connection
+        cur.close()
+
+        # FIXME check if successfull first, return message
+        flash('Crawl successfully removed', 'success')
+
+        return redirect(url_for('dashboard'))

@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0011",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is executed directly via subprocess.Popen(user_input, shell=True). An attacker supplying arbitrary commands achieves full shell execution. The repair remains completely vulnerable because passing ['/bin/bash', '-c', user_input] to subprocess.Popen() is functionally equivalent to shell=True.",
-    "source": "cybernative:row_243",
-    "reviewer": null
+  "id": "python_cmdi_0011",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Renames the file with os.replace so neither name can inject shell syntax.",
+  "source": "synthetic:row_013",
+  "reviewer": null
 }

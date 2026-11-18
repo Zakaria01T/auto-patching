@@ -1,3 +1,4 @@
-def render_profile_html(value):
-    from html import escape
-    return "<div class=\"profile\">" + escape(value, quote=True) + "</div>"
+def render_article_html(value):
+    from django.http import HttpResponse
+    from django.utils.html import format_html
+    return HttpResponse(format_html("<section id=\"article\">{}</section>", value))

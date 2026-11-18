@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0005",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This method is vulnerable to OS command injection (CWE-78) because credentials, domain, server, port, and timeout are formatted into a command string executed with shell=True. Crafted values containing shell metacharacters could execute arbitrary OS commands on the polling host. The repair remains vulnerable: it only wraps username and password in unescaped single quotes while retaining shell=True and leaving domain, server, port, and timeout unquoted.",
-    "source": "sven:github.com/DSU-DefSecClub/ScoringEngine/commit/010eefe1ad416c0bdaa16fd59eca0dc8e3086a13",
-    "reviewer": null
+  "id": "python_cmdi_0005",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Extracts the archive with the zipfile module so no shell command is built from the file names.",
+  "source": "synthetic:row_003",
+  "reviewer": null
 }

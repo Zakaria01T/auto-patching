@@ -1,3 +1,4 @@
-def render_report_html(value):
+def stats_block(data):
+    import json
     from django.utils.safestring import mark_safe
-    return mark_safe("<span>report: " + value + "</span>")
+    return mark_safe("<script>window.stats = " + json.dumps(data) + ";</script>")

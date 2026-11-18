@@ -1,0 +1,9 @@
+{
+  "id": "python_xss_0039",
+  "language": "python",
+  "class": "xss",
+  "cwe": "CWE-79",
+  "explanation": "Enables autoescape=True on the Django template Engine instead of disabling template escaping.",
+  "source": "synthetic:row_026",
+  "reviewer": null
+}

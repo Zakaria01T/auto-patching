@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0145",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because current_institution from external Solr data is percent-formatted directly inside single quotes in the SQLite INSERT query. Crafted institution names containing single quotes could break out of the string literal and execute arbitrary SQL. The repair uses an unquoted '?' placeholder and binds (current_institution,) as a 1-tuple in sqlite.execute().",
-    "source": "sven:github.com/miku/siskin/commit/7fa398d2fea72bf2e8b4808f75df4b3d35ae959a",
-    "reviewer": null
-}

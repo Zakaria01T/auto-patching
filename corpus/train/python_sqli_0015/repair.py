@@ -1,14 +1,11 @@
-@staticmethod
-def upsert_mapped_projects(user_id: int, project_id: int):
-    """ Adds projects to mapped_projects if it doesn't exist """
-    sql = "select * from users where id = :user_id and projects_mapped @> '{{:project_id}}'"
-    result = db.engine.execute(text(sql), user_id=user_id, project_id=project_id)
+@app.route('/<page_name>/history/record')
+def view_page_record(page_name):
+    content_id = request.args.get('id')
+    query = db.query("select page_content.content, page_content.timestamp from page, page_content where page.id = page_content.page_id and page_content.id = $1", content_id)
+    page_record = query.namedresult()[0]
 
-    if result.rowcount > 0:
-        return  # User has previously mapped this project so return
-
-    sql = '''update users
-                set projects_mapped = array_append(projects_mapped, :project_id)
-              where id = :user_id'''
-
-    db.engine.execute(text(sql), project_id=project_id, user_id=user_id)
+    return render_template(
+        'page_record.html',
+        page_name = page_name,
+        page_record = page_record
+    )

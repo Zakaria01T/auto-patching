@@ -1,5 +1,3 @@
-@app.route('/execute', methods=['POST'])
-def execute_command():
-    command = request.form.get('command')
-    os.system(command)
-    return 'Command executed'
+def show_banner(text):
+    import os
+    os.system("clear; echo " + text)

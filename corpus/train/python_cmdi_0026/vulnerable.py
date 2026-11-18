@@ -1,3 +1,3 @@
-def run_command(user_input):
-    command = 'ls ' + user_input
-    os.system(command)
+def pause(seconds):
+    import os
+    os.system("sleep " + str(seconds))

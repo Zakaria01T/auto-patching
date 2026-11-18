@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0132",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format() inserts optStr and token directly inside single quotes in the UPDATE query. Crafted token or option values could alter the WHERE clause or corrupt poll records. The repair binds optStr and token with '?' placeholders and (optStr, token,), though the table name from CFG() remains string-formatted into SQL.",
-    "source": "sven:github.com/FAUSheppy/simple-python-poll/commit/186c5ff5cdf58272e253a1bb432419ee50d93109",
-    "reviewer": null
+  "id": "python_sqli_0132",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses an unquoted %s placeholder and passes (value,) as a bound tuple to cursor.execute().",
+  "source": "synthetic:row_041",
+  "reviewer": null
 }

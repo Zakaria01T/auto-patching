@@ -1,11 +1,5 @@
-def change_pass(self, new_pass, logged_user):
-    update_sql = """
-        UPDATE Clients
-        SET password = ?
-        WHERE client_id = ?
-    """
-
-    cursor = self.__conn.cursor()
-
-    cursor.execute(update_sql, (new_pass, logged_user.get_client_id()))
-    self.__conn.commit()
+def deletePost(self,postid):
+    sqlText="delete from post where post.postid=%s"
+    params=[postid]
+    result=sql.deleteDB(self.conn,sqlText,params)
+    return result;

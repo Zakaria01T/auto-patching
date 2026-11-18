@@ -1,0 +1,9 @@
+{
+  "id": "python_xss_0036",
+  "language": "python",
+  "class": "xss",
+  "cwe": "CWE-79",
+  "explanation": "Replaces mark_safe() around json.dumps() inside a script block with Django's json_script() to safely encode JSON for HTML.",
+  "source": "synthetic:row_021",
+  "reviewer": null
+}

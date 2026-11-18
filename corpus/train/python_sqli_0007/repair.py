@@ -1,22 +1,13 @@
-def set_language(self, lang):
-    """
-    Update language of user in the User object and in the database
-    :param lang: string with language tag like "en-US"
-    :return: None
-    """
-    log.debug('Updating info about user %s language '
-              'in memory & database...', self)
+@app.route('/summary', methods=['GET'])
+def summary():
+	if 'username' in session:
 
-    self.language = lang
+		conn = mysql.connect()
+		cursor = conn.cursor()
 
-    query = ("UPDATE users "
-             f"SET language=%s "
-             f"WHERE chat_id=%s")
+		#select the maximum score from the results table
+		cursor.execute("SELECT courseConcentration FROM results WHERE total = (SELECT MAX(total) FROM (SELECT * FROM results WHERE courseId > 4) Temp) and courseId > 4 and emailAccount=%s", (session['username']));
+		courseConcentration = cursor.fetchone()
 
-    parameters = self.language, self.chat_id
-    try:
-        db.add(query, parameters)
-    except DatabaseError:
-        log.error("Can't add new language of %s to the database", self)
-    else:
-        log.debug('Language updated.')
+		return render_template('summary.html', courseConcentration = courseConcentration[0])
+	return redirect(url_for('login'))

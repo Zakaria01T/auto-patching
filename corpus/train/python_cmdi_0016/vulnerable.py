@@ -1,3 +1,3 @@
-def execute_command(user_input):
-    command = user_input[:256]  # This line introduces a buffer overflow vulnerability
-    os.system("echo '{}' > output.txt".format(command))
+def count_lines(fname):
+    import os
+    return int(os.popen("wc -l < " + fname).read())

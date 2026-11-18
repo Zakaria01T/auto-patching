@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0044",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method uses unsafe SQL string construction (CWE-89) by interpolating commentid via %d before passing sqlText to sql.queryDB(). Although %d restricts formatting to integers if commentid is numeric, building SQL strings dynamically risks injection if refactored or coerced differently. The repair replaces %d with a %s placeholder and passes params=[commentid] separately, though complete safety depends on the unseen sql.queryDB implementation.",
-    "source": "sven:github.com/ShaominLi/Twitter_project/commit/5329d91f9e569c95184053c8e7ef596949c33ce9",
-    "reviewer": null
+  "id": "python_sqli_0044",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Converts both queries to parameterized %s statements with (cmt_id,) tuples.",
+  "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+  "reviewer": null
 }

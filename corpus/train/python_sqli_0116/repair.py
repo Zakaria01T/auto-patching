@@ -1,10 +1,11 @@
-def get_bracket_graph_data(db, tag):
-    # First, we have to find out which scenes this player has brackets in
-    sql = "SELECT DISTINCT scene FROM ranks WHERE player='{tag}'"
-    args = {'tag': tag}
-    scenes = db.exec(sql, args)
-    scenes = [s[0] for s in scenes]
+def userLogin(self):
 
-    bracket_placings_by_scene = {s: get_bracket_placings_in_scene(db, s, tag) for s in scenes}
-
-    return bracket_placings_by_scene
+    sqlName="select count(*) from users where name=%s and password=%s;"
+    params = [self.name,self.password]
+    checkName=sql.queryDB(self.conn,sqlName,params)
+    result=checkName[0][0]
+    if result == 0:
+        self.clean()
+        return False
+    else:
+        return True

@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0020",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because raw user input is passed directly to os.system(command), granting arbitrary shell command execution. The repair remains completely vulnerable because it replaces os.system() with subprocess.run(command, shell=True, check=True), which still executes unvalidated input in a shell.",
-    "source": "cybernative:row_1420",
-    "reviewer": null
+  "id": "python_cmdi_0020",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Searches with pathlib.Path.rglob so the pattern is matched in Python and never reaches a shell.",
+  "source": "synthetic:row_032",
+  "reviewer": null
 }

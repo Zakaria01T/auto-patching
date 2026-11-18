@@ -1,12 +1,6 @@
-@mod.route('/add', methods=['GET', 'POST'])
-def add():
-    if request.method == 'POST':
-        msg_id = int(request.form['msg_id'])
-        user_id = session['logged_id']
-        content = request.form['content']
-        c_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        sql = "INSERT INTO comment(msg_id,user_id,content,c_time) " + \
-                "VALUES(%d,%d,'%s','%s');" % (msg_id, user_id, content, c_time)
-        cursor.execute(sql)
-        conn.commit()
-    return redirect(url_for('comment.show', msg_id=msg_id))
+def update_theory_base(tag, link):
+    theory = sqlite3.connect(os.path.abspath(os.path.dirname(__file__)) + "\\theory.db")
+    conn = theory.cursor()
+    conn.execute("insert into " + str(tag) + " values (?)", (str(link), ))
+    theory.commit()
+    theory.close()

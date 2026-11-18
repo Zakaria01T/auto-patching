@@ -1,4 +1,4 @@
-def inspect_article_path(path):
-    import hashlib
-    from pathlib import Path
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def count_file_lines(path: str) -> str:
+    with open(path, "r", encoding="utf-8", errors="replace") as f:
+        count = sum(1 for _ in f)
+    return f"{count} {path}\n"

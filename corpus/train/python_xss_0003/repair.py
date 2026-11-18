@@ -1,11 +1,3 @@
-def render(self, name, value, attrs=None):
-    html = super(AdminURLFieldWidget, self).render(name, value, attrs)
-    if value:
-        value = force_text(self._format_value(value))
-        final_attrs = {'href': smart_urlquote(value)}
-        html = format_html(
-            '<p class="url">{0} <a{1}>{2}</a><br />{3} {4}</p>',
-            _('Currently:'), flatatt(final_attrs), value,
-            _('Change:'), html
-        )
-    return html
+def render_account_html(value):
+    from django.utils.html import format_html
+    return format_html("<span>account: {}</span>", value)

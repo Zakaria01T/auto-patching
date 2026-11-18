@@ -1,3 +1,6 @@
-def render_ticket_html(value):
-    from html import escape
-    return "<div class=\"ticket\">" + escape(value, quote=True) + "</div>"
+def make_env():
+    import jinja2
+    return jinja2.Environment(
+        loader=jinja2.FileSystemLoader("templates"),
+        autoescape=jinja2.select_autoescape(["html", "xml"]),
+    )

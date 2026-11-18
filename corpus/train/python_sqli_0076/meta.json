@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0076",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method exhibits a SQL injection (CWE-89) pattern because .format(page_id) interpolates page_id directly inside double quotes in the SQLite query. If validate_page_id() is bypassed or insufficient, crafted input could manipulate the SELECT statement. The repair replaces formatting with a '?' placeholder and passes query_bindings = (page_id,) to self.cursor.execute(), ensuring parameter binding.",
-    "source": "sven:github.com/jwngr/sdow/commit/4db98f3521592f17550d2b723336f33fec5e112a",
-    "reviewer": null
+  "id": "python_sqli_0076",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Removes string formatting and passes (winner, loser, loser, winner) as bound parameters to cur.execute().",
+  "source": "sven:github.com/juanchopanza/Tournament/commit/5799aee52d2cabb685800b88977257bd0964d0da",
+  "reviewer": null
 }

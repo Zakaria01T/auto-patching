@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0129",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because request.form['nickname'] and session['logged_email'] are percent-formatted directly into three SQL statements before cursor.execute(). An attacker submitting crafted nickname input could break out of single quotes to modify arbitrary rows in users. The repair converts all three queries to unquoted %s placeholders with tuple parameters passed to cursor.execute().",
-    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
-    "reviewer": null
+  "id": "python_sqli_0129",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Removes string interpolation and passes (value,) as a bound parameter tuple alongside an unquoted %s placeholder to cursor.execute().",
+  "source": "synthetic:row_035",
+  "reviewer": null
 }

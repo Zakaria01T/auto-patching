@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0056",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because the HTTP query parameter start is concatenated directly into the LIKE clause. An attacker supplying crafted input in start could break out of the string literal and execute unauthorized SQL queries. The repair uses an unquoted %s placeholder and binds (start+'%',) as a tuple parameter in cur.execute(), preventing SQL injection.",
-    "source": "sven:github.com/VinChain/vinchain-python-api-backend/commit/b78088a551fbb712121269c6eb7f43ede120ff60",
-    "reviewer": null
+  "id": "python_sqli_0056",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses '?' placeholders and binds all eight values in a tuple parameter.",
+  "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
+  "reviewer": null
 }

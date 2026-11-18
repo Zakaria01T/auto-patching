@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0151",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because value is concatenated directly inside single quotes in the SQL query passed to cursor.execute(). Untrusted input in value could break out of the string literal and alter the SELECT statement to expose unauthorized profile records. The repair uses an unquoted %s placeholder and binds (value,) as a 1-tuple so the database driver treats value strictly as data.",
-    "source": "synthetic:row_034",
-    "reviewer": null
-}

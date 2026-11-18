@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0027",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This handler exhibits a SQL injection (CWE-89) pattern by concatenating str(message.chat.id) directly into a SQLite query inside conn.execute(). If chat_id were ever non-numeric or attacker-influenced, it could manipulate the SELECT statement. The repair uses a '?' placeholder and passes (str(message.chat.id),) as a 1-tuple so SQLite binds the value safely.",
-    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
-    "reviewer": null
+  "id": "python_sqli_0027",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Updates both queries to use unquoted %s placeholders with (lang, ) parameter tuples so the driver treats lang strictly as data.",
+  "source": "sven:github.com/Elbertbiggs360/dvdrental/commit/ad144ae2a08a332498d0831bc255170d57ba754b",
+  "reviewer": null
 }

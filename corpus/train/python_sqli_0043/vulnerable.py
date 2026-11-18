@@ -1,14 +1,11 @@
-def also_add(name, also):
-    db = db_connect()
-    cursor = db.cursor()
-    try:
-        cursor.execute('''
-            INSERT INTO isalso(name,also) VALUES('{}','{}')
-            '''.format(name, also))
-        db.commit()
-        logger.debug('added to isalso name {} with value {}'.format(
-            name, also))
-        db.close()
-    except Exception as e:
-        logger.error('Execution failed with error: {}'.format(e))
-        raise
+@login_manager.user_loader
+def load_user(s_id):
+    email = str(s_id)
+    query = '''select * from usr where email like\'''' + email + '\''
+    cursor = g.conn.execute(query)
+    user = User()
+    for row in cursor:
+        user.name = str(row.name)
+        user.email = str(row.email)
+        break
+    return user

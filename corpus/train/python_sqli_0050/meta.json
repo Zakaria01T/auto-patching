@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0050",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because percent-formatting embeds name directly inside single quotes in the INSERT query. Crafted input in name could break out of the string literal to execute arbitrary SQL commands. The repair removes the surrounding quotes around %s and passes (name,) as a parameter tuple to cursor.execute(), isolating data from SQL syntax.",
-    "source": "sven:github.com/sarahkcaplan/tournament/commit/40aba5686059f5f398f6323b1483412c56140cc0",
-    "reviewer": null
+  "id": "python_sqli_0050",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Removes string formatting and passes (user_id, user_id, user_id) as bound parameters to cursor.execute().",
+  "source": "sven:github.com/young-goons/rifflo-server/commit/fb311df76713b638c9486250f9badb288ffb2189",
+  "reviewer": null
 }

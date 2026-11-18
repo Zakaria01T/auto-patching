@@ -1,7 +1,4 @@
-def run_command(user_input):
-    # Validate the user input
-    if len(user_input) > 10000000:
-        raise ValueError("Input too long")
-
-    command = ["ls", "-l", user_input]
-    subprocess.run(command, check=True)
+def make_backup(folder):
+    import tarfile
+    with tarfile.open("backup.tgz", "w:gz") as tar:
+        tar.add(folder)

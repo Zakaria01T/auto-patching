@@ -1,5 +1,8 @@
-def get_first_month(db, scene):
-    sql = "select date from matches where scene='{}' order by date limit 1;".format(scene)
-    res = db.exec(sql)
-    date = res[0][0]
-    return date
+def verify_email(self, member):
+    query = "SELECT COUNT(email) FROM members WHERE email = '{email}'".format(email = member)
+    self.cursor.execute(query)
+    result = self.cursor.fetchone()
+    if (int(result[0]) > 0):
+        return True 
+    else:
+        return False

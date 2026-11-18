@@ -1,6 +1,3 @@
-def execute_command():
-    command = input("Enter your command: ")
-    try:
-        subprocess.run(command, shell=True, check=True)
-    except Exception as e:
-        print(f"Error executing command: {e}")
+def find_files(pattern):
+    from pathlib import Path
+    return [str(p) for p in Path("/srv/uploads").rglob(pattern)]

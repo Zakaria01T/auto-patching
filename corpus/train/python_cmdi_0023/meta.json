@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0023",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because raw command input is passed directly to os.system(command). An attacker controlling command achieves arbitrary OS command execution. The repair remains completely vulnerable because subprocess.run(command, shell=True, check=True) still executes the raw command string inside a system shell.",
-    "source": "cybernative:row_1684",
-    "reviewer": null
+  "id": "python_cmdi_0023",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Fetches the resource with the requests library, which removes the wget process and the shell.",
+  "source": "synthetic:row_038",
+  "reviewer": null
 }

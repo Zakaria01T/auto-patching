@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0034",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because sid is percent-formatted directly inside single quotes in the DELETE query. Crafted input in id could alter the WHERE predicate and delete unintended records. The repair switches sid to a $1 placeholder passed to self._query(query, sid), though self.table remains percent-formatted and self._query is not shown.",
-    "source": "sven:github.com/cheshire3/cheshire3/commit/d350363b4ea10f102c24c8f26d7b76b006323e8e",
-    "reviewer": null
+  "id": "python_sqli_0034",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces string formatting with a %s placeholder and passes (event_id,) as a parameter tuple to self.cur.execute(), separating SQL syntax from data.",
+  "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
+  "reviewer": null
 }

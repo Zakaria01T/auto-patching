@@ -1,3 +1,5 @@
-def render_catalog_html(value):
+def django_greeting_view(request):
+    from django.http import HttpResponse
     from django.utils.html import format_html
-    return format_html("<span>catalog: {}</span>", value)
+    name = request.GET.get("name", "Guest")
+    return HttpResponse(format_html("<p>Hello, {}</p>", name))

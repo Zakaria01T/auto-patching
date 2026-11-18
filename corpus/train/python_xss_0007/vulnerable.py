@@ -1,3 +1,3 @@
-def render_article_html(value):
-    from django.http import HttpResponse
-    return HttpResponse("<section id=\"article\">{}</section>".format(value))
+def tag_links(tags):
+    from django.utils.safestring import mark_safe
+    return mark_safe(", ".join("<a href='/tag/%s'>%s</a>" % (t, t) for t in tags))

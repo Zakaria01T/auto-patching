@@ -1,3 +1,3 @@
-def render_report_html(value):
-    from django.utils.html import format_html
-    return format_html("<span>report: {}</span>", value)
+def stats_block(data):
+    from django.utils.html import json_script
+    return json_script(data, "stats")

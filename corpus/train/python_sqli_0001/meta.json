@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0001",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This snippet is vulnerable to SQL injection (CWE-89) because it concatenates str(tag_num) directly into the SQL query string before calling self.query(q). An attacker supplying crafted input as tag_num could alter the WHERE clause to read unauthorized database records. The repair replaces concatenation with a '?' placeholder and passes tag_num separately to self.query, though complete safety cannot be verified without seeing self.query and because a bare scalar is passed instead of a parameter sequence.",
-    "source": "sven:github.com/pukkapies/urop2019/commit/3ca2e2c291d2d5fe262d20a8e0520bdfb622432b",
-    "reviewer": null
+  "id": "python_sqli_0001",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces concatenation with a '?' placeholder and passes tag_num separately to self.query.",
+  "source": "sven:github.com/pukkapies/urop2019/commit/3ca2e2c291d2d5fe262d20a8e0520bdfb622432b",
+  "reviewer": null
 }

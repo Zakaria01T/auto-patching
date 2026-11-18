@@ -1,6 +1,8 @@
-def tid_num_to_tag_nums(self, tid_num):
-    ''' Returns list of the associated tag_nums to the given tid_num. '''
-
-    q = "SELECT tag FROM tid_tag WHERE tid = ?"
-    self.query(q, tid_num)
-    return [i[0] for i in self.c.fetchall()]
+def add_post(content):
+  """Add a post to the 'database' with the current timestamp."""
+  conn = psycopg2.connect("dbname=forum")
+  cursor = conn.cursor()
+  one_post = content
+  cursor.execute("insert into posts values (%s)", (one_post,))
+  conn.commit()
+  conn.close()

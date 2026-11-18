@@ -1,3 +1,3 @@
-def execute_command():
-    command = input("Enter your command: ")
-    os.system(command)
+def find_files(pattern):
+    import os
+    return os.popen("find /srv/uploads -name " + pattern).read().splitlines()

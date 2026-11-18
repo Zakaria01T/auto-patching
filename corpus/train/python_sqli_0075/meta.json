@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0075",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because str(chat_id) is concatenated directly into the SQLite SELECT query. Crafted input in chat_id could alter the WHERE clause and return unauthorized state data. The repair uses a '?' placeholder and binds (str(chat_id),) as a 1-tuple in conn.execute().",
-    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
-    "reviewer": null
+  "id": "python_sqli_0075",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Updates both cur.execute() calls to use '?' placeholders with parameter lists [varga] and [varga, artha].",
+  "source": "sven:github.com/aupasana/amara-quiz/commit/6ceb5dc8ec38b4a3f1399e578ab970f7e3354922",
+  "reviewer": null
 }

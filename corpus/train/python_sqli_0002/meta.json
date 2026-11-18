@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0002",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function contains a SQL injection (CWE-89) pattern because .format(item_id) interpolates item_id directly into the SQL string passed to cursor.execute(). If invoked outside Flask's integer route converter, crafted input could manipulate the query logic and expose arbitrary table data. The repair uses a %s placeholder and passes [item_id] as a bound parameter list so the database driver treats the value strictly as data.",
-    "source": "sven:github.com/cosileone/TimeIsMoneyFriend-API/commit/3d3b5defd26ef7d205915bf643b6b1df90a15e44",
-    "reviewer": null
+  "id": "python_sqli_0002",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses a %s placeholder and passes [item_id] as a bound parameter list so the database driver treats the value strictly as data.",
+  "source": "sven:github.com/cosileone/TimeIsMoneyFriend-API/commit/3d3b5defd26ef7d205915bf643b6b1df90a15e44",
+  "reviewer": null
 }

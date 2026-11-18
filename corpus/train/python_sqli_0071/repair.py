@@ -1,14 +1,19 @@
-def system_search(self, search):
-    search = search.lower()
-    conn = sqlite3.connect('data/ed.db').cursor()
-    table = conn.execute('select * from populated where lower(name) = ?', (search,))
-    results = table.fetchone()
-    if not results:
-        table = conn.execute('select * from systems where lower(name) = ?', (search,))
-        results = table.fetchone()
-    if results:
-        keys = tuple(i[0] for i in table.description) 
-        return '\n'.join(f'{key.replace("_", " ").title()}: {field}'
-                         for key, field in zip(keys[1:], results[1:]) if field)
-    else:
-        return 'No systems found.'
+def shame_ask(name):
+    db = db_connect()
+    cursor = db.cursor()
+    try:
+        cursor.execute('''
+            SELECT shame FROM people WHERE name=%(name)s
+            ''', (name, ))
+        shame = cursor.fetchone()
+        db.close()
+        if shame is None:
+            logger.debug('No shame found for name {}'.format(name))
+            return shame
+        else:
+            shame = shame[0]
+            logger.debug('shame of {} found for name {}'.format(shame, name))
+            return shame
+    except Exception as e:
+        logger.error('Execution failed with error: {}'.format(e))
+        raise

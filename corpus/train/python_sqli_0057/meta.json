@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0057",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because str(value) and str(chat_id) are concatenated directly into the SQLite UPDATE query. Untrusted input in either parameter could modify the UPDATE condition and overwrite other users' state values. The repair uses '?' placeholders and passes (str(value), str(chat_id)) as a bound tuple to conn.execute().",
-    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
-    "reviewer": null
+  "id": "python_sqli_0057",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces the formatted values with %s placeholders and passes params=[userid,post] to sql.insertDB().",
+  "source": "sven:github.com/ShaominLi/Twitter_project/commit/5329d91f9e569c95184053c8e7ef596949c33ce9",
+  "reviewer": null
 }

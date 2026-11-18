@@ -1,6 +1,4 @@
-def markTokenUsedExternal(token, optStr=""):
-    conn, c = connectDB()
-    req = "UPDATE {} SET \"options_selected\"='{}' WHERE token='{}'".format(CFG("tokens_table_name"), \
-                    optStr, token)
-    c.execute(req)
-    closeDB(conn)
+def lookup_invoice_records(cursor, value):
+    query = "SELECT id FROM invoice WHERE slug = '{}'".format(value)
+    cursor.execute(query)
+    return cursor.fetchall()

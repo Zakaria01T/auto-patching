@@ -1,4 +1,3 @@
-def execute_command(user_input):
-    command = 'ls ' + user_input
-    output = subprocess.check_output(command, shell=True)
-    return output
+def replace_in_config(old, new):
+    import os
+    os.system("sed -i 's/%s/%s/g' config.txt" % (old, new))

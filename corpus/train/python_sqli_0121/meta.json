@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0121",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because account_id from the HTTP query parameter is concatenated directly inside single quotes in the PostgreSQL SELECT query. Crafted input passing isObject(account_id) could break out of the string literal and execute arbitrary SQL statements. The repair uses an unquoted %s placeholder and binds (account_id,) as a 1-tuple in cur.execute(), preventing SQL injection.",
-    "source": "sven:github.com/VinChain/vinchain-python-api-backend/commit/b78088a551fbb712121269c6eb7f43ede120ff60",
-    "reviewer": null
+  "id": "python_sqli_0121",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Passes args={'url':url} to self.db.exec(sql, args) with quoted '{url}' in SQL, which cannot be verified as safe without seeing self.db.exec and resembles string formatting.",
+  "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
+  "reviewer": null
 }

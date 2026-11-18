@@ -1,3 +1,3 @@
-def execute_user_command():
-    user_input = input("Enter your command: ")
-    os.system(user_input)
+def open_link(url):
+    import subprocess
+    subprocess.Popen("xdg-open " + url, shell=True)

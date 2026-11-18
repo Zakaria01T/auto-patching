@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0140",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(numberOfLinks) embeds numberOfLinks directly into the LIMIT clause inside self.cursor.execute(). Untrusted input in numberOfLinks could alter the SQL query to extract unauthorized records. The repair introduces a '?' placeholder, but passes bare scalar numberOfLinks instead of a 1-tuple (numberOfLinks,), which causes a parameter-binding error in standard sqlite3 drivers.",
-    "source": "sven:github.com/jappe999/WebScraper/commit/46a4e0843aa44d903293637afad53dfcbc37b480",
-    "reviewer": null
-}

@@ -1,7 +1,6 @@
-def add_post(content):
-  """Add a post to the 'database' with the current timestamp."""
-  conn = psycopg2.connect("dbname=forum")
-  cursor = conn.cursor()
-  cursor.execute("insert into posts values ('%s')" % content)
-  conn.commit()
-  conn.close()
+def writeToDb(self, url):
+    try:
+        self.cursor.execute("INSERT INTO queue (url, visited) VALUES ('{}', '0');".format(url))
+        self.db.commit()
+    except Exception as e:
+        print(e)

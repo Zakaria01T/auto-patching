@@ -1,4 +1,3 @@
-def inspect_activity_path(path):
+def copy_artifact(src: str, dst: str) -> None:
     import subprocess
-    command = "sha256sum " + path
-    return subprocess.check_output(command, shell=True, text=True)
+    subprocess.call("cp %s %s" % (src, dst), shell=True)

@@ -1,3 +1,3 @@
-def inspect_profile_path(path):
-    import subprocess
-    return subprocess.run(["ls", "-l", "--", path], check=True).returncode
+def set_readonly_perms(filename: str) -> None:
+    import os
+    os.chmod(filename, 0o444)

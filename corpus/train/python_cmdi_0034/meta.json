@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0034",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is percent-formatted into a shell string executed by os.system(). Crafted input containing shell operators could execute arbitrary OS commands. The repair quotes user_input with shlex.quote() while keeping os.system(), which mitigates injection on POSIX shells but remains unsafe on non-POSIX shells such as Windows.",
-    "source": "cybernative:row_4647",
-    "reviewer": null
-}

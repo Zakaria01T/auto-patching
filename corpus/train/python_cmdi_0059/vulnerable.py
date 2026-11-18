@@ -1,4 +1,3 @@
-def inspect_feedback_path(path):
+def read_config_via_bash(path: str) -> str:
     import subprocess
-    command = "sha256sum " + path
-    return subprocess.check_output(command, shell=True, text=True)
+    return subprocess.check_output(["bash", "-c", "cat " + path], text=True)

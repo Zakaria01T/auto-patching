@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0016",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input[:256] is formatted directly into an os.system() shell command string. Crafted input containing single quotes and shell operators could execute arbitrary OS commands. The repair remains completely vulnerable because it executes command directly via subprocess.run(['/bin/bash', '-c', command]).",
-    "source": "cybernative:row_947",
-    "reviewer": null
+  "id": "python_cmdi_0016",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Counts the lines by reading the file in Python, which removes the shell and the redirection.",
+  "source": "synthetic:row_019",
+  "reviewer": null
 }

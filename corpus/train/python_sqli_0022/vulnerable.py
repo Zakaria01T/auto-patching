@@ -1,25 +1,14 @@
-@app.route('/<page_name>')
-def render_page_name(page_name):
-    query = db.query("select page_content.content, page.id as page_id, page_content.id as content_id from page, page_content where page.id = page_content.page_id and page.page_name = '%s' order by page_content.id desc limit 1" % page_name)
-    wiki_page = query.namedresult()
-    has_content = False
-    page_is_taken = False
-    if len(wiki_page) < 1:
-        content = ""
-    else:
-        page_is_taken = True
-        content = wiki_page[0].content
-    if len(content) > 0:
-        has_content = True
-    else:
-        pass
-    content = markdown.markdown(wiki_linkify(content))
-    return render_template(
-        'pageholder.html',
-        page_is_taken = page_is_taken,
-        page_name = page_name,
-        markdown = markdown,
-        wiki_linkify = wiki_linkify,
-        has_content = has_content,
-        content = content
-    )
+def top_karma(bot, trigger):
+    """
+    Show karma status for the top n number of IRC users.
+    """
+    try:
+        top_limit = int(trigger.group(2).strip())
+    except ValueError:
+        top_limit = 5
+
+    query = "SELECT slug, value FROM nick_values NATURAL JOIN nicknames \
+        WHERE key = 'karma' ORDER BY value DESC LIMIT %d"
+    karmalist = bot.db.execute(query % top_limit).fetchall()
+    for user in karmalist:
+        bot.say("%s == %s" % (user[0], user[1]))

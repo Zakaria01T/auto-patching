@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0010",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because raw user_input is passed directly to os.system(). An attacker controlling user_input can execute arbitrary OS commands on the system. The repair remains completely vulnerable: it still invokes os.system() with unescaped .format(user_input) inside double quotes and pipes the output directly into bash -s.",
-    "source": "cybernative:row_243",
-    "reviewer": null
+  "id": "python_cmdi_0010",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Uses shutil.copy2 for the copy, which removes the shell command and the string formatting.",
+  "source": "synthetic:row_012",
+  "reviewer": null
 }

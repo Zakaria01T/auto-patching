@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0116",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(tag) embeds tag directly inside single quotes in the SELECT statement. Crafted tag values could alter the query to read unauthorized database records. The repair passes args={'tag': tag} to db.exec(sql, args) with quoted '{tag}' in SQL, which cannot be verified as safe without seeing db.exec and resembles string formatting.",
-    "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
-    "reviewer": null
+  "id": "python_sqli_0116",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Switches to unquoted %s placeholders and passes params = [self.name,self.password] separately.",
+  "source": "sven:github.com/ShaominLi/Twitter_project/commit/5329d91f9e569c95184053c8e7ef596949c33ce9",
+  "reviewer": null
 }

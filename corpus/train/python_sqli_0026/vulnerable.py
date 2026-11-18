@@ -1,5 +1,8 @@
-def retrieve_playlist_by_id(id, db):
-    db.execute(
-        "SELECT id, name, video_position from playlist WHERE id={id};".format(id=id))
-    row = db.fetchone()
-    return row
+def verify_rno(self, rno):
+    query = "SELECT COUNT(rno) FROM rides WHERE rno = {rno}".format(rno = rno)
+    self.cursor.execute(query)
+    result = self.cursor.fetchone()
+    if (int(result[0]) > 0):
+        return True 
+    else:
+        return False

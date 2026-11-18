@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0009",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because session['username'] is concatenated directly into the MySQL query inside cursor.execute(). If a username containing SQL metacharacters is stored in the session, requesting /summary could alter the query to access unauthorized records. The repair attempts parameterization with %s, but omits the trailing comma in (session['username']), passing a bare string instead of a 1-tuple and causing a parameter-binding bug.",
-    "source": "sven:github.com/CaitlinKennedy/Tech-Track/commit/20ef2d4010f9497b8221524edd0c706e2c6a4147",
-    "reviewer": null
+  "id": "python_sqli_0009",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces string formatting with a %s placeholder and passes (id,) as a parameter tuple to db.execute(), separating SQL code from data.",
+  "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
+  "reviewer": null
 }

@@ -1,11 +1,8 @@
-@login_manager.user_loader
-def load_user(s_id):
-    email = str(s_id)
-    query = 'select * from usr where email like %s'
-    cursor = g.conn.execute(query, (email, ))
-    user = User()
-    for row in cursor:
-        user.name = str(row.name)
-        user.email = str(row.email)
-        break
-    return user
+def get_tournaments_during_month(db, scene, date):
+    y, m, d = date.split('-')
+    ym_date = '{}-{}'.format(y, m)
+    sql = "select url, date from matches where scene='{scene}' and date like '%{date}%' group by url, date order by date"
+    args = {'scene': scene, 'date': ym_date}
+    res = db.exec(sql, args)
+    urls = [r[0] for r in res]
+    return urls

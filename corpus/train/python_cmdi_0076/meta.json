@@ -1,0 +1,9 @@
+{
+  "id": "python_cmdi_0076",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Replaces shell=True kill command construction with integer validation and os.kill() using signal.SIGTERM.",
+  "source": "synthetic:row_100",
+  "reviewer": null
+}

@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0018",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because unvalidated input is passed directly to os.system(user_command), enabling arbitrary command execution. The repair strips non-alphanumeric characters but retains shell=True in subprocess.Popen(), leaving it insecure because any alphanumeric executable name on PATH can still be invoked without an allowlist.",
-    "source": "cybernative:row_1266",
-    "reviewer": null
+  "id": "python_cmdi_0018",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Reads the last n lines in Python with a bounded deque, so n is converted to an integer and no shell runs.",
+  "source": "synthetic:row_027",
+  "reviewer": null
 }

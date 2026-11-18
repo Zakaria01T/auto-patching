@@ -1,3 +1,0 @@
-def inspect_status_path(path):
-    import subprocess
-    return subprocess.run(["wc", "-c", "--", path], check=True, capture_output=True).stdout

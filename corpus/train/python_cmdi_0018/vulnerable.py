@@ -1,3 +1,3 @@
-def execute_user_command():
-    user_command = input("Enter your command: ")
-    os.system(user_command)
+def last_lines(n):
+    import subprocess
+    return subprocess.check_output(f"tail -n {n} /var/log/app.log", shell=True, text=True)

@@ -1,14 +1,3 @@
-def on_message( self, profile_id, profile_name, level, message, timeout ):
-    if 1 == level:
-        cmd = "notify-send "
-        if timeout > 0:
-            cmd = cmd + " -t %s" % (1000 * timeout)
-
-        title = "Back In Time (%s) : %s" % (self.user, profile_name)
-        message = message.replace("\n", ' ')
-        message = message.replace("\r", '')
-
-        cmd = cmd + " \"%s\" \"%s\"" % (title, message)
-        print(cmd)
-        os.system(cmd)
-    return
+def execute_command(user_input):
+    command = "echo %s > myfile.txt" % (user_input)
+    os.system(command)

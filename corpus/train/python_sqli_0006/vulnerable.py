@@ -1,5 +1,6 @@
-def getSubmissionDateFromDatabase(submission):
-    database = sqlite3.connect('database.db')
-    cursor = database.cursor()
-    return cursor.execute("SELECT Date FROM ChallengeRankings WHERE SubmissionID = '" + str(submission.id) + "'").fetchone()[0]
-    database.close()
+def tid_num_to_tag_nums(self, tid_num):
+    ''' Returns list of the associated tag_nums to the given tid_num. '''
+
+    q = "SELECT tag FROM tid_tag WHERE tid = '" + str(tid_num) + "'"
+    self.query(q)
+    return [i[0] for i in self.c.fetchall()]

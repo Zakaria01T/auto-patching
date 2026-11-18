@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0033",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format() interpolates adm_token directly inside single quotes in the SELECT statement. An attacker supplying a crafted token could manipulate the query to bypass admin authentication. The repair parameterizes adm_token with '?' and (adm_token,), though the table name from CFG() remains string-formatted and the custom queryOne helper is not shown.",
-    "source": "sven:github.com/FAUSheppy/simple-python-poll/commit/186c5ff5cdf58272e253a1bb432419ee50d93109",
-    "reviewer": null
+  "id": "python_sqli_0033",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Passes args={'player': player} to db.exec(sql, args) with '{player}' inside single quotes, which cannot be verified without seeing db.exec and resembles string formatting.",
+  "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
+  "reviewer": null
 }

@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0077",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because page_name is percent-formatted directly into two db.query() calls. An attacker requesting a crafted path could manipulate the SQL statements to access or modify arbitrary database data. The repair parameterizes only the first query with $1 and leaves the second query ('select id from page where page_name = '%s'' % page_name) vulnerable, while external db.query binding is not shown.",
-    "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
-    "reviewer": null
+  "id": "python_sqli_0077",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces formatted placeholders with '?' and binds (y_ts, inverter_serial, etoday, etotal) as a tuple in self.c.execute().",
+  "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
+  "reviewer": null
 }

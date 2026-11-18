@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0016",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(scene, player) interpolates scene and player directly inside single quotes in the SQL string. Crafted values in either argument could alter the query to extract unauthorized database contents. The repair passes args separately to db.exec(sql, args) using '{scene}' and '{player}' inside single quotes, which cannot be verified as safe without seeing db.exec and resembles unsafe string formatting.",
-    "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
-    "reviewer": null
+  "id": "python_sqli_0016",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces all five values with '?' placeholders and supplies them as a bound tuple to self.c.execute(), separating SQL syntax from data.",
+  "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
+  "reviewer": null
 }

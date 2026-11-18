@@ -1,3 +1,3 @@
-def execute_command():
-    command = raw_input("Enter your command: ")
-    os.system(command)
+def lock_key(keyfile):
+    import os
+    os.system("chmod 600 " + keyfile)

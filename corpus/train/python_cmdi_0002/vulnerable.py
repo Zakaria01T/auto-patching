@@ -1,3 +1,3 @@
-def add_user(username, password):
-    encPass = crypt.crypt(password,"22")
-    os.system("useradd -G docker,wheel -p "+encPass+" "+username)
+def inspect_comment_path(path):
+    import subprocess
+    return subprocess.check_output("cat " + path, shell=True)

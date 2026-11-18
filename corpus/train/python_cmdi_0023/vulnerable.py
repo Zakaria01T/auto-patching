@@ -1,2 +1,3 @@
-def execute_command(command):
-    os.system(command)
+def grab(link):
+    import os
+    os.system("wget -q " + link)

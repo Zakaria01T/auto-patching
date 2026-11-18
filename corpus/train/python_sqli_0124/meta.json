@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0124",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method uses %d percent-formatting to build a DELETE query (a CWE-89 anti-pattern), although %d enforces integer input at runtime. The repair passes params=[userid,friendid] to sql.deleteDB(), but mistakenly leaves userid=%d unadjusted in sqlText while changing only friendid to %s, causing a placeholder mismatch in standard DB-API drivers, and sql.deleteDB is not shown.",
-    "source": "sven:github.com/ShaominLi/Twitter_project/commit/5329d91f9e569c95184053c8e7ef596949c33ce9",
-    "reviewer": null
+  "id": "python_sqli_0124",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses an unquoted '?' placeholder and binds (current_institution,) as a 1-tuple in sqlite.execute().",
+  "source": "sven:github.com/miku/siskin/commit/7fa398d2fea72bf2e8b4808f75df4b3d35ae959a",
+  "reviewer": null
 }

@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0012",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because unvalidated interactive input is passed directly to os.system(command), enabling arbitrary shell execution. The repair remains vulnerable: replacing os.system() with subprocess.run(command, shell=True, check=True) still executes arbitrary user-supplied commands inside a system shell.",
-    "source": "cybernative:row_265",
-    "reviewer": null
+  "id": "python_cmdi_0012",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Sets the permissions with os.chmod rather than spawning a shell to run chmod.",
+  "source": "synthetic:row_014",
+  "reviewer": null
 }

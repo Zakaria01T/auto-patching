@@ -1,4 +1,3 @@
-def inspect_activity_path(path):
-    import hashlib
-    from pathlib import Path
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def copy_artifact(src: str, dst: str) -> None:
+    import shutil
+    shutil.copy2(src, dst)

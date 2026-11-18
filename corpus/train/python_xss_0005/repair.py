@@ -1,3 +1,4 @@
-def render_account_html(value):
+def greeting(request):
+    from django.http import HttpResponse
     from django.utils.html import format_html
-    return format_html("<span>account: {}</span>", value)
+    return HttpResponse(format_html("<b>Welcome, {}</b>", request.GET.get("user")))

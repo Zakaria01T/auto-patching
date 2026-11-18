@@ -1,6 +1,12 @@
-def isValidAdmToken(adm_token):
-    conn, c = connectDB()
-    req = "SELECT *  from {} where adm_token='{}'".format(CFG("admintoken_table_name"), adm_token)
-    answer = bool(queryOne(c, req))
-    closeDB(conn)
-    return answer
+@endpoints.route("/wins")
+def wins():
+    if db == None:
+        init()
+
+    player = request.args.get('tag', default="christmasmike")
+    sql = "SELECT * FROM matches WHERE winner = '"+str(player)+"' ORDER BY date DESC;"
+    result = db.exec(sql)
+
+    result = [str(x) for x in result]
+    result = '\n'.join(result)
+    return json.dumps(result)

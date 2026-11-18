@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0158",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(value) interpolates value directly inside single quotes in the SELECT statement. Crafted input in value could alter the WHERE clause to expose unauthorized invoice records. The repair uses an unquoted %s placeholder and passes (value,) as a bound tuple to cursor.execute().",
-    "source": "synthetic:row_041",
-    "reviewer": null
-}

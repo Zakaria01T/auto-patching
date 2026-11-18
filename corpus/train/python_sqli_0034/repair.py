@@ -1,8 +1,8 @@
-def delete_data(self, session, id):
-    self._openContainer(session)
-    sid = str(id)
-    if (self.idNormalizer is not None):
-        sid = self.idNormalizer.process_string(session, str(id))
-    query = "DELETE FROM %s WHERE identifier = $1;" % (self.table)
-    self._query(query, sid)
-    return None
+def delete_event(self, event_id):
+    sql = """
+          DELETE FROM events
+          WHERE event_id = %s
+          """
+    affected_count = self.cur.execute(sql, (event_id,))
+    self.conn.commit()
+    return affected_count

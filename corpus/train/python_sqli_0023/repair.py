@@ -1,6 +1,5 @@
-def tid_to_tid_num(self, tid):
-    ''' Returns tid_num, given tid. '''
-
-    q = "SELECT rowid FROM tids WHERE tid = ?"
-    self.query(q, tid)
-    return self.c.fetchone()[0]
+def retrieve_playlist_by_id(id, db):
+    db.execute(
+        "SELECT id, name, video_position from playlist WHERE id=%s;", (id,))
+    row = db.fetchone()
+    return row

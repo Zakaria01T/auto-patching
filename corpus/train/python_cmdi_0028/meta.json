@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0028",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This route is vulnerable to OS command injection (CWE-78) because HTTP POST form input command is passed directly to os.system(command), enabling remote attackers to execute arbitrary OS commands. The repair checks re.match(COMMAND_REGEX, command) before calling subprocess.call(command, shell=True), which cannot be verified because COMMAND_REGEX is undefined, re.match only anchors at the start of the string, and shell=True remains.",
-    "source": "cybernative:row_2392",
-    "reviewer": null
+  "id": "python_cmdi_0028",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Prints the banner and clears the screen directly in Python instead of echoing through a shell.",
+  "source": "synthetic:row_048",
+  "reviewer": null
 }

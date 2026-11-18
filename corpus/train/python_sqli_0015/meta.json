@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0015",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(user_id, project_id) injects arguments directly into raw SQL strings executed via db.engine.execute(). If unvalidated values reach user_id or project_id, an attacker could manipulate the SELECT or UPDATE statement. The repair adopts SQLAlchemy text() with named bind parameters, which fixes the UPDATE query, but leaves :project_id inside single-quoted '{{:project_id}}' in the first query where bind parameters are not expanded.",
-    "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
-    "reviewer": null
+  "id": "python_sqli_0015",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces '%s' with a $1 positional placeholder and passes content_id separately.",
+  "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
+  "reviewer": null
 }

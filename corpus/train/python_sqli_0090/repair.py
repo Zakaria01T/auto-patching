@@ -1,12 +1,9 @@
-def _checkPairing():
-    if winner == loser:
-        raise ValueError('Attempt to match player against self')
-
-    q = '''
-    SELECT COUNT(*) FROM matches
-    WHERE (matches.winner_id = %s AND matches.loser_id = %s)
-          OR (matches.winner_id = %s AND matches.loser_id = %s);
-    '''
-    cur.execute(q, (winner, loser, loser, winner))
-    if cur.fetchone()[0] > 0:
-        raise ValueError('Pairing %s, %s already played' % (winner, loser))
+@staticmethod
+def get_max_task_id_for_project(project_id: int):
+    """Gets the nights task id currently in use on a project"""
+    sql = """select max(id) from tasks where project_id = :project_id GROUP BY project_id"""
+    result = db.engine.execute(text(sql), project_id=project_id)
+    if result.rowcount == 0:
+        raise NotFound()
+    for row in result:
+        return row[0]

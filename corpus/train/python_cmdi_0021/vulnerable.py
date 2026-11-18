@@ -1,3 +1,3 @@
-def run_command(user_input):
-    command = "echo Hello, " + user_input
-    os.system(command)
+def zip_folder(folder):
+    import subprocess
+    subprocess.call("zip -r out.zip " + folder, shell=True)

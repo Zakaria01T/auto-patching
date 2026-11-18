@@ -1,14 +1,3 @@
-@endpoints.route("/placings")
-def placings():
-    if db == None:
-        init()
-
-    tag = request.args.get('tag', default='christmas mike')
-
-    # Get all the urls that this player has participated in
-    sql = "SELECT * FROM placings WHERE player = '{tag}'"
-    args = {'tag': tag}
-    results = list(db.exec(sql, args))
-    results.sort(key=lambda x: int(x[2]))
-
-    return json.dumps(results)
+def lookup_article_records(cursor, value):
+    cursor.execute("UPDATE article SET active = 0 WHERE email = %s", (value,))
+    return cursor.rowcount

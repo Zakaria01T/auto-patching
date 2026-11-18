@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0019",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because percent-formatting embeds five parameters directly inside single quotes in the UPDATE statement. Crafted characters in any telemetry field or serial could alter the query to corrupt unrelated database rows. The repair replaces all five values with '?' placeholders and supplies them as a bound tuple to self.c.execute(), separating SQL syntax from data.",
-    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
-    "reviewer": null
+  "id": "python_sqli_0019",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Switches to a $1 placeholder and passes page_name separately.",
+  "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
+  "reviewer": null
 }

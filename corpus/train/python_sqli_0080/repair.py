@@ -1,14 +1,19 @@
-def get_monthly_ranks_for_scene(db, scene, tag):
+def add_day_data_row(self, ts, data, prev_etotal):
 
-    sql = "SELECT date, rank FROM ranks WHERE scene='{scene}' AND player='{tag}'"
-    args = {'scene': scene, 'tag': tag}
-    res = db.exec(sql, args)
+    if data['power'] > 0:
 
-    res = [r for r in res if played_during_month(db, scene, tag, get_previous_month(r[0]))]
-
-    # Build up a dict of {date: rank}
-    ranks = {}
-    for r in res:
-        ranks[r[0]] = r[1]
-
-    return ranks
+        inv_serial = data['source']['serial_id']
+        query = '''
+           INSERT INTO DayData (
+               TimeStamp,
+               Serial,
+               Power,
+               TotalYield
+           ) VALUES (
+               ?,
+               ?,
+               ?,
+               ?
+           );
+        '''
+        self.c.execute(query, (ts, inv_serial, data['power'],  prev_etotal + data['energy']))

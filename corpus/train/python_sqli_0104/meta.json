@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0104",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(data) embeds user input directly inside single quotes in the INSERT statement. Crafted input in data could break out of the string literal and execute arbitrary SQL statements. The repair uses an unquoted %s placeholder, but passes bare data instead of a 1-tuple (data,) to cursor.execute(), causing a DB-API parameter-binding error for strings.",
-    "source": "sven:github.com/JeremiahO/crimemap/commit/c17537fcd7aa4e2a26f7ca5cefaeb356ff646858",
-    "reviewer": null
+  "id": "python_sqli_0104",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces %i with a '?' placeholder, but passes bare ID instead of a 1-tuple (ID,) to db.execute(), which raises a binding TypeError/ValueError in standard sqlite3 drivers.",
+  "source": "sven:github.com/iScrE4m/XLeague/commit/59cab6e5fd8bd5e47f2418a7c71cb1d4e3cad0d2",
+  "reviewer": null
 }

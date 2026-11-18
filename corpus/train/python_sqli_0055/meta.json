@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0055",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because ts, energy_used, and power_used are percent-formatted directly into both the INSERT and UPDATE queries. Crafted input in any of these arguments could modify the SQL statements and corrupt database state. The repair updates both queries to use '?' placeholders and passes the values as bound tuples to self.c.execute().",
-    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
-    "reviewer": null
+  "id": "python_sqli_0055",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces %i with '?' placeholders, but passes Played and ID as separate positional arguments instead of a single tuple (Played, ID), which raises a TypeError in standard sqlite3.Cursor.execute().",
+  "source": "sven:github.com/iScrE4m/XLeague/commit/59cab6e5fd8bd5e47f2418a7c71cb1d4e3cad0d2",
+  "reviewer": null
 }

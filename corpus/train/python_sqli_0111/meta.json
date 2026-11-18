@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0111",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route is vulnerable to SQL injection (CWE-89) because msg_id, user_id, and c_time are percent-formatted directly into the INSERT query string. If session['logged_id'] contains untrusted characters or msg_id is passed outside the int route constraint, it could manipulate the SQL command. The repair replaces string formatting with unquoted %s placeholders and passes (msg_id, user_id, c_time) as a parameter tuple to cursor.execute().",
-    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
-    "reviewer": null
+  "id": "python_sqli_0111",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Passes args={'tag': tag} to db.exec(sql, args) with quoted '{tag}' in SQL, which cannot be verified as safe without seeing db.exec and resembles string formatting.",
+  "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
+  "reviewer": null
 }

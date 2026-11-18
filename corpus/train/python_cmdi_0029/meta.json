@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0029",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is concatenated directly into a shell command string executed via os.system(). Crafted input containing shell metacharacters could execute arbitrary OS commands on the host. The repair remains vulnerable: although it switches to subprocess.run() with shell=False, it still interpolates user_input via an f-string inside ['bash', '-c', ...], allowing the shell to interpret injected commands.",
-    "source": "cybernative:row_2403",
-    "reviewer": null
+  "id": "python_cmdi_0029",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Reads the size with os.stat, which removes the stat process and the shell.",
+  "source": "synthetic:row_049",
+  "reviewer": null
 }

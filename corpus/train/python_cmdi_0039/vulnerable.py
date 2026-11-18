@@ -1,4 +1,3 @@
-def inspect_article_path(path):
-    import subprocess
-    command = "sha256sum " + path
-    return subprocess.check_output(command, shell=True, text=True)
+def count_file_lines(path: str) -> str:
+    import os
+    return os.popen("wc -l " + path).read()

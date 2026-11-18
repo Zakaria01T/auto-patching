@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0045",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because str(tag) is concatenated directly as the table identifier in the INSERT statement. If tag is attacker-controlled, it could alter the SQL command structure or write to unintended tables. The repair attempts to bind the table name using a '?' placeholder ('insert into ? values (?)'), which is invalid SQL syntax in SQLite because identifiers cannot be parameterized.",
-    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
-    "reviewer": null
+  "id": "python_sqli_0045",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses an unquoted %s placeholder and binds (asset_id,) as a tuple in cur.execute().",
+  "source": "sven:github.com/VinChain/vinchain-python-api-backend/commit/b78088a551fbb712121269c6eb7f43ede120ff60",
+  "reviewer": null
 }

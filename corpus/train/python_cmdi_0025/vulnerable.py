@@ -1,5 +1,4 @@
-def execute_command(user_input):
-    command = "ls " + user_input
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
-    output = process.communicate()[0]
-    return output
+def show_log(request):
+    import os
+    from django.http import HttpResponse
+    return HttpResponse(os.popen("cat /var/log/app/" + request.GET["name"]).read(), content_type="text/plain")

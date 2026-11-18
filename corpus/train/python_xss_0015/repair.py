@@ -1,4 +1,6 @@
-def render_order_html(value):
-    from django.http import HttpResponse
+def example(value):
+    from markupsafe import Markup, escape
     from django.utils.html import format_html
-    return HttpResponse(format_html("<section id=\"order\">{}</section>", value))
+    import html
+    import bleach
+    env = Environment(autoescape=select_autoescape(["html", "htm", "xml"]))

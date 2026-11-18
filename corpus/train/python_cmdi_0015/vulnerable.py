@@ -1,3 +1,3 @@
-def execute_user_input():
-    user_input = input("Enter your command: ")
-    os.system(user_input)
+def list_folder(folder):
+    import subprocess
+    return subprocess.getoutput("ls " + folder).splitlines()

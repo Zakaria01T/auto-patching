@@ -1,26 +1,11 @@
-@register.tag
-@basictag(takes_context=True)
-def gravatar(context, user, size=None):
-    """
-    Outputs the HTML for displaying a user's gravatar.
-
-    This can take an optional size of the image (defaults to 80 if not
-    specified).
-
-    This is also influenced by the following settings:
-
-        GRAVATAR_SIZE    - Default size for gravatars
-        GRAVATAR_RATING  - Maximum allowed rating (g, pg, r, x)
-        GRAVATAR_DEFAULT - Default image set to show if the user hasn't
-                           specified a gravatar (identicon, monsterid, wavatar)
-
-    See http://www.gravatar.com/ for more information.
-    """
-    url = get_gravatar_url(context['request'], user, size)
-
-    if url:
-        return ('<img src="%s" width="%s" height="%s" alt="%s" '
-                '     class="gravatar"/>' %
-                (url, size, size, user.get_full_name() or user.username))
-    else:
-        return ''
+def render(self, name, value, attrs=None):
+    html = super(AdminURLFieldWidget, self).render(name, value, attrs)
+    if value:
+        value = force_text(self._format_value(value))
+        final_attrs = {'href': mark_safe(smart_urlquote(value))}
+        html = format_html(
+            '<p class="url">{0} <a {1}>{2}</a><br />{3} {4}</p>',
+            _('Currently:'), flatatt(final_attrs), value,
+            _('Change:'), html
+        )
+    return html

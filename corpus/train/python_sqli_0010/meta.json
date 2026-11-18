@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0010",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because content is percent-formatted directly into the SQL string passed to cursor.execute(). Crafted input in content could break out of the single-quoted literal to execute arbitrary SQL commands. The repair uses an unquoted %s placeholder and binds (one_post,) as a 1-tuple so psycopg2 safely parameterizes the value.",
-    "source": "sven:github.com/paulc1600/DB-API-Forum/commit/069700fb4beec79182fff3c556e9cccce3230d6f",
-    "reviewer": null
+  "id": "python_sqli_0010",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Introduces a '?' placeholder, but passes bare string url instead of a 1-tuple (url,), which causes a parameter-binding failure in standard Python DB-API drivers.",
+  "source": "sven:github.com/jappe999/WebScraper/commit/46a4e0843aa44d903293637afad53dfcbc37b480",
+  "reviewer": null
 }

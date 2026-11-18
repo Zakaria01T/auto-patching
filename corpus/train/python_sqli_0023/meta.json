@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0023",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because tid is concatenated directly inside single quotes in the SQL query string. Crafted input in tid could alter the WHERE clause to access unauthorized rows. The repair uses a '?' placeholder and passes tid separately to self.query, though safety cannot be confirmed without seeing self.query and because a bare scalar is passed instead of a sequence.",
-    "source": "sven:github.com/pukkapies/urop2019/commit/3ca2e2c291d2d5fe262d20a8e0520bdfb622432b",
-    "reviewer": null
+  "id": "python_sqli_0023",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces formatting with a %s placeholder and binds (id,) as a tuple parameter so the driver safely escapes the value.",
+  "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
+  "reviewer": null
 }

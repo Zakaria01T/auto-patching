@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0119",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because .format(email = member) embeds member directly inside single quotes in the SELECT query. Crafted input in member could alter the query logic and bypass membership verification. The repair attempts named parameterization with {'email':member}, but mistakenly leaves single quotes around ':email' in the SQL string, preventing parameter binding and breaking the query.",
-    "source": "sven:github.com/kenboo98/291-Mini-Project-I/commit/3080ccb687c79c83954ce703faee8fcceec8c9eb",
-    "reviewer": null
+  "id": "python_sqli_0119",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Introduces a '?' placeholder, but passes bare scalar numberOfLinks instead of a 1-tuple (numberOfLinks,), which causes a parameter-binding error in standard sqlite3 drivers.",
+  "source": "sven:github.com/jappe999/WebScraper/commit/46a4e0843aa44d903293637afad53dfcbc37b480",
+  "reviewer": null
 }

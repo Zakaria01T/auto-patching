@@ -1,9 +1,9 @@
 {
-    "id": "python_xss_0003",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "This widget render method is vulnerable to Cross-Site Scripting (CWE-79) because mark_safe(smart_urlquote(value)) disables HTML escaping on the href attribute before flatatt() formats it. Crafted URL values containing attribute or markup delimiters could inject arbitrary HTML attributes or scripts into the rendered page. The repair removes mark_safe() so flatatt() properly HTML-escapes the attribute value.",
-    "source": "crossvul:crossvul/5729_0",
-    "reviewer": null
+  "id": "python_xss_0003",
+  "language": "python",
+  "class": "xss",
+  "cwe": "CWE-79",
+  "explanation": "Replaces mark_safe() and concatenation with Django's format_html(), which automatically HTML-escapes value while marking only the static template safe.",
+  "source": "synthetic:row_001",
+  "reviewer": null
 }

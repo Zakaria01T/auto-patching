@@ -1,4 +1,3 @@
-def inspect_feedback_path(path):
-    import hashlib
-    from pathlib import Path
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def read_config_via_bash(path: str) -> str:
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()

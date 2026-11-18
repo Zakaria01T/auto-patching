@@ -1,5 +1,11 @@
-def get_first_ranked_month(db, scene, player):
-    sql = "select date from ranks where scene='{}' and player='{}' order by date limit 1;".format(scene, player)
-    res = db.exec(sql)
-    date = res[0][0]
-    return date
+def update_inverter(self, inverter_serial, ts, status, etoday, etotal):
+    query = '''
+        UPDATE Inverters
+        SET     
+            TimeStamp='%s', 
+            Status='%s', 
+            eToday='%s',
+            eTotal='%s'
+        WHERE Serial='%s';
+    ''' % (ts, status, etoday, etotal, inverter_serial)
+    self.c.execute(query)

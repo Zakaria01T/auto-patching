@@ -1,3 +1,3 @@
-def render_search_html(value):
-    from django.http import HttpResponse
-    return HttpResponse("<section id=\"search\">{}</section>".format(value))
+def link_html(link, title):
+    from django.utils.safestring import mark_safe
+    return mark_safe(f"<a href='{link}'>{title}</a>")

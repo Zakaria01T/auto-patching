@@ -1,2 +1,3 @@
-def handle_input(user_input):
-    os.system('echo ' + user_input)
+def ensure_dir(name):
+    import os
+    os.system("mkdir -p /srv/data/" + name)

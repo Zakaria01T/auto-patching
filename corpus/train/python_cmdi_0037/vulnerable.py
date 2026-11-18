@@ -1,3 +1,3 @@
-def inspect_comment_path(path):
-    import subprocess
-    return subprocess.check_output("cat " + path, shell=True)
+def append_audit_entry(logfile: str, message: str) -> None:
+    import os
+    os.system(f"echo {message} >> {logfile}")

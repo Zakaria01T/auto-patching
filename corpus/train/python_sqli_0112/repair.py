@@ -1,6 +1,8 @@
-def tag_to_tag_num(self, tag):
-    ''' Returns tag_num given tag. '''
-
-    q = "SELECT rowid FROM tags WHERE tag = ?"
-    self.query(q, tag)
-    return self.c.fetchone()[0]
+def get_roster(self, server_id):
+    sql = """
+          SELECT username, role
+          FROM roles
+          WHERE roles.server_id = %s;
+          """
+    self.cur.execute(sql, (server_id,))
+    return self.cur.fetchall()

@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0085",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format() inserts key (built from poll_name and option) directly inside single quotes in the UPDATE statement. Crafted poll or option names could alter the WHERE clause to modify unintended rows. The repair binds key using '?' and (key,), though the table name from CFG() remains formatted into the SQL string.",
-    "source": "sven:github.com/FAUSheppy/simple-python-poll/commit/186c5ff5cdf58272e253a1bb432419ee50d93109",
-    "reviewer": null
+  "id": "python_sqli_0085",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces '%s' with a $1 positional placeholder and passes page_name separately.",
+  "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
+  "reviewer": null
 }

@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0127",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because recipeName is concatenated directly inside double quotes (with a missing closing quote as well) in the SQLite SELECT query. Crafted recipe names could alter the query or cause SQL errors to disclose unintended data. The repair uses a '?' placeholder and binds (recipeName, ) as a 1-tuple in cursor.execute().",
-    "source": "sven:github.com/trishamoyer/RecipePlanner-Python/commit/44d2ce370715d9344fad34b3b749322ab095a925",
-    "reviewer": null
+  "id": "python_sqli_0127",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses an unquoted '?' placeholder and binds t = (language[0], ) as a 1-tuple in self.cursor.execute().",
+  "source": "sven:github.com/ecosl-developers/ecosl/commit/8af050a513338bf68ff2a243e4a2482d24e9aa3a",
+  "reviewer": null
 }

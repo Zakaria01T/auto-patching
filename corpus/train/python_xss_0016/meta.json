@@ -1,9 +1,9 @@
 {
-    "id": "python_xss_0016",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "This function is vulnerable to Cross-Site Scripting (CWE-79) because value is concatenated directly into an HTML <div> element without escaping. An attacker supplying crafted product text could inject HTML or script elements that execute in browsers. The repair escapes value via html.escape(value, quote=True) before concatenation, preventing XSS (the scanner flag remains due to syntactic HTML concatenation).",
-    "source": "synthetic:row_015",
-    "reviewer": null
+  "id": "python_xss_0016",
+  "language": "python",
+  "class": "xss",
+  "cwe": "CWE-79",
+  "explanation": "Uses a context-aware formatter that escapes the notice text.",
+  "source": "synthetic:phase2_0062",
+  "reviewer": null
 }

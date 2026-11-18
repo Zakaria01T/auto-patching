@@ -1,8 +1,9 @@
-def check(current_num):
-    try:
-        cursor.execute('SELECT * FROM comics WHERE num="%s"' % current_num)
-    except sqlite3.OperationalError:
-        cursor.execute('CREATE TABLE comics (num text)')
-        return False
-    else:
-        return False if cursor.fetchone() is None else True
+def get_bracket_graph_data(db, tag):
+    # First, we have to find out which scenes this player has brackets in
+    sql = "SELECT DISTINCT scene FROM ranks WHERE player='{}'".format(tag)
+    scenes = db.exec(sql)
+    scenes = [s[0] for s in scenes]
+
+    bracket_placings_by_scene = {s: get_bracket_placings_in_scene(db, s, tag) for s in scenes}
+
+    return bracket_placings_by_scene

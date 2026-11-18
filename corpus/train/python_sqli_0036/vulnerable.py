@@ -1,10 +1,14 @@
-@app.route('/movies/search', methods=['GET', 'POST'])
-def search_films():
-    form = SearchForm()
-    if not form.validate_on_submit():
-        return render_template('search.html', title='Search for films', form=form)
-    search_terms = form.data['term'].split(' ')
-    search_string = ' & '.join(search_terms)
-    cur.execute(f"SELECT * FROM film where fulltext @@ to_tsquery('{search_string}')")
-    res = cur.fetchall()
-    return render_template('search_results.html', title='Home', res=len(res))
+def also_add(name, also):
+    db = db_connect()
+    cursor = db.cursor()
+    try:
+        cursor.execute('''
+            INSERT INTO isalso(name,also) VALUES('{}','{}')
+            '''.format(name, also))
+        db.commit()
+        logger.debug('added to isalso name {} with value {}'.format(
+            name, also))
+        db.close()
+    except Exception as e:
+        logger.error('Execution failed with error: {}'.format(e))
+        raise

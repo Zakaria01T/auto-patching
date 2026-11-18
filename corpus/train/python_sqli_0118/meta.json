@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0118",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because date, str(user), and command are concatenated directly inside single quotes in the SQLite INSERT query. Crafted text in command or user could escape the string literals and execute arbitrary SQL. The repair uses '?' placeholders and binds (date,str(user),command) as a tuple parameter in c.execute().",
-    "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
-    "reviewer": null
+  "id": "python_sqli_0118",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces concatenation with an unquoted %s placeholder and binds (subject,) as a 1-tuple in cur.execute().",
+  "source": "sven:github.com/sepehr125/arxiv-doc2vec-recommender/commit/f23a4c32e6192b145017f64734b0a9a384c9123a",
+  "reviewer": null
 }

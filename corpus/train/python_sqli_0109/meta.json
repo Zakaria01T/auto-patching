@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0109",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because race, classe, and sex are concatenated directly inside single quotes in the SQLite SELECT query. Crafted input in any argument could break out of the string literals and alter the query to read unauthorized records. The repair replaces concatenation with (?) placeholders and binds (race,classe,sex) as a tuple parameter to c.execute().",
-    "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
-    "reviewer": null
+  "id": "python_sqli_0109",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Converts all three queries to unquoted %s placeholders with tuple parameters passed to cursor.execute().",
+  "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+  "reviewer": null
 }

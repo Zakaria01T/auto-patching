@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0143",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This route uses %d percent-formatting to construct a SELECT statement (a CWE-89 anti-pattern), though %d enforces numeric formatting at runtime and restricts string-based injection. The repair eliminates dynamic string formatting by using a %s placeholder and passing (user_id,) as a bound tuple to cursor.execute().",
-    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
-    "reviewer": null
-}

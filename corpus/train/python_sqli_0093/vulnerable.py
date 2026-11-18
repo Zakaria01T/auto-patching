@@ -1,19 +1,10 @@
-def karma_ask(name):
-    db = db_connect()
-    cursor = db.cursor()
-    try:
-        cursor.execute(
-            ''' SELECT karma FROM people WHERE name='{}' '''.format(name))
-        karma = cursor.fetchone()
-        if karma is None:
-            logger.debug('No karma found for name {}'.format(name))
-            db.close()
-            return karma
-        else:
-            karma = karma[0]
-            logger.debug('karma of {} found for name {}'.format(karma, name))
-            db.close()
-            return karma
-    except Exception as e:
-        logger.error('Execution failed with error: {}'.format(e))
-        raise
+@mod.route('/like/<int:msg_id>', methods=['GET', 'POST'])
+def like(msg_id):
+    if request.method == 'GET':
+        user_id = session['logged_id']
+        c_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        sql = "INSERT INTO like_msg(msg_id, user_id,c_time) " + \
+                "VALUES(%d,'%s','%s');" % (msg_id, user_id, c_time)
+        cursor.execute(sql)
+        conn.commit()
+    return redirect(url_for('show_entries'))

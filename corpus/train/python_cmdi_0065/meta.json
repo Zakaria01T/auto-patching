@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0065",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because path is concatenated directly into os.system(\"ls -l \" + path). Untrusted input containing shell metacharacters could execute arbitrary OS commands. The repair replaces os.system() with subprocess.run([\"ls\", \"-l\", \"--\", path], check=True) using shell=False and '--', eliminating shell and option injection.",
-    "source": "synthetic:row_097",
-    "reviewer": null
-}

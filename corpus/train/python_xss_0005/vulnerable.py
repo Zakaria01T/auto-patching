@@ -1,3 +1,3 @@
-def render_account_html(value):
-    from django.utils.safestring import mark_safe
-    return mark_safe("<span>account: " + value + "</span>")
+def greeting(request):
+    from django.http import HttpResponse
+    return HttpResponse("<b>Welcome, %s</b>" % request.GET.get("user"))

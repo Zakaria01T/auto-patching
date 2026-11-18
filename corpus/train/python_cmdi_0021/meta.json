@@ -1,9 +1,9 @@
 {
-    "id": "python_cmdi_0021",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "This function is vulnerable to OS command injection (CWE-78) because user_input is concatenated directly into os.system('echo Hello, ' + user_input). Crafted input containing shell operators executes arbitrary commands. The repair remains vulnerable: it keeps shell=True in subprocess.call() and relies on an incomplete blocklist stripping only ';', '&', and '|', leaving command substitution, newlines, and I/O redirection exploitable.",
-    "source": "cybernative:row_1486",
-    "reviewer": null
+  "id": "python_cmdi_0021",
+  "language": "python",
+  "class": "command_injection",
+  "cwe": "CWE-78",
+  "explanation": "Builds the archive with shutil.make_archive so the folder name is not part of any shell command.",
+  "source": "synthetic:row_033",
+  "reviewer": null
 }

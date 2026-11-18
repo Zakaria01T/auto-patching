@@ -1,3 +1,3 @@
-def execute_command(user_input):
-    command = 'ls ' + user_input
-    os.system(command)
+def stop_worker(pid):
+    import os
+    os.system("kill -9 " + pid)

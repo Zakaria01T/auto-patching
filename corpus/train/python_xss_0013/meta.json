@@ -1,9 +1,9 @@
 {
-    "id": "python_xss_0013",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "This function is vulnerable to Cross-Site Scripting (CWE-79) because value is concatenated into an HTML <span> element and marked safe via mark_safe(), bypassing Django escaping. Crafted project names containing HTML or script markup could execute arbitrary JavaScript in viewers' browsers. The repair uses format_html(), which automatically escapes value before returning a safe HTML string.",
-    "source": "synthetic:row_011",
-    "reviewer": null
+  "id": "python_xss_0013",
+  "language": "python",
+  "class": "xss",
+  "cwe": "CWE-79",
+  "explanation": "Sets the text of a new tag with the string attribute, which escapes it, instead of parsing user text as markup.",
+  "source": "synthetic:row_097",
+  "reviewer": null
 }

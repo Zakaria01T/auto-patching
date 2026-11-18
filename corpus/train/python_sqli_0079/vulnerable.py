@@ -1,13 +1,19 @@
-@app.route('/<page_name>/edit')
-def render_page_edit(page_name):
-    query = db.query("select page_content.content from page, page_content where page.id = page_content.page_id and page.page_name = '%s' order by page_content.id desc limit 1" % page_name)
-    wiki_page = query.namedresult()
-    if len(wiki_page) > 0:
-        content = wiki_page[0].content
-    else:
-        content = ""
-    return render_template(
-        'edit_page.html',
-        page_name = page_name,
-        content = content
-    )
+def karma_ask(name):
+    db = db_connect()
+    cursor = db.cursor()
+    try:
+        cursor.execute(
+            ''' SELECT karma FROM people WHERE name='{}' '''.format(name))
+        karma = cursor.fetchone()
+        if karma is None:
+            logger.debug('No karma found for name {}'.format(name))
+            db.close()
+            return karma
+        else:
+            karma = karma[0]
+            logger.debug('karma of {} found for name {}'.format(karma, name))
+            db.close()
+            return karma
+    except Exception as e:
+        logger.error('Execution failed with error: {}'.format(e))
+        raise

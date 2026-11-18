@@ -1,3 +1,4 @@
-def render_catalog_html(value):
-    from django.utils.safestring import mark_safe
-    return mark_safe("<span>catalog: " + value + "</span>")
+def django_greeting_view(request):
+    from django.http import HttpResponse
+    name = request.GET.get("name", "Guest")
+    return HttpResponse(f"<p>Hello, {name}</p>")

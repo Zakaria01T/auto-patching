@@ -1,19 +1,20 @@
-@app.route('/referrer_count')
-def referrer_count():
-    account_id = request.args.get('account_id')
+def analyze_smashgg(self, urls, name):
+    LOG.info('we are about to analyze scene {} with {} brackets'.format(name, len(urls)))
+    for url in urls:
+        # Before we process this URL, check to see if we already have
+        sql = "SELECT * FROM analyzed where base_url='{url}'"
+        args = {'url':url}
+        res = self.db.exec(sql, args)
+        if len(res) == 0:
 
-    if not isObject(account_id):
-        ws.send('{"id":1, "method":"call", "params":[0,"lookup_account_names",[["' + account_id + '"], 0]]}')
-        result_l = ws.recv()
-        j_l = json.loads(result_l)
+            display_name = bracket_utils.get_display_base(url)
 
-        account_id = j_l["result"][0]["id"]
+            # We don't care about doubles tournaments
+            if 'doubles' in display_name.lower() or 'dubs' in display_name.lower():
+                LOG.info('We are skipping the tournament {} because it is a doubles tournament'.format(display_name))
+                continue
 
-    con = psycopg2.connect(**config.POSTGRES)
-    cur = con.cursor()
-
-    query = "select count(*) from referrers where referrer=%s"
-    cur.execute(query, (account_id,))
-    results = cur.fetchone()
-
-    return jsonify(results)
+            LOG.info('About to process pro bracket {}'.format(url))
+            self.data_processor.process(url, name, display_name)
+        else:
+            LOG.info("Skpping pro bracket because it has already been analyzed: {}".format(url))

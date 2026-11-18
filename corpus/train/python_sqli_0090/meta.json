@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0090",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because percent-formatting interpolates winner and loser directly into the SELECT COUNT(*) query before cur.execute(). Crafted values could alter the WHERE condition or inject unauthorized SQL. The repair removes string formatting and passes (winner, loser, loser, winner) as bound parameters to cur.execute().",
-    "source": "sven:github.com/juanchopanza/Tournament/commit/5799aee52d2cabb685800b88977257bd0964d0da",
-    "reviewer": null
+  "id": "python_sqli_0090",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Wraps the query in SQLAlchemy text() with named parameter :project_id, ensuring the value is bound safely.",
+  "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
+  "reviewer": null
 }

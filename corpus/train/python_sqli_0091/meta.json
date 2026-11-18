@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0091",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because percent-formatting embeds y_ts, inverter_serial, etoday, and etotal directly into the SQLite INSERT query. Crafted input in inverter_serial or numeric fields could alter the SQL statement and corrupt stored data. The repair replaces formatted placeholders with '?' and binds (y_ts, inverter_serial, etoday, etotal) as a tuple in self.c.execute().",
-    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
-    "reviewer": null
+  "id": "python_sqli_0091",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Replaces concatenation with (?) placeholders and binds (race,classe,sex) as a tuple parameter to c.execute().",
+  "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
+  "reviewer": null
 }

@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0130",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because the % operator interpolates user_id and money directly into the SELECT query passed to self.cursor.execute(). Crafted input in either argument could alter the WHERE clause and bypass balance verification. The repair replaces the % operator with a comma, passing (user_id, money) as bound parameters to self.cursor.execute().",
-    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
-    "reviewer": null
+  "id": "python_sqli_0130",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Uses an unquoted %s placeholder and binds (value,) as a 1-tuple in cursor.execute(), isolating data from SQL syntax.",
+  "source": "synthetic:row_037",
+  "reviewer": null
 }

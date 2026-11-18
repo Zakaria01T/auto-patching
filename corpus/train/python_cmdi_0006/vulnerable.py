@@ -1,3 +1,3 @@
-def run_command(user_input):
-    command = "ls -l " + user_input
-    os.system(command)
+def make_backup(folder):
+    import subprocess
+    subprocess.call("tar czf backup.tgz " + folder, shell=True)

@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0134",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This function is vulnerable to SQL injection (CWE-89) because .format(id=id, playlist_id=playlist_id) inserts both arguments directly into the SELECT query inside db.execute(). Crafted input in either argument could alter the query to extract unauthorized database rows. The repair uses %s placeholders and passes (id, playlist_id) as a bound parameter tuple to db.execute().",
-    "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
-    "reviewer": null
-}

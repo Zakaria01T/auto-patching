@@ -1,9 +1,9 @@
 {
-    "id": "python_sqli_0042",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "This method is vulnerable to SQL injection (CWE-89) because percent-formatting embeds item[0] and item[1] directly inside double quotes in the INSERT query. Crafted input in either element could break out of the quoted literals and execute arbitrary SQL statements. The repair uses '?' placeholders and passes t = (item[0], item[1], ) as a bound tuple to self.cursor.execute().",
-    "source": "sven:github.com/ecosl-developers/ecosl/commit/8af050a513338bf68ff2a243e4a2482d24e9aa3a",
-    "reviewer": null
+  "id": "python_sqli_0042",
+  "language": "python",
+  "class": "sql_injection",
+  "cwe": "CWE-89",
+  "explanation": "Removes the surrounding quotes around %s and passes (name,) as a parameter tuple to cursor.execute(), isolating data from SQL syntax.",
+  "source": "sven:github.com/sarahkcaplan/tournament/commit/40aba5686059f5f398f6323b1483412c56140cc0",
+  "reviewer": null
 }

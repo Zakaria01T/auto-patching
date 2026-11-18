@@ -1,7 +1,5 @@
-def verify_email(self, member):
-    self.cursor.execute("SELECT COUNT(email) FROM members WHERE email = ':email'", {'email':member})
-    result = self.cursor.fetchone()
-    if (int(result[0]) > 0):
-        return True 
-    else:
-        return False
+def getQueue(self, numberOfLinks=10):
+    self.cursor.execute("SELECT url FROM queue WHERE visited = '0' LIMIT ?;", numberOfLinks)
+    result = self.cursor.fetchall()
+    self.remove(result)
+    return result
