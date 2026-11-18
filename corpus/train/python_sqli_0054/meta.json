@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0054",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Switches to an unquoted %s placeholder and passes self.access_token to self.db.get().",
-  "source": "sven:github.com/bonbondirac/tsunami/commit/396cc394bd6daaf0ee9c16b1b55a4082eeaac208",
-  "reviewer": null
+    "id": "python_sqli_0054",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Switches to an unquoted %s placeholder and passes self.access_token to self.db.get().",
+    "source": "sven:github.com/bonbondirac/tsunami/commit/396cc394bd6daaf0ee9c16b1b55a4082eeaac208",
+    "reviewer": null
 }

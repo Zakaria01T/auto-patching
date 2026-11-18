@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0028",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Prints the banner and clears the screen directly in Python instead of echoing through a shell.",
-  "source": "synthetic:row_048",
-  "reviewer": null
+    "id": "python_cmdi_0028",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Prints the banner and clears the screen directly in Python instead of echoing through a shell.",
+    "source": "synthetic:row_048",
+    "reviewer": null
 }

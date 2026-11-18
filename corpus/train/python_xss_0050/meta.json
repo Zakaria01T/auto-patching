@@ -1,9 +1,9 @@
 {
-  "id": "python_xss_0050",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Builds the HTML list with xml.etree.ElementTree so element text is automatically escaped instead of concatenated raw.",
-  "source": "synthetic:row_050",
-  "reviewer": null
+    "id": "python_xss_0050",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Builds the HTML list with xml.etree.ElementTree so element text is automatically escaped instead of concatenated raw.",
+    "source": "synthetic:row_050",
+    "reviewer": null
 }

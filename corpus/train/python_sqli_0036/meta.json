@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0036",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Switches to named placeholders %(name)s and %(also)s, but supplies a positional tuple (name, also,) instead of a dictionary, which causes a runtime binding error.",
-  "source": "sven:github.com/tylarb/KarmaBoi-PCF/commit/c1d00a27d7f6b7eb6f15a3dacd4269654a32c10a",
-  "reviewer": null
-}

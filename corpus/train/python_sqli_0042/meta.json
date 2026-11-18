@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0042",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Removes the surrounding quotes around %s and passes (name,) as a parameter tuple to cursor.execute(), isolating data from SQL syntax.",
-  "source": "sven:github.com/sarahkcaplan/tournament/commit/40aba5686059f5f398f6323b1483412c56140cc0",
-  "reviewer": null
+    "id": "python_sqli_0042",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Removes the surrounding quotes around %s and passes (name,) as a parameter tuple to cursor.execute(), isolating data from SQL syntax.",
+    "source": "sven:github.com/sarahkcaplan/tournament/commit/40aba5686059f5f398f6323b1483412c56140cc0",
+    "reviewer": null
 }

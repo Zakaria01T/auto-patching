@@ -1,9 +1,0 @@
-{
-  "id": "python_xss_0038",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Enables autoescape=True in jinja2.Template instead of explicitly disabling autoescaping during rendering.",
-  "source": "synthetic:row_024",
-  "reviewer": null
-}

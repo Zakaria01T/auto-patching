@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g014",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the source and destination after -- as cp arguments to subprocess.run, removing shell interpretation.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:17",
+    "reviewer": null
+}

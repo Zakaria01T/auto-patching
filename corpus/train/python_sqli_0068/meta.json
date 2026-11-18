@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0068",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Wraps the query in SQLAlchemy text() with named bind parameters (:project_id, :expiry_date), safely separating query structure from data.",
-  "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
-  "reviewer": null
+    "id": "python_sqli_0068",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Wraps the query in SQLAlchemy text() with named bind parameters (:project_id, :expiry_date), safely separating query structure from data.",
+    "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
+    "reviewer": null
 }

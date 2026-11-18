@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0043",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a %s placeholder and binds (email, ) as a tuple parameter in g.conn.execute(), preventing SQL injection.",
-  "source": "sven:github.com/Daniel-Bu/w4111-project1/commit/fe04bedc72e62fd4c4ee046a9af29fd81e9b3340",
-  "reviewer": null
+    "id": "python_sqli_0043",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a %s placeholder and binds (email, ) as a tuple parameter in g.conn.execute(), preventing SQL injection.",
+    "source": "sven:github.com/Daniel-Bu/w4111-project1/commit/fe04bedc72e62fd4c4ee046a9af29fd81e9b3340",
+    "reviewer": null
 }

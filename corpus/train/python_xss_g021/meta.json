@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g021",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped hotel name with html.escape before inserting into booking div.",
+    "source": "generated:openrouter/nvidia/nemotron-3-ultra-550b-a55b:free:2026-11-18:candidates/xss-02.jsonl:1",
+    "reviewer": null
+}

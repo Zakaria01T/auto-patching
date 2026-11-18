@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g029",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped artifact name with html.escape before inserting into figcaption.",
+    "source": "generated:openrouter/nvidia/nemotron-3-ultra-550b-a55b:free:2026-11-18:candidates/xss-02.jsonl:10",
+    "reviewer": null
+}

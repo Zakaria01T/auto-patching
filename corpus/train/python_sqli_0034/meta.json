@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0034",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Replaces string formatting with a %s placeholder and passes (event_id,) as a parameter tuple to self.cur.execute(), separating SQL syntax from data.",
-  "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
-  "reviewer": null
+    "id": "python_sqli_0034",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces string formatting with a %s placeholder and passes (event_id,) as a parameter tuple to self.cur.execute(), separating SQL syntax from data.",
+    "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
+    "reviewer": null
 }

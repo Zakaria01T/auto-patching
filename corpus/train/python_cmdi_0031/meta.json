@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0031",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Replaces os.system() shell deletion concatenation with Python's native os.remove() API to eliminate shell execution.",
-  "source": "synthetic:row_052",
-  "reviewer": null
+    "id": "python_cmdi_0031",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces os.system() shell deletion concatenation with Python's native os.remove() API to eliminate shell execution.",
+    "source": "synthetic:row_052",
+    "reviewer": null
 }

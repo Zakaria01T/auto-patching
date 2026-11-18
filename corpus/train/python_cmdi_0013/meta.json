@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0013",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Converts pid to an integer and sends the signal with os.kill, so no shell command is built.",
-  "source": "synthetic:row_015",
-  "reviewer": null
+    "id": "python_cmdi_0013",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Converts pid to an integer and sends the signal with os.kill, so no shell command is built.",
+    "source": "synthetic:row_015",
+    "reviewer": null
 }

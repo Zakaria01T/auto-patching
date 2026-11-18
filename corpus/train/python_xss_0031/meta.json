@@ -1,9 +1,9 @@
 {
-  "id": "python_xss_0031",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Replaces unsafe mark_safe() wrapping an f-string with Django's format_html() so the username is escaped.",
-  "source": "synthetic:row_016",
-  "reviewer": null
+    "id": "python_xss_0031",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Replaces unsafe mark_safe() wrapping an f-string with Django's format_html() so the username is escaped.",
+    "source": "synthetic:row_016",
+    "reviewer": null
 }

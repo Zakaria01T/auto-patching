@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0028",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a '?' placeholder, but passes the bare string judge instead of a 1-tuple (judge,), which fails in standard sqlite3 execute() calls.",
-  "source": "sven:github.com/iScrE4m/XLeague/commit/59cab6e5fd8bd5e47f2418a7c71cb1d4e3cad0d2",
-  "reviewer": null
-}

@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0007",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Downloads with urllib after checking the URL scheme, so no curl process or shell quoting is involved.",
-  "source": "synthetic:row_006",
-  "reviewer": null
+    "id": "python_cmdi_0007",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Downloads with urllib after checking the URL scheme, so no curl process or shell quoting is involved.",
+    "source": "synthetic:row_006",
+    "reviewer": null
 }

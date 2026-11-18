@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g021",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Validated the size and passed it and the image path as separate arguments after -- to subprocess.run instead of a shell string.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:5",
+    "reviewer": null
+}

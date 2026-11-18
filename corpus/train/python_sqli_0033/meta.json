@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0033",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Passes args={'player': player} to db.exec(sql, args) with '{player}' inside single quotes, which cannot be verified without seeing db.exec and resembles string formatting.",
-  "source": "sven:github.com/DKelle/Smash_stats/commit/4bb83f3f6ce7d6bebbeb512cd015f9e72cf36d63",
-  "reviewer": null
-}

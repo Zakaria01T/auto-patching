@@ -1,9 +1,9 @@
 {
-  "id": "python_xss_0016",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Uses a context-aware formatter that escapes the notice text.",
-  "source": "synthetic:phase2_0062",
-  "reviewer": null
+    "id": "python_xss_0016",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Uses a context-aware formatter that escapes the notice text.",
+    "source": "synthetic:phase2_0062",
+    "reviewer": null
 }

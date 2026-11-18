@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0070",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Replaces shell=True sed in-place replacement with Python file I/O and str.replace().",
-  "source": "synthetic:row_094",
-  "reviewer": null
+    "id": "python_cmdi_0070",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces shell=True sed in-place replacement with Python file I/O and str.replace().",
+    "source": "synthetic:row_094",
+    "reviewer": null
 }

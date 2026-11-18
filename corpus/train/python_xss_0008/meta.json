@@ -1,9 +1,0 @@
-{
-  "id": "python_xss_0008",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Turns on Jinja2 autoescaping for HTML and XML templates so variables are escaped by default.",
-  "source": "synthetic:row_056",
-  "reviewer": null
-}

@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0070",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Passes parameter tuples as the second argument to all three execute() calls, ensuring proper driver-level binding.",
-  "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
-  "reviewer": null
+    "id": "python_sqli_0070",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Passes parameter tuples as the second argument to all three execute() calls, ensuring proper driver-level binding.",
+    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
+    "reviewer": null
 }

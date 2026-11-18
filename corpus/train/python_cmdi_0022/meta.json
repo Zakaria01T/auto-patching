@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0022",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Performs the replacement in Python so the values are never embedded in a sed expression run by a shell.",
-  "source": "synthetic:row_034",
-  "reviewer": null
+    "id": "python_cmdi_0022",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Performs the replacement in Python so the values are never embedded in a sed expression run by a shell.",
+    "source": "synthetic:row_034",
+    "reviewer": null
 }

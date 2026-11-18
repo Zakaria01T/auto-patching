@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0069",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Replaces shell=True awk text filtering with native Python file reading and substring matching.",
-  "source": "synthetic:row_093",
-  "reviewer": null
+    "id": "python_cmdi_0069",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces shell=True awk text filtering with native Python file reading and substring matching.",
+    "source": "synthetic:row_093",
+    "reviewer": null
 }

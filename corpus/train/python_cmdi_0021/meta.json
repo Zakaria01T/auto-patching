@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0021",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Builds the archive with shutil.make_archive so the folder name is not part of any shell command.",
-  "source": "synthetic:row_033",
-  "reviewer": null
+    "id": "python_cmdi_0021",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Builds the archive with shutil.make_archive so the folder name is not part of any shell command.",
+    "source": "synthetic:row_033",
+    "reviewer": null
 }

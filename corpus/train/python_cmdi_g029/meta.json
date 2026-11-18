@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g029",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the user name as a separate argument list item to subprocess.check_output instead of concatenating it into a shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:13",
+    "reviewer": null
+}

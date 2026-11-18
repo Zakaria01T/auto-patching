@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0039",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Replaces .format() with %s placeholders and passes (w,l) as bound parameters to c.execute().",
-  "source": "sven:github.com/tdnelson2/tournament-db/commit/00f3caeed0e12e806c2808d100908698777d9e98",
-  "reviewer": null
+    "id": "python_sqli_0039",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces .format() with %s placeholders and passes (w,l) as bound parameters to c.execute().",
+    "source": "sven:github.com/tdnelson2/tournament-db/commit/00f3caeed0e12e806c2808d100908698777d9e98",
+    "reviewer": null
 }

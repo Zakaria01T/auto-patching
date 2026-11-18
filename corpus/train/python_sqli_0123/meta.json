@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0123",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses unquoted %s placeholders and passes all five values as a bound tuple to cursor.execute().",
-  "source": "sven:github.com/onewyoming/onewyoming/commit/54fc7b076fda2de74eeb55e6b75b28e09ef231c2",
-  "reviewer": null
+    "id": "python_sqli_0123",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses unquoted %s placeholders and passes all five values as a bound tuple to cursor.execute().",
+    "source": "sven:github.com/onewyoming/onewyoming/commit/54fc7b076fda2de74eeb55e6b75b28e09ef231c2",
+    "reviewer": null
 }

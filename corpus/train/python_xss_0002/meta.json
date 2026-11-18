@@ -1,9 +1,0 @@
-{
-  "id": "python_xss_0002",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Removes mark_safe() so flatatt() properly HTML-escapes the attribute value.",
-  "source": "crossvul:crossvul/5729_0",
-  "reviewer": null
-}

@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0096",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Replaces formatted placeholders with unquoted %s and passes all five values as a bound tuple to self.cur.execute().",
-  "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
-  "reviewer": null
+    "id": "python_sqli_0096",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces formatted placeholders with unquoted %s and passes all five values as a bound tuple to self.cur.execute().",
+    "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
+    "reviewer": null
 }

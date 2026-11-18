@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g005",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the repository URL after -- in a git clone argument list to subprocess.run instead of concatenating it into a shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:7",
+    "reviewer": null
+}

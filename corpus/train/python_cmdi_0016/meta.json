@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0016",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Counts the lines by reading the file in Python, which removes the shell and the redirection.",
-  "source": "synthetic:row_019",
-  "reviewer": null
+    "id": "python_cmdi_0016",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Counts the lines by reading the file in Python, which removes the shell and the redirection.",
+    "source": "synthetic:row_019",
+    "reviewer": null
 }

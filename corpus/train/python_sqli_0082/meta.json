@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0082",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Attempts parameterization, but omits the comma between the SQL string literal and (cid,), which attempts to call the string as a function and raises TypeError at runtime.",
-  "source": "sven:github.com/yannvon/table-detection/commit/4bad3673debf0b9491b520f0e22e9186af78c375",
-  "reviewer": null
-}

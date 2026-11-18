@@ -1,9 +1,0 @@
-{
-  "id": "python_xss_0015",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Enables automatic escaping for HTML-like templates.",
-  "source": "synthetic:phase2_0054",
-  "reviewer": null
-}

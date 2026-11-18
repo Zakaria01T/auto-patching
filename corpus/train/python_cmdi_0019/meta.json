@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0019",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Sorts the lines in Python and writes the result directly, which removes both the shell and the redirection.",
-  "source": "synthetic:row_028",
-  "reviewer": null
+    "id": "python_cmdi_0019",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Sorts the lines in Python and writes the result directly, which removes both the shell and the redirection.",
+    "source": "synthetic:row_028",
+    "reviewer": null
 }

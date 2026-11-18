@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0087",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Replaces .format() with a %s placeholder and passes data = [top_num, ] separately to execute_query().",
-  "source": "sven:github.com/thugasin/udacity-homework-logAnalyzer/commit/506f25f9a1caee7f17034adf7c75e0efbc88082b",
-  "reviewer": null
+    "id": "python_sqli_0087",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces .format() with a %s placeholder and passes data = [top_num, ] separately to execute_query().",
+    "source": "sven:github.com/thugasin/udacity-homework-logAnalyzer/commit/506f25f9a1caee7f17034adf7c75e0efbc88082b",
+    "reviewer": null
 }

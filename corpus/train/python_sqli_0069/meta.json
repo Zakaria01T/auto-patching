@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0069",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Replaces interpolation with a %s placeholder, but passes bare data instead of a 1-tuple (data,) to cursor.execute(), causing a DB-API parameter-binding error for strings.",
-  "source": "sven:github.com/mudspringhiker/crimemap/commit/35e78962e7288c643cdde0f886ff7aa5ac77cb8c",
-  "reviewer": null
-}

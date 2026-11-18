@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g004",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Used Django format_html to escape the event label before inserting it into the calendar widget.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:4",
+    "reviewer": null
+}

@@ -1,9 +1,0 @@
-{
-  "id": "python_xss_0004",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Replaces str.format() with Django's format_html(), which automatically escapes value before building the HTTP response.",
-  "source": "synthetic:row_004",
-  "reviewer": null
-}

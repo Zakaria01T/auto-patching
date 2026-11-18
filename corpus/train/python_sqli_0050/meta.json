@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0050",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Removes string formatting and passes (user_id, user_id, user_id) as bound parameters to cursor.execute().",
-  "source": "sven:github.com/young-goons/rifflo-server/commit/fb311df76713b638c9486250f9badb288ffb2189",
-  "reviewer": null
+    "id": "python_sqli_0050",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Removes string formatting and passes (user_id, user_id, user_id) as bound parameters to cursor.execute().",
+    "source": "sven:github.com/young-goons/rifflo-server/commit/fb311df76713b638c9486250f9badb288ffb2189",
+    "reviewer": null
 }

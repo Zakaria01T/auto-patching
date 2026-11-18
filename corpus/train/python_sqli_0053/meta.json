@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0053",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Passes (coin,) as a tuple to self.cursor.execute(), but mistakenly retains single quotes around '%s', which breaks parameterization in standard Python DB-API drivers.",
-  "source": "sven:github.com/ktechmidas/garlictipsbot/commit/7c262255f933cb721109ac4be752b5b7599275aa",
-  "reviewer": null
-}

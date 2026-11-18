@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0071",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Changes the placeholder to named %(name)s, but passes a positional tuple (name, ) instead of a dictionary {'name': name}, which raises a binding TypeError at runtime.",
-  "source": "sven:github.com/tylarb/KarmaBoi-PCF/commit/c1d00a27d7f6b7eb6f15a3dacd4269654a32c10a",
-  "reviewer": null
-}

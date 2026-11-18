@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0061",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a '?' placeholder and binds (str(message.chat.id),) as a 1-tuple in conn.execute().",
-  "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
-  "reviewer": null
+    "id": "python_sqli_0061",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a '?' placeholder and binds (str(message.chat.id),) as a 1-tuple in conn.execute().",
+    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
+    "reviewer": null
 }

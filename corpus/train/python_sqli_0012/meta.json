@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0012",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Adopts SQLAlchemy text() with named bind parameters, which fixes the UPDATE query, but leaves :project_id inside single-quoted '{{:project_id}}' in the first query where bind parameters are not expanded.",
-  "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
-  "reviewer": null
-}

@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0024",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Computes the digest with hashlib in Python, so no md5sum process is started.",
-  "source": "synthetic:row_039",
-  "reviewer": null
+    "id": "python_cmdi_0024",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Computes the digest with hashlib in Python, so no md5sum process is started.",
+    "source": "synthetic:row_039",
+    "reviewer": null
 }

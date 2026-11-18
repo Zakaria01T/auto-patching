@@ -1,9 +1,0 @@
-{
-  "id": "python_xss_0001",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Uses Django's format_html(), which automatically HTML-escapes all interpolated arguments.",
-  "source": "sven:github.com/djblets/djblets/commit/77ac64642ad530bf69e390c51fc6fdcb8914c8e7",
-  "reviewer": null
-}

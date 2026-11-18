@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0029",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a %s placeholder and passes (eid, ) as a bound tuple to g.conn.execute(), preventing SQL syntax injection.",
-  "source": "sven:github.com/Daniel-Bu/w4111-project1/commit/fe04bedc72e62fd4c4ee046a9af29fd81e9b3340",
-  "reviewer": null
+    "id": "python_sqli_0029",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a %s placeholder and passes (eid, ) as a bound tuple to g.conn.execute(), preventing SQL syntax injection.",
+    "source": "sven:github.com/Daniel-Bu/w4111-project1/commit/fe04bedc72e62fd4c4ee046a9af29fd81e9b3340",
+    "reviewer": null
 }

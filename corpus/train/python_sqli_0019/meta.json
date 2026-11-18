@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0019",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Switches to a $1 placeholder and passes page_name separately.",
-  "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
-  "reviewer": null
+    "id": "python_sqli_0019",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Switches to a $1 placeholder and passes page_name separately.",
+    "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
+    "reviewer": null
 }

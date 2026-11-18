@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0012",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Sets the permissions with os.chmod rather than spawning a shell to run chmod.",
-  "source": "synthetic:row_014",
-  "reviewer": null
+    "id": "python_cmdi_0012",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Sets the permissions with os.chmod rather than spawning a shell to run chmod.",
+    "source": "synthetic:row_014",
+    "reviewer": null
 }

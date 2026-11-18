@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g011",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the flight code and status with html.escape before formatting the status widget.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:11",
+    "reviewer": null
+}

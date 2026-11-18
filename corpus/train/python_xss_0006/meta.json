@@ -1,9 +1,9 @@
 {
-  "id": "python_xss_0006",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Escapes the comment instead of wrapping untrusted text in Markup, which marks it as already safe.",
-  "source": "synthetic:row_054",
-  "reviewer": null
+    "id": "python_xss_0006",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escapes the comment instead of wrapping untrusted text in Markup, which marks it as already safe.",
+    "source": "synthetic:row_054",
+    "reviewer": null
 }

@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0071",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Replaces a shell=True cat/sort/uniq pipeline with Python file reading and sorted(set(...)) deduplication.",
-  "source": "synthetic:row_095",
-  "reviewer": null
+    "id": "python_cmdi_0071",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces a shell=True cat/sort/uniq pipeline with Python file reading and sorted(set(...)) deduplication.",
+    "source": "synthetic:row_095",
+    "reviewer": null
 }

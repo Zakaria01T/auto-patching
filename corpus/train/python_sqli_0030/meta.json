@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0030",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a %s placeholder inside to_tsquery(%s) and passes (search_string, ) as a bound tuple to cur.execute().",
-  "source": "sven:github.com/Elbertbiggs360/dvdrental/commit/ad144ae2a08a332498d0831bc255170d57ba754b",
-  "reviewer": null
+    "id": "python_sqli_0030",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a %s placeholder inside to_tsquery(%s) and passes (search_string, ) as a bound tuple to cur.execute().",
+    "source": "sven:github.com/Elbertbiggs360/dvdrental/commit/ad144ae2a08a332498d0831bc255170d57ba754b",
+    "reviewer": null
 }

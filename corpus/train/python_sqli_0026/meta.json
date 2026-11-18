@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0026",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a named :rno placeholder and passes {'rno': rno} to execute(), ensuring the database driver binds the parameter safely.",
-  "source": "sven:github.com/kenboo98/291-Mini-Project-I/commit/3080ccb687c79c83954ce703faee8fcceec8c9eb",
-  "reviewer": null
+    "id": "python_sqli_0026",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a named :rno placeholder and passes {'rno': rno} to execute(), ensuring the database driver binds the parameter safely.",
+    "source": "sven:github.com/kenboo98/291-Mini-Project-I/commit/3080ccb687c79c83954ce703faee8fcceec8c9eb",
+    "reviewer": null
 }

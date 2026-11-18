@@ -1,9 +1,9 @@
 {
-  "id": "python_xss_0007",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Builds the list with format_html_join, which escapes each tag instead of marking the joined string safe.",
-  "source": "synthetic:row_055",
-  "reviewer": null
+    "id": "python_xss_0007",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Builds the list with format_html_join, which escapes each tag instead of marking the joined string safe.",
+    "source": "synthetic:row_055",
+    "reviewer": null
 }

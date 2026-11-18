@@ -1,9 +1,9 @@
 {
-  "id": "python_xss_0013",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Sets the text of a new tag with the string attribute, which escapes it, instead of parsing user text as markup.",
-  "source": "synthetic:row_097",
-  "reviewer": null
+    "id": "python_xss_0013",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Sets the text of a new tag with the string attribute, which escapes it, instead of parsing user text as markup.",
+    "source": "synthetic:row_097",
+    "reviewer": null
 }

@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0020",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a '?' placeholder and passes tid separately to self.query.",
-  "source": "sven:github.com/pukkapies/urop2019/commit/3ca2e2c291d2d5fe262d20a8e0520bdfb622432b",
-  "reviewer": null
-}

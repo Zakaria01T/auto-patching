@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0122",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Eliminates dynamic string formatting by using a %s placeholder and passing (user_id,) as a bound tuple to cursor.execute().",
-  "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
-  "reviewer": null
+    "id": "python_sqli_0122",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Eliminates dynamic string formatting by using a %s placeholder and passing (user_id,) as a bound tuple to cursor.execute().",
+    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+    "reviewer": null
 }

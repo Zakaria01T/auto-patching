@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g013",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the joined folder path after -- to mkdir as a separate subprocess.run argument instead of a shell string.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:16",
+    "reviewer": null
+}

@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0025",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Reads the file directly and checks the resolved path stays inside the log directory, so no cat process is needed.",
-  "source": "synthetic:row_044",
-  "reviewer": null
+    "id": "python_cmdi_0025",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Reads the file directly and checks the resolved path stays inside the log directory, so no cat process is needed.",
+    "source": "synthetic:row_044",
+    "reviewer": null
 }

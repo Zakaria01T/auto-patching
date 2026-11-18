@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0090",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Wraps the query in SQLAlchemy text() with named parameter :project_id, ensuring the value is bound safely.",
-  "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
-  "reviewer": null
+    "id": "python_sqli_0090",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Wraps the query in SQLAlchemy text() with named parameter :project_id, ensuring the value is bound safely.",
+    "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
+    "reviewer": null
 }

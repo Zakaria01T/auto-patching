@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0032",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Replaces os.system() percent-formatting directory creation with os.makedirs(..., exist_ok=True).",
-  "source": "synthetic:row_053",
-  "reviewer": null
+    "id": "python_cmdi_0032",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces os.system() percent-formatting directory creation with os.makedirs(..., exist_ok=True).",
+    "source": "synthetic:row_053",
+    "reviewer": null
 }

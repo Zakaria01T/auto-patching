@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0041",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses '?' placeholders and passes [user, password] as a parameter list so the database binds both values safely.",
-  "source": "sven:github.com/ChemiKyle/Waterspots/commit/3f9d5099496336f3f34c48abf0cf55acaaa29011",
-  "reviewer": null
+    "id": "python_sqli_0041",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses '?' placeholders and passes [user, password] as a parameter list so the database binds both values safely.",
+    "source": "sven:github.com/ChemiKyle/Waterspots/commit/3f9d5099496336f3f34c48abf0cf55acaaa29011",
+    "reviewer": null
 }

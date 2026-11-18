@@ -1,9 +1,0 @@
-{
-  "id": "python_xss_0005",
-  "language": "python",
-  "class": "xss",
-  "cwe": "CWE-79",
-  "explanation": "Uses format_html so the user value is HTML-escaped automatically.",
-  "source": "synthetic:row_053",
-  "reviewer": null
-}

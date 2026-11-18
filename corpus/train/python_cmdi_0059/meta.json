@@ -1,9 +1,9 @@
 {
-  "id": "python_cmdi_0059",
-  "language": "python",
-  "class": "command_injection",
-  "cwe": "CWE-78",
-  "explanation": "Replaces bash -c command execution with direct Python file reading to eliminate shell command injection.",
-  "source": "synthetic:row_082",
-  "reviewer": null
+    "id": "python_cmdi_0059",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces bash -c command execution with direct Python file reading to eliminate shell command injection.",
+    "source": "synthetic:row_082",
+    "reviewer": null
 }

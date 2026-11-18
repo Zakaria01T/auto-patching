@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0106",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses '?' placeholders and binds both values as a tuple in cursor.execute().",
-  "source": "sven:github.com/AnetaStoycheva/Programming101_HackBulgaria/commit/c0d6f4b8fe83a375832845a45952b5153e4c34f3",
-  "reviewer": null
+    "id": "python_sqli_0106",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses '?' placeholders and binds both values as a tuple in cursor.execute().",
+    "source": "sven:github.com/AnetaStoycheva/Programming101_HackBulgaria/commit/c0d6f4b8fe83a375832845a45952b5153e4c34f3",
+    "reviewer": null
 }

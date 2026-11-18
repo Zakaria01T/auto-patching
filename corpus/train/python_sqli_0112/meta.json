@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0112",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a %s placeholder and binds (server_id,) as a 1-tuple in self.cur.execute().",
-  "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
-  "reviewer": null
+    "id": "python_sqli_0112",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a %s placeholder and binds (server_id,) as a 1-tuple in self.cur.execute().",
+    "source": "sven:github.com/jgayfer/spirit/commit/01c846c534c8d3cf6763f8b7444a0efe2caa3799",
+    "reviewer": null
 }

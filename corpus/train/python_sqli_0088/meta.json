@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0088",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses an unquoted %s placeholder and binds (account_id,) as a 1-tuple in cur.execute().",
-  "source": "sven:github.com/VinChain/vinchain-python-api-backend/commit/b78088a551fbb712121269c6eb7f43ede120ff60",
-  "reviewer": null
+    "id": "python_sqli_0088",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses an unquoted %s placeholder and binds (account_id,) as a 1-tuple in cur.execute().",
+    "source": "sven:github.com/VinChain/vinchain-python-api-backend/commit/b78088a551fbb712121269c6eb7f43ede120ff60",
+    "reviewer": null
 }

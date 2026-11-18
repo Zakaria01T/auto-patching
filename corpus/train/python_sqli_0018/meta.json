@@ -1,9 +1,9 @@
 {
-  "id": "python_sqli_0018",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Replaces the % formatting operator with a comma, passing (project_id, user_id, money) as bound parameters to self.cursor.execute().",
-  "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
-  "reviewer": null
+    "id": "python_sqli_0018",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces the % formatting operator with a comma, passing (project_id, user_id, money) as bound parameters to self.cursor.execute().",
+    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
+    "reviewer": null
 }

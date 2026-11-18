@@ -1,9 +1,0 @@
-{
-  "id": "python_sqli_0052",
-  "language": "python",
-  "class": "sql_injection",
-  "cwe": "CWE-89",
-  "explanation": "Uses a %s placeholder, but passes bare data instead of a 1-tuple (data,) to cursor.execute(), which causes a parameter-binding failure in standard DB-API drivers.",
-  "source": "sven:github.com/amrishc/crimemap/commit/51b3d51aa031d7c285295de36f5464d43debf6de",
-  "reviewer": null
-}
