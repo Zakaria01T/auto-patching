@@ -130,3 +130,53 @@ def argument_injection_open(code: str) -> bool:
                 continue  # str(n) where n = int(...)
             return True
     return False
+
+
+# Checks added after the review of PR #23 (sqli_0017, sqli_0038, sqli_0073, xss_0011,
+# xss_0040, xss_0014, xss_0016): things the scanner cannot see.
+EXPL_ADMITS_BROKEN = re.compile(
+    r"\b(?:is|are) (?:broken|invalid)\b|^Is broken\b|\binvalid in\b|\bwill fail\b|^Attempts?\b|"
+    r"\bstill (?:vulnerable|unsafe|allows)\b|\bdoes not (?:escape|fix|prevent)\b", re.IGNORECASE)
+EXPL_DESCRIBES_BUG = re.compile(
+    r"^(?:This|The) (?:function|snippet|code|query)\b[^.]*\b(?:is|are) vulnerable\b")
+SQL_PLACEHOLDER_AS_IDENTIFIER = re.compile(
+    r"(?i)\b(?:into|from|table|update|join)\s+(?:\?|%s|:\w+)(?=[\s,;)'\"]|$)")
+QMARK_EXECUTE = re.compile(r"execute\(\s*[rbuf]?['\"][^'\"]*\?")
+FORMAT_DRIVERS = re.compile(r"psycopg2|pymysql|MySQLdb|mysql\.connector")
+URL_FROM_VALUE = re.compile(r"(?:href|src)\s*=\s*\\?['\"]?\s*(?:\{\w*\}|%s|\{\{)", re.IGNORECASE)
+URL_SCHEME_CHECK = re.compile(r"https?://|['\"]https['\"]|scheme|startswith\(|urlparse|url_has_allowed")
+TEMPLATE_FROM_INPUT = re.compile(
+    r"(?:from_string|Template|render_template_string)\(\s*(?:f['\"]|['\"][^'\"]*['\"]\s*\+|\w+\s*\+)")
+PLACEHOLDER_NAMES = {"example", "func", "foo", "bar"}
+LLM_SOURCES = {"synthetic", "generated", "cybernative"}
+
+
+def semantic_problem(row: dict) -> str | None:
+    """Reason a row is wrong in a way the scanner cannot see, or None."""
+    expl, repair, vuln, cls = row["explanation"], row["repair"], row["vulnerable_code"], row["class"]
+    if EXPL_ADMITS_BROKEN.search(expl):
+        return "explanation_says_repair_is_broken"
+    if EXPL_DESCRIBES_BUG.search(expl):
+        return "explanation_describes_the_bug_not_the_fix"
+    if cls == "sql_injection":
+        if SQL_PLACEHOLDER_AS_IDENTIFIER.search(repair):
+            return "sql_placeholder_used_as_identifier"
+        if FORMAT_DRIVERS.search(repair + vuln) and QMARK_EXECUTE.search(repair):
+            return "sql_placeholder_style_wrong_for_driver"
+    if cls == "xss":
+        if TEMPLATE_FROM_INPUT.search(vuln):
+            return "template_injection_not_xss"
+        if URL_FROM_VALUE.search(repair) and not URL_SCHEME_CHECK.search(repair):
+            return "xss_url_scheme_not_checked"
+    try:
+        fn = ast.parse(vuln).body[0]
+    except (SyntaxError, IndexError):
+        return None
+    if isinstance(fn, (ast.FunctionDef, ast.AsyncFunctionDef)):
+        if fn.name in PLACEHOLDER_NAMES:
+            return "placeholder_function"
+        params = {a.arg for a in fn.args.args + fn.args.kwonlyargs} - {"self", "cls"}
+        used = {n.id for n in ast.walk(fn) if isinstance(n, ast.Name)}
+        if params - used and row["source"].split(":")[0] in LLM_SOURCES:
+            return "placeholder_function"
+    return None

@@ -1,9 +1,0 @@
-{
-    "id": "python_xss_0011",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "Replaces mark_safe on an f-string with format_html, which escapes the link and the title.",
-    "source": "synthetic:row_077",
-    "reviewer": null
-}

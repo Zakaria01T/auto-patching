@@ -327,8 +327,8 @@
  "candidates/xss-02.jsonl:10": {
   "kept": "python_xss_g029",
   "closest": [
-   0.749,
-   "corpus/train/python_xss_0011/vulnerable.py"
+   0.705,
+   "corpus/train/python_xss_0003/vulnerable.py"
   ]
  },
  "candidates/xss-02.jsonl:11": {
