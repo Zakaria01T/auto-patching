@@ -14,6 +14,7 @@ A candidate becomes a row only if:
   4. class checks: command injection repairs keep no shell (shell=True, os.system,
      os.popen, getoutput) and pass no user value where it can be read as an option
      (argument_injection_open); SQL repairs have no quoted placeholder; XSS repairs escape;
+  4b. no problem found by common.semantic_problem (see clean.py);
   5. the vulnerable function is less than 0.85 similar to corpus/dev, the gold
      cases, benchmark/, every existing row and every row accepted before it.
 Accepted rows go to corpus/train/python_<cls>_gNNN/ and training/python_rows.jsonl.
@@ -30,7 +31,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import (QUOTED_PLACEHOLDER, REPO, SHELL_LEFT, argument_injection_open,  # noqa: E402
-                    changed_lines, normalize, pick_finding, reference_cases, scan_files, similarity)
+                    changed_lines, normalize, pick_finding, semantic_problem, reference_cases, scan_files, similarity)
 
 ROWS = REPO / "training" / "python_rows.jsonl"
 REPORT = REPO / "training" / "python_dataset" / "validate.json"
@@ -78,7 +79,7 @@ def static_problem(c: dict) -> str | None:
         return "quoted_placeholder_in_sql"
     if c["class"] == "xss" and (not ESCAPES.search(c["repair"]) or ESCAPES.search(c["vulnerable_code"])):
         return "xss_repair_does_not_escape"
-    return None
+    return semantic_problem({**c, "source": "generated"})
 
 
 def main():

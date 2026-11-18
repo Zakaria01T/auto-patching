@@ -13,6 +13,10 @@ For every row it:
      quoted placeholder, table name still formatted, shell=True kept, ...) or whose
      SQL still has a quoted placeholder;
   4. cuts the explanation to its one "The repair ..." sentence, without hedges;
+  4b. drops rows wrong in ways the scanner cannot see (common.semantic_problem: the
+     explanation says the repair is broken, a placeholder used as a table name, ? with
+     psycopg2, an href/src value without a scheme check, template injection labelled
+     XSS, placeholder functions);
   5. drops rows 0.85 or more similar to corpus/dev, the gold cases or benchmark/;
   6. keeps one row per cluster of near duplicates (0.85), real sources first;
   7. removes the flags field, rewrites meta.json, deletes the folders of dropped rows.
@@ -28,7 +32,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import (QUOTED_PLACEHOLDER, REPO, SHELL_LEFT, argument_injection_open,  # noqa: E402
-                    changed_lines, normalize, pick_finding, reference_cases, scan_files, similarity)
+                    changed_lines, normalize, pick_finding, reference_cases, scan_files,
+                    semantic_problem, similarity)
 
 ROWS = REPO / "training" / "python_rows.jsonl"
 # First version of the PR #22 rows (commit 1c2a952), written by build.sh, for the defect check
@@ -152,7 +157,11 @@ def main():
                 d["defect"] = short
             else:
                 row["explanation"] = short
-                kept.append(row)
+                problem = semantic_problem(row)
+                if problem:
+                    d["drop"] = problem
+                else:
+                    kept.append(row)
 
     # 5. leakage into dev/gold/benchmark
     refs = reference_cases()

@@ -1,9 +1,0 @@
-{
-    "id": "python_xss_0040",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "Replaces direct user input concatenation into a Jinja2 template string with a static autoescaped template variable.",
-    "source": "synthetic:row_027",
-    "reviewer": null
-}

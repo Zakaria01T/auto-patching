@@ -661,10 +661,7 @@
    "scanner.rules.python-sql-execute-dynamic",
    "B608"
   ],
-  "closest_reference": [
-   0.54,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ]
+  "drop": "explanation_says_repair_is_broken"
  },
  "python_sqli_0018": {
   "source": "sven",
@@ -905,10 +902,7 @@
    "scanner.rules.python-sql-execute-dynamic",
    "B608"
   ],
-  "closest_reference": [
-   0.58,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
+  "drop": "explanation_describes_the_bug_not_the_fix"
  },
  "python_sqli_0039": {
   "source": "sven",
@@ -1326,10 +1320,7 @@
    "scanner.rules.python-sql-percent-or-format",
    "B608"
   ],
-  "closest_reference": [
-   0.619,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
+  "drop": "explanation_says_repair_is_broken"
  },
  "python_sqli_0074": {
   "source": "sven",
@@ -2143,10 +2134,7 @@
    "scanner.rules.python-xss-mark-safe",
    "scanner.rules.python-html-fstring"
   ],
-  "closest_reference": [
-   0.697,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
+  "drop": "xss_url_scheme_not_checked"
  },
  "python_xss_0012": {
   "source": "synthetic",
@@ -2178,10 +2166,7 @@
    "scanner.rules.python-xss-mark-safe",
    "B704"
   ],
-  "closest_reference": [
-   0.616,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
+  "drop": "placeholder_function"
  },
  "python_xss_0015": {
   "source": "synthetic",
@@ -2197,10 +2182,7 @@
    "scanner.rules.python-xss-mark-safe",
    "B308"
   ],
-  "closest_reference": [
-   0.628,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
+  "drop": "placeholder_function"
  },
  "python_xss_0025": {
   "source": "synthetic",
@@ -2275,10 +2257,7 @@
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
-  "closest_reference": [
-   0.623,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
+  "drop": "template_injection_not_xss"
  },
  "python_xss_0050": {
   "source": "synthetic",
