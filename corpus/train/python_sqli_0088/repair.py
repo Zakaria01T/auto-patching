@@ -1,18 +1,19 @@
-@mod.route('/edit/<int:cmt_id>', methods=['GET', 'POST'])
-def edit(cmt_id):
-    m = None
-    if request.method == 'GET':
-        cursor.execute("SELECT * FROM comment where cmt_id = %s;", (cmt_id,))
-        m = cursor.fetchone()
-        return render_template('comment/edit.html', m=m, cmt_id=cmt_id)
+@app.route('/get_all_referrers')
+def get_all_referrers():
+    account_id = request.args.get('account_id')
 
-    if request.method == 'POST':
-        content = request.form['content']
-        cursor.execute("UPDATE comment SET content = %s where cmt_id = %s;", (content, cmt_id))
-        conn.commit()
-        cursor.execute("SELECT msg_id FROM comment where cmt_id = %s;", (cmt_id,))
-        m = cursor.fetchone()
-        flash('Edit Success!')
-        return redirect(url_for('comment.show', msg_id=m[0]))
+    if not isObject(account_id):
+        ws.send('{"id":1, "method":"call", "params":[0,"lookup_account_names",[["' + account_id + '"], 0]]}')
+        result_l = ws.recv()
+        j_l = json.loads(result_l)
 
-    return render_template('comment/edit.html', m=m, cmt_id=cmt_id)
+        account_id = j_l["result"][0]["id"]
+
+    con = psycopg2.connect(**config.POSTGRES)
+    cur = con.cursor()
+
+    query = "select * from referrers where referrer=%s"
+    cur.execute(query, (account_id,))
+    results = cur.fetchall()
+
+    return jsonify(results)

@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0003",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Removes external process and shell execution completely by computing the SHA-256 digest in Python with hashlib.sha256(Path(path).read_bytes()).hexdigest().",
+    "source": "synthetic:row_071",
+    "reviewer": null
+}

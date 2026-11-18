@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0028",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "Replaces concatenation with a '?' placeholder and binds (str(message.chat.id),) as a tuple parameter.",
-    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
-    "reviewer": null
-}

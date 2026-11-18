@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Uses '?' placeholders and passes t = (item[0], item[1], ) as a bound tuple to self.cursor.execute().",
-    "source": "sven:github.com/ecosl-developers/ecosl/commit/8af050a513338bf68ff2a243e4a2482d24e9aa3a",
+    "explanation": "Removes the surrounding quotes around %s and passes (name,) as a parameter tuple to cursor.execute(), isolating data from SQL syntax.",
+    "source": "sven:github.com/sarahkcaplan/tournament/commit/40aba5686059f5f398f6323b1483412c56140cc0",
     "reviewer": null
 }

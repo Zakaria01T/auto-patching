@@ -1,7 +1,14 @@
-def delete_event(self, event_id):
-    sql = """DELETE FROM events
-             WHERE event_id = {0}
-             """.format(event_id)
-    affected_count = self.cur.execute(sql)
-    self.conn.commit()
-    return affected_count
+@app.route('/', methods=['POST'])
+def login():
+    print('login')
+    user = str(request.form['username'])
+    password = str(request.form['password'])
+    cur.execute('SELECT * FROM users WHERE name = \'{}\' AND password = \'{}\';'.format(user, password))
+    response = cur.fetchone()
+    if response != None:
+        print(response, 'OK')
+        return redirect(url_for('enter_test_point'))
+    else:
+        print(response, 'not OK')
+        flash('Invalid login or password')
+        return render_template('login.html')

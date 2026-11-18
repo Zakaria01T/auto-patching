@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces all five values with '?' placeholders and supplies them as a bound tuple to self.c.execute(), separating SQL syntax from data.",
-    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
+    "explanation": "Switches to a $1 placeholder and passes page_name separately.",
+    "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
     "reviewer": null
 }

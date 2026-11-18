@@ -1,3 +1,3 @@
-def inspect_profile_path(path):
+def set_readonly_perms(filename: str) -> None:
     import os
-    return os.system("ls -l " + path)
+    os.system("chmod 444 " + filename)

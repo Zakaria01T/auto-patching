@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces the interpolated expression with %s and passes (email, ) separately.",
-    "source": "sven:github.com/sgosal2/tiger-boards-backend/commit/4670109dd613df2f2fe7e8403ebd149df2b55485",
+    "explanation": "Uses a $1 positional placeholder and passes search separately.",
+    "source": "sven:github.com/jcortes0309/wiki_flask/commit/a6bf5316abe2eb528adf36c8241a013fd02c5ffa",
     "reviewer": null
 }

@@ -1,6 +1,5 @@
-def set_state(chat_id, value):
-    settings = sqlite3.connect(os.path.abspath(os.path.dirname(__file__)) + "\\bases\\settings.db")
-    conn = settings.cursor()
-    conn.execute("update users set state ='" + str(value) + "' where chat_id = '" + str(chat_id) + "'")
-    settings.commit()
-    settings.close()
+def insertData(self,userid,post):
+    sqlText="insert into post(userid,date,comment) \
+            values(%d,current_timestamp(0),'%s');"%(userid,post);
+    result=sql.insertDB(self.conn,sqlText)
+    return result;

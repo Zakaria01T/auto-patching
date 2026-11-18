@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Removes the surrounding quotes around %s and passes (content,) as a parameter tuple, ensuring psycopg2 binds content safely as data.",
-    "source": "sven:github.com/tfalbo/SuzyMakeup/commit/1a5d6ccf02bec303d454f87a6bb39baed30c205f",
+    "explanation": "Replaces concatenation with a '?' placeholder and passes [str(submission.id)] as a bound parameter list so SQLite separates query logic from data.",
+    "source": "sven:github.com/LiquidFun/Reddit-GeoGuessr-Tracking-Bot/commit/0cad2d52e24b05da32789fbc8face7a9999a71f9",
     "reviewer": null
 }

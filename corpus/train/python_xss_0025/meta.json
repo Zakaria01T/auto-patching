@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0025",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Replaces unescaped HTML string formatting in a Django HttpResponse with django.utils.html.format_html().",
+    "source": "synthetic:row_010",
+    "reviewer": null
+}

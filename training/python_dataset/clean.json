@@ -1,287 +1,5 @@
 {
  "python_cmdi_0001": {
-  "source": "sven",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "closest_reference": [
-   0.466,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ]
- },
- "python_cmdi_0002": {
-  "source": "sven",
-  "class": "command_injection",
-  "repair_findings": [
-   "B607"
-  ],
-  "drop": "argument_injection_open"
- },
- "python_cmdi_0003": {
-  "source": "sven",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603",
-   "B607"
-  ],
-  "drop": "argument_injection_open"
- },
- "python_cmdi_0004": {
-  "source": "sven",
-  "class": "command_injection",
-  "repair_findings": [
-   "B607"
-  ],
-  "drop": "argument_injection_open"
- },
- "python_cmdi_0005": {
-  "source": "sven",
-  "class": "command_injection",
-  "repair_findings": [
-   "B602"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0006": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "drop": "explanation_still_hedged",
-  "defect": "Passes [\"ls\", \"-l\", user_input] as an argument list to subprocess.run() with shell=False, eliminating shell command injection (though '--' is absent to prevent option injection into ls)."
- },
- "python_cmdi_0007": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "explanation_still_hedged",
-  "defect": "Passes ['ls', user_input] as a list to subprocess.check_output() without shell=True, preventing shell command injection (though '--' is omitted for flag-injection hardening)."
- },
- "python_cmdi_0008": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "drop": "explanation_still_hedged",
-  "defect": "Uses subprocess.run([\"ls\", \"-l\", user_input], check=True) with shell=False, passing user_input as a single argument and preventing shell injection (though '--' is absent)."
- },
- "python_cmdi_0009": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0010": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0011": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "scanner.rules.python-command-shell"
-  ],
-  "closest_reference": [
-   0.791,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_cmdi_0012": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B602"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0013": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0014": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0015": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B602"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0016": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "closest_reference": [
-   0.689,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_cmdi_0017": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "closest_reference": [
-   0.569,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_cmdi_0018": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0019": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B602"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0020": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B602"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0021": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0022": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "explanation_names_defect",
-  "defect": "but still permits argument/flag injection into ls and raises ValueError on unbalanced quotes"
- },
- "python_cmdi_0023": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B602"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0024": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0025": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "drop": "argument_injection_open"
- },
- "python_cmdi_0026": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "drop": "explanation_still_hedged",
-  "defect": "Passes ['ls', user_input] as an argument list to subprocess.run() with shell=False, eliminating shell command injection (though '--' is absent for flag-injection hardening)."
- },
- "python_cmdi_0027": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B602"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0028": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0029": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "drop": "explanation_names_defect",
-  "defect": "although it switches to subprocess.run() with shell=False, it still interpolates user_input via an f-string inside ['bash', '-c', ...], allowing the shell to interpret injected commands"
- },
- "python_cmdi_0030": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0031": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B607"
-  ],
-  "closest_reference": [
-   0.662,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ]
- },
- "python_cmdi_0032": {
   "source": "cybernative",
   "class": "command_injection",
   "repair_findings": [],
@@ -290,56 +8,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_cmdi_0033": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "B603"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "scanner.rules.python-command-shell"
-  ],
-  "closest_reference": [
-   0.589,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0017"
- },
- "python_cmdi_0034": {
-  "source": "cybernative",
-  "class": "command_injection",
-  "repair_findings": [
-   "scanner.rules.python-command-shell"
-  ],
-  "drop": "repair_keeps_shell"
- },
- "python_cmdi_0035": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.745,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ]
- },
- "python_cmdi_0036": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.767,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_cmdi_0037": {
+ "python_cmdi_0002": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
@@ -352,23 +21,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_cmdi_0038": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "B605"
-  ],
-  "closest_reference": [
-   0.72,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ]
- },
- "python_cmdi_0039": {
+ "python_cmdi_0003": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
@@ -377,35 +30,190 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_cmdi_0040": {
+ "python_cmdi_0004": {
   "source": "synthetic",
   "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
   ],
   "closest_reference": [
-   0.708,
+   0.731,
    "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0035"
+  ]
  },
- "python_cmdi_0041": {
+ "python_cmdi_0005": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.78,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0006": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "scanner.rules.python-command-shell"
+  ],
+  "closest_reference": [
+   0.776,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0007": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [
-   "B404",
-   "B607"
+   "B310"
   ],
   "closest_reference": [
-   0.77,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0036"
+   0.736,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
  },
- "python_cmdi_0042": {
+ "python_cmdi_0008": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.782,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0009": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.704,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0010": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.629,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0011": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.74,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0012": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.701,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0013": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.662,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0014": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
+  ],
+  "closest_reference": [
+   0.783,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0015": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
+  ],
+  "closest_reference": [
+   0.769,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0016": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
+  ],
+  "closest_reference": [
+   0.755,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0017": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
+  ],
+  "closest_reference": [
+   0.699,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0018": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.838,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0019": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.772,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0020": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
+  ],
+  "closest_reference": [
+   0.742,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0021": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
@@ -415,69 +223,65 @@
   ],
   "closest_reference": [
    0.79,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0037"
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
  },
- "python_cmdi_0043": {
+ "python_cmdi_0022": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.707,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0023": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.64,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0024": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [
-   "B404",
-   "B607"
+   "B324"
   ],
   "relabelled": [
    "scanner.rules.python-command-popen-getoutput",
    "B605"
   ],
   "closest_reference": [
-   0.724,
+   0.702,
    "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0038"
+  ]
  },
- "python_cmdi_0044": {
+ "python_cmdi_0025": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
+  ],
+  "closest_reference": [
+   0.622,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0026": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
   "closest_reference": [
-   0.749,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0039"
+   0.681,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
  },
- "python_cmdi_0045": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.715,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0035"
- },
- "python_cmdi_0046": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.767,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0036"
- },
- "python_cmdi_0047": {
+ "python_cmdi_0027": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
@@ -486,299 +290,178 @@
    "scanner.rules.python-command-shell"
   ],
   "closest_reference": [
-   0.782,
+   0.761,
    "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0028": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.75,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0029": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "scanner.rules.python-command-shell"
   ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0037"
+  "closest_reference": [
+   0.835,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0031": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.745,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0032": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.734,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0035": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.73,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0037": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.769,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0039": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-command-popen-getoutput",
+   "B605"
+  ],
+  "closest_reference": [
+   0.769,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
  },
  "python_cmdi_0048": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "B605"
+   "B310"
   ],
   "closest_reference": [
-   0.755,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0038"
- },
- "python_cmdi_0049": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.752,
+   0.724,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0039"
+  ]
  },
  "python_cmdi_0050": {
   "source": "synthetic",
   "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.745,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0035"
- },
- "python_cmdi_0051": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.788,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0036"
- },
- "python_cmdi_0052": {
-  "source": "synthetic",
-  "class": "command_injection",
   "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "scanner.rules.python-command-shell"
-  ],
   "closest_reference": [
-   0.771,
+   0.731,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0037"
- },
- "python_cmdi_0053": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "B605"
-  ],
-  "closest_reference": [
-   0.742,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0038"
+  ]
  },
  "python_cmdi_0054": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
-  "closest_reference": [
-   0.751,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0039"
- },
- "python_cmdi_0055": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.727,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0035"
- },
- "python_cmdi_0056": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.796,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0036"
- },
- "python_cmdi_0057": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [],
   "relabelled": [
    "scanner.rules.python-command-popen-getoutput",
    "scanner.rules.python-command-shell"
   ],
   "closest_reference": [
-   0.772,
+   0.714,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0037"
- },
- "python_cmdi_0058": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "B605"
-  ],
-  "closest_reference": [
-   0.707,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0038"
+  ]
  },
  "python_cmdi_0059": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
   "closest_reference": [
-   0.759,
+   0.714,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0039"
- },
- "python_cmdi_0060": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.703,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0035"
- },
- "python_cmdi_0061": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.767,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0036"
+  ]
  },
  "python_cmdi_0062": {
   "source": "synthetic",
   "class": "command_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "scanner.rules.python-command-shell"
-  ],
-  "closest_reference": [
-   0.772,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0037"
- },
- "python_cmdi_0063": {
-  "source": "synthetic",
-  "class": "command_injection",
   "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "B605"
+   "B324"
   ],
   "closest_reference": [
-   0.743,
-   "corpus/train/gold_cmdi_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0038"
+   0.623,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
  },
- "python_cmdi_0064": {
+ "python_cmdi_0069": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
   "closest_reference": [
-   0.752,
+   0.671,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0039"
+  ]
  },
- "python_cmdi_0065": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.713,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0035"
- },
- "python_cmdi_0066": {
-  "source": "synthetic",
-  "class": "command_injection",
-  "repair_findings": [
-   "B404",
-   "B607"
-  ],
-  "closest_reference": [
-   0.761,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0036"
- },
- "python_cmdi_0067": {
+ "python_cmdi_0070": {
   "source": "synthetic",
   "class": "command_injection",
   "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-command-popen-getoutput",
-   "scanner.rules.python-command-shell"
-  ],
+  "closest_reference": [
+   0.789,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0071": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.719,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_cmdi_0075": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
   "closest_reference": [
    0.786,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_cmdi_0037"
+  ]
+ },
+ "python_cmdi_0076": {
+  "source": "synthetic",
+  "class": "command_injection",
+  "repair_findings": [],
+  "closest_reference": [
+   0.836,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
  },
  "python_sqli_0001": {
   "source": "sven",
@@ -816,14 +499,6 @@
  "python_sqli_0004": {
   "source": "sven",
   "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0005": {
-  "source": "sven",
-  "class": "sql_injection",
   "repair_findings": [],
   "relabelled": [
    "scanner.rules.python-sql-execute-dynamic",
@@ -834,7 +509,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0006": {
+ "python_sqli_0005": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -847,24 +522,14 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0007": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.501,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ]
- },
- "python_sqli_0008": {
+ "python_sqli_0006": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
   "drop": "explanation_names_defect",
   "defect": "but the repair cannot be fully verified without seeing self.query and passes a bare scalar instead of a sequence"
  },
- "python_sqli_0009": {
+ "python_sqli_0007": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -875,7 +540,7 @@
   "drop": "explanation_names_defect",
   "defect": "but omits the trailing comma in (session['username']), passing a bare string instead of a 1-tuple and causing a parameter-binding bug"
  },
- "python_sqli_0010": {
+ "python_sqli_0008": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -888,7 +553,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0011": {
+ "python_sqli_0009": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -901,7 +566,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0012": {
+ "python_sqli_0010": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -912,17 +577,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare string url instead of a 1-tuple (url,), which causes a parameter-binding failure in standard Python DB-API drivers"
  },
- "python_sqli_0013": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.699,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_sqli_0014": {
+ "python_sqli_0011": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -935,7 +590,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0015": {
+ "python_sqli_0012": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -946,7 +601,7 @@
   "drop": "explanation_names_defect",
   "defect": "but leaves :project_id inside single-quoted '{{:project_id}}' in the first query where bind parameters are not expanded"
  },
- "python_sqli_0016": {
+ "python_sqli_0013": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -957,7 +612,7 @@
   "drop": "explanation_names_defect",
   "defect": "cannot be verified as safe without seeing db.exec and resembles unsafe string formatting"
  },
- "python_sqli_0017": {
+ "python_sqli_0014": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -970,7 +625,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0018": {
+ "python_sqli_0015": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -983,7 +638,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0019": {
+ "python_sqli_0016": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -996,7 +651,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0020": {
+ "python_sqli_0017": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [
@@ -1011,7 +666,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0021": {
+ "python_sqli_0018": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1024,7 +679,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0022": {
+ "python_sqli_0019": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1037,14 +692,14 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0023": {
+ "python_sqli_0020": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
   "drop": "explanation_names_defect",
   "defect": "though safety cannot be confirmed without seeing self.query and because a bare scalar is passed instead of a sequence"
  },
- "python_sqli_0024": {
+ "python_sqli_0021": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1057,13 +712,13 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0025": {
+ "python_sqli_0022": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
   "drop": "no_finding_of_this_cwe_on_vulnerable"
  },
- "python_sqli_0026": {
+ "python_sqli_0023": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1076,7 +731,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0027": {
+ "python_sqli_0024": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1089,7 +744,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0028": {
+ "python_sqli_0025": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1102,17 +757,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0029": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.693,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_sqli_0030": {
+ "python_sqli_0026": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1125,7 +770,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0031": {
+ "python_sqli_0027": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [
@@ -1140,7 +785,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0032": {
+ "python_sqli_0028": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1151,23 +796,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes the bare string judge instead of a 1-tuple (judge,), which fails in standard sqlite3 execute() calls"
  },
- "python_sqli_0033": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0034": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0035": {
+ "python_sqli_0029": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1176,7 +805,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0036": {
+ "python_sqli_0030": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1189,7 +818,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0037": {
+ "python_sqli_0031": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1202,7 +831,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0038": {
+ "python_sqli_0032": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1211,22 +840,14 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0039": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "scanner.rules.python-sql-string-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_sqli_0040": {
+ "python_sqli_0033": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
   "drop": "explanation_names_defect",
   "defect": "cannot be verified without seeing db.exec and resembles string formatting"
  },
- "python_sqli_0041": {
+ "python_sqli_0034": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1239,7 +860,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0042": {
+ "python_sqli_0035": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1252,7 +873,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0043": {
+ "python_sqli_0036": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1263,7 +884,7 @@
   "drop": "explanation_names_defect",
   "defect": "but supplies a positional tuple (name, also,) instead of a dictionary, which causes a runtime binding error"
  },
- "python_sqli_0044": {
+ "python_sqli_0037": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1276,7 +897,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0045": {
+ "python_sqli_0038": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1284,10 +905,12 @@
    "scanner.rules.python-sql-execute-dynamic",
    "B608"
   ],
-  "drop": "explanation_still_hedged",
-  "defect": "Attempts to bind the table name using a '?' placeholder ('insert into ? values (?)'), which is invalid SQL syntax in SQLite because identifiers cannot be parameterized."
+  "closest_reference": [
+   0.58,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
  },
- "python_sqli_0046": {
+ "python_sqli_0039": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1300,7 +923,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0047": {
+ "python_sqli_0040": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1311,7 +934,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes the bare string player instead of a 1-tuple (player,), which fails in standard sqlite3 execute() calls"
  },
- "python_sqli_0048": {
+ "python_sqli_0041": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1324,15 +947,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0049": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0050": {
+ "python_sqli_0042": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1345,7 +960,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0051": {
+ "python_sqli_0043": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1354,7 +969,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0052": {
+ "python_sqli_0044": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1367,7 +982,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0053": {
+ "python_sqli_0045": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1376,7 +991,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0054": {
+ "python_sqli_0046": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1389,7 +1004,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0055": {
+ "python_sqli_0047": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1402,7 +1017,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0056": {
+ "python_sqli_0048": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1411,7 +1026,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0057": {
+ "python_sqli_0049": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1424,7 +1039,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0058": {
+ "python_sqli_0050": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1437,7 +1052,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0059": {
+ "python_sqli_0051": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1447,7 +1062,7 @@
   ],
   "drop": "quoted_placeholder_in_sql"
  },
- "python_sqli_0060": {
+ "python_sqli_0052": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1458,7 +1073,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare data instead of a 1-tuple (data,) to cursor.execute(), which causes a parameter-binding failure in standard DB-API drivers"
  },
- "python_sqli_0061": {
+ "python_sqli_0053": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1469,7 +1084,7 @@
   "drop": "explanation_names_defect",
   "defect": "but mistakenly retains single quotes around '%s', which breaks parameterization in standard Python DB-API drivers"
  },
- "python_sqli_0062": {
+ "python_sqli_0054": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1482,7 +1097,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0063": {
+ "python_sqli_0055": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1493,7 +1108,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes Played and ID as separate positional arguments instead of a single tuple (Played, ID), which raises a TypeError in standard sqlite3.Cursor.execute()"
  },
- "python_sqli_0064": {
+ "python_sqli_0056": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1506,25 +1121,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0065": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.747,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_sqli_0066": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "scanner.rules.python-sql-string-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_sqli_0067": {
+ "python_sqli_0057": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1537,15 +1134,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0068": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0069": {
+ "python_sqli_0058": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1558,15 +1147,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0070": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "scanner.rules.python-sql-string-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_sqli_0071": {
+ "python_sqli_0059": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1579,7 +1160,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0072": {
+ "python_sqli_0060": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1590,7 +1171,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare data instead of a 1-tuple (data,) to cursor.execute(), causing a binding failure in standard DB-API drivers"
  },
- "python_sqli_0073": {
+ "python_sqli_0061": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1603,7 +1184,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0074": {
+ "python_sqli_0062": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1616,7 +1197,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0075": {
+ "python_sqli_0063": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1629,7 +1210,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0076": {
+ "python_sqli_0064": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1642,15 +1223,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0077": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_sqli_0078": {
+ "python_sqli_0065": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1663,7 +1236,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0079": {
+ "python_sqli_0066": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1676,7 +1249,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0080": {
+ "python_sqli_0067": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1686,7 +1259,7 @@
   ],
   "drop": "quoted_placeholder_in_sql"
  },
- "python_sqli_0081": {
+ "python_sqli_0068": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1699,7 +1272,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0082": {
+ "python_sqli_0069": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1710,7 +1283,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare data instead of a 1-tuple (data,) to cursor.execute(), causing a DB-API parameter-binding error for strings"
  },
- "python_sqli_0083": {
+ "python_sqli_0070": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1723,7 +1296,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0084": {
+ "python_sqli_0071": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1734,15 +1307,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes a positional tuple (name, ) instead of a dictionary {'name': name}, which raises a binding TypeError at runtime"
  },
- "python_sqli_0085": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0086": {
+ "python_sqli_0072": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1753,7 +1318,7 @@
   "drop": "explanation_names_defect",
   "defect": "but omits the trailing comma in (classNoSpace), passing a bare string instead of a 1-tuple and breaking parameter binding"
  },
- "python_sqli_0087": {
+ "python_sqli_0073": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1766,7 +1331,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0088": {
+ "python_sqli_0074": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1779,7 +1344,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0089": {
+ "python_sqli_0075": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1792,7 +1357,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0090": {
+ "python_sqli_0076": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1805,7 +1370,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0091": {
+ "python_sqli_0077": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1818,7 +1383,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0092": {
+ "python_sqli_0078": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1831,7 +1396,7 @@
    "corpus/train/gold_sqli_02/vulnerable.py"
   ]
  },
- "python_sqli_0093": {
+ "python_sqli_0079": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1842,17 +1407,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes a positional tuple (name, ) instead of a dictionary {'name': name}, causing a runtime binding error"
  },
- "python_sqli_0094": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.349,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ]
- },
- "python_sqli_0095": {
+ "python_sqli_0080": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1865,25 +1420,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0096": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0097": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.751,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_sqli_0098": {
+ "python_sqli_0081": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1896,7 +1433,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0099": {
+ "python_sqli_0082": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1907,7 +1444,7 @@
   "drop": "explanation_names_defect",
   "defect": "but omits the comma between the SQL string literal and (cid,), which attempts to call the string as a function and raises TypeError at runtime"
  },
- "python_sqli_0100": {
+ "python_sqli_0083": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1918,15 +1455,7 @@
   "drop": "explanation_names_defect",
   "defect": "cannot be verified as safe without seeing db.exec and resembles string formatting"
  },
- "python_sqli_0101": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0102": {
+ "python_sqli_0084": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1939,7 +1468,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0103": {
+ "python_sqli_0085": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1952,7 +1481,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0104": {
+ "python_sqli_0086": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1963,7 +1492,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare data instead of a 1-tuple (data,) to cursor.execute(), causing a DB-API parameter-binding error for strings"
  },
- "python_sqli_0105": {
+ "python_sqli_0087": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1976,7 +1505,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0106": {
+ "python_sqli_0088": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1985,7 +1514,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0107": {
+ "python_sqli_0089": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -1998,7 +1527,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0108": {
+ "python_sqli_0090": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2011,7 +1540,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0109": {
+ "python_sqli_0091": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2024,7 +1553,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0110": {
+ "python_sqli_0092": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2037,7 +1566,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0111": {
+ "python_sqli_0093": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2046,14 +1575,14 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0112": {
+ "python_sqli_0094": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
   "drop": "explanation_names_defect",
   "defect": "though safety cannot be verified without seeing self.query and because a bare scalar is passed instead of a sequence"
  },
- "python_sqli_0113": {
+ "python_sqli_0095": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2066,7 +1595,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0114": {
+ "python_sqli_0096": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2079,7 +1608,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0115": {
+ "python_sqli_0097": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2092,7 +1621,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0116": {
+ "python_sqli_0098": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2103,17 +1632,7 @@
   "drop": "explanation_names_defect",
   "defect": "cannot be verified as safe without seeing db.exec and resembles string formatting"
  },
- "python_sqli_0117": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.736,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_sqli_0118": {
+ "python_sqli_0099": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2126,7 +1645,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0119": {
+ "python_sqli_0100": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2137,7 +1656,7 @@
   "drop": "explanation_names_defect",
   "defect": "but mistakenly leaves single quotes around ':email' in the SQL string, preventing parameter binding and breaking the query"
  },
- "python_sqli_0120": {
+ "python_sqli_0101": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2150,7 +1669,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0121": {
+ "python_sqli_0102": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2159,7 +1678,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0122": {
+ "python_sqli_0103": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2168,7 +1687,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0123": {
+ "python_sqli_0104": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2179,7 +1698,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare ID instead of a 1-tuple (ID,) to db.execute(), which raises a binding TypeError/ValueError in standard sqlite3 drivers"
  },
- "python_sqli_0124": {
+ "python_sqli_0105": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2190,7 +1709,7 @@
   "drop": "explanation_names_defect",
   "defect": "but mistakenly leaves userid=%d unadjusted in sqlText while changing only friendid to %s, causing a placeholder mismatch in standard DB-API drivers, and sql.deleteDB is not shown"
  },
- "python_sqli_0125": {
+ "python_sqli_0106": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2203,7 +1722,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0126": {
+ "python_sqli_0107": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2216,7 +1735,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0127": {
+ "python_sqli_0108": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2229,17 +1748,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0128": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.545,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ]
- },
- "python_sqli_0129": {
+ "python_sqli_0109": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2252,7 +1761,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0130": {
+ "python_sqli_0110": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2265,7 +1774,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0131": {
+ "python_sqli_0111": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2276,15 +1785,7 @@
   "drop": "explanation_names_defect",
   "defect": "cannot be verified as safe without seeing db.exec and resembles string formatting"
  },
- "python_sqli_0132": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "B608"
-  ],
-  "drop": "scanner_flags_repair_unsafe"
- },
- "python_sqli_0133": {
+ "python_sqli_0112": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2297,7 +1798,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0134": {
+ "python_sqli_0113": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2310,7 +1811,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0135": {
+ "python_sqli_0114": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2323,7 +1824,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0136": {
+ "python_sqli_0115": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2334,7 +1835,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare ID instead of a 1-tuple (ID,) to db.execute(), which raises a binding TypeError/ValueError in standard sqlite3 drivers"
  },
- "python_sqli_0137": {
+ "python_sqli_0116": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2347,7 +1848,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0138": {
+ "python_sqli_0117": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2360,7 +1861,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0139": {
+ "python_sqli_0118": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2369,7 +1870,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0140": {
+ "python_sqli_0119": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2380,7 +1881,7 @@
   "drop": "explanation_names_defect",
   "defect": "but passes bare scalar numberOfLinks instead of a 1-tuple (numberOfLinks,), which causes a parameter-binding error in standard sqlite3 drivers"
  },
- "python_sqli_0141": {
+ "python_sqli_0120": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2393,7 +1894,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0142": {
+ "python_sqli_0121": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2404,7 +1905,7 @@
   "drop": "explanation_names_defect",
   "defect": "cannot be verified as safe without seeing self.db.exec and resembles string formatting"
  },
- "python_sqli_0143": {
+ "python_sqli_0122": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2417,7 +1918,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0144": {
+ "python_sqli_0123": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2430,7 +1931,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0145": {
+ "python_sqli_0124": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2443,17 +1944,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0146": {
-  "f_prefix_removed": true,
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.477,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ]
- },
- "python_sqli_0147": {
+ "python_sqli_0125": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2466,7 +1957,7 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_sqli_0148": {
+ "python_sqli_0126": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2479,15 +1970,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0149": {
-  "source": "sven",
-  "class": "sql_injection",
-  "repair_findings": [
-   "scanner.rules.python-sql-string-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_sqli_0150": {
+ "python_sqli_0127": {
   "source": "sven",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2500,7 +1983,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0151": {
+ "python_sqli_0128": {
   "source": "synthetic",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2513,7 +1996,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0152": {
+ "python_sqli_0129": {
   "source": "synthetic",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2522,22 +2005,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0153": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-percent-or-format",
-   "B608"
-  ],
-  "closest_reference": [
-   0.787,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0154": {
+ "python_sqli_0130": {
   "source": "synthetic",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2550,7 +2018,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0155": {
+ "python_sqli_0131": {
   "source": "synthetic",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2559,33 +2027,7 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0156": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.806,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0151"
- },
- "python_sqli_0157": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.784,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0158": {
+ "python_sqli_0132": {
   "source": "synthetic",
   "class": "sql_injection",
   "repair_findings": [],
@@ -2598,341 +2040,6 @@
    "corpus/train/gold_sqli_01/vulnerable.py"
   ]
  },
- "python_sqli_0159": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.698,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0154"
- },
- "python_sqli_0160": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.73,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0155"
- },
- "python_sqli_0161": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.815,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0151"
- },
- "python_sqli_0162": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.778,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0163": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-percent-or-format",
-   "B608"
-  ],
-  "closest_reference": [
-   0.79,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0164": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.711,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0154"
- },
- "python_sqli_0165": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.735,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0155"
- },
- "python_sqli_0166": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.769,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0151"
- },
- "python_sqli_0167": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.784,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0168": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-percent-or-format",
-   "B608"
-  ],
-  "closest_reference": [
-   0.744,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0158"
- },
- "python_sqli_0169": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.734,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0154"
- },
- "python_sqli_0170": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.741,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0155"
- },
- "python_sqli_0171": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.82,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0151"
- },
- "python_sqli_0172": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.806,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0173": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-percent-or-format",
-   "B608"
-  ],
-  "closest_reference": [
-   0.76,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0174": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.724,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0154"
- },
- "python_sqli_0175": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.748,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0155"
- },
- "python_sqli_0176": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.792,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0151"
- },
- "python_sqli_0177": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.77,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0178": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-percent-or-format",
-   "B608"
-  ],
-  "closest_reference": [
-   0.768,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0179": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.72,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0154"
- },
- "python_sqli_0180": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.75,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0155"
- },
- "python_sqli_0181": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-execute-dynamic",
-   "B608"
-  ],
-  "closest_reference": [
-   0.815,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0151"
- },
- "python_sqli_0182": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "closest_reference": [
-   0.776,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0152"
- },
- "python_sqli_0183": {
-  "source": "synthetic",
-  "class": "sql_injection",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-sql-percent-or-format",
-   "B608"
-  ],
-  "closest_reference": [
-   0.781,
-   "corpus/train/gold_sqli_01/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_sqli_0158"
- },
  "python_xss_0001": {
   "source": "sven",
   "class": "xss",
@@ -2940,26 +2047,12 @@
   "drop": "no_finding_of_this_cwe_on_vulnerable"
  },
  "python_xss_0002": {
-  "source": "sven",
-  "class": "xss",
-  "repair_findings": [],
-  "drop": "no_finding_of_this_cwe_on_vulnerable"
- },
- "python_xss_0003": {
   "source": "crossvul",
   "class": "xss",
   "repair_findings": [],
   "drop": "no_finding_of_this_cwe_on_vulnerable"
  },
- "python_xss_0004": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [
-   "scanner.rules.python-html-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_xss_0005": {
+ "python_xss_0003": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
@@ -2972,29 +2065,49 @@
    "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
- "python_xss_0006": {
-  "f_prefix_removed": true,
+ "python_xss_0004": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
+  "drop": "no_finding_of_this_cwe_on_vulnerable"
+ },
+ "python_xss_0005": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "drop": "no_finding_of_this_cwe_on_vulnerable"
+ },
+ "python_xss_0006": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-xss-mark-safe",
+   "B704"
+  ],
   "closest_reference": [
-   0.725,
-   "corpus/train/gold_xss_02/vulnerable.py"
+   0.652,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
   ]
  },
  "python_xss_0007": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
-  "drop": "no_finding_of_this_cwe_on_vulnerable"
+  "relabelled": [
+   "scanner.rules.python-xss-mark-safe",
+   "B308"
+  ],
+  "closest_reference": [
+   0.628,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
  },
  "python_xss_0008": {
   "source": "synthetic",
   "class": "xss",
-  "repair_findings": [
-   "scanner.rules.python-html-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
+  "repair_findings": [],
+  "drop": "no_finding_of_this_cwe_on_vulnerable"
  },
  "python_xss_0009": {
   "source": "synthetic",
@@ -3005,37 +2118,11 @@
    "B308"
   ],
   "closest_reference": [
-   0.708,
+   0.637,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0005"
- },
- "python_xss_0010": {
-  "f_prefix_removed": true,
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "closest_reference": [
-   0.725,
-   "corpus/train/gold_xss_02/vulnerable.py"
   ]
  },
- "python_xss_0011": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "drop": "no_finding_of_this_cwe_on_vulnerable"
- },
- "python_xss_0012": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [
-   "scanner.rules.python-html-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_xss_0013": {
+ "python_xss_0010": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
@@ -3044,23 +2131,57 @@
    "B308"
   ],
   "closest_reference": [
-   0.719,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0005"
+   0.629,
+   "corpus/train/gold_cmdi_01/vulnerable.py"
+  ]
  },
- "python_xss_0014": {
-  "f_prefix_removed": true,
+ "python_xss_0011": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-xss-mark-safe",
+   "scanner.rules.python-html-fstring"
+  ],
+  "closest_reference": [
+   0.697,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_xss_0012": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-xss-mark-safe",
+   "B308"
+  ],
+  "closest_reference": [
+   0.685,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_xss_0013": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
   "closest_reference": [
-   0.742,
-   "corpus/train/gold_xss_02/vulnerable.py"
+   0.673,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_xss_0014": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-xss-mark-safe",
+   "B704"
   ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0006"
+  "closest_reference": [
+   0.616,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
  },
  "python_xss_0015": {
   "source": "synthetic",
@@ -3071,159 +2192,103 @@
  "python_xss_0016": {
   "source": "synthetic",
   "class": "xss",
-  "repair_findings": [
-   "scanner.rules.python-html-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_xss_0017": {
-  "source": "synthetic",
-  "class": "xss",
   "repair_findings": [],
   "relabelled": [
    "scanner.rules.python-xss-mark-safe",
    "B308"
   ],
   "closest_reference": [
-   0.726,
+   0.628,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0005"
- },
- "python_xss_0018": {
-  "f_prefix_removed": true,
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "closest_reference": [
-   0.768,
-   "corpus/train/gold_xss_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0006"
- },
- "python_xss_0019": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "drop": "no_finding_of_this_cwe_on_vulnerable"
- },
- "python_xss_0020": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [
-   "scanner.rules.python-html-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_xss_0021": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-xss-mark-safe",
-   "B308"
-  ],
-  "closest_reference": [
-   0.726,
-   "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0005"
- },
- "python_xss_0022": {
-  "f_prefix_removed": true,
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "closest_reference": [
-   0.742,
-   "corpus/train/gold_xss_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0006"
- },
- "python_xss_0023": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "drop": "no_finding_of_this_cwe_on_vulnerable"
- },
- "python_xss_0024": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [
-   "scanner.rules.python-html-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
+  ]
  },
  "python_xss_0025": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
+  "closest_reference": [
+   0.653,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_xss_0031": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
   "relabelled": [
    "scanner.rules.python-xss-mark-safe",
-   "B308"
+   "scanner.rules.python-html-fstring"
   ],
   "closest_reference": [
-   0.702,
+   0.734,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0005"
+  ]
  },
- "python_xss_0026": {
-  "f_prefix_removed": true,
+ "python_xss_0033": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
   "closest_reference": [
-   0.818,
-   "corpus/train/gold_xss_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0006"
+   0.736,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
  },
- "python_xss_0027": {
+ "python_xss_0036": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-xss-mark-safe",
+   "scanner.rules.python-html-fstring"
+  ],
+  "closest_reference": [
+   0.654,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_xss_0037": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "relabelled": [
+   "scanner.rules.python-xss-mark-safe",
+   "B704"
+  ],
+  "closest_reference": [
+   0.611,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_xss_0038": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [],
   "drop": "no_finding_of_this_cwe_on_vulnerable"
  },
- "python_xss_0028": {
+ "python_xss_0039": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "drop": "no_finding_of_this_cwe_on_vulnerable"
+ },
+ "python_xss_0040": {
+  "source": "synthetic",
+  "class": "xss",
+  "repair_findings": [],
+  "closest_reference": [
+   0.623,
+   "corpus/train/gold_cmdi_02/vulnerable.py"
+  ]
+ },
+ "python_xss_0050": {
   "source": "synthetic",
   "class": "xss",
   "repair_findings": [
-   "scanner.rules.python-html-concat"
-  ],
-  "drop": "scanner_flags_repair_rule_false_positive"
- },
- "python_xss_0029": {
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "relabelled": [
-   "scanner.rules.python-xss-mark-safe",
-   "B308"
+   "B405"
   ],
   "closest_reference": [
-   0.708,
+   0.632,
    "corpus/train/gold_cmdi_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0005"
- },
- "python_xss_0030": {
-  "f_prefix_removed": true,
-  "source": "synthetic",
-  "class": "xss",
-  "repair_findings": [],
-  "closest_reference": [
-   0.7,
-   "corpus/train/gold_xss_02/vulnerable.py"
-  ],
-  "drop": "near_duplicate",
-  "duplicate_of": "python_xss_0006"
+  ]
  }
 }

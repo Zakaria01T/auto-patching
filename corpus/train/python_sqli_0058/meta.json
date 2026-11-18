@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Removes string formatting and passes (user_id, user_id, user_id) as bound parameters to cursor.execute().",
-    "source": "sven:github.com/young-goons/rifflo-server/commit/fb311df76713b638c9486250f9badb288ffb2189",
+    "explanation": "Uses a '?' placeholder and passes [getTitle(submission)] as a bound parameter list to cursor.execute().",
+    "source": "sven:github.com/LiquidFun/Reddit-GeoGuessr-Tracking-Bot/commit/0cad2d52e24b05da32789fbc8face7a9999a71f9",
     "reviewer": null
 }

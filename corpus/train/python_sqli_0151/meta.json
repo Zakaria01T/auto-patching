@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0151",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "Uses an unquoted %s placeholder and binds (value,) as a 1-tuple so the database driver treats value strictly as data.",
-    "source": "synthetic:row_034",
-    "reviewer": null
-}

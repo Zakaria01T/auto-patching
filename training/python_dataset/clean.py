@@ -31,6 +31,8 @@ from common import (QUOTED_PLACEHOLDER, REPO, SHELL_LEFT, argument_injection_ope
                     changed_lines, normalize, pick_finding, reference_cases, scan_files, similarity)
 
 ROWS = REPO / "training" / "python_rows.jsonl"
+# First version of the PR #22 rows (commit 1c2a952), written by build.sh, for the defect check
+ORIGINAL = REPO / "training" / "python_dataset" / "pr22_original_rows.jsonl"
 REPORT = REPO / "training" / "python_dataset" / "clean.json"
 TRAIN = REPO / "corpus" / "train"
 THRESHOLD = 0.85
@@ -72,6 +74,12 @@ def short_explanation(sentence):
 
 def main():
     rows = [json.loads(line) for line in ROWS.read_text().splitlines() if line.strip()]
+    original = {}
+    if ORIGINAL.exists():
+        for line in ORIGINAL.read_text().splitlines():
+            if line.strip():
+                r = json.loads(line)
+                original[r["vulnerable_code"].strip()] = r["explanation"]
     decisions = {}
     kept = []
 
@@ -117,10 +125,19 @@ def main():
                 d["relabelled"] = [old_rule, new["rule_id"]]
             row["finding"] = {**new, "file": row["finding"]["file"]}
 
-        # 3-4. explanation and defects
-        sentence = repair_sentence(row["explanation"])
+        # 3-4. explanation and defects. The long explanation written for PR #22 (the
+        #      first version, ORIGINAL) is where defects were named, so it is used for
+        #      the defect check when the row came from there.
+        long_expl = original.get(row["vulnerable_code"].strip(), row["explanation"])
+        evidence = repair_sentence(long_expl) or long_expl
+        if repair_sentence(row["explanation"]):
+            sentence = repair_sentence(row["explanation"])
+        elif len(re.findall(r"[.!?](?:\s|$)", row["explanation"].strip())) == 1:
+            sentence = row["explanation"].strip()
+        else:
+            sentence = None
         if "drop" not in d:
-            hedge = HEDGE.search(sentence or "")
+            hedge = HEDGE.search(evidence)
             if sentence is None:
                 d["drop"] = "no_repair_sentence"
             elif hedge and DEFECT.search(hedge.group(0)):

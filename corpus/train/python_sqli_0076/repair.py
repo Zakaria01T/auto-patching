@@ -1,25 +1,12 @@
-def fetch_page_name(self, page_id):
-  '''
-  Returns the page name corresponding to the provided page ID.
+def _checkPairing():
+    if winner == loser:
+        raise ValueError('Attempt to match player against self')
 
-  Args:
-    page_id: The page ID whose ID to fetch.
-
-  Returns:
-    str: The page name corresponding to the provided page ID.
-
-  Raises:
-    ValueError: If the provided page ID is invalid or does not exist.
-  '''
-  helpers.validate_page_id(page_id)
-
-  query = 'SELECT name FROM pages WHERE id = ?;'
-  query_bindings = (page_id,)
-  self.cursor.execute(query, query_bindings)
-
-  page_name = self.cursor.fetchone()
-
-  if not page_name:
-    raise ValueError('Invalid page ID "{0}" provided. Page ID does not exist.'.format(page_id))
-
-  return page_name[0].encode('utf-8').replace('_', ' ')
+    q = '''
+    SELECT COUNT(*) FROM matches
+    WHERE (matches.winner_id = %s AND matches.loser_id = %s)
+          OR (matches.winner_id = %s AND matches.loser_id = %s);
+    '''
+    cur.execute(q, (winner, loser, loser, winner))
+    if cur.fetchone()[0] > 0:
+        raise ValueError('Pairing %s, %s already played' % (winner, loser))

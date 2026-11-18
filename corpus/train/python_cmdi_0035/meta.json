@@ -3,7 +3,7 @@
     "language": "python",
     "class": "command_injection",
     "cwe": "CWE-78",
-    "explanation": "Uses subprocess.run([\"ls\", \"-l\", \"--\", path], check=True) with shell=False and '--' end-of-options marker, eliminating both shell injection and option injection (the residual scanner flag reflects a generic subprocess rule).",
-    "source": "synthetic:row_067",
+    "explanation": "Replaces os.system() chmod concatenation with Python's os.chmod() so no shell process is spawned.",
+    "source": "synthetic:row_056",
     "reviewer": null
 }

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces the % operator with a comma, passing (user_id, money) as bound parameters to self.cursor.execute().",
-    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
+    "explanation": "Uses an unquoted %s placeholder and binds (value,) as a 1-tuple in cursor.execute(), isolating data from SQL syntax.",
+    "source": "synthetic:row_037",
     "reviewer": null
 }

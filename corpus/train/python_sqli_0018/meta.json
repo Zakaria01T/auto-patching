@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces '%s' with a $1 positional placeholder and passes content_id separately.",
-    "source": "sven:github.com/Pumala/python_wiki_app_redo/commit/65d60747cd8efb05970304234d3bd949d2088e8b",
+    "explanation": "Replaces the % formatting operator with a comma, passing (project_id, user_id, money) as bound parameters to self.cursor.execute().",
+    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
     "reviewer": null
 }

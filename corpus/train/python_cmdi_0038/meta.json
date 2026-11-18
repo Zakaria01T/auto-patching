@@ -1,9 +1,0 @@
-{
-    "id": "python_cmdi_0038",
-    "language": "python",
-    "class": "command_injection",
-    "cwe": "CWE-78",
-    "explanation": "Replaces os.popen() with subprocess.check_output([\"file\", \"--\", path], text=True) with shell=False and '--', preventing shell and option injection.",
-    "source": "synthetic:row_070",
-    "reviewer": null
-}

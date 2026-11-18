@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0152",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "Removes string interpolation and passes (value,) as a bound parameter tuple alongside an unquoted %s placeholder to cursor.execute().",
-    "source": "synthetic:row_035",
-    "reviewer": null
-}

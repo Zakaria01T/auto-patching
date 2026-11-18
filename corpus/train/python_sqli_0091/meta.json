@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces formatted placeholders with '?' and binds (y_ts, inverter_serial, etoday, etotal) as a tuple in self.c.execute().",
-    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
+    "explanation": "Replaces concatenation with (?) placeholders and binds (race,classe,sex) as a tuple parameter to c.execute().",
+    "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
     "reviewer": null
 }

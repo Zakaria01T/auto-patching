@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces concatenation with a %s placeholder and binds (index, ) as a 1-tuple in cur.execute(), separating query logic from data.",
-    "source": "sven:github.com/sepehr125/arxiv-doc2vec-recommender/commit/f23a4c32e6192b145017f64734b0a9a384c9123a",
+    "explanation": "Eliminates dynamic string formatting by using a %s placeholder and passing (user_id,) as a bound tuple to cursor.execute().",
+    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
     "reviewer": null
 }

@@ -11,8 +11,8 @@
  "candidates/xss-01.jsonl:1": {
   "kept": "python_xss_g001",
   "closest": [
-   0.705,
-   "corpus/train/python_xss_0005/vulnerable.py"
+   0.729,
+   "corpus/train/python_xss_0033/vulnerable.py"
   ]
  },
  "candidates/xss-01.jsonl:2": {
@@ -32,15 +32,15 @@
  "candidates/xss-01.jsonl:4": {
   "kept": "python_xss_g004",
   "closest": [
-   0.684,
-   "python_xss_g003"
+   0.722,
+   "corpus/train/python_xss_0025/vulnerable.py"
   ]
  },
  "candidates/xss-01.jsonl:5": {
   "kept": "python_xss_g005",
   "closest": [
-   0.74,
-   "corpus/train/python_xss_0005/vulnerable.py"
+   0.76,
+   "corpus/train/python_xss_0031/vulnerable.py"
   ]
  },
  "candidates/xss-01.jsonl:6": {
@@ -116,8 +116,8 @@
  "candidates/xss-01.jsonl:16": {
   "kept": "python_xss_g016",
   "closest": [
-   0.75,
-   "python_xss_g003"
+   0.763,
+   "corpus/train/python_xss_0033/vulnerable.py"
   ]
  },
  "candidates/xss-01.jsonl:17": {
@@ -151,22 +151,22 @@
  "candidates/cmdi-01.jsonl:1": {
   "kept": "python_cmdi_g001",
   "closest": [
-   0.701,
-   "corpus/train/python_cmdi_0039/vulnerable.py"
+   0.735,
+   "corpus/train/python_xss_0009/vulnerable.py"
   ]
  },
  "candidates/cmdi-01.jsonl:3": {
   "kept": "python_cmdi_g002",
   "closest": [
-   0.713,
-   "python_cmdi_g001"
+   0.732,
+   "corpus/train/python_xss_0033/vulnerable.py"
   ]
  },
  "candidates/cmdi-01.jsonl:4": {
   "kept": "python_cmdi_g003",
   "closest": [
-   0.743,
-   "corpus/train/python_sqli_0102/vulnerable.py"
+   0.745,
+   "corpus/train/python_cmdi_0025/vulnerable.py"
   ]
  },
  "candidates/cmdi-01.jsonl:6": {
@@ -179,22 +179,22 @@
  "candidates/cmdi-01.jsonl:7": {
   "kept": "python_cmdi_g005",
   "closest": [
-   0.796,
-   "corpus/train/python_cmdi_0039/vulnerable.py"
+   0.797,
+   "corpus/train/python_cmdi_0071/vulnerable.py"
   ]
  },
  "candidates/cmdi-01.jsonl:8": {
   "kept": "python_cmdi_g006",
   "closest": [
-   0.76,
-   "corpus/train/python_cmdi_0017/vulnerable.py"
+   0.781,
+   "corpus/train/python_cmdi_0025/vulnerable.py"
   ]
  },
  "candidates/cmdi-01.jsonl:9": {
   "kept": "python_cmdi_g007",
   "closest": [
-   0.808,
-   "python_cmdi_g005"
+   0.832,
+   "corpus/train/python_cmdi_0050/vulnerable.py"
   ]
  },
  "candidates/cmdi-01.jsonl:10": {
@@ -243,7 +243,7 @@
   "kept": "python_cmdi_g014",
   "closest": [
    0.771,
-   "corpus/train/python_cmdi_0037/vulnerable.py"
+   "corpus/train/python_cmdi_0002/vulnerable.py"
   ]
  },
  "candidates/cmdi-01.jsonl:18": {
@@ -261,8 +261,8 @@
  "candidates/cmdi-01.jsonl:20": {
   "kept": "python_cmdi_g016",
   "closest": [
-   0.842,
-   "corpus/train/python_cmdi_0017/vulnerable.py"
+   0.808,
+   "python_cmdi_g015"
   ]
  },
  "candidates/xss-02.jsonl:4": {
@@ -271,15 +271,15 @@
  "candidates/xss-02.jsonl:1": {
   "kept": "python_xss_g021",
   "closest": [
-   0.79,
-   "corpus/train/python_xss_0006/vulnerable.py"
+   0.749,
+   "corpus/train/python_xss_g007/vulnerable.py"
   ]
  },
  "candidates/xss-02.jsonl:2": {
   "kept": "python_xss_g022",
   "closest": [
-   0.788,
-   "corpus/train/python_xss_0005/vulnerable.py"
+   0.814,
+   "corpus/train/python_xss_0031/vulnerable.py"
   ]
  },
  "candidates/xss-02.jsonl:3": {
@@ -313,8 +313,8 @@
  "candidates/xss-02.jsonl:8": {
   "kept": "python_xss_g027",
   "closest": [
-   0.745,
-   "python_xss_g025"
+   0.812,
+   "corpus/train/python_xss_0025/vulnerable.py"
   ]
  },
  "candidates/xss-02.jsonl:9": {
@@ -327,8 +327,8 @@
  "candidates/xss-02.jsonl:10": {
   "kept": "python_xss_g029",
   "closest": [
-   0.705,
-   "corpus/train/python_xss_0005/vulnerable.py"
+   0.749,
+   "corpus/train/python_xss_0011/vulnerable.py"
   ]
  },
  "candidates/xss-02.jsonl:11": {
@@ -341,8 +341,8 @@
  "candidates/xss-02.jsonl:12": {
   "kept": "python_xss_g031",
   "closest": [
-   0.762,
-   "python_xss_g021"
+   0.804,
+   "corpus/train/python_xss_0033/vulnerable.py"
   ]
  },
  "candidates/xss-02.jsonl:13": {
@@ -397,8 +397,8 @@
  "candidates/xss-02.jsonl:20": {
   "kept": "python_xss_g039",
   "closest": [
-   0.782,
-   "python_xss_g025"
+   0.785,
+   "corpus/train/python_xss_0025/vulnerable.py"
   ]
  },
  "candidates/xss-03.jsonl:1": {
@@ -467,8 +467,8 @@
  "candidates/xss-03.jsonl:10": {
   "kept": "python_xss_g049",
   "closest": [
-   0.837,
-   "corpus/train/python_xss_0010/vulnerable.py"
+   0.791,
+   "corpus/train/python_xss_g031/vulnerable.py"
   ]
  },
  "candidates/xss-03.jsonl:11": {
@@ -545,7 +545,7 @@
   "kept": "python_cmdi_g017",
   "closest": [
    0.699,
-   "corpus/train/python_cmdi_0032/vulnerable.py"
+   "corpus/train/python_cmdi_0001/vulnerable.py"
   ]
  },
  "candidates/cmdi-02.jsonl:2": {
@@ -579,8 +579,8 @@
  "candidates/cmdi-02.jsonl:6": {
   "kept": "python_cmdi_g022",
   "closest": [
-   0.831,
-   "corpus/train/python_cmdi_0036/vulnerable.py"
+   0.838,
+   "corpus/train/python_cmdi_0029/vulnerable.py"
   ]
  },
  "candidates/cmdi-02.jsonl:7": {
@@ -607,8 +607,8 @@
  "candidates/cmdi-02.jsonl:10": {
   "kept": "python_cmdi_g026",
   "closest": [
-   0.837,
-   "corpus/train/python_cmdi_0036/vulnerable.py"
+   0.848,
+   "corpus/train/python_cmdi_0048/vulnerable.py"
   ]
  },
  "candidates/cmdi-02.jsonl:11": {

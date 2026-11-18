@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Converts all three queries to unquoted %s placeholders with parameter tuples passed to cursor.execute().",
-    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+    "explanation": "Uses an unquoted %s placeholder and binds (account_id,) as a 1-tuple in cur.execute().",
+    "source": "sven:github.com/VinChain/vinchain-python-api-backend/commit/b78088a551fbb712121269c6eb7f43ede120ff60",
     "reviewer": null
 }

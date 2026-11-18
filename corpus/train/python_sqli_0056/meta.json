@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Uses an unquoted %s placeholder and binds (start+'%',) as a tuple parameter in cur.execute(), preventing SQL injection.",
-    "source": "sven:github.com/VinChain/vinchain-python-api-backend/commit/b78088a551fbb712121269c6eb7f43ede120ff60",
+    "explanation": "Uses '?' placeholders and binds all eight values in a tuple parameter.",
+    "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
     "reviewer": null
 }

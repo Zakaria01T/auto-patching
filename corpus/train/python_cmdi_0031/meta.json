@@ -3,7 +3,7 @@
     "language": "python",
     "class": "command_injection",
     "cwe": "CWE-78",
-    "explanation": "Replaces os.system('ls') with subprocess.check_output(['ls']) using an argument list without a shell, hardening execution and capturing output cleanly.",
-    "source": "cybernative:row_2931",
+    "explanation": "Replaces os.system() shell deletion concatenation with Python's native os.remove() API to eliminate shell execution.",
+    "source": "synthetic:row_052",
     "reviewer": null
 }

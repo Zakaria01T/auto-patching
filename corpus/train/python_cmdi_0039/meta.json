@@ -3,7 +3,7 @@
     "language": "python",
     "class": "command_injection",
     "cwe": "CWE-78",
-    "explanation": "Removes external process and shell execution completely by computing the SHA-256 digest in Python with hashlib.sha256(Path(path).read_bytes()).hexdigest().",
-    "source": "synthetic:row_071",
+    "explanation": "Replaces os.popen() line counting with pure Python file iteration to avoid shell execution altogether.",
+    "source": "synthetic:row_060",
     "reviewer": null
 }

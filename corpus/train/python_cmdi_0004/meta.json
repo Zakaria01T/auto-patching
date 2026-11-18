@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0004",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces the nslookup shell call with the standard-library socket.gethostbyname_ex lookup.",
+    "source": "synthetic:row_002",
+    "reviewer": null
+}

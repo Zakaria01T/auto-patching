@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces the formatted value with a '?' placeholder and binds (sourcebyinstitution,) as a tuple in sqlite.execute(), separating data from SQL syntax.",
-    "source": "sven:github.com/miku/siskin/commit/7fa398d2fea72bf2e8b4808f75df4b3d35ae959a",
+    "explanation": "Uses a '?' placeholder and passes (str(message.chat.id),) as a 1-tuple so SQLite binds the value safely.",
+    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
     "reviewer": null
 }

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Converts all three queries to unquoted %s placeholders with tuple parameters passed to cursor.execute().",
-    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+    "explanation": "Removes string interpolation and passes (value,) as a bound parameter tuple alongside an unquoted %s placeholder to cursor.execute().",
+    "source": "synthetic:row_035",
     "reviewer": null
 }

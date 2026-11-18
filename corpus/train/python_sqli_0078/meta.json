@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces .format() with a %s placeholder and passes data = [top_num, ] to execute_query().",
-    "source": "sven:github.com/thugasin/udacity-homework-logAnalyzer/commit/506f25f9a1caee7f17034adf7c75e0efbc88082b",
+    "explanation": "Uses an unquoted %s placeholder and binds (name,) as a 1-tuple in db.execute().",
+    "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
     "reviewer": null
 }

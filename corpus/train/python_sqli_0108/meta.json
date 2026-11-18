@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Wraps the query in SQLAlchemy text() with named parameter :project_id, ensuring the value is bound safely.",
-    "source": "sven:github.com/hotosm/tasking-manager/commit/dee040a2d22b3c4d5e38e2dbf8c6b651ad4c241a",
+    "explanation": "Uses a '?' placeholder and binds (recipeName, ) as a 1-tuple in cursor.execute().",
+    "source": "sven:github.com/trishamoyer/RecipePlanner-Python/commit/44d2ce370715d9344fad34b3b749322ab095a925",
     "reviewer": null
 }

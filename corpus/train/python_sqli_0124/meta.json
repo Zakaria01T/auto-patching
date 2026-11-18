@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0124",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses an unquoted '?' placeholder and binds (current_institution,) as a 1-tuple in sqlite.execute().",
+    "source": "sven:github.com/miku/siskin/commit/7fa398d2fea72bf2e8b4808f75df4b3d35ae959a",
+    "reviewer": null
+}

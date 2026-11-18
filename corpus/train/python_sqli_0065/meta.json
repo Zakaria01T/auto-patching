@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces the interpolated variable with %s and passes (user_id, ) separately.",
-    "source": "sven:github.com/sgosal2/tiger-boards-backend/commit/4670109dd613df2f2fe7e8403ebd149df2b55485",
+    "explanation": "Replaces .format() with a %s placeholder and passes data = [top_num, ] to execute_query().",
+    "source": "sven:github.com/thugasin/udacity-homework-logAnalyzer/commit/506f25f9a1caee7f17034adf7c75e0efbc88082b",
     "reviewer": null
 }

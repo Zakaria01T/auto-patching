@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0005",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Extracts the archive with the zipfile module so no shell command is built from the file names.",
+    "source": "synthetic:row_003",
+    "reviewer": null
+}

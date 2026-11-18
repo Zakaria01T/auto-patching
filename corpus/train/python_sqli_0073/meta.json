@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Uses a '?' placeholder and binds (str(message.chat.id),) as a 1-tuple in conn.execute().",
-    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
+    "explanation": "Is broken: it attempts to parameterize the table name with %s (which DB-API drivers quote as a string literal, causing a SQL syntax error) and omits the comma in VALUES (%s %s).",
+    "source": "sven:github.com/tasbir49/BreadWinner/commit/332a9f2c619be399ae94244bb8bd0977fc62bc16",
     "reviewer": null
 }

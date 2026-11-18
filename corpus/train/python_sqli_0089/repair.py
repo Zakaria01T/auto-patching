@@ -1,21 +1,7 @@
-@app.route('/quiz')
-def quiz():
-
-    varga = request.args.get('varga')
-
-    try:
-        rows =[]
-
-        with sql.connect('amara.db') as con:
-            con.row_factory = sql.Row
-            cur = con.cursor()
-            cur.execute("select * from pada inner join mula on pada.sloka_line = mula.sloka_line where pada.varga = ? order by random() limit 1;", [varga])
-            rows = cur.fetchall();
-
-            artha = rows[0]["artha"];
-            cur.execute("select pada from pada where varga = ? and artha = ? order by id", [varga, artha]);
-            paryaya = cur.fetchall();
-
-            return render_template('quiz.html', rows=rows, paryaya=paryaya, varga=varga)
-    finally:
-        con.close()
+def add_translationname(self, trname):
+    """Add new translation by item name for an item."""
+    if self.connection:
+        for item in self.find_item_name([trname[0], '0']):
+            t = (item[0], trname[1], trname[2], )
+            self.cursor.execute('insert into itemtranslation (itemid, itemlanguageid, translation) values (?, ?, ?)', t)
+        self.connection.commit()

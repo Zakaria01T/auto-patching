@@ -3,7 +3,7 @@
     "language": "python",
     "class": "command_injection",
     "cwe": "CWE-78",
-    "explanation": "Remains completely vulnerable because it executes command directly via subprocess.run(['/bin/bash', '-c', command]).",
-    "source": "cybernative:row_947",
+    "explanation": "Counts the lines by reading the file in Python, which removes the shell and the redirection.",
+    "source": "synthetic:row_019",
     "reviewer": null
 }

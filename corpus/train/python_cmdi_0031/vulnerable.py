@@ -1,5 +1,3 @@
-def some_function():
-    try:
-        os.system('ls')
-    except Exception as e:
-        print(e)
+def delete_temp_file(filepath: str) -> None:
+    import os
+    os.system("rm -f " + filepath)

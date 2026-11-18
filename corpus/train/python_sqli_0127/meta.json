@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Uses a '?' placeholder and binds (recipeName, ) as a 1-tuple in cursor.execute().",
-    "source": "sven:github.com/trishamoyer/RecipePlanner-Python/commit/44d2ce370715d9344fad34b3b749322ab095a925",
+    "explanation": "Uses an unquoted '?' placeholder and binds t = (language[0], ) as a 1-tuple in self.cursor.execute().",
+    "source": "sven:github.com/ecosl-developers/ecosl/commit/8af050a513338bf68ff2a243e4a2482d24e9aa3a",
     "reviewer": null
 }

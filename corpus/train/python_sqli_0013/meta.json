@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0013",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "Replaces the interpolated value with %s and passes (email, ) separately.",
-    "source": "sven:github.com/sgosal2/tiger-boards-backend/commit/4670109dd613df2f2fe7e8403ebd149df2b55485",
-    "reviewer": null
-}

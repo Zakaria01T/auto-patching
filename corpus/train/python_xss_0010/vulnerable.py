@@ -1,2 +1,4 @@
-def render_invoice_html(value):
-    return f"<li data-kind=\"invoice\">{value}</li>"
+def render_post(text):
+    import markdown
+    from django.utils.safestring import mark_safe
+    return mark_safe(markdown.markdown(text))

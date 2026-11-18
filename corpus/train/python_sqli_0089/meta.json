@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Updates both cur.execute() calls to use '?' placeholders with parameter lists [varga] and [varga, artha].",
-    "source": "sven:github.com/aupasana/amara-quiz/commit/6ceb5dc8ec38b4a3f1399e578ab970f7e3354922",
+    "explanation": "Switches to '?' placeholders and passes t = (item[0], trname[1], trname[2], ) as a bound tuple to self.cursor.execute().",
+    "source": "sven:github.com/ecosl-developers/ecosl/commit/8af050a513338bf68ff2a243e4a2482d24e9aa3a",
     "reviewer": null
 }

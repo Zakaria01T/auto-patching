@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Switches to an unquoted %s placeholder and passes self.access_token to self.db.get().",
-    "source": "sven:github.com/bonbondirac/tsunami/commit/396cc394bd6daaf0ee9c16b1b55a4082eeaac208",
+    "explanation": "Uses '?' placeholders and passes (username, password) as a bound tuple to cursor.execute().",
+    "source": "sven:github.com/AnetaStoycheva/Programming101_HackBulgaria/commit/c0d6f4b8fe83a375832845a45952b5153e4c34f3",
     "reviewer": null
 }

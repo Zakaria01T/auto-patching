@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0023",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Fetches the resource with the requests library, which removes the wget process and the shell.",
+    "source": "synthetic:row_038",
+    "reviewer": null
+}

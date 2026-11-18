@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0007",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "Substitutes %s placeholders and passes (self.language, self.chat_id) as a tuple to db.add().",
-    "source": "sven:github.com/RandyRomero/photoGPSbot/commit/0e9f57f13e61863b3672f5730e27f149da00786a",
-    "reviewer": null
-}

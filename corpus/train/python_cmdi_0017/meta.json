@@ -3,7 +3,7 @@
     "language": "python",
     "class": "command_injection",
     "cwe": "CWE-78",
-    "explanation": "Removes shell=True and tokenizes input with shlex.split(user_input), which stops shell metacharacter chaining but remains insecure because the caller can still execute any arbitrary binary and arguments without an allowlist.",
-    "source": "cybernative:row_1134",
+    "explanation": "Formats the time with datetime.strftime so the format string is never passed to a shell.",
+    "source": "synthetic:row_020",
     "reviewer": null
 }

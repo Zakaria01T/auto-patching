@@ -1,3 +1,3 @@
-def inspect_comment_path(path):
-    from pathlib import Path
-    return Path(path).read_bytes()
+def append_audit_entry(logfile: str, message: str) -> None:
+    with open(logfile, "a", encoding="utf-8") as f:
+        f.write(message + "\n")

@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0009",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Creates the directory with os.makedirs so the name is never interpreted by a shell.",
+    "source": "synthetic:row_011",
+    "reviewer": null
+}

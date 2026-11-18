@@ -3,7 +3,7 @@
     "language": "python",
     "class": "xss",
     "cwe": "CWE-79",
-    "explanation": "Wraps value with html.escape(value, quote=True) inside the f-string, encoding HTML metacharacters and preventing markup injection (the scanner flag remains due to the f-string HTML rule).",
-    "source": "synthetic:row_002",
+    "explanation": "Escapes the comment instead of wrapping untrusted text in Markup, which marks it as already safe.",
+    "source": "synthetic:row_054",
     "reviewer": null
 }

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces string interpolation with %s placeholders and passes (msg_id, user_id, content, c_time) as a parameter tuple to cursor.execute().",
-    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+    "explanation": "This function is vulnerable to SQL injection (CWE-89) because str(tag) is concatenated directly as the table identifier in the INSERT statement.",
+    "source": "sven:github.com/lissrbay/codeforces_bot/commit/cc7f5143445a0030b1149ac60a65b1b1b9c92a90",
     "reviewer": null
 }

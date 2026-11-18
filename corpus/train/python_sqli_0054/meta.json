@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Uses a '?' placeholder and binds (from_date_added,) as a tuple parameter.",
-    "source": "sven:github.com/imachug/ZeroMailProxy/commit/8f62d024c6c4c957079d147e59f26d15c07dc888",
+    "explanation": "Switches to an unquoted %s placeholder and passes self.access_token to self.db.get().",
+    "source": "sven:github.com/bonbondirac/tsunami/commit/396cc394bd6daaf0ee9c16b1b55a4082eeaac208",
     "reviewer": null
 }

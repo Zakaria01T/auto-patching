@@ -3,7 +3,7 @@
     "language": "python",
     "class": "command_injection",
     "cwe": "CWE-78",
-    "explanation": "Remains completely vulnerable because passing ['/bin/bash', '-c', user_input] to subprocess.Popen() is functionally equivalent to shell=True.",
-    "source": "cybernative:row_243",
+    "explanation": "Renames the file with os.replace so neither name can inject shell syntax.",
+    "source": "synthetic:row_013",
     "reviewer": null
 }

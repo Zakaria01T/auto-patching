@@ -1,9 +1,0 @@
-{
-    "id": "python_xss_0005",
-    "language": "python",
-    "class": "xss",
-    "cwe": "CWE-79",
-    "explanation": "Replaces mark_safe() and concatenation with Django's format_html(), which automatically HTML-escapes value while marking only the static template safe.",
-    "source": "synthetic:row_001",
-    "reviewer": null
-}

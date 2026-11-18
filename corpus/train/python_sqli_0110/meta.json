@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Converts both queries to unquoted %s placeholders with tuple parameters passed to cursor.execute().",
-    "source": "sven:github.com/ulyssetsd/bjtu-sql/commit/17d7b21864b72ba5666f15236474a93268b32ec9",
+    "explanation": "Replaces the % operator with a comma, passing (user_id, money) as bound parameters to self.cursor.execute().",
+    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
     "reviewer": null
 }

@@ -3,7 +3,7 @@
     "language": "python",
     "class": "command_injection",
     "cwe": "CWE-78",
-    "explanation": "Eliminates subprocess and shell invocation entirely by reading the file directly via pathlib.Path(path).read_bytes().",
-    "source": "synthetic:row_069",
+    "explanation": "Replaces os.system() shell redirection logging with Python file I/O using open() in append mode.",
+    "source": "synthetic:row_058",
     "reviewer": null
 }

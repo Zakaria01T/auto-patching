@@ -1,19 +1,12 @@
-def add_day_data_row(self, ts, data, prev_etotal):
+def change_message(self, new_message, logged_user):
+    update_sql = """
+        UPDATE Clients
+        SET message = ?
+        WHERE client_id = ?
+    """
 
-    if data['power'] > 0:
+    cursor = self.__conn.cursor()
 
-        inv_serial = data['source']['serial_id']
-        query = '''
-           INSERT INTO DayData (
-               TimeStamp,
-               Serial,
-               Power,
-               TotalYield
-           ) VALUES (
-               ?,
-               ?,
-               ?,
-               ?
-           );
-        '''
-        self.c.execute(query, (ts, inv_serial, data['power'],  prev_etotal + data['energy']))
+    cursor.execute(update_sql, (new_message, logged_user.get_client_id()))
+    self.__conn.commit()
+    logged_user.set_message(new_message)

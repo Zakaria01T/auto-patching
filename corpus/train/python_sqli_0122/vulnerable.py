@@ -1,6 +1,8 @@
-def get_article(index):
-    with conn.cursor(cursor_factory=DictCursor) as cur:
-        query = "SELECT * FROM articles WHERE index="+str(index)
-        cur.execute(query)
-        article = cur.fetchone()
-        return article
+@mod.route('/test', methods=['GET', 'POST'])
+def test():
+    user_id = session['logged_id']
+    sql = 'SELECT * FROM message where user_id = %d ORDER BY c_time DESC' \
+        % (user_id)
+    cursor.execute(sql)
+    m = cursor.fetchall()
+    print(m)

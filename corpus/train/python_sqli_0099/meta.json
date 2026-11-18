@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0099",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses '?' placeholders and binds (date,str(user),command) as a tuple parameter in c.execute().",
+    "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
+    "reviewer": null
+}

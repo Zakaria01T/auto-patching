@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Uses '?' placeholders and binds all eight values in a tuple parameter.",
-    "source": "sven:github.com/DangerBlack/DungeonsAndDragonsMasterBot/commit/63f980c6dff746f5fcf3005d0646b6c24f81cdc0",
+    "explanation": "Replaces formatting with a '?' placeholder and passes query_bindings = (page_id,) to self.cursor.execute(), ensuring parameter binding.",
+    "source": "sven:github.com/jwngr/sdow/commit/4db98f3521592f17550d2b723336f33fec5e112a",
     "reviewer": null
 }

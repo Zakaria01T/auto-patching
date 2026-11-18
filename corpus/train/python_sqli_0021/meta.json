@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces the % formatting operator with a comma, passing (project_id, user_id, money) as bound parameters to self.cursor.execute().",
-    "source": "sven:github.com/JLucka/kickstarter-dev/commit/e2ffa062697e060fdfbd2eccbb89a8c53a569e0b",
+    "explanation": "Replaces the formatted value with a '?' placeholder and binds (sourcebyinstitution,) as a tuple in sqlite.execute(), separating data from SQL syntax.",
+    "source": "sven:github.com/miku/siskin/commit/7fa398d2fea72bf2e8b4808f75df4b3d35ae959a",
     "reviewer": null
 }

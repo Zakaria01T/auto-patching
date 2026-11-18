@@ -1,3 +1,3 @@
-def execute_command(user_input):
-    with open('myfile.txt', 'w') as f:
-        f.write(user_input)
+def ensure_directory(dir_path: str) -> None:
+    import os
+    os.makedirs(dir_path, exist_ok=True)

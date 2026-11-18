@@ -1,3 +1,3 @@
-def execute_command(user_input):
-    command = "echo %s > myfile.txt" % (user_input)
-    os.system(command)
+def ensure_directory(dir_path: str) -> None:
+    import os
+    os.system("mkdir -p %s" % dir_path)

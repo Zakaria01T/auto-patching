@@ -1,9 +1,0 @@
-{
-    "id": "python_sqli_0055",
-    "language": "python",
-    "class": "sql_injection",
-    "cwe": "CWE-89",
-    "explanation": "Updates both queries to use '?' placeholders and passes the values as bound tuples to self.c.execute().",
-    "source": "sven:github.com/philipptrenz/s0-bridge/commit/269b48caa05377b7c58c3e6d1622a4429cb5ba65",
-    "reviewer": null
-}

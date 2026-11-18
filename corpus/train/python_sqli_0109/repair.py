@@ -1,9 +1,11 @@
-def findNPC(race, classe, sex,level):
-	c, conn = getConnection()
-	date = now()
-	#select image, SUM(legit) as l FROM npc WHERE race='Elf' AND class='Bard' AND sex='Male' GROUP BY image HAVING l>5 ORDER BY SUM(legit) DESC;
-	c.execute("select image, avg(legit) as l FROM npc WHERE race=(?) AND class=(?) AND sex=(?) GROUP BY image HAVING l > 5 ORDER BY SUM(legit) DESC",(race,classe,sex))
-	conn.commit()
-	out = c.fetchmany(5)
-	conn.close()
-	return out
+@mod.route('/edit', methods=['GET', 'POST'])
+def edit():
+    cursor.execute("SELECT * FROM users where email = %s;", (session['logged_email'],))
+    u = cursor.fetchone()
+    if request.method == 'POST':
+        cursor.execute("UPDATE users SET nickname = %s where email = %s", (request.form['nickname'], session['logged_email']))
+        cursor.execute("SELECT * FROM users where email = %s;", (session['logged_email'],))
+        u = cursor.fetchone()
+        conn.commit()
+        flash('Edit Nickname Success!')
+    return render_template('users/edit.html', u=u)

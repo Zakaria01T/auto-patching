@@ -1,5 +1,14 @@
-def add_item(self, item):
-    """"Add new item."""
-    if self.connection:
-        self.cursor.execute('insert into item (name, shoppinglistid) values ("%s", "%s")' % (item[0], item[1]))
-        self.connection.commit()
+def registerPlayer(name):
+    """Adds a player to the tournament database.
+
+    The database assigns a unique serial id number for the player.  (This
+    should be handled by your SQL database schema, not in your Python code.)
+
+    Args:
+      name: the player's full name (need not be unique).
+    """
+    conn = connect()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO players (name) VALUES ('%s')" % (name,));
+    conn.commit()
+    conn.close()

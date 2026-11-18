@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Uses a %s placeholder and binds (playlist_id,) as a tuple in db.execute(), isolating data from SQL syntax.",
-    "source": "sven:github.com/Madmous/playlist/commit/666e52c5f0b8c1f4296e84471637033d9542a7a6",
+    "explanation": "Replaces string formatting with a '?' placeholder and passes (question,) as a tuple parameter to db.execute(), ensuring the question is bound as data.",
+    "source": "sven:github.com/FrozenPigs/Taigabot/commit/ea9b83a66ae1f0f38a1895f3e8dfa2833d77e3a6",
     "reviewer": null
 }

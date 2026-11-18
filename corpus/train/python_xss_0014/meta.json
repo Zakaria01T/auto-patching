@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0014",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Removes the unsafe mark-safe wrapper and lets Jinja autoescape the variable.",
+    "source": "synthetic:phase2_0053",
+    "reviewer": null
+}

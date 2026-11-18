@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0014",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Reads free disk space with shutil.disk_usage, so no df process or shell is needed.",
+    "source": "synthetic:row_017",
+    "reviewer": null
+}

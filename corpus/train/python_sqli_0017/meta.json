@@ -3,7 +3,7 @@
     "language": "python",
     "class": "sql_injection",
     "cwe": "CWE-89",
-    "explanation": "Replaces string formatting with a '?' placeholder and passes (question,) as a tuple parameter to db.execute(), ensuring the question is bound as data.",
-    "source": "sven:github.com/FrozenPigs/Taigabot/commit/ea9b83a66ae1f0f38a1895f3e8dfa2833d77e3a6",
+    "explanation": "Attempts parameterization with (?, ?), which is invalid in psycopg2 (requires %s) and will fail silently due to the bare except block.",
+    "source": "sven:github.com/tadaren/reply_bot/commit/5aeafa7e9597a766992af9ff8189e1f050b6579b",
     "reviewer": null
 }

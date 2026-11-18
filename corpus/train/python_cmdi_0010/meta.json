@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0010",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Uses shutil.copy2 for the copy, which removes the shell command and the string formatting.",
+    "source": "synthetic:row_012",
+    "reviewer": null
+}

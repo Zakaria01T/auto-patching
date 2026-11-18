@@ -1,10 +1,5 @@
-def add_language(lang):
-    try:
-        cur.execute(f"INSERT INTO language (name) VALUES ('{lang}')")
-    except Exception as e:
-        pass
-    cur.execute(f"SELECT language_id FROM language where name='{lang}'")
-    lang_id = cur.fetchone()[0]
-    if conn.commit():
-        return lang_id
-    return lang_id
+def getGameCountInSeriesSoFar(submission):
+    database = sqlite3.connect('database.db')
+    cursor = database.cursor()
+    return cursor.execute("SELECT COUNT(*) FROM ChallengeRankings WHERE SeriesTitle = '" + getTitle(submission) + "' AND Date <= '" + getSubmissionDateFromDatabase(submission) + "'").fetchone()[0]
+    database.close()

@@ -1,10 +1,17 @@
-def get_user(self):
-    if not hasattr(self, '_user'):
-        qs = "select * from account_access where access_token = %s"
-        result = self.db.get(qs, self.access_token)
-        if result:
-            self._user = result
-        else:
-            self._user = None
+def login(self, username, password):
+    select_query = """
+        SELECT client_id, username, balance, message
+        FROM Clients
+        WHERE username = ? AND password = ?
+        LIMIT 1
+    """
 
-    return self._user
+    cursor = self.__conn.cursor()
+
+    cursor.execute(select_query, (username, password))
+    user = cursor.fetchone()
+
+    if(user):
+        return Client(user[0], user[1], user[2], user[3])
+    else:
+        return False

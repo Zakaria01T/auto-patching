@@ -1,2 +1,3 @@
-def delete_playlist(id, db):
-    db.execute("DELETE FROM playlist where id={id};".format(id=id))
+def delete_playlists_videos(playlist_id, db):
+    db.execute("DELETE FROM video where playlist_id={playlist_id};".format(
+        playlist_id=playlist_id))
