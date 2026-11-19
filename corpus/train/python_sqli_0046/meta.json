@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0046",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a '?' placeholder and binds (from_date_added,) as a tuple parameter.",
+    "source": "sven:github.com/imachug/ZeroMailProxy/commit/8f62d024c6c4c957079d147e59f26d15c07dc888",
+    "reviewer": null
+}

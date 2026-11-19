@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g049",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the volunteer name with html.escape before inserting it into the shift item.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-03.jsonl:10",
+    "reviewer": null
+}

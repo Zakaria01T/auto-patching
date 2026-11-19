@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0033",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Fixes improper format_html() usage where user input was passed as the template string instead of a formatted argument.",
+    "source": "synthetic:row_018",
+    "reviewer": null
+}

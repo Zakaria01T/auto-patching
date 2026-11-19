@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0027",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Updates both queries to use unquoted %s placeholders with (lang, ) parameter tuples so the driver treats lang strictly as data.",
+    "source": "sven:github.com/Elbertbiggs360/dvdrental/commit/ad144ae2a08a332498d0831bc255170d57ba754b",
+    "reviewer": null
+}

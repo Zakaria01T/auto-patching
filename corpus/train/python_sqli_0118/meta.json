@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0118",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces concatenation with an unquoted %s placeholder and binds (subject,) as a 1-tuple in cur.execute().",
+    "source": "sven:github.com/sepehr125/arxiv-doc2vec-recommender/commit/f23a4c32e6192b145017f64734b0a9a384c9123a",
+    "reviewer": null
+}

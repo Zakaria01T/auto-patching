@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g030",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the service name as a separate argument after -- to subprocess.run instead of concatenating it into a shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:14",
+    "reviewer": null
+}

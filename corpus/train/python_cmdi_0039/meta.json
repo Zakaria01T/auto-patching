@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0039",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces os.popen() line counting with pure Python file iteration to avoid shell execution altogether.",
+    "source": "synthetic:row_060",
+    "reviewer": null
+}

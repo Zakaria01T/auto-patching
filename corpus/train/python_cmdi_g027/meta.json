@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g027",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Converted the line count to an integer and passed it and the log path as separate arguments after -- to subprocess.check_output.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:11",
+    "reviewer": null
+}

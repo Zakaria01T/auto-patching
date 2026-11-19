@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0075",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Updates both cur.execute() calls to use '?' placeholders with parameter lists [varga] and [varga, artha].",
+    "source": "sven:github.com/aupasana/amara-quiz/commit/6ceb5dc8ec38b4a3f1399e578ab970f7e3354922",
+    "reviewer": null
+}

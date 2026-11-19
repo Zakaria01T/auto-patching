@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g011",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the report path after -- as a zip argument to subprocess.run, replacing the os.system shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:14",
+    "reviewer": null
+}

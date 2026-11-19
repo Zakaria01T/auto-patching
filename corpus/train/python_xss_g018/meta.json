@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g018",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Used Django format_html to escape the audit actor and action before building the log row.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:18",
+    "reviewer": null
+}

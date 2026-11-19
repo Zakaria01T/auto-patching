@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0048",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces curl executed via shell=True with urllib.request.urlopen() after validating the URL scheme.",
+    "source": "synthetic:row_069",
+    "reviewer": null
+}

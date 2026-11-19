@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g052",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the field label with html.escape before inserting it into the form label.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-03.jsonl:13",
+    "reviewer": null
+}

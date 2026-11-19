@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0009",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Uses Django's json_script, which escapes the JSON for safe embedding in a script element.",
+    "source": "synthetic:row_061",
+    "reviewer": null
+}

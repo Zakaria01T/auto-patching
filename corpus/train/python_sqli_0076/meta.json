@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0076",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Removes string formatting and passes (winner, loser, loser, winner) as bound parameters to cur.execute().",
+    "source": "sven:github.com/juanchopanza/Tournament/commit/5799aee52d2cabb685800b88977257bd0964d0da",
+    "reviewer": null
+}

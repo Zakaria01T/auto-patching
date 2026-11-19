@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g003",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the customer name with html.escape before formatting it into the invoice row.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:3",
+    "reviewer": null
+}

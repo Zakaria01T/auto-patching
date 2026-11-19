@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0050",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces shell=True openssl hashing with Python's hashlib.sha256() to compute file digests without invoking a shell.",
+    "source": "synthetic:row_071",
+    "reviewer": null
+}

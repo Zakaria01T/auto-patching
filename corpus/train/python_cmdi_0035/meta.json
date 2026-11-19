@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0035",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces os.system() chmod concatenation with Python's os.chmod() so no shell process is spawned.",
+    "source": "synthetic:row_056",
+    "reviewer": null
+}

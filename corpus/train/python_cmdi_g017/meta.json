@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g017",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Opened the dump file in Python and passed the database name as a separate argument after -- to subprocess.run instead of a shell string.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:1",
+    "reviewer": null
+}

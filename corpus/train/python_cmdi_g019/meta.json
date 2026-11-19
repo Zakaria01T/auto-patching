@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g019",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the printer and file name as separate argument list items after -- to subprocess.run instead of a shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:3",
+    "reviewer": null
+}

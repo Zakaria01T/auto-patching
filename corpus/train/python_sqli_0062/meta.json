@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0062",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses '?' placeholders and passes (username, password) as a bound tuple to cursor.execute().",
+    "source": "sven:github.com/AnetaStoycheva/Programming101_HackBulgaria/commit/c0d6f4b8fe83a375832845a45952b5153e4c34f3",
+    "reviewer": null
+}

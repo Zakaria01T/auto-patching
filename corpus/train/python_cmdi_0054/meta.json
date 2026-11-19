@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0054",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces subprocess.call(..., shell=True) file copying with shutil.copy2() to avoid invoking an external shell.",
+    "source": "synthetic:row_075",
+    "reviewer": null
+}

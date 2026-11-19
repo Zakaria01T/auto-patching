@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0026",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Waits with time.sleep on a numeric value, so no shell command is started at all.",
+    "source": "synthetic:row_046",
+    "reviewer": null
+}

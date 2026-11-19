@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0012",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Uses format_html with a translated format string so the username is escaped rather than marked safe.",
+    "source": "synthetic:row_089",
+    "reviewer": null
+}

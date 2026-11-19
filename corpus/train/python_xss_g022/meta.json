@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g022",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped car model with markupsafe.escape before inserting into span.",
+    "source": "generated:openrouter/nvidia/nemotron-3-ultra-550b-a55b:free:2026-11-18:candidates/xss-02.jsonl:2",
+    "reviewer": null
+}

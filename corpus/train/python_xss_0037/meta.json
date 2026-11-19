@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0037",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Removes improper Markup() trust promotion on untrusted alert text and returns a safely escaped string via markupsafe.escape().",
+    "source": "synthetic:row_022",
+    "reviewer": null
+}

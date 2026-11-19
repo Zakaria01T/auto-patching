@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0005",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces concatenation with a '?' placeholder and passes [str(submission.id)] as a bound parameter list so SQLite separates query logic from data.",
+    "source": "sven:github.com/LiquidFun/Reddit-GeoGuessr-Tracking-Bot/commit/0cad2d52e24b05da32789fbc8face7a9999a71f9",
+    "reviewer": null
+}

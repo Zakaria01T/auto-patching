@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0117",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Uses a $1 positional placeholder and passes search separately.",
+    "source": "sven:github.com/jcortes0309/wiki_flask/commit/a6bf5316abe2eb528adf36c8241a013fd02c5ffa",
+    "reviewer": null
+}

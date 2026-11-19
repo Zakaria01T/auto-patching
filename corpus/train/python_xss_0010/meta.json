@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_0010",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Sanitizes the rendered Markdown with bleach and an allowlist of tags instead of trusting it as safe HTML.",
+    "source": "synthetic:row_066",
+    "reviewer": null
+}

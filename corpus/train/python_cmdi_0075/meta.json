@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0075",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Replaces shell=True chown execution with Python's shutil.chown() so untrusted owner or path strings cannot invoke shell commands.",
+    "source": "synthetic:row_099",
+    "reviewer": null
+}

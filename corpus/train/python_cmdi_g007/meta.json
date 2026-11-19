@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g007",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed the filename after -- to wc through subprocess.check_output as a list, removing shell interpretation.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:9",
+    "reviewer": null
+}

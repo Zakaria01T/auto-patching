@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0006",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Creates the archive with the tarfile module, which removes the shell and the concatenated command.",
+    "source": "synthetic:row_004",
+    "reviewer": null
+}

@@ -1,0 +1,9 @@
+{
+    "id": "python_sqli_0081",
+    "language": "python",
+    "class": "sql_injection",
+    "cwe": "CWE-89",
+    "explanation": "Replaces formatting with an unquoted '?' placeholder and binds (current_num,) as a 1-tuple in cursor.execute().",
+    "source": "sven:github.com/lord63/a_bunch_of_code/commit/c0d67a1312306fd1257c354bfb5d6cac7643aa29",
+    "reviewer": null
+}

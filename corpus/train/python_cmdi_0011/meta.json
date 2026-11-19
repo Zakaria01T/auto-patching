@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0011",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Renames the file with os.replace so neither name can inject shell syntax.",
+    "source": "synthetic:row_013",
+    "reviewer": null
+}

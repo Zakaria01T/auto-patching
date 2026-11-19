@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g026",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped survey answer with html.escape before inserting into list item.",
+    "source": "generated:openrouter/nvidia/nemotron-3-ultra-550b-a55b:free:2026-11-18:candidates/xss-02.jsonl:7",
+    "reviewer": null
+}

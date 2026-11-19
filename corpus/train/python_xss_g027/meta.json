@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g027",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Replaced f-string with Django format_html to auto-escape coupon code.",
+    "source": "generated:openrouter/nvidia/nemotron-3-ultra-550b-a55b:free:2026-11-18:candidates/xss-02.jsonl:8",
+    "reviewer": null
+}

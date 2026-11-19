@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g016",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Launched traceroute with the host as a separate argument after -- through subprocess.Popen without a shell.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-01.jsonl:20",
+    "reviewer": null
+}

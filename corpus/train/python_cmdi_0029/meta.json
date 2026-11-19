@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_0029",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Reads the size with os.stat, which removes the stat process and the shell.",
+    "source": "synthetic:row_049",
+    "reviewer": null
+}

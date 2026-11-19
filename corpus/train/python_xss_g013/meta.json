@@ -1,0 +1,9 @@
+{
+    "id": "python_xss_g013",
+    "language": "python",
+    "class": "xss",
+    "cwe": "CWE-79",
+    "explanation": "Escaped the book title and author with html.escape before formatting the list entry.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/xss-01.jsonl:13",
+    "reviewer": null
+}

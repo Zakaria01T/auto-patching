@@ -1,0 +1,9 @@
+{
+    "id": "python_cmdi_g018",
+    "language": "python",
+    "class": "command_injection",
+    "cwe": "CWE-78",
+    "explanation": "Passed both folder paths as separate argument list items to subprocess.run after -- instead of interpolating them into a shell command.",
+    "source": "generated:opencode/deepseek-v4.1-flash-free:2026-11-18:candidates/cmdi-02.jsonl:2",
+    "reviewer": null
+}
