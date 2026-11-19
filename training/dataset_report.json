@@ -1,0 +1,39 @@
+{
+  "class_counts": {
+    "buffer_overflow": 76,
+    "command_injection": 82,
+    "sql_injection": 97,
+    "xss": 74
+  },
+  "exclusion_check": {
+    "matched_count": 0,
+    "method": "SHA-256 of language-specific normalized function definitions; exact matches fail",
+    "protected_source_count": 35,
+    "splits": [
+      "corpus/dev",
+      "benchmark"
+    ]
+  },
+  "gold_input_mode": "validated_committed_gold",
+  "gold_row_count": 8,
+  "inputs_sha256": {
+    "training/c_rows.jsonl": "65a50d0c796524915b8ea8aa9178c792a1822f34a7098acdb215791203618461",
+    "training/gold.jsonl": "6d288eed5b129da80780d8d38c0565aa8a218b6d9ffd7ed51275963c27d4d736",
+    "training/python_rows.jsonl": "a6c06307ac286aa9d38cf0aabf45f310e0cc0e2bb928cd31d0711af3aa0603ac"
+  },
+  "outputs_sha256": {
+    "training/gold.jsonl": "6d288eed5b129da80780d8d38c0565aa8a218b6d9ffd7ed51275963c27d4d736",
+    "training/rows.jsonl": "4a23cb7fda1d5e77d73f0723279f22122fd35b18eb2044be8612b07a8dc69ac2"
+  },
+  "row_count": 329,
+  "schema_version": 1,
+  "source_counts": {
+    "cybernative": 1,
+    "generated": 95,
+    "gold": 8,
+    "juliet": 39,
+    "own": 35,
+    "sven": 90,
+    "synthetic": 61
+  }
+}
