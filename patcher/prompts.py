@@ -48,6 +48,49 @@ PLACEHOLDERS = {"sqlite3": "?", "psycopg2": "%s", "psycopg": "%s",
                 "mysql": "%s", "mysql.connector": "%s", "pymysql": "%s",
                 "MySQLdb": "%s"}
 
+# Longer markers first so psycopg2 is not also read as psycopg.
+_DRIVER_MARKERS = (
+    ("mysql.connector", "mysql.connector"),
+    ("mysql.connection", "mysql"),
+    ("MySQLdb", "mysql"),
+    ("pymysql", "pymysql"),
+    ("psycopg2", "psycopg2"),
+    ("psycopg", "psycopg2"),
+    ("sqlite3", "sqlite3"),
+)
+
+
+def driver_from_source(source):
+    """Return (driver, evidence line) when the source names exactly one driver.
+
+    No named driver returns None. conn.execute alone is not a driver.
+    Two different drivers raise ValueError.
+    """
+    if not isinstance(source, str) or not source.strip():
+        return None
+    found = {}
+    for line in source.splitlines():
+        for marker, name in _DRIVER_MARKERS:
+            if re.search(rf"(?<![\w.]){re.escape(marker)}(?!\w)", line):
+                found.setdefault(name, line.strip())
+    if len(found) > 1:
+        names = ", ".join(sorted(found))
+        raise ValueError(f"source names more than one database driver: {names}")
+    if not found:
+        return None
+    return next(iter(found.items()))
+
+
+def resolve_driver(source, db_driver, driver_evidence):
+    """Use a driver named in the source when the caller did not pass one."""
+    detected = driver_from_source(source)
+    if detected is None:
+        return db_driver, driver_evidence
+    found_driver, found_evidence = detected
+    if db_driver not in (None, found_driver):
+        raise ValueError(f"db_driver {db_driver!r} contradicts {found_driver} named in the source")
+    return found_driver, driver_evidence or found_evidence
+
 
 def nonempty(value, name):
     if not isinstance(value, str) or not value.strip():

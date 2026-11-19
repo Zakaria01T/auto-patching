@@ -7,7 +7,7 @@ import re
 import time
 import urllib.request
 
-from .prompts import ROOT, PROMPT_VERSION, build_prompts, load_example, select_example
+from .prompts import ROOT, PROMPT_VERSION, build_prompts, load_example, resolve_driver, select_example
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +31,7 @@ def generate(finding, vulnerable_function, expected_behavior, db_driver=None, ex
         raise ValueError("temperature must come from configs/model.yaml")
     generation["temperature"] = temperature
     example = select_example(finding) if example is None else example
+    db_driver, driver_evidence = resolve_driver(vulnerable_function, db_driver, driver_evidence)
     system, user = build_prompts(finding, vulnerable_function, expected_behavior, db_driver, example,
                                 driver_evidence=driver_evidence, sql_present=sql_present)
     sample = load_example(example)

@@ -68,15 +68,17 @@ paths and resolved symlink destinations of every read must remain inside train.
 Current train inventory: six Python and two C examples. Reviewer fields are null;
 the user authorized their use, and review remains the owning teammates' responsibility.
 
-SQL requires a recognized driver and nonempty caller evidence identifying its import,
-configuration or connection provenance. The current SQL harnesses explicitly construct
-sqlite3 connections (`training/validate_gold.py`, `model-compare/case_checks.py`). The
-functions' conn argument alone does not identify a driver. Arbitrary uploads require
-caller evidence; the model must not infer a default. sqlite3 uses ?, psycopg/psycopg2
-and supported MySQL drivers use %s. Driver selection is supplied per call, never a
-SQLite default. Non-SQL Python/C needs no driver. SQL detection conservatively checks
-CWE-89 and SQL keywords; callers must set sql_present=True for indirect SQL not visible
-in the function. Contradictory sql_present=False is rejected. Unsupported drivers fail.
+SQL requires a recognized driver and nonempty evidence. `driver_from_source` reads the
+function text. Exactly one of `sqlite3`, `psycopg2` or `psycopg`, `mysql.connector`,
+`pymysql`, or `MySQLdb` / `mysql.connection` returns that driver and the matching line.
+`generate` uses this when the caller omits `db_driver`. Two different drivers is an error.
+`conn` alone returns nothing. The lab cases still pass `sqlite3` by hand because the
+harness in `training/validate_gold.py` opens SQLite and the function does not. A passed
+`db_driver` that disagrees with the source is an error. sqlite3 uses ?. psycopg/psycopg2
+and the supported MySQL drivers use %s. There is no SQLite default. Non-SQL Python/C
+needs no driver. SQL detection conservatively checks CWE-89 and SQL keywords; callers
+must set sql_present=True for indirect SQL not visible in the function. Contradictory
+sql_present=False is rejected. Unsupported drivers fail.
 
 `generate` reads configs/model.yaml on every invocation, constructs chat messages and
 calls Ollama /api/chat. Its return value is unvalidated raw text. It is not wired into
