@@ -120,6 +120,8 @@ python -m pytest
 
 LoRA fine-tuning is part of the project: an adapter is trained and compared with the prompted model. Training runs on a free Kaggle notebook (two Tesla T4 GPUs), with Colab as the backup. Details and the checks behind this are in [docs/training.md](docs/training.md) and [docs/costs.md](docs/costs.md).
 
+Rebuild the combined gold, Python, and C training rows with `python training/build_rows.py`. The command writes `training/rows.jsonl` and `training/dataset_report.json`; the exclusion method and other project decisions are recorded in [DECISIONS.md](DECISIONS.md).
+
 ## Team rules
 
 - Model weights and uploaded files are never committed.

@@ -2,7 +2,7 @@ LoRA training will run on Kaggle using the free notebook with two Tesla T4 GPUs 
 
 ## Training rows
 
-Training rows go in [`training/rows.jsonl`](../training/rows.jsonl), one JSON object per line. The file is empty for now: the row count is 0. The eight gold rows are built in [`training/gold.jsonl`](../training/gold.jsonl) (see "Gold repairs" below) and are added to `rows.jsonl` when the team starts a run.
+Training rows go in [`training/rows.jsonl`](../training/rows.jsonl), one JSON object per line. Run `python training/build_rows.py` to validate the eight committed gold rows, combine gold, Python (SVEN and other accepted Python examples), and C (Juliet and project examples) rows, and write a reproducible [`training/dataset_report.json`](../training/dataset_report.json). The build prints total, per-class, and per-source counts and fails on schema, label, or DEV/benchmark overlap errors. Add `--refresh-gold` to rebuild gold findings from source with the scanner tools installed.
 
 ## Dataset schema (extended)
 
@@ -26,8 +26,8 @@ An example row, shown here and not in the file:
 
 Rules:
 
-- Rows come from `corpus/train/` only. Nothing from `corpus/dev/` or `benchmark/` is ever a training row, so the model is never trained on the cases it is scored on.
-- The row count is printed with `wc -l training/rows.jsonl`.
+- Rows come from reviewed training sources only. The builder checks each normalized vulnerable function against every Python and C file in `corpus/dev/` and `benchmark/` using SHA-256; an exact match fails the build. The method and protected file count are recorded in the report.
+- The builder prints total rows and counts by class and source. The report includes those counts and SHA-256 hashes for row inputs and output.
 - No training run happens until the count is greater than 0.
 
 ## Gold repairs
@@ -47,9 +47,12 @@ Commands, run on Linux or in Docker (they need `tar`, `head`, `gcc` and the pinn
 
 ```bash
 python training/validate_gold.py            # validate the 8 repairs
-python training/build_rows.py               # build training/gold.jsonl
-python training/build_rows.py --require-reviewer   # final build: stops if a reviewer is missing
+python training/build_rows.py               # validate gold, build rows and report
+python training/build_rows.py --refresh-gold # rebuild gold from corpus/train/ (requires scanners)
+python training/build_rows.py --refresh-gold --require-reviewer # also require reviewer metadata
 ```
+
+The normal build uses committed, validated `training/gold.jsonl`, so it does not need scanner executables. `--refresh-gold` requires the pinned scanner tools.
 
 ### Validation
 
@@ -84,7 +87,7 @@ Notes:
 Each repair is reviewed by a second person (P5 or P6), recorded in the `reviewer` field of its `meta.json`. `gold.jsonl` is rebuilt with `--require-reviewer` after the review.
 ## C buffer overflow rows
 
-[`training/c_rows.jsonl`](../training/c_rows.jsonl) holds 74 `buffer_overflow` rows in the schema above: 39 built from Juliet C/C++ 1.3 and 35 written for this project. The cases live in `corpus/train/juliet_*` and `corpus/train/own_bof_*` (`vulnerable.c`, `repair.c`, `meta.json`). They do not start with `gold_`, so `training/build_rows.py` is unchanged.
+[`training/c_rows.jsonl`](../training/c_rows.jsonl) holds 74 `buffer_overflow` rows in the schema above: 39 built from Juliet C/C++ 1.3 and 35 written for this project. The cases live in `corpus/train/juliet_*` and `corpus/train/own_bof_*` (`vulnerable.c`, `repair.c`, `meta.json`). The final dataset builder includes these rows.
 
 ### Sources
 
