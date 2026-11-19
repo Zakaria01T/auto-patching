@@ -5,8 +5,8 @@ from unittest.mock import patch
 
 import pytest
 
-from patcher import build_prompts, generate, select_example
-from patcher.prompts import ROOT, load_example
+from patcher import build_prompts, driver_from_source, generate, select_example
+from patcher.prompts import ROOT, load_example, resolve_driver
 
 
 def finding(language="python", cwe="CWE-89"):
@@ -138,3 +138,47 @@ def test_failed_call_logged(tmp_path):
     record = json.loads(log.read_text())
     assert record["status"] == "error" and record["error_type"] == "TimeoutError"
     assert "private URL" not in log.read_text()
+
+
+@pytest.mark.parametrize("source,driver,evidence", [
+    ("import sqlite3\n", "sqlite3", "import sqlite3"),
+    ('conn = psycopg2.connect("dbname=forum")', "psycopg2", 'conn = psycopg2.connect("dbname=forum")'),
+    ("from psycopg import sql", "psycopg2", "from psycopg import sql"),
+    ("import mysql.connector", "mysql.connector", "import mysql.connector"),
+    ("import pymysql", "pymysql", "import pymysql"),
+    ("import MySQLdb", "mysql", "import MySQLdb"),
+    ("cursor = mysql.connection.cursor()", "mysql", "cursor = mysql.connection.cursor()"),
+])
+def test_driver_from_source(source, driver, evidence):
+    assert driver_from_source(source) == (driver, evidence)
+
+
+def test_conn_alone_is_not_a_driver():
+    assert driver_from_source("def f(conn, x):\n    return conn.execute('SELECT ' + x)") is None
+
+
+def test_two_drivers_rejected():
+    source = "import sqlite3\nimport psycopg2\n"
+    with pytest.raises(ValueError, match="more than one database driver"):
+        driver_from_source(source)
+
+
+def test_passed_driver_must_match_source():
+    source = 'conn = psycopg2.connect("dbname=forum")'
+    with pytest.raises(ValueError, match="contradicts"):
+        resolve_driver(source, "sqlite3", "caller evidence")
+    assert resolve_driver(source, None, None) == ("psycopg2", source)
+
+
+def test_generate_sends_driver_named_in_source(tmp_path):
+    config = tmp_path / "model.yaml"
+    config.write_text('model:\n  tag: "test-model:1"\n  temperature: 0.0\n')
+    source = 'def add(content):\n    conn = psycopg2.connect("dbname=forum")\n    conn.execute("insert into posts values (\'%s\')" % content)\n'
+    raw = "```python\ndef add(content):\n    pass\n```\nEXPLANATION: Bound the value."
+    result = dict(model="test-model:1", done=True, message=dict(content=raw))
+    with patch("urllib.request.urlopen", return_value=io.BytesIO(json.dumps(result).encode())) as call:
+        generate(finding(), source, "Normal result: one row", config_path=config)
+    user = json.loads(call.call_args.args[0].data)["messages"][1]["content"]
+    assert "Driver: psycopg2" in user
+    assert "Placeholder: %s" in user
+    assert 'psycopg2.connect("dbname=forum")' in user
