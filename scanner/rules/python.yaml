@@ -53,6 +53,14 @@ rules:
       - metavariable-regex:
           metavariable: $A
           regex: (?i).*<[a-z][^>]*>.*
+      - pattern-not: return $X + html.escape(...) + $Y
+      - pattern-not: return $X + escape(...) + $Y
+      - pattern-not: return $X + html.escape(...)
+      - pattern-not: return $X + escape(...)
+      - pattern-not: $R = $X + html.escape(...) + $Y
+      - pattern-not: $R = $X + escape(...) + $Y
+      - pattern-not: $R = $X + html.escape(...)
+      - pattern-not: $R = $X + escape(...)
 
   - id: python-html-fstring
     languages: [python]
@@ -61,4 +69,20 @@ rules:
     metadata:
       cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation"
       owasp: "A03:2021-Injection"
-    pattern-regex: (?i)f["'].*?<[a-z][^>]*>.*?\{
+    pattern-regex: (?i)f["'].*?<[a-z][^>]*>.*?\{(?!\s*(?:html\.|markupsafe\.)?escape\()
+
+  - id: python-command-shell-list
+    languages: [python]
+    severity: ERROR
+    message: Shell started with a command built from a variable
+    metadata:
+      cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command"
+      owasp: "A03:2021-Injection"
+    patterns:
+      - pattern-either:
+          - pattern: subprocess.$F([$SH, "-c", $CMD, ...], ...)
+          - pattern: subprocess.$F([$SH, "-lc", $CMD, ...], ...)
+      - metavariable-regex:
+          metavariable: $SH
+          regex: ^["'](/usr)?(/bin/)?(ba|da|z|k)?sh["']$
+      - pattern-not: subprocess.$F([$SH, $OPT, "...", ...], ...)

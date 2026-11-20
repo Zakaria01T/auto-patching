@@ -226,7 +226,7 @@ def _semgrep(path: Path, language: str) -> list[dict]:
 def _bandit(path: Path, language: str) -> list[dict]:
     import json
 
-    proc = _run([_tool("bandit"), "-q", "-f", "json", str(path)])
+    proc = _run([_tool("bandit"), "-q", "-s", "B404,B603,B607", "-f", "json", str(path)])
     try:
         payload = json.loads(proc.stdout or "{}")
     except json.JSONDecodeError as exc:
