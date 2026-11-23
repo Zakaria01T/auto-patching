@@ -87,8 +87,9 @@ curl.exe -F "file=@docs/samples/sample.c" http://localhost:8000/jobs
 curl.exe -F "file=@docs/samples/notes.txt" http://localhost:8000/jobs
 ```
 
-Expected: `sample.py` gives `"language":"python"`, `sample.c` gives `"language":"c"`,
-and `notes.txt` gives `"status":"rejected"`.
+In the current scan-only API, `sample.py` gives `"language":"python"`,
+`sample.c` gives `"language":"c"`, and `notes.txt` gives the legacy
+`"status":"rejected"` response.
 
 ### Read a job
 
@@ -98,14 +99,18 @@ curl.exe http://localhost:8000/jobs/<id>
 
 An unknown id returns 404.
 
-### Response shape
+## Sprint 4 job contract (pending sign-off)
 
-Every job has exactly nine fields: `id`, `status`, `language`, `filename`,
-`findings`, `diff`, `explanation`, `attempts`, `decision`.
-`findings` is `[]` after a clean scan and a list when something is found.
-`diff`, `explanation`, `attempts` and `decision` stay `null`.
-Allowed statuses: `uploaded`, `scanning`, `clean`, `patching`, `validating`,
-`accepted`, `needs_human`, `rejected`.
+Each job keeps its `id`, `language` and `filename`. Its `status` moves from
+`scanning` to `patching` to `validating`. Validation ends in `accepted` or
+`needs_human`, or returns the job to `patching` for another attempt.
+
+`findings` and `attempts` start as empty arrays. The scanner supplies the
+original findings, and each generation attempt adds an ordered record, including
+failed attempts. The current candidate's unified `diff` and human-readable
+`explanation` may be `null` until available. The `decision` stays `null`
+until the job reaches a terminal state. The canonical contract includes examples
+and a comparison with the current scan-only API and UI. [Sprint 4 job contract](docs/job.md)
 
 ## Run the tests
 
