@@ -101,9 +101,12 @@ An unknown id returns 404.
 
 ## Sprint 4 job contract (pending sign-off)
 
-Each job keeps its `id`, `language` and `filename`. Its `status` moves from
-`scanning` to `patching` to `validating`. Validation ends in `accepted` or
-`needs_human`, or returns the job to `patching` for another attempt.
+Each job keeps its `id`, `language` and `filename`. An invalid upload returns a
+4xx error before a job ID is issued. An admitted job starts in `scanning`.
+A completed scan with zero findings ends in `accepted` with a null `diff` and
+empty `attempts`. Findings move the job to `patching`, then `validating`.
+Validation can accept the patch, return to `patching` for a retry, or end in
+`needs_human`. Unrecoverable scan or generation errors also end in `needs_human`.
 
 `findings` and `attempts` start as empty arrays. The scanner supplies the
 original findings, and each generation attempt adds an ordered record, including
