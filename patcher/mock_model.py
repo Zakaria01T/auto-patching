@@ -1,7 +1,8 @@
-"""Mock model: a fake Ollama /api/chat server for tests and CI.
+"""Mock model: a fake model server for tests and CI.
 
-It answers like Ollama, so `patcher.generate` calls it through `base_url` and the
-model tag only. It never runs a model. Each call returns one of four replies:
+It answers Ollama's /api/chat and the OpenAI /v1/chat/completions (vLLM, Modal), so
+`patcher.generate` calls it through `base_url` with either `api` of configs/model.yaml.
+It never runs a model. Each call returns one of four replies:
 
 - good       the corrected function from a replies file, in the production layout
 - malformed  prose and a unified diff, no code block (breaks the layout)
@@ -115,15 +116,22 @@ def handler(model):
                 self.send(404, {"error": "not found"})
 
         def do_POST(self):
-            if self.path != "/api/chat":
+            if self.path not in ("/api/chat", "/v1/chat/completions"):
                 return self.send(404, {"error": "not found"})
             try:
                 payload = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))))
-                if payload.get("stream", True):
+                # Ollama streams unless told not to; the OpenAI API does not stream unless told to.
+                if payload.get("stream", self.path == "/api/chat"):
                     return self.send(400, {"error": "the mock supports stream: false only"})
                 content = model.reply(payload)
             except (ValueError, KeyError, StopIteration, LookupError) as exc:
                 return self.send(400, {"error": str(exc)})
+            if self.path == "/v1/chat/completions":
+                return self.send(200, {"id": "mock", "object": "chat.completion", "created": 0,
+                                       "model": payload.get("model"),
+                                       "choices": [{"index": 0, "finish_reason": "stop",
+                                                    "message": {"role": "assistant", "content": content}}],
+                                       "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}})
             self.send(200, {"model": payload.get("model"), "created_at": "1970-01-01T00:00:00Z",
                             "message": {"role": "assistant", "content": content},
                             "done": True, "done_reason": "stop",

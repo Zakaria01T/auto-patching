@@ -80,11 +80,12 @@ needs no driver. SQL detection conservatively checks CWE-89 and SQL keywords; ca
 must set sql_present=True for indirect SQL not visible in the function. Contradictory
 sql_present=False is rejected. Unsupported drivers fail.
 
-`generate` reads configs/model.yaml on every invocation, constructs chat messages and
-calls Ollama /api/chat. Its return value is unvalidated raw text. It is not wired into
-the API. The dependency-free config reader deliberately supports the existing two-field
-schema (quoted tag and numeric temperature); unsupported schema changes fail loudly.
-The config is authoritative; docs/model.md's undecided-model note remains stale.
+`generate` reads configs/model.yaml (or MODEL_CONFIG) on every invocation, constructs chat
+messages and calls Ollama /api/chat, or /v1/chat/completions when the config says api "openai"
+(see docs/model.md). Its return value is unvalidated raw text. It is not wired into
+the API. The dependency-free config reader deliberately supports a fixed schema (quoted
+tag, numeric temperature, optional quoted api "ollama" or "openai"); other changes fail loudly.
+The config is authoritative.
 
 ## Logs and verification
 
