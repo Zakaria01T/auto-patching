@@ -59,6 +59,64 @@ This is one prompt on one small input, so it says nothing about a fix rate.
 - A diff that does not apply is a failed attempt, as the plan says.
 - Training a model on the exact output format is a good target for the LoRA comparison.
 
-## Not decided here
+## Where the model runs, and the mock
 
-Where the model is served for the demo (laptop CPU or a rented GPU).
+The pipeline reaches the model through two values only:
+- `base_url`, the argument of `patcher.generate`;
+- the tag, `model.tag` in `configs/model.yaml`. The temperature also comes from that file.
+
+`generate` sends one Ollama `POST <base_url>/api/chat` request with `stream: false`.
+
+| Where | `base_url` | Used for |
+| --- | --- | --- |
+| Ollama on a laptop | `http://localhost:11434` (default) | real answers, the demo |
+| Mock model | `http://127.0.0.1:11435` | tests and CI: no GPU, no laptop, same answer every time |
+
+CI never calls a real model. A test that needs a model answer starts the mock in the test itself.
+
+### Run the real model
+
+```bash
+ollama pull qwen2.5-coder:7b
+ollama serve
+```
+
+`generate(...)` with no `base_url` calls `http://localhost:11434`.
+
+### Run the mock
+
+```bash
+python3 -m patcher.mock_model --mode good
+```
+
+Then pass `base_url="http://127.0.0.1:11435"` to `generate`. To switch back to the real model, change `base_url`; nothing else changes.
+
+Each call returns one of four replies:
+
+| Mode | Reply |
+| --- | --- |
+| `good` | The corrected function in the production layout of `docs/prompting.md`: one code block, `EXPLANATION:`, and `INCLUDES:` for C. It comes from the reviewed repairs in `training/gold.jsonl` (the 8 train functions). For other functions, give `--replies file.json` with `{"function_name": "reply text"}`. A function with no reply is an HTTP 400 error, never a fake fix. |
+| `malformed` | Prose and a unified diff, no code block and no `EXPLANATION:`. |
+| `empty` | An empty string. |
+| `unchanged` | The vulnerable function from the prompt, returned as is, with `EXPLANATION: The function is already safe.` (the base model did this once on the dev cases). |
+
+`--mode malformed,good` uses one mode per call, and the last one repeats. That tests a retry: the first attempt is malformed, the second is good.
+
+The mock answers with the tag it was sent, `done: true` and zero token counts, so `generate` logs the call as `received_unvalidated`, like a real call. It supports `stream: false` only.
+
+In a test:
+
+```python
+from patcher.mock_model import serve
+
+with serve(["malformed", "good"]) as (base_url, model):
+    first = generate(..., base_url=base_url)   # malformed reply
+    second = generate(..., base_url=base_url)  # good reply
+assert len(model.calls) == 2                    # the requests the mock received
+```
+
+`serve()` picks a free port, so tests can run in parallel. Tests: `tests/test_mock_model.py`.
+
+### Not decided here
+
+A hosted GPU endpoint for the demo. A vLLM server on Modal was tested on 24 November 2026: it answers a production repair prompt in about 5 to 6 seconds once started, but the first call after it sleeps can take minutes. It speaks the OpenAI API (`/v1/chat/completions`), not Ollama's `/api/chat`, and names its models differently, so `generate` cannot call it as is. Using it needs a team decision on the API and the tag.
