@@ -1,0 +1,4 @@
+model:
+  tag: "Qwen/Qwen2.5-Coder-7B-Instruct"
+  temperature: 0.0
+  api: "openai"
