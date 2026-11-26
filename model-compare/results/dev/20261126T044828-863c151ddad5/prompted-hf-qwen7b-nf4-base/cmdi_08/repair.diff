@@ -1,0 +1,9 @@
+--- a/source.py
++++ b/source.py
+@@ -2,4 +2,5 @@
+ 
+ 
+ def folder_size(path):
+-    return os.popen("du -sh " + path).read()
++    import subprocess
++    return subprocess.run(["du", "-sh", "--", path], capture_output=True, text=True).stdout.strip()

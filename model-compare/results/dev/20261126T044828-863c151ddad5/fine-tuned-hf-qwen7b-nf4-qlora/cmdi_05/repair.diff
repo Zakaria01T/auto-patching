@@ -1,0 +1,9 @@
+--- a/source.py
++++ b/source.py
+@@ -2,4 +2,5 @@
+ 
+ 
+ def show_file(filename):
+-    return subprocess.run("cat " + filename, shell=True, capture_output=True)
++    with open(filename, "rb") as f:
++        return f.read()

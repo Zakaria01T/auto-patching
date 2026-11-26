@@ -1,0 +1,10 @@
+--- a/source.c
++++ b/source.c
+@@ -3,6 +3,6 @@
+ 
+ void build_path(const char *name) {
+     char path[32] = "/home/";
+-    strcat(path, name);
++    strncat(path, name, sizeof(path) - strlen(path) - 1);
+     puts(path);
+ }

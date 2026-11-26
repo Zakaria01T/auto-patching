@@ -1,0 +1,9 @@
+```c
+void full_name(const char *first, const char *last) {
+    char name[20];
+    snprintf(name, sizeof(name), "%s %s", first, last);
+    puts(name);
+}
+```
+EXPLANATION: Built the full name with snprintf limited to the size of name.
+INCLUDES: <stdio.h>, <string.h>

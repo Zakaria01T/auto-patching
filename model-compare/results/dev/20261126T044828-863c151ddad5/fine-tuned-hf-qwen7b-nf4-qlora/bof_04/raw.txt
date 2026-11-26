@@ -1,0 +1,9 @@
+```c
+void read_line(void) {
+    char line[16];
+    ssize_t n = read(0, line, sizeof(line));
+    if (n > 0 && n < sizeof(line)) fwrite(line, 1, (size_t)n, stdout);
+}
+```
+EXPLANATION: Limited read to the size of line and checked that n fits before writing.
+INCLUDES: <stdio.h>, <unistd.h>

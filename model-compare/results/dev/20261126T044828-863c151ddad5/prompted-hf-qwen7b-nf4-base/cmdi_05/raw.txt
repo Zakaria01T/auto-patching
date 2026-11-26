@@ -1,0 +1,8 @@
+```python
+import subprocess
+
+def show_file(filename):
+    return subprocess.run(["cat", filename], capture_output=True)
+```
+
+EXPLANATION: Replaced the shell command with a list of arguments to prevent command injection.

@@ -1,0 +1,9 @@
+--- a/source.py
++++ b/source.py
+@@ -1,2 +1,5 @@
+ def profile_card(name, bio):
+-    return f"<div><h3>{name}</h3><p>{bio}</p></div>"
++    import html
++    safe_name = html.escape(name, quote=True)
++    safe_bio = html.escape(bio, quote=True)
++    return "<div><h3>{}</h3><p>{}</p></div>".format(safe_name, safe_bio)

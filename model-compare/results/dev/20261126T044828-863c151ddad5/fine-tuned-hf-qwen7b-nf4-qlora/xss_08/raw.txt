@@ -1,0 +1,7 @@
+```python
+def page_title(title):
+    import html
+    safe_title = html.escape(title, quote=True)
+    return "<head><title>{}</title></head>".format(safe_title)
+```
+EXPLANATION: Escaped the blog title with html.escape before inserting it into the page header.

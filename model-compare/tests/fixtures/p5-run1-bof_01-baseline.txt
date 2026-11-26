@@ -1,0 +1,12 @@
+```c
+void copy_name(const char *input) {
+    char buf[16];
+    strncpy(buf, input, sizeof(buf) - 1);
+    buf[sizeof(buf) - 1] = '\0';
+    puts(buf);
+}
+```
+
+EXPLANATION: Ensured that `strncpy` does not write past the end of the buffer and manually set the last character to null to ensure null termination.
+
+INCLUDES: <stdio.h>, <string.h>

@@ -1,0 +1,6 @@
+```python
+def backup_folder(folder):
+    import shutil
+    shutil.make_archive("backup", "gztar", folder)
+```
+EXPLANATION: Creates the archive with shutil.make_archive instead of running tar through a shell command.

@@ -1,0 +1,7 @@
+```python
+def search_results(term):
+    import html
+    safe_term = html.escape(term, quote=True)
+    return "<h2>Results for {0}</h2>".format(safe_term)
+```
+EXPLANATION: Escaped the search term with html.escape before formatting the heading.

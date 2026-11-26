@@ -1,0 +1,12 @@
+```c
+void read_word(void) {
+    char word[9]; // Increased buffer size to accommodate '\0'
+    if (scanf("%8s", word) == 1) { // Limit input length to prevent overflow
+        printf("%s\n", word);
+    }
+}
+```
+
+EXPLANATION: Increased buffer size to 9 to accommodate the null terminator and added a check to ensure that `scanf` reads at most 8 characters to prevent buffer overflow.
+
+INCLUDES: <stdio.h>

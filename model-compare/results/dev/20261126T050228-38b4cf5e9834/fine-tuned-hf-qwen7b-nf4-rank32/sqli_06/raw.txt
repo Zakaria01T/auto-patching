@@ -1,0 +1,6 @@
+```python
+def get_product(conn, name):
+    query = "SELECT * FROM products WHERE name = ?"
+    return conn.execute(query, (name,)).fetchall()
+```
+EXPLANATION: Replaces formatting with a '?' placeholder and binds (name,) as a tuple in conn.execute().

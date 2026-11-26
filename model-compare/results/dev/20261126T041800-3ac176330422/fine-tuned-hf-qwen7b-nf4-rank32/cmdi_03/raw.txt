@@ -1,0 +1,6 @@
+```python
+def backup_folder(folder):
+    import subprocess
+    return subprocess.run(["tar", "-czf", "backup.tar.gz", "--", folder]).returncode
+```
+EXPLANATION: Passed the folder after -- to subprocess.run instead of concatenating it into a shell command.

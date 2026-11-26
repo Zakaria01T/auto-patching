@@ -1,0 +1,57 @@
+{
+  "models": [
+    {
+      "type": "prompted",
+      "tag": "hf-qwen7b-nf4-base",
+      "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@c03e6d358207e414f1eca0bb1891e29f1db0e242;quant=nf4",
+      "training_settings_provenance": "evaluation settings explicitly matched to rank32 training code; prompted base has no adapter"
+    },
+    {
+      "type": "fine-tuned",
+      "tag": "hf-qwen7b-nf4-qlora",
+      "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@c03e6d358207e414f1eca0bb1891e29f1db0e242;adapter=qlora;quant=nf4",
+      "adapter_sha256": "eba7ae42144c22dd5302dbd908daf97f711568ec42a5dc9153d8ee75f646bd4e",
+      "training_settings_provenance": "assumed identical: shared training cell; qlora ran in an earlier notebook version; adapter files do not record NF4 compute dtype, double quant, model dtype, or device map"
+    },
+    {
+      "type": "fine-tuned",
+      "tag": "hf-qwen7b-nf4-rank32",
+      "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@c03e6d358207e414f1eca0bb1891e29f1db0e242;adapter=rank32;quant=nf4",
+      "adapter_sha256": "44de96ea9de52f7373b17f3a66dc0506e8232e2b0e4abc357e751d23bb9f4661",
+      "training_settings_provenance": "explicit in training notebook code (rank32 version, scriptVersionId 371928046)"
+    }
+  ],
+  "prompt_version": "p5-v1",
+  "generation_parameters": {
+    "temperature": 0.0,
+    "seed": 42,
+    "num_predict": 2048,
+    "num_ctx": 8192
+  },
+  "inference_timeout": 180,
+  "check_timeout": 180,
+  "image": "sha256:d8f383761b89b139aae56746d82011abcf84f72bc3c1176c368336c22802ddf4",
+  "memory": "1g",
+  "cpus": 1,
+  "pids_limit": 128,
+  "ollama_url": "http://127.0.0.1:11434",
+  "scanner_configuration": "project-original-v1",
+  "inference_backend": "replay",
+  "replay_metadata": {
+    "base_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "base_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+    "base_revision_status": "approximation",
+    "base_revision_source": "Latest commit shown in Hugging Face repository history before 2026-11-20 (2025-01-12); not recovered from training logs",
+    "quantization": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_compute_dtype": "float16",
+      "bnb_4bit_use_double_quant": true
+    },
+    "model_dtype": "float16",
+    "device_map": {"": 0},
+    "gpu_devices_used": [0],
+    "tokenizer_sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+    "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+  }
+}

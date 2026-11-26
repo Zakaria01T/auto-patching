@@ -1,0 +1,7 @@
+```python
+def profile_card(name, bio):
+    import html
+    return f"<div><h3>{html.escape(name)}</h3><p>{html.escape(bio)}</p></div>"
+```
+
+EXPLANATION: HTML-escaped the `name` and `bio` inputs to prevent XSS attacks.

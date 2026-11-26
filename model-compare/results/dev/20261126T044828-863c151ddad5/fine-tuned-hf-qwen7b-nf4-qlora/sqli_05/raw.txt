@@ -1,0 +1,6 @@
+```python
+def delete_session(conn, token):
+    query = "DELETE FROM sessions WHERE token = ?"
+    conn.execute(query, (token,))
+```
+EXPLANATION: Uses '?' as a placeholder and passes (token,) as a bound tuple to conn.execute().

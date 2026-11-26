@@ -1,0 +1,7 @@
+```python
+def profile_link(url, label):
+    import html
+    return "<a href='{}'>{}</a>".format(html.escape(url), html.escape(label))
+```
+
+EXPLANATION: HTML-escaped both `url` and `label` to prevent XSS attacks.

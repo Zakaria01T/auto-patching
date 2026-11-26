@@ -1,0 +1,14 @@
+```c
+void copy_data(const char *src, size_t len) {
+    char buf[16];
+    if (len > sizeof(buf)) {
+        fprintf(stderr, "Error: input too large.\n");
+        return;
+    }
+    memcpy(buf, src, len);
+    buf[len] = '\0';
+    printf("%.*s\n", (int)len, buf);
+}
+```
+EXPLANATION: Limited the copy to the destination size and terminated the string before printing.
+INCLUDES: <stdio.h>, <stdlib.h>, <string.h>

@@ -1,0 +1,7 @@
+```python
+def log_login(conn, username):
+    query = "INSERT INTO logins (username) VALUES (?)"
+    conn.execute(query, (username,))
+```
+
+EXPLANATION: Replaced string concatenation with a parameterized query to prevent SQL injection.

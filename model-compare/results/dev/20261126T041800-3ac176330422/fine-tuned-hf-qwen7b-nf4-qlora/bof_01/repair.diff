@@ -1,0 +1,10 @@
+--- a/source.c
++++ b/source.c
+@@ -3,6 +3,6 @@
+ 
+ void copy_name(const char *input) {
+     char buf[16];
+-    strcpy(buf, input);
++    snprintf(buf, sizeof(buf), "%s", input);
+     puts(buf);
+ }

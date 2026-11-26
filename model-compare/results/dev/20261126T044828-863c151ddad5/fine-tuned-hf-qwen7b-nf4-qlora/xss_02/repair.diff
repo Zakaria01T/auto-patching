@@ -1,0 +1,8 @@
+--- a/source.py
++++ b/source.py
+@@ -1,2 +1,4 @@
+ def render_comment(comment):
+-    return f"<div class='comment'>{comment}</div>"
++    import html
++    safe_comment = html.escape(comment, quote=True)
++    return "<div class='comment'>{}</div>".format(safe_comment)

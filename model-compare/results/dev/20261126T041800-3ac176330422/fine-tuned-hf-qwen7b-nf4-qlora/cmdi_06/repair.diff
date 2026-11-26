@@ -1,0 +1,13 @@
+--- a/source.py
++++ b/source.py
+@@ -2,4 +2,9 @@
+ 
+ 
+ def remove_file(filename):
+-    return os.system(f"rm -f {filename}")
++    import os
++    if os.path.exists(filename):
++        os.remove(filename)
++    else:
++        raise FileNotFoundError("File does not exist")
++    return 0

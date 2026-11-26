@@ -1,0 +1,696 @@
+[
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "c3cb30c0eb9466c86f6517747a7c7b96622feb6b2522faf9f3b2740e0c4c417d"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "d9007217b0c2571ed0e1b5c8b3da608a1501479b338304159b5cd9204d3b34b7"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "3d82cd431e8d87a81a4733337a808a737b78ccdc4e8b65c690de86c3ebaf9ecc"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "efc7f91e02c10555fb0d25dcda1ba493e045fe7604e0d02d7791b476fd8a59f5"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "94af07217a20e8e701f8eb36426b829cd538d88251e3ff23d03ad4d3b0d8bac3"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "c97dcba56e73b4c7ab2fcea1588662bde33d89699e17a30604fbfa620ac1f6b5"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "c38994a8401513dd0a4d4ea3e9442dc7a04fa12867193aaa5bc75c78ea9bb097"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "bof_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "759e38596468fc05254ff83a9a9ee227710d8bdd3d2a1e3314b9ffb1976cee49"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_01",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_02",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_03",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_04",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_05",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_06",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_07",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "cmdi_08",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "response must contain exactly the target function"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "d0dfbbe5d38e38c1e923c8d713d717f6b9a4a0273a50ac49927a7ee263ea0762"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "38fbf44e3cdf008ce4cb09dcd3ef773bf951b2297914f93db0033352b4a42051"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "e723555f3717581e53082eba25b4cf92b2fb2b1220d2ea2c75a95a9f2259a6a0"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "15e643adafe26c1e4bca7530a71f48da439586b2abc1a1303c4f0271f284cb50"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "24a2189cfdd01f8edb17aee5fa5f4b4315766dd23df76e05023a359cf82d733b"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "049ecb4b618cc5cdb698d238c8b37a61301ee63557f0ca6f8e7ed4206ddeb8c4"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_07",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "invalid_response_format"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "sqli_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "8f1424d4c391145364db678d59a4b88f09da35efb5b43a26070d80e4d7b86f90"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "c6c04d700316eb407f41a5c219e978a59bf8d48764dea64cd7f24863bc91bdce"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "6ab2732aa62ae363d7c380b8a2c5e2dd024f0ae377c2345593eea8fd1d1fdbd8"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "ed376e5168c7369bfbcddea5866d840f52699c18a15dc70ae5427ab65aa17a60"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "3c71ced10e29378b985064e7bbd4fc97c813de250e57b0066c873f7b236b8527"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "536c11052d630bba4a8b5bf1ad540af542b65b344b1a8c7076d919f97a5cdc39"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "13e029bf78d09be1296801ceb26d92cadab690bbb3a10bc3f890e34ed66dc6cc"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "2ce6750ce30a85427c554b782f5ccec956c3c3a510e9d6edf3aae4ae90d7f5cc"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-base",
+    "case_id": "xss_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "f59feb75a0c8bd5a153913b802944c0b3cb1496b885427245236d2c4b8edf3ab"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "5f332024f9f6dbf5a1d90b0bcc26ff13aa978222a60ec6be9c89b3af05aef791"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "144f5e7bc1927e292d4318c859021ea0f9fe427db5f93f6ece183c85ae660bce"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "3d82cd431e8d87a81a4733337a808a737b78ccdc4e8b65c690de86c3ebaf9ecc"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_04",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "INCLUDES contains a non-approved standard header"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "12f19e119cb09180d8e15d8f915ae2a22cf595644f6a288ae70a1cc567bebbbf"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "08723b3438419636b93e67bf7b543e9b5e30ff76323473f3f83232f9cdff373a"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "34c9548425005220ee513a215728a76180c34d79997f7d7e8bfc6e0faffe8942"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "bof_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "27bcc88568d371375b86388160f98c7a3e4d2633aa63256202d32dedcce7e590"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "808d650dec0cddf663d97999dc835e0130af9cd99b9034adb9c842616143c310"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "276ed9c352c6bf8eb4f0f0fd26c7e0087d59526cdff2d74daa47e11cbff4e106"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "658f0dd96e40be7cff840b7cee3ce5b10189a6ab6f80512fbf5d75329e740471"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "3a38bf595cb08638a94e27a22f9d65a14730f6621b6513452453933ce322e430"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "388606086cf9f3b6b487a20cca091a7117aebc322eb2f648245774e3f2f09833"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "caf76b59f9b7e5824426c2aa31277dc0c295eb4f09ddc20893596eceebcb64eb"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "ae0ee7ee9fd21dbf510ff8911bea956742cbbddd9a51766e89a110ee06c09641"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "cmdi_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "5f1265774fcec92a6dd94724e88d6391ca78b58166d479737a6e630d4c94fcde"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "d0dfbbe5d38e38c1e923c8d713d717f6b9a4a0273a50ac49927a7ee263ea0762"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "38fbf44e3cdf008ce4cb09dcd3ef773bf951b2297914f93db0033352b4a42051"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "e723555f3717581e53082eba25b4cf92b2fb2b1220d2ea2c75a95a9f2259a6a0"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "15e643adafe26c1e4bca7530a71f48da439586b2abc1a1303c4f0271f284cb50"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "24a2189cfdd01f8edb17aee5fa5f4b4315766dd23df76e05023a359cf82d733b"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "049ecb4b618cc5cdb698d238c8b37a61301ee63557f0ca6f8e7ed4206ddeb8c4"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "ffc1eb4c5c17fd551f34dbedecb0f72522ba5a4aa736acf0056fe921fdccdade"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "sqli_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "8f1424d4c391145364db678d59a4b88f09da35efb5b43a26070d80e4d7b86f90"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "0f6e801fc5e1ab002dee84a4b2adfc0029c706a78e23d927c4508930b850caf9"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "f8bc1140c961812e6c9f9d5dd4fad8c1df96017df5ef87545691f7af91dc720e"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "5dee47851178159765285069c6232d47829820a21f8b0a196a42e28b65ea4a1f"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "2b0ceab9b74cb244bd38d02c46585a83e0f0db1ea8d72d1248aa9fdba690caac"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "75f71e21d2315898f250119bb8f2aaa806cc2b9a6d9520ab62817bf34395a977"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "326ccbb610ace7919a3c000e9dc489602d9e4e3fe05e4ffb2a0773b89a4d22b4"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "918feddd9c6da853cdc340725796b218b3b9b4aac73c971444e8f1ea205de901"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-qlora",
+    "case_id": "xss_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "2ea210cab7633130404389d2e409720efdeca9507c5540c519ad56304b0ab6b5"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "5f332024f9f6dbf5a1d90b0bcc26ff13aa978222a60ec6be9c89b3af05aef791"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "144f5e7bc1927e292d4318c859021ea0f9fe427db5f93f6ece183c85ae660bce"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "3d82cd431e8d87a81a4733337a808a737b78ccdc4e8b65c690de86c3ebaf9ecc"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_04",
+    "raw_format_valid": false,
+    "raw_format_failure_reasons": [
+      "INCLUDES contains a non-approved standard header"
+    ],
+    "patch_sha256": null
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "12f19e119cb09180d8e15d8f915ae2a22cf595644f6a288ae70a1cc567bebbbf"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "41f90e54572ca97b6b815aa529aabda9be2a3d2a539f5f397a4e169a95547a19"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "34c9548425005220ee513a215728a76180c34d79997f7d7e8bfc6e0faffe8942"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "bof_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "55124a0e29b3e0d7bf0e205420d899a97446f2a4424984b67e596589c1cb67a6"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "808d650dec0cddf663d97999dc835e0130af9cd99b9034adb9c842616143c310"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "276ed9c352c6bf8eb4f0f0fd26c7e0087d59526cdff2d74daa47e11cbff4e106"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "fc145e6f80f5373c7b7b393f997b65b9fbf626d5af079e301a53a00bddf837ba"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "3ba8a93f6dadf45d9b7bcb82791505f7e0337ad97ee4aaae4c7564f4705ce9d4"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "388606086cf9f3b6b487a20cca091a7117aebc322eb2f648245774e3f2f09833"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "ca30da40559a1118167ba01a23a770646db03ea83929378908ec1f8e1147655f"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "ae0ee7ee9fd21dbf510ff8911bea956742cbbddd9a51766e89a110ee06c09641"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "cmdi_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "5f1265774fcec92a6dd94724e88d6391ca78b58166d479737a6e630d4c94fcde"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "d0dfbbe5d38e38c1e923c8d713d717f6b9a4a0273a50ac49927a7ee263ea0762"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "38fbf44e3cdf008ce4cb09dcd3ef773bf951b2297914f93db0033352b4a42051"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "e723555f3717581e53082eba25b4cf92b2fb2b1220d2ea2c75a95a9f2259a6a0"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "15e643adafe26c1e4bca7530a71f48da439586b2abc1a1303c4f0271f284cb50"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "24a2189cfdd01f8edb17aee5fa5f4b4315766dd23df76e05023a359cf82d733b"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "049ecb4b618cc5cdb698d238c8b37a61301ee63557f0ca6f8e7ed4206ddeb8c4"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "ffc1eb4c5c17fd551f34dbedecb0f72522ba5a4aa736acf0056fe921fdccdade"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "sqli_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "8f1424d4c391145364db678d59a4b88f09da35efb5b43a26070d80e4d7b86f90"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_01",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "0f6e801fc5e1ab002dee84a4b2adfc0029c706a78e23d927c4508930b850caf9"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_02",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "26eb7dd347dec8a9bc86f732bacaf466d36c554022f4986b0814babc80f8aed7"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_03",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "5dee47851178159765285069c6232d47829820a21f8b0a196a42e28b65ea4a1f"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_04",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "2b0ceab9b74cb244bd38d02c46585a83e0f0db1ea8d72d1248aa9fdba690caac"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_05",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "75f71e21d2315898f250119bb8f2aaa806cc2b9a6d9520ab62817bf34395a977"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_06",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "326ccbb610ace7919a3c000e9dc489602d9e4e3fe05e4ffb2a0773b89a4d22b4"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_07",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "918feddd9c6da853cdc340725796b218b3b9b4aac73c971444e8f1ea205de901"
+  },
+  {
+    "model_tag": "hf-qwen7b-nf4-rank32",
+    "case_id": "xss_08",
+    "raw_format_valid": true,
+    "raw_format_failure_reasons": [],
+    "patch_sha256": "6ca3fe0eeaab1d0a6f1c862e0f2b3417b930f749110a2effb98ebdf68fe77301"
+  }
+]

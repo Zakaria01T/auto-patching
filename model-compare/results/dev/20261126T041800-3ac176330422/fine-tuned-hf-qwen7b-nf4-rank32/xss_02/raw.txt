@@ -1,0 +1,6 @@
+```python
+def render_comment(comment):
+    import html
+    return "<div class='comment'>{}</div>".format(html.escape(comment, quote=True))
+```
+EXPLANATION: Escaped the comment with html.escape before inserting it into the div.

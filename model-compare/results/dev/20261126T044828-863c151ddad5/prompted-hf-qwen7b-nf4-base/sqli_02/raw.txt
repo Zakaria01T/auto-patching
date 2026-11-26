@@ -1,0 +1,7 @@
+```python
+def find_orders(conn, customer_id):
+    query = "SELECT * FROM orders WHERE customer_id = ?"
+    return conn.execute(query, (customer_id,)).fetchall()
+```
+
+EXPLANATION: Replaced string formatting with a parameterized query to prevent SQL injection.

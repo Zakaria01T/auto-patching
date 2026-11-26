@@ -1,0 +1,14 @@
+--- a/source.c
++++ b/source.c
+@@ -3,6 +3,9 @@
+ 
+ void read_line(void) {
+     char line[16];
+-    ssize_t n = read(0, line, 64);
+-    if (n > 0) fwrite(line, 1, (size_t)n, stdout);
++    ssize_t n = read(0, line, sizeof(line) - 1);
++    if (n > 0) {
++        line[n] = '\0';
++        fwrite(line, 1, (size_t)n, stdout);
++    }
+ }

@@ -1,0 +1,12 @@
+--- a/source.c
++++ b/source.c
+@@ -1,7 +1,8 @@
+ #include <stdio.h>
++#include <string.h>
+ 
+ void greet(const char *name) {
+     char buf[32];
+-    sprintf(buf, "Hello %s", name);
++    snprintf(buf, sizeof(buf), "Hello %s", name);
+     puts(buf);
+ }

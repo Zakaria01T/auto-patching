@@ -1,0 +1,10 @@
+```c
+void read_word(void) {
+    char word[8];
+    if (scanf("%7s", word) != 1)
+        return;
+    printf("%s\n", word);
+}
+```
+EXPLANATION: Limited scanf to seven characters and checked that it read something before printing.
+INCLUDES: <stdio.h>

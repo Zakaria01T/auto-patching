@@ -1,0 +1,8 @@
+--- a/source.py
++++ b/source.py
+@@ -1,2 +1,4 @@
+ def page_title(title):
+-    return f"<head><title>{title}</title></head>"
++    import html
++    safe_title = html.escape(title, quote=True)
++    return "<head><title>{}</title></head>".format(safe_title)

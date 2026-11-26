@@ -1,0 +1,11 @@
+--- a/source.c
++++ b/source.c
+@@ -3,6 +3,7 @@
+ 
+ void copy_name(const char *input) {
+     char buf[16];
+-    strcpy(buf, input);
++    strncpy(buf, input, sizeof(buf) - 1);
++    buf[sizeof(buf) - 1] = '\0';
+     puts(buf);
+ }

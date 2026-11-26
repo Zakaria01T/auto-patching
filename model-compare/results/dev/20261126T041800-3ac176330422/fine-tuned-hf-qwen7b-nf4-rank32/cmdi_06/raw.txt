@@ -1,0 +1,8 @@
+```python
+def remove_file(filename):
+    import os
+    if os.path.exists(filename):
+        os.remove(filename)
+    return 0
+```
+EXPLANATION: Removes the file with os.remove after checking it exists, removing the shell command entirely.

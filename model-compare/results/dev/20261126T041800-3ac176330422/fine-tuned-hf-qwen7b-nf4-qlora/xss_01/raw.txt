@@ -1,0 +1,7 @@
+```python
+def greet_page(name):
+    import html
+    safe_name = html.escape(name, quote=True)
+    return "<html><body><h1>Hello {0}</h1></body></html>".format(safe_name)
+```
+EXPLANATION: Escaped the user name with html.escape before inserting it into the greeting.

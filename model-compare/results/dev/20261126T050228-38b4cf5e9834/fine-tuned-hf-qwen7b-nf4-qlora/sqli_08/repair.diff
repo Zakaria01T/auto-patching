@@ -1,0 +1,8 @@
+--- a/source.py
++++ b/source.py
+@@ -1,3 +1,3 @@
+ def log_login(conn, username):
+-    query = f"INSERT INTO logins (username) VALUES ('{username}')"
+-    conn.execute(query)
++    query = "INSERT INTO logins (username) VALUES (?)"
++    conn.execute(query, (username,))

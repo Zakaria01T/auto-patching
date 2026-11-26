@@ -1,0 +1,7 @@
+```python
+def page_title(title):
+    import html
+    return f"<head><title>{html.escape(title)}</title></head>"
+```
+
+EXPLANATION: HTML-escaped the title before inserting it into the page to prevent XSS attacks.

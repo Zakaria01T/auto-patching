@@ -1,0 +1,6 @@
+```python
+def update_email(conn, user_id, email):
+    query = "UPDATE users SET email = ? WHERE id = ?"
+    conn.execute(query, (email, user_id))
+```
+EXPLANATION: Uses '?' placeholders and passes (email, user_id) as a bound tuple to conn.execute().

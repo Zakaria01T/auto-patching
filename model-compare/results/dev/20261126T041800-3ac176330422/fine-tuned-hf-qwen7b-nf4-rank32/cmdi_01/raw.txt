@@ -1,0 +1,6 @@
+```python
+def ping_host(host):
+    import subprocess
+    return subprocess.run(["ping", "-c", "1", "--", host], check=False).returncode
+```
+EXPLANATION: Passed the host after -- to subprocess.run instead of concatenating it into a shell command.

@@ -1,0 +1,8 @@
+```python
+import subprocess
+
+def search_log(pattern):
+    return subprocess.check_output(["grep", pattern, "app.log"], shell=False)
+```
+
+EXPLANATION: Replaced the command string with a list of arguments to prevent shell injection.
