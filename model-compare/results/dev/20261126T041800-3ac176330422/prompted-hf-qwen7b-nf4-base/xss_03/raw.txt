@@ -1,0 +1,7 @@
+```python
+def error_page(message):
+    import html
+    return "<p class='error'>" + html.escape(message) + "</p>"
+```
+
+EXPLANATION: HTML-escaped the message before putting it in the error page.

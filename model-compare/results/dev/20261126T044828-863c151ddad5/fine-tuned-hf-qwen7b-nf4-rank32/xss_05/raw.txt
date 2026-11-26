@@ -1,0 +1,8 @@
+```python
+def profile_link(url, label):
+    import html
+    safe_url = html.escape(url, quote=True)
+    safe_label = html.escape(label, quote=True)
+    return "<a href='{0}'>{1}</a>".format(safe_url, safe_label)
+```
+EXPLANATION: Escaped both the URL and label with html.escape before formatting the link.

@@ -1,0 +1,7 @@
+```python
+def delete_session(conn, token):
+    query = "DELETE FROM sessions WHERE token = ?"
+    conn.execute(query, (token,))
+```
+
+EXPLANATION: Replaced string concatenation with a parameterized query to prevent SQL injection.

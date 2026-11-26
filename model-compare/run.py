@@ -29,10 +29,14 @@ def code_hashes():
 def read_config(path, calibration_only=False):
     c = json.loads(path.read_text())
     required = {'models', 'prompt_version', 'generation_parameters', 'inference_timeout', 'check_timeout', 'image', 'memory', 'cpus', 'pids_limit', 'ollama_url', 'scanner_configuration'}
-    optional = {'inference_backend', 'replay_metadata', 'calibration_only'}
+    optional = {'inference_backend', 'replay_metadata', 'calibration_only', 'legacy_manifest'}
     if not required <= set(c) or set(c) - required - optional:
         raise ValueError(f'configuration fields must be exactly {sorted(required)}')
     c.setdefault('inference_backend', 'ollama')
+    if 'legacy_manifest' in c and type(c['legacy_manifest']) is not bool:
+        raise ValueError('legacy_manifest must be a boolean')
+    if c.get('legacy_manifest', False) and c['inference_backend'] != 'replay':
+        raise ValueError('legacy_manifest is permitted only for offline replay')
     if c.get('calibration_only', False) is not calibration_only:
         raise ValueError('calibration_only config is valid only for calibrate-dev')
     if c['inference_backend'] not in ('ollama', 'replay'):
@@ -68,7 +72,13 @@ def read_config(path, calibration_only=False):
             raise ValueError('replay_metadata must pin NF4 compute dtype and double-quant setting')
         if not all(re.fullmatch(r'[0-9a-f]{64}', metadata.get(k, '')) for k in ('tokenizer_sha256', 'chat_template_sha256')):
             raise ValueError('replay_metadata must pin tokenizer and chat-template SHA-256 digests')
-        if metadata.get('model_dtype') != 'float16' or metadata.get('device_map') != {'': 0} or metadata.get('gpu_devices_used') != [0]:
+        if c.get('legacy_manifest', False):
+            if (metadata.get('model_dtype') != 'NOT RECORDED'
+                    or metadata.get('device_map') != 'auto'
+                    or metadata.get('gpu_devices_used') != 'NOT RECORDED'
+                    or not re.fullmatch(r'[0-9a-f]{64}', metadata.get('legacy_runner_sha256', ''))):
+                raise ValueError('legacy replay must mark unavailable runtime fields and pin the known runner SHA-256')
+        elif metadata.get('model_dtype') != 'float16' or metadata.get('device_map') != {'': 0} or metadata.get('gpu_devices_used') != [0]:
             raise ValueError('p5-v1 requires float16 model dtype and a single-GPU device_map={"": 0}')
         expected = {'temperature': 0.0, 'seed': 42, 'num_predict': 2048, 'num_ctx': 8192}
         if c['generation_parameters'] != expected:
@@ -126,11 +136,11 @@ def scanner_keys(payload, cwe):
     return {(f['cwe'], f['rule_id']) for f in payload['findings'] if f['cwe'] == cwe}
 
 
-def evaluate(c, model, case, directory, run_id, split, response_provider=None):
+def evaluate(c, model, case, directory, run_id, split, response_provider=None, format_mode='strict'):
     start = time.monotonic()
     folder = directory / case['id']
     folder.mkdir()
-    record = dict(run_id=run_id, dataset_split=split, case_id=case['id'], vulnerability_class=case['class'], model_type=model['type'], model_tag=model['tag'], checkpoint_identity=model['checkpoint'], training_settings_provenance=model.get('training_settings_provenance', 'unspecified'), prompt_version=c['prompt_version'], temperature=c['generation_parameters']['temperature'], generation_parameters=c['generation_parameters'], timestamp=stamp(), raw_output_path=None, patch_path=None, raw_format_valid=None, valid_output=False, git_apply=False, functional_test_pass=None, attack_blocked=None, scanner_cleared=None, failure_reasons=[], execution_status='completed')
+    record = dict(run_id=run_id, dataset_split=split, format_mode=format_mode, case_id=case['id'], vulnerability_class=case['class'], model_type=model['type'], model_tag=model['tag'], checkpoint_identity=model['checkpoint'], training_settings_provenance=model.get('training_settings_provenance', 'unspecified'), prompt_version=c['prompt_version'], temperature=c['generation_parameters']['temperature'], generation_parameters=c['generation_parameters'], timestamp=stamp(), raw_output_path=None, patch_path=None, raw_format_valid=None, valid_output=False, git_apply=False, functional_test_pass=None, attack_blocked=None, scanner_cleared=None, failure_reasons=[], execution_status='completed')
     try:
         spec = json.loads(case['spec'].read_text())
         if spec['class'] != case['class'] or spec['test_sha256'] != digest(case['test']):
@@ -175,7 +185,7 @@ def evaluate(c, model, case, directory, run_id, split, response_provider=None):
         record['raw_output_path'] = str((folder / 'raw.txt').relative_to(directory.parent))
         patch_input = raw
         if c['prompt_version'] == 'p5-v1':
-            converted = function_response_to_diff(raw, original, case['source'].name, case['language'], spec['target'])
+            converted = function_response_to_diff(raw, original, case['source'].name, case['language'], spec['target'], format_mode=format_mode)
             record['raw_format_valid'] = converted['raw_format_valid']
             record['raw_format_failure_reasons'] = converted['failure_reasons']
             patch_input = converted['patch']
@@ -293,7 +303,7 @@ def main():
         return
     if args.action == 'freeze':
         if not args.frozen: parser.error('--frozen output path required')
-        metadata = preflight(c)
+        metadata = preflight(c, include_models=c['inference_backend'] != 'replay')
         with args.frozen.open('x') as stream:
             json.dump(dict(config=c, code_hashes=hashes, environment=metadata, frozen_at=stamp()), stream, indent=2)
         print('Frozen configuration written to', args.frozen)

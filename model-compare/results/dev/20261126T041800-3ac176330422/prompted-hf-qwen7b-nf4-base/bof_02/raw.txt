@@ -1,0 +1,11 @@
+```c
+void greet(const char *name) {
+    char buf[32];
+    snprintf(buf, sizeof(buf), "Hello %s", name);
+    puts(buf);
+}
+```
+
+EXPLANATION: Replaced `sprintf` with `snprintf` to prevent buffer overflow by ensuring the output does not exceed the buffer size.
+
+INCLUDES: <stdio.h>

@@ -36,15 +36,43 @@ same messages, including the selected original finding, expected behavior, DB
 context where applicable, and one same-language/same-CWE train example. The HF
 runner must preserve these messages and the shared chat template in its JSONL.
 
-The strict converter accepts one complete corrected function in the expected
-language fence, one explanation line, and (for C) an optional list of approved
-standard headers. It rejects extra prose, multiple functions, a changed function
-signature, unapproved headers, and malformed responses. It creates a unified diff
-for the existing P1 patch validator. The five P1 formulas and denominators do not
-change, but the valid-output decision is made after this I/O adapter. P1 originally
-judged the raw output as a unified diff, so this is a documented methodological
-extension. Reports keep raw-format compliance separate from the five P1 metrics;
-raw responses, exact prompts, and converted diffs are retained.
+### Frozen response-to-diff rules
+
+The p5-v1 contract in `patcher/prompts.py` is authoritative. It requires one
+complete corrected target function in one same-language fenced block, then a
+separate `EXPLANATION:` line. For C, an optional final `INCLUDES:` line can list
+approved standard headers; the fenced C block must not contain `#include` lines.
+Python imports must be inside the corrected function. No extra prose, functions,
+or files are allowed. Both strict and lenient modes preserve the function's name,
+signature, and decorators; produce a single-file unified diff; and then use the
+same P1 patch validator, Docker checks, and metric formulas.
+
+**Primary strict mode** tolerates blank separator lines between the closing
+fence, explanation, and optional C `INCLUDES:` line. This is the only strict
+parser relaxation: the prompt says these are separate lines and does not forbid
+blank separators. Strict mode rejects imports outside the Python target
+function, C headers inside the function fence, headers outside the explicit
+`INCLUDES:` mechanism, unapproved headers, additional functions, prose, changed
+signatures, and malformed fences. In particular, a C `#include` in the code
+fence is not accepted by strict mode.
+
+**Secondary lenient mode** applies the same framing, function identity, signature,
+language, explanation, no-extra-code, and P1 checks. It additionally accepts only
+unambiguous top-level Python `import` / `from ... import ...` statements adjacent
+to the one target function, and moves those imports into that function. For C it
+additionally accepts standalone standard `#include <...>` directives in the
+fenced block, extracts them, validates them against the same approved-header
+allowlist, and merges them as includes. Duplicate, malformed, quoted/local,
+unapproved, or otherwise ambiguous declarations remain rejected. Lenient results
+are a separate sensitivity analysis; strict and lenient rows are never pooled.
+The two modes use the same 96 raw generations, frozen Docker image, tests,
+scanner, and P1 formulas. Only the response-to-diff normalization differs.
+
+The converter is a P1 extension: P1 originally judged raw unified diffs. Raw
+format compliance is reported separately per model and mode so a converter
+rejection is distinguishable from a repair that passed format validation but
+failed functional, attack, or scanner checks. Raw responses, exact prompts, and
+converted diffs are retained.
 
 ## Replay JSONL contract
 

@@ -1,0 +1,8 @@
+```python
+import subprocess
+
+def backup_folder(folder):
+    return subprocess.run(["tar", "-czf", "backup.tar.gz", "--", folder]).returncode
+```
+
+EXPLANATION: Replaced `os.system` with `subprocess.run` to avoid command injection by passing arguments safely.

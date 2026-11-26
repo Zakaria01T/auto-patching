@@ -1,0 +1,8 @@
+```python
+import subprocess
+
+def list_dir(path):
+    return subprocess.check_output(["ls", path], shell=False)
+```
+
+EXPLANATION: Replaced the command string with a list of arguments to prevent shell injection.

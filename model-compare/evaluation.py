@@ -140,13 +140,15 @@ def finalize(record):
 def aggregate(records):
     if len({r['dataset_split'] for r in records}) != 1:
         raise ValueError('DEV and FINAL BENCHMARK cannot be mixed')
+    if len({r.get('format_mode', 'strict') for r in records}) != 1:
+        raise ValueError('strict and lenient format modes cannot be aggregated together')
     rows = []
     for model in sorted({r['model_type'] + ':' + r['model_tag'] for r in records}):
         selected = [r for r in records if r['model_type'] + ':' + r['model_tag'] == model]
         for cls in (*CLASSES, 'OVERALL'):
             group = [r for r in selected if cls == 'OVERALL' or r['vulnerability_class'] == cls]
             complete = all(r['execution_status'] != 'infrastructure_error' for r in records)
-            row = dict(model=model, dataset_split=records[0]['dataset_split'], vulnerability_class=cls, total=len(group), publishable=complete)
+            row = dict(model=model, dataset_split=records[0]['dataset_split'], vulnerability_class=cls, total=len(group), publishable=complete, legacy_manifest=any(r.get('legacy_manifest', False) for r in group))
             for metric in METRICS:
                 n = sum(r.get(metric) is True for r in group)
                 row[metric + '_numerator'] = n
@@ -166,7 +168,14 @@ def reports(records, directory):
         writer.writeheader()
         writer.writerows(rows)
     title = 'DEV' if records[0]['dataset_split'] == 'dev' else 'FINAL BENCHMARK'
-    lines = [f'# {title} repair evaluation', '', 'Percentages are suppressed when infrastructure is incomplete. Counts retain all assigned cases.', '', '| Model | Class | Total | Valid % | Functional % | Attack % | Scanner % | Fix % |', '|---|---|---|---|---|---|---|---|']
+    format_mode = records[0].get('format_mode', 'strict')
+    legacy = any(r.get('legacy_manifest', False) for r in records)
+    lines = [f'# {title} repair evaluation ({format_mode.upper()} format mode)', '', f'Format mode: **{format_mode}**. This report aggregates only this mode; strict and lenient records cannot be combined.', '', f'Legacy manifest input: **{str(legacy).lower()}**.', '', 'Percentages are suppressed when infrastructure is incomplete. Counts retain all assigned cases.', '', '| Model | Class | Total | Valid % | Functional % | Attack % | Scanner % | Fix % |', '|---|---|---|---|---|---|---|---|']
+    if legacy:
+        lines[4:4] = [
+            'Legacy input provenance: `base_revision_status`, `gpu_devices_used`, `model_dtype`, `training_settings_provenance`, `generated_token_count`, and `finish_reason` are **NOT RECORDED**. `device_map` is `auto` per the runner source, but actual device placement is not recorded. See `manifest.json` and per-case `inference_provenance`.',
+            '',
+        ]
     for row in rows:
         cells = [row['model'], row['vulnerability_class'], str(row['total'])]
         for metric in METRICS:

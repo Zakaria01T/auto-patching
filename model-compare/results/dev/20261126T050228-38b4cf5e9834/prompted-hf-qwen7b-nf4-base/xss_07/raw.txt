@@ -1,0 +1,7 @@
+```python
+def list_item(text):
+    import html
+    return "<li>" + html.escape(text) + "</li>"
+```
+
+EXPLANATION: HTML-escaped the input text to prevent XSS attacks.

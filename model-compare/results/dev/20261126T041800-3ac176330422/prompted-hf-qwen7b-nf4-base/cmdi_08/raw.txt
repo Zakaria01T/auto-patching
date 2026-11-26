@@ -1,0 +1,8 @@
+```python
+import subprocess
+
+def folder_size(path):
+    return subprocess.run(["du", "-sh", "--", path], capture_output=True, text=True).stdout.strip()
+```
+
+EXPLANATION: Replaced `os.popen` with `subprocess.run` to avoid command injection and ensure safe execution of the command.

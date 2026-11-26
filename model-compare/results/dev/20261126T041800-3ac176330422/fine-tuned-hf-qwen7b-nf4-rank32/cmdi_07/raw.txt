@@ -1,0 +1,6 @@
+```python
+def search_log(pattern):
+    import subprocess
+    return subprocess.check_output(["grep", "--", pattern, "app.log"])
+```
+EXPLANATION: Passed the log pattern after -- to grep through subprocess.check_output instead of concatenating it into a shell command.

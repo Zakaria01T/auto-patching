@@ -1,0 +1,7 @@
+```python
+def greet_page(name):
+    import html
+    return "<html><body><h1>Hello {}</h1></body></html>".format(html.escape(name))
+```
+
+EXPLANATION: HTML-escaped the `name` parameter to prevent XSS attacks.

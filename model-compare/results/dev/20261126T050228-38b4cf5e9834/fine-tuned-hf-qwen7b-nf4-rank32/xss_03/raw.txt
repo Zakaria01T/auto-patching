@@ -1,0 +1,6 @@
+```python
+def error_page(message):
+    import html
+    return "<p class='error'>{}</p>".format(html.escape(message, quote=True))
+```
+EXPLANATION: Escaped the error message with html.escape before inserting it into the error paragraph.

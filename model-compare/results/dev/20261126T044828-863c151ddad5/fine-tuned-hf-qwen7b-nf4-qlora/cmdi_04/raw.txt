@@ -1,0 +1,6 @@
+```python
+def count_lines(filename):
+    import subprocess
+    return subprocess.check_output(["wc", "-l", "--", filename])
+```
+EXPLANATION: Passed the filename after -- to wc through subprocess.check_output without a shell.

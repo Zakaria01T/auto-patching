@@ -1,0 +1,9 @@
+```c
+void greet(const char *name) {
+    char buf[32];
+    snprintf(buf, sizeof(buf), "Hello %s", name);
+    puts(buf);
+}
+```
+EXPLANATION: Replaced sprintf with snprintf limited to the size of buf.
+INCLUDES: <stdio.h>, <string.h>

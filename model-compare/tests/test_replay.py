@@ -77,6 +77,9 @@ def _row(model, case_id, prompt, generation, quant):
         "prompt": prompt,
         "prompt_sha256": replay._prompt_hash(prompt),
         "raw_output": "```python\ndef repair(x):\n    return x + 2\n```\nEXPLANATION: Returns a changed value.",
+        "generated_token_count": 32,
+        "finish_reason": "eos",
+        "runner_sha256": "c" * 64,
         "library_versions": {"transformers": "test", "peft": "test", "torch": "test", "bitsandbytes": "test"},
     }
 
@@ -99,6 +102,36 @@ def test_replay_input_requires_complete_identical_three_model_matrix(tmp_path):
         replay.load_replay_outputs(source, config, [case])
 
 
+def test_legacy_mode_is_explicit_and_records_unavailable_fields(tmp_path):
+    config = _config()
+    config['legacy_manifest'] = True
+    config['replay_metadata'].update({
+        'model_dtype': 'NOT RECORDED', 'device_map': 'auto',
+        'gpu_devices_used': 'NOT RECORDED', 'legacy_runner_sha256': '9' * 64,
+    })
+    prompt = {'system': 'system', 'user': 'user'}
+    rows = [_row(model, 'case_1', prompt, config['generation_parameters'], config['replay_metadata']['quantization']) for model in config['models']]
+    for row in rows:
+        for field in replay.LEGACY_ONLY_MISSING:
+            row.pop(field, None)
+    path = tmp_path / 'legacy.jsonl'
+    path.write_text(''.join(json.dumps(row) + '\n' for row in rows))
+
+    with pytest.raises(replay.ReplayInputError, match='missing fields'):
+        replay.load_replay_outputs(path, config, [{'id': 'case_1'}])
+
+    parsed, _ = replay.load_replay_outputs(path, config, [{'id': 'case_1'}], legacy_manifest=True)
+    one = parsed[('hf-base', 'case_1')]
+    assert one['base_revision_status'] == 'NOT RECORDED'
+    assert one['device_map'] == 'auto'
+    assert one['gpu_devices_used'] == 'NOT RECORDED'
+    assert one['model_dtype'] == 'NOT RECORDED'
+    assert one['training_settings_provenance'] == 'NOT RECORDED'
+    assert one['generated_token_count'] == 'NOT RECORDED'
+    assert one['finish_reason'] == 'NOT RECORDED'
+    assert one['runner_sha256'] == '9' * 64
+
+
 def test_replay_executes_shared_evaluator_without_model_or_docker(monkeypatch, tmp_path):
     """MOCK ONLY: one synthetic case x three model rows; never a P5 result."""
     config = _config()
@@ -119,6 +152,24 @@ def test_replay_executes_shared_evaluator_without_model_or_docker(monkeypatch, t
     input_path = tmp_path / "outputs.jsonl"
     rows = [_row(model, "case_1", prompt, config["generation_parameters"], config["replay_metadata"]["quantization"]) for model in config["models"]]
     input_path.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    manifest_path = tmp_path / 'input-manifest.json'
+    manifest_path.write_text(json.dumps({
+        'output_jsonl_sha256': __import__('hashlib').sha256(input_path.read_bytes()).hexdigest(),
+        'base_model': config['replay_metadata']['base_model'],
+        'base_revision': config['replay_metadata']['base_revision'],
+        'prompt_version': config['prompt_version'],
+        'generation_parameters': config['generation_parameters'],
+        'decoding': {'do_sample': False, 'max_new_tokens': 2048, 'context_limit': 8192},
+        'quantization': config['replay_metadata']['quantization'],
+        'case_ids': ['case_1'],
+        'tokenizer_sha256': config['replay_metadata']['tokenizer_sha256'],
+        'chat_template_sha256': config['replay_metadata']['chat_template_sha256'],
+        'adapters': {
+            'qlora': {'adapter_model_sha256': 'a' * 64},
+            'rank32': {'adapter_model_sha256': 'b' * 64},
+        },
+        'runner_sha256': 'c' * 64,
+    }))
 
     monkeypatch.setattr(replay, "load_cases", lambda split: [case])
     monkeypatch.setattr(replay.harness, "preflight", lambda *args, **kwargs: {"tools": {"test": "stub"}, "models": []})
@@ -138,11 +189,12 @@ def test_replay_executes_shared_evaluator_without_model_or_docker(monkeypatch, t
     frozen_path = tmp_path / "frozen.json"
     monkeypatch.setattr(replay.harness, "code_hashes", lambda: {"test.py": "hash"})
     frozen_path.write_text(json.dumps({"config": config, "code_hashes": {"test.py": "hash"}, "environment": environment}))
-    out = replay.run_replay(config_path, input_path, tmp_path / "results", frozen_path)
+    out = replay.run_replay(config_path, input_path, tmp_path / "results", frozen_path, manifest_path)
     records = [json.loads(line) for line in (out / "records.jsonl").read_text().splitlines()]
     assert len(records) == 3
     assert all(record["execution_status"] == "completed" for record in records)
     assert all(record["raw_format_valid"] and record["valid_output"] for record in records)
     assert all((out / record["raw_output_path"]).is_file() for record in records)
     assert len(list(out.rglob("prompt.json"))) == 3
+    assert all(record['legacy_manifest'] is False for record in records)
 

@@ -1,0 +1,7 @@
+--- a/source.py
++++ b/source.py
+@@ -1,2 +1,3 @@
+ def profile_link(url, label):
+-    return "<a href='" + url + "'>" + label + "</a>"
++    import html
++    return "<a href='{}'>{}</a>".format(html.escape(url), html.escape(label))

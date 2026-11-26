@@ -1,0 +1,11 @@
+```c
+void build_path(const char *name) {
+    char path[32] = "/home/";
+    strncat(path, name, sizeof(path) - strlen(path) - 1);
+    puts(path);
+}
+```
+
+EXPLANATION: Fixed buffer overflow by using `strncat` to ensure that the concatenated string does not exceed the buffer size.
+
+INCLUDES: <string.h>

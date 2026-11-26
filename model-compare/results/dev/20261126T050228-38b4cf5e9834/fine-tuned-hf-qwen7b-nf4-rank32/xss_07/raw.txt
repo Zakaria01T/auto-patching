@@ -1,0 +1,6 @@
+```python
+def list_item(text):
+    import html
+    return "<li>{}</li>".format(html.escape(text, quote=True))
+```
+EXPLANATION: Escaped the list item with html.escape before inserting it into the list element.

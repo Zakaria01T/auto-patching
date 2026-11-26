@@ -1,0 +1,8 @@
+--- a/source.py
++++ b/source.py
+@@ -2,4 +2,5 @@
+ 
+ 
+ def remove_file(filename):
++    import os
+     return os.system(f"rm -f {filename}")

@@ -1,0 +1,14 @@
+```c
+void read_line(void) {
+    char line[16];
+    ssize_t n = read(0, line, sizeof(line) - 1);
+    if (n > 0) {
+        line[n] = '\0';
+        fwrite(line, 1, (size_t)n, stdout);
+    }
+}
+```
+
+EXPLANATION: Ensure that the input does not exceed the buffer size and properly null-terminate the string.
+
+INCLUDES: <stdio.h>

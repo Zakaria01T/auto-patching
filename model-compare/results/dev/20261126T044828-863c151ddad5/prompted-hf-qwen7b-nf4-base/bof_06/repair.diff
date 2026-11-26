@@ -1,0 +1,14 @@
+--- a/source.c
++++ b/source.c
+@@ -1,7 +1,8 @@
+ #include <stdio.h>
+ 
+ void read_word(void) {
+-    char word[8];
+-    scanf("%s", word);
+-    printf("%s\n", word);
++    char word[9]; // Increased buffer size to accommodate '\0'
++    if (scanf("%8s", word) == 1) { // Limit input length to prevent overflow
++        printf("%s\n", word);
++    }
+ }

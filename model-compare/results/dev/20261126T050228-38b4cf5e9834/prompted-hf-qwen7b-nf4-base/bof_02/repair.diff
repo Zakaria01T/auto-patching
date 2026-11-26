@@ -1,0 +1,10 @@
+--- a/source.c
++++ b/source.c
+@@ -2,6 +2,6 @@
+ 
+ void greet(const char *name) {
+     char buf[32];
+-    sprintf(buf, "Hello %s", name);
++    snprintf(buf, sizeof(buf), "Hello %s", name);
+     puts(buf);
+ }

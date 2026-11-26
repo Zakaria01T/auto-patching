@@ -1,0 +1,10 @@
+--- a/source.c
++++ b/source.c
+@@ -2,6 +2,6 @@
+ 
+ void make_label(const char *id, const char *tag) {
+     char label[24];
+-    sprintf(label, "%s-%s", id, tag);
++    snprintf(label, sizeof(label), "%s-%s", id, tag);
+     puts(label);
+ }

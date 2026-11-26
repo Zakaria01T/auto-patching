@@ -1,0 +1,6 @@
+```python
+def count_lines(filename):
+    with open(filename, "rb") as f:
+        return sum(1 for _ in f)
+```
+EXPLANATION: Counts the lines by reading the file in Python instead of invoking wc through a shell.

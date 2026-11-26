@@ -1,0 +1,8 @@
+--- a/source.py
++++ b/source.py
+@@ -1,2 +1,4 @@
+ def search_results(term):
+-    return f"<h2>Results for {term}</h2>"
++    import html
++    safe_term = html.escape(term, quote=True)
++    return "<h2>Results for {0}</h2>".format(safe_term)

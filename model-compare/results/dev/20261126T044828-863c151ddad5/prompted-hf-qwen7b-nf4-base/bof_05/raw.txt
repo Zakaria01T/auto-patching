@@ -1,0 +1,11 @@
+```c
+void make_label(const char *id, const char *tag) {
+    char label[24];
+    snprintf(label, sizeof(label), "%s-%s", id, tag);
+    puts(label);
+}
+```
+
+EXPLANATION: Replaced `sprintf` with `snprintf` to prevent buffer overflow by ensuring the output does not exceed the size of the buffer.
+
+INCLUDES: <stdio.h>

@@ -1,0 +1,7 @@
+--- a/source.py
++++ b/source.py
+@@ -1,2 +1,3 @@
+ def error_page(message):
+-    return "<p class='error'>" + message + "</p>"
++    import html
++    return "<p class='error'>{}</p>".format(html.escape(message, quote=True))

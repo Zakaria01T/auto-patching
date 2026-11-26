@@ -1,0 +1,99 @@
+{
+  "repo_commit": "9792aad",
+  "base_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "base_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+  "quantization": {
+    "load_in_4bit": true,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_compute_dtype": "float16",
+    "bnb_4bit_use_double_quant": true
+  },
+  "tokenizer_sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "adapters": {
+    "qlora": {
+      "path": "/kaggle/input/datasets/drisschekraoui/p5-adapter-qlora",
+      "adapter_model_sha256": "eba7ae42144c22dd5302dbd908daf97f711568ec42a5dc9153d8ee75f646bd4e"
+    },
+    "rank32": {
+      "path": "/kaggle/input/datasets/drisschekraoui/p5-adapter-rank32",
+      "adapter_model_sha256": "44de96ea9de52f7373b17f3a66dc0506e8232e2b0e4abc357e751d23bb9f4661"
+    }
+  },
+  "generation_parameters": {
+    "temperature": 0.0,
+    "seed": 42,
+    "num_predict": 2048,
+    "num_ctx": 8192
+  },
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 2048,
+    "context_limit": 8192
+  },
+  "gpu": [
+    {
+      "name": "Tesla T4",
+      "capability": [
+        7,
+        5
+      ],
+      "total_memory": 15636037632
+    },
+    {
+      "name": "Tesla T4",
+      "capability": [
+        7,
+        5
+      ],
+      "total_memory": 15636037632
+    }
+  ],
+  "python": "3.13.16",
+  "library_versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.20.2",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.15.0",
+    "safetensors": "0.8.0"
+  },
+  "prompt_version": "p5-v1",
+  "case_ids": [
+    "bof_01",
+    "bof_02",
+    "bof_03",
+    "bof_04",
+    "bof_05",
+    "bof_06",
+    "bof_07",
+    "bof_08",
+    "cmdi_01",
+    "cmdi_02",
+    "cmdi_03",
+    "cmdi_04",
+    "cmdi_05",
+    "cmdi_06",
+    "cmdi_07",
+    "cmdi_08",
+    "sqli_01",
+    "sqli_02",
+    "sqli_03",
+    "sqli_04",
+    "sqli_05",
+    "sqli_06",
+    "sqli_07",
+    "sqli_08",
+    "xss_01",
+    "xss_02",
+    "xss_03",
+    "xss_04",
+    "xss_05",
+    "xss_06",
+    "xss_07",
+    "xss_08"
+  ],
+  "started_unix": 1795661482.9075093,
+  "finished_unix": 1795662384.2533693,
+  "output_jsonl_sha256": "4b4a35b1694f824aab3a8cd76b30072ff29c1c819f7cd07e330055da63b1051b"
+}

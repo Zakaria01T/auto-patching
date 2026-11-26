@@ -1,0 +1,8 @@
+```python
+def profile_card(name, bio):
+    import html
+    safe_name = html.escape(name, quote=True)
+    safe_bio = html.escape(bio, quote=True)
+    return "<div><h3>{}</h3><p>{}</p></div>".format(safe_name, safe_bio)
+```
+EXPLANATION: Escaped both name and bio with html.escape before formatting the profile card.

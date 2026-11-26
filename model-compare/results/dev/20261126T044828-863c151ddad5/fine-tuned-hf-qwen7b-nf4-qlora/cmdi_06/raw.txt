@@ -1,0 +1,10 @@
+```python
+def remove_file(filename):
+    import os
+    if os.path.exists(filename):
+        os.remove(filename)
+    else:
+        raise FileNotFoundError("File does not exist")
+    return 0
+```
+EXPLANATION: Removes the file with os.remove after checking existence instead of passing it through rm -f to a shell.

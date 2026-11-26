@@ -1,0 +1,6 @@
+```python
+def folder_size(path):
+    import subprocess
+    return subprocess.check_output(["du", "-sh", "--", path], text=True).strip()
+```
+EXPLANATION: Passed the folder after -- to du through subprocess.check_output instead of concatenating it into a shell command.

@@ -1,0 +1,6 @@
+```python
+def find_orders(conn, customer_id):
+    query = "SELECT * FROM orders WHERE customer_id = ?"
+    return conn.execute(query, (customer_id,)).fetchall()
+```
+EXPLANATION: Uses '?' as a placeholder and passes (customer_id,) as a bound tuple to conn.execute().

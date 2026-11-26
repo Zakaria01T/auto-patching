@@ -1,0 +1,7 @@
+```python
+def render_comment(comment):
+    import html
+    return f"<div class='comment'>{html.escape(comment)}</div>"
+```
+
+EXPLANATION: HTML-escaped the comment before putting it in the div.

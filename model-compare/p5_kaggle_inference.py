@@ -24,6 +24,33 @@ def _prompt_hash(prompt):
     return hashlib.sha256(json.dumps(prompt, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
 
 
+def _encode_messages(tokenizer, messages):
+    """Return chat-template token IDs across Transformers BatchEncoding APIs."""
+    encoded = tokenizer.apply_chat_template(
+        messages,
+        tokenize=True,
+        add_generation_prompt=True,
+        return_tensors="pt",
+        return_dict=True,
+    )
+    return encoded["input_ids"]
+
+
+def _generation_finish_reason(generated_ids, eos_token_id, max_new_tokens):
+    """Count returned completion tokens and identify EOS versus token-limit stop."""
+    token_ids = generated_ids.detach().cpu().tolist()
+    eos_ids = eos_token_id if isinstance(eos_token_id, (list, tuple, set)) else [eos_token_id]
+    eos_ids = {int(value) for value in eos_ids if value is not None}
+    token_count = len(token_ids)
+    if any(int(token_id) in eos_ids for token_id in token_ids):
+        reason = "eos"
+    elif token_count == max_new_tokens:
+        reason = "max_new_tokens"
+    else:
+        reason = "unknown"
+    return token_count, reason
+
+
 def run_p5_inference(config):
     base_model = config["base_model"]
     base_revision = config["base_revision"]
@@ -122,15 +149,19 @@ def run_p5_inference(config):
     actual_template_sha = hashlib.sha256(template.encode("utf-8")).hexdigest() if isinstance(template, str) else None
     if actual_tokenizer_sha != tokenizer_sha or actual_template_sha != template_sha:
         raise ValueError("pinned base revision tokenizer/chat-template hashes differ from adapter provenance")
-    tokenizer = AutoTokenizer.from_pretrained(base_model, revision=base_revision, use_fast=True)
-    if tokenizer.eos_token_id is None:
-        raise ValueError("tokenizer EOS token is required")
     manifest["resolved_tokenizer_sha256"] = actual_tokenizer_sha
     manifest["resolved_chat_template_sha256"] = actual_template_sha
+    runner_sha = _sha256_file(Path(__file__).resolve())
+    manifest["runner_sha256"] = runner_sha
     print(json.dumps({"p5_load_plan": {"repo_commit": config["repo_commit"], "base_model": base_model, "base_revision": base_revision, "base_revision_status": base_revision_status, "model_dtype": model_dtype, "device_map": device_map, "gpu_devices_used": gpu_devices_used, "quantization": quantization, "adapter_sha256": adapter_shas}}, indent=2), flush=True)
 
     for kind, tag, adapter_name, adapter_dir, checkpoint, settings_provenance in model_specs:
         set_seed(seed)
+        # Load a fresh tokenizer for each model; the previous loop iteration
+        # releases it together with the model to keep Kaggle T4 memory bounded.
+        tokenizer = AutoTokenizer.from_pretrained(base_model, revision=base_revision, use_fast=True)
+        if tokenizer.eos_token_id is None:
+            raise ValueError("tokenizer EOS token is required")
         bnb = BitsAndBytesConfig(
             load_in_4bit=True, bnb_4bit_quant_type="nf4",
             bnb_4bit_compute_dtype=getattr(torch, compute_dtype),
@@ -149,6 +180,9 @@ def run_p5_inference(config):
         actual_device_map = getattr(model, "hf_device_map", device_map)
         if any(device not in (0, "0") for device in actual_device_map.values()):
             raise RuntimeError(f"model sharded/offloaded outside GPU 0: {actual_device_map}")
+        actual_gpu_devices = sorted({int(device) for device in actual_device_map.values()})
+        if actual_gpu_devices != gpu_devices_used:
+            raise RuntimeError(f"loaded GPU devices {actual_gpu_devices} differ from pinned devices {gpu_devices_used}")
         adapter_loaded = adapter_name is not None and hasattr(model, "peft_config")
         if (adapter_name is not None) != adapter_loaded:
             raise RuntimeError(f"adapter load state is wrong for {tag}")
@@ -161,7 +195,7 @@ def run_p5_inference(config):
         for case_id in sorted(prompts):
             prompt = prompts[case_id]
             messages = [{"role": "system", "content": prompt["system"]}, {"role": "user", "content": prompt["user"]}]
-            input_ids = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_tensors="pt")
+            input_ids = _encode_messages(tokenizer, messages)
             n_input = int(input_ids.shape[-1])
             if n_input + max_new_tokens > context_limit:
                 raise ValueError(f"{case_id}: prompt plus generation limit exceeds context")
@@ -169,19 +203,27 @@ def run_p5_inference(config):
             token_hash = hashlib.sha256(input_ids.detach().cpu().numpy().astype("int64").tobytes()).hexdigest()
             with torch.inference_mode():
                 generated = model.generate(input_ids=input_ids, do_sample=False, max_new_tokens=max_new_tokens, pad_token_id=tokenizer.eos_token_id)
-            raw = tokenizer.decode(generated[0, n_input:], skip_special_tokens=True)
+            generated_ids = generated[0, n_input:]
+            generated_token_count, finish_reason = _generation_finish_reason(
+                generated_ids,
+                getattr(model.generation_config, "eos_token_id", tokenizer.eos_token_id),
+                max_new_tokens,
+            )
+            raw = tokenizer.decode(generated_ids, skip_special_tokens=True)
             row = {
                 "case_id": case_id, "model_type": kind, "model_tag": tag, "checkpoint_identity": checkpoint,
                 "base_model": base_model, "base_revision": base_revision,
                 "base_revision_status": base_revision_status, "quantization": quantization,
                 "adapter_sha256": adapter_shas[adapter_name] if adapter_name else None,
                 "tokenizer_sha256": tokenizer_sha, "chat_template_sha256": template_sha,
-                "model_dtype": model_dtype, "device_map": device_map,
-                "gpu_devices_used": gpu_devices_used,
+                "model_dtype": model_dtype, "device_map": actual_device_map,
+                "gpu_devices_used": actual_gpu_devices,
                 "training_settings_provenance": settings_provenance,
                 "prompt_version": "p5-v1", "generation_parameters": manifest["generation_parameters"],
                 "decoding": manifest["decoding"], "seed_applied": seed, "input_tokens": n_input,
                 "model_input_sha256": token_hash, "prompt": prompt, "prompt_sha256": _prompt_hash(prompt),
+                "generated_token_count": generated_token_count, "finish_reason": finish_reason,
+                "runner_sha256": runner_sha,
                 "raw_output": raw, "library_versions": versions,
             }
             with output_jsonl.open("a", encoding="utf-8") as stream:

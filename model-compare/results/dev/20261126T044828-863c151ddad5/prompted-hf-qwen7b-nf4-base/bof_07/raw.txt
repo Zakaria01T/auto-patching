@@ -1,0 +1,18 @@
+```c
+void full_name(const char *first, const char *last) {
+    char name[20];
+    if (strlen(first) + strlen(last) + 2 <= sizeof(name)) {
+        strcpy(name, first);
+        strcat(name, " ");
+        strcat(name, last);
+        puts(name);
+    } else {
+        // Handle error or truncate the string
+        fprintf(stderr, "Name too long\n");
+    }
+}
+```
+
+EXPLANATION: Added a check to ensure that the concatenated string does not exceed the buffer size before performing the copy and concatenation operations.
+
+INCLUDES: <stdio.h>, <string.h>

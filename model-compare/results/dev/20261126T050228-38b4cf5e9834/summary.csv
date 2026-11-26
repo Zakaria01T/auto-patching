@@ -1,0 +1,16 @@
+model,dataset_split,vulnerability_class,total,publishable,legacy_manifest,valid_output_numerator,valid_output_denominator,valid_output_percent,valid_output_skipped,functional_test_pass_numerator,functional_test_pass_denominator,functional_test_pass_percent,functional_test_pass_skipped,attack_blocked_numerator,attack_blocked_denominator,attack_blocked_percent,attack_blocked_skipped,scanner_cleared_numerator,scanner_cleared_denominator,scanner_cleared_percent,scanner_cleared_skipped,fix_success_numerator,fix_success_denominator,fix_success_percent,fix_success_skipped
+fine-tuned:hf-qwen7b-nf4-qlora,dev,sql_injection,8,True,True,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0
+fine-tuned:hf-qwen7b-nf4-qlora,dev,xss,8,True,True,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0
+fine-tuned:hf-qwen7b-nf4-qlora,dev,command_injection,8,True,True,8,8,100.0,0,6,8,75.0,0,8,8,100.0,0,8,8,100.0,0,6,8,75.0,0
+fine-tuned:hf-qwen7b-nf4-qlora,dev,buffer_overflow,8,True,True,7,8,87.5,0,7,8,87.5,1,7,8,87.5,1,5,8,62.5,1,7,8,87.5,0
+fine-tuned:hf-qwen7b-nf4-qlora,dev,OVERALL,32,True,True,31,32,96.875,0,29,32,90.625,1,31,32,96.875,1,29,32,90.625,1,29,32,90.625,0
+fine-tuned:hf-qwen7b-nf4-rank32,dev,sql_injection,8,True,True,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0
+fine-tuned:hf-qwen7b-nf4-rank32,dev,xss,8,True,True,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0
+fine-tuned:hf-qwen7b-nf4-rank32,dev,command_injection,8,True,True,8,8,100.0,0,6,8,75.0,0,8,8,100.0,0,8,8,100.0,0,6,8,75.0,0
+fine-tuned:hf-qwen7b-nf4-rank32,dev,buffer_overflow,8,True,True,7,8,87.5,0,7,8,87.5,1,6,8,75.0,1,5,8,62.5,1,6,8,75.0,0
+fine-tuned:hf-qwen7b-nf4-rank32,dev,OVERALL,32,True,True,31,32,96.875,0,29,32,90.625,1,30,32,93.75,1,29,32,90.625,1,28,32,87.5,0
+prompted:hf-qwen7b-nf4-base,dev,sql_injection,8,True,True,7,8,87.5,0,7,8,87.5,1,7,8,87.5,1,7,8,87.5,1,7,8,87.5,0
+prompted:hf-qwen7b-nf4-base,dev,xss,8,True,True,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0
+prompted:hf-qwen7b-nf4-base,dev,command_injection,8,True,True,0,8,0.0,0,0,8,0.0,8,0,8,0.0,8,0,8,0.0,8,0,8,0.0,0
+prompted:hf-qwen7b-nf4-base,dev,buffer_overflow,8,True,True,8,8,100.0,0,8,8,100.0,0,8,8,100.0,0,4,8,50.0,0,8,8,100.0,0
+prompted:hf-qwen7b-nf4-base,dev,OVERALL,32,True,True,23,32,71.875,0,23,32,71.875,9,23,32,71.875,9,19,32,59.375,9,23,32,71.875,0

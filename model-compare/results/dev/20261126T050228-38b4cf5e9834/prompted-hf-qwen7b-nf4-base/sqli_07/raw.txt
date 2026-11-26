@@ -1,0 +1,6 @@
+```python
+def search_books(conn, term):
+    query = f"SELECT title FROM books WHERE title LIKE ?"
+    return conn.execute(query, ('%' + term + '%',)).fetchall()
+EXPLANATION: Replaced string formatting with a parameterized query to prevent SQL injection.
+```

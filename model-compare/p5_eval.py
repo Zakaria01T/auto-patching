@@ -7,9 +7,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 _RESPONSE = re.compile(
-    r"\A\s*```(?P<language>python|c)[ \t]*\n(?P<code>.*?)\n```[ \t]*\n"
-    r"EXPLANATION:[ \t]*(?P<explanation>[^\r\n]+)"
-    r"(?:\r?\nINCLUDES:[ \t]*(?P<includes>[^\r\n]+))?\s*\Z",
+    r"\A\s*```(?P<language>python|c)[ \t]*\r?\n(?P<code>.*?)\r?\n```[ \t]*\r?\n"
+    r"(?:[ \t]*\r?\n)*EXPLANATION:[ \t]*(?P<explanation>[^\r\n]+)"
+    r"(?:\r?\n(?:[ \t]*\r?\n)*INCLUDES:[ \t]*(?P<includes>[^\r\n]+))?\s*\Z",
     re.DOTALL,
 )
 _C_TOKEN = re.compile(
@@ -214,7 +214,60 @@ def _replace_python(original, code, target):
     return original[:start] + code.strip() + suffix + original[end:]
 
 
-def _replace_c(original, code, target, includes):
+def _replace_python_lenient(original, code, target):
+    """Move only unambiguous top-level one-line imports into the target function."""
+    tree = ast.parse(code)
+    functions = [n for n in tree.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+    targets = [n for n in functions if n.name == target]
+    imports = [n for n in tree.body if isinstance(n, (ast.Import, ast.ImportFrom))]
+    if len(targets) != 1 or len(tree.body) != len(imports) + 1 or len(functions) != 1:
+        raise ValueError("lenient Python block must contain only the target function and top-level imports")
+    function = targets[0]
+    if any(n.lineno >= function.lineno for n in imports):
+        raise ValueError("lenient Python imports must precede the target function")
+    if any(n.lineno != n.end_lineno for n in imports):
+        raise ValueError("multiline imports are ambiguous in lenient mode")
+    old_node = _python_function(original, target)
+    if _python_signature(old_node) != _python_signature(function):
+        raise ValueError("target function signature or decorators changed")
+
+    source_lines = code.splitlines(keepends=True)
+    import_lines = [source_lines[n.lineno - 1].strip() for n in imports]
+    start_line = min([function.lineno, *(d.lineno for d in function.decorator_list)])
+    function_text = "".join(source_lines[start_line - 1:function.end_lineno])
+    body = function.body
+    docstring = (body[0] if body and isinstance(body[0], ast.Expr)
+                 and isinstance(body[0].value, (ast.Str, ast.Constant))
+                 and isinstance(getattr(body[0].value, "value", None), str) else None)
+    if docstring is not None:
+        insert_line = body[1].lineno if len(body) > 1 else docstring.end_lineno + 1
+    else:
+        insert_line = body[0].lineno
+    insert_at = insert_line - start_line
+    lines = function_text.splitlines(keepends=True)
+    body_line = source_lines[(body[1].lineno if docstring is not None and len(body) > 1 else body[0].lineno) - 1]
+    indent = body_line[:len(body_line) - len(body_line.lstrip())]
+    additions = [indent + item + "\n" for item in import_lines]
+    lines[insert_at:insert_at] = additions
+    normalized_function = "".join(lines)
+    return _replace_python(original, normalized_function, target)
+
+
+def _replace_c(original, code, target, includes, allow_fenced_includes=False):
+    fenced_headers = []
+    if allow_fenced_includes:
+        kept = []
+        for line in code.splitlines(keepends=True):
+            if re.fullmatch(r"[ \t]*#[ \t]*include[ \t]+<[^>\r\n]+>[ \t]*(?:\r?\n)?", line):
+                match = re.fullmatch(r"[ \t]*#[ \t]*include[ \t]+(<[^>\r\n]+>)[ \t]*(?:\r?\n)?", line)
+                fenced_headers.append(match.group(1))
+            else:
+                kept.append(line)
+        code = "".join(kept)
+        # `includes` is already normalized to bare names by the caller; restore
+        # angle brackets before merging it with raw fenced directives.
+        declared_headers = [f"<{name}>" for name in (includes or [])]
+        includes = _parse_includes(", ".join([*declared_headers, *fenced_headers]))
     if re.search(r"(?m)^\s*#\s*include\b", code):
         raise ValueError("C fenced function must not contain #include directives")
     updated = _with_includes(original, includes)
@@ -228,9 +281,12 @@ def _replace_c(original, code, target, includes):
     return updated[:old_start] + function + updated[old_end:]
 
 
-def function_response_to_diff(raw, original, filename, language, target):
-    """Strictly adapt a p5-v1 function response to the unified diff P1 accepts."""
-    result = {"raw_format_valid": False, "failure_reasons": [], "patch": ""}
+def function_response_to_diff(raw, original, filename, language, target, format_mode="strict"):
+    """Adapt a p5-v1 response to P1's unified-diff input under an explicit format mode."""
+    result = {"raw_format_valid": False, "failure_reasons": [], "patch": "", "format_mode": format_mode}
+    if format_mode not in ("strict", "lenient"):
+        result["failure_reasons"].append("unknown_format_mode")
+        return result
     match = _RESPONSE.fullmatch(raw if isinstance(raw, str) else "")
     if not match:
         result["failure_reasons"].append("invalid_response_format")
@@ -245,9 +301,13 @@ def function_response_to_diff(raw, original, filename, language, target):
         if language == "python":
             if match.group("includes") is not None:
                 raise ValueError("INCLUDES is only permitted for C")
-            changed = _replace_python(original, match.group("code"), target)
+            replace_python = _replace_python if format_mode == "strict" else _replace_python_lenient
+            changed = replace_python(original, match.group("code"), target)
         elif language == "c":
-            changed = _replace_c(original, match.group("code"), target, _parse_includes(match.group("includes")))
+            changed = _replace_c(
+                original, match.group("code"), target, _parse_includes(match.group("includes")),
+                allow_fenced_includes=format_mode == "lenient",
+            )
         else:
             raise ValueError("unsupported language")
     except (SyntaxError, ValueError) as exc:

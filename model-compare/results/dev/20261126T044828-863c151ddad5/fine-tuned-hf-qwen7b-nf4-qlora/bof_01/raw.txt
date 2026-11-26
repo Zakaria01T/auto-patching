@@ -1,0 +1,9 @@
+```c
+void copy_name(const char *input) {
+    char buf[16];
+    snprintf(buf, sizeof(buf), "%s", input);
+    puts(buf);
+}
+```
+EXPLANATION: Replaced strcpy with snprintf limited to the size of buf.
+INCLUDES: <stdio.h>, <string.h>

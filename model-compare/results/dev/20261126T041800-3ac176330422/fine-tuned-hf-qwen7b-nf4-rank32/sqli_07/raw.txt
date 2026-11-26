@@ -1,0 +1,6 @@
+```python
+def search_books(conn, term):
+    query = "SELECT title FROM books WHERE title LIKE ?"
+    return conn.execute(query, ('%' + term + '%',)).fetchall()
+```
+EXPLANATION: Replaces the wildcard pattern with a '?' placeholder and passes ('%' + term + '%',) as a bound tuple to conn.execute().

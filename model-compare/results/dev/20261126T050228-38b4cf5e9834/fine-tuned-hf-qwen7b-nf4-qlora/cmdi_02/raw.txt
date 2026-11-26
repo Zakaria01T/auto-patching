@@ -1,0 +1,6 @@
+```python
+def list_dir(path):
+    import subprocess
+    return subprocess.check_output(["ls", "--", path])
+```
+EXPLANATION: Passed the directory after -- to ls through subprocess.check_output as a separate argument list item, removing the shell.

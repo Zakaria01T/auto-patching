@@ -1,0 +1,7 @@
+```python
+def get_product(conn, name):
+    query = "SELECT * FROM products WHERE name = ?"
+    return conn.execute(query, (name,)).fetchall()
+```
+
+EXPLANATION: Replaced string formatting with a parameterized query to prevent SQL injection.

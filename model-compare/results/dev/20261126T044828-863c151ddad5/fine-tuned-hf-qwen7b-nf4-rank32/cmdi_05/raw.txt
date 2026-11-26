@@ -1,0 +1,6 @@
+```python
+def show_file(filename):
+    with open(filename, "rb") as f:
+        return f.read()
+```
+EXPLANATION: Reads the file directly instead of invoking cat through a shell.

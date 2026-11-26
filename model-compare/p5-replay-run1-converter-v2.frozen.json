@@ -1,0 +1,94 @@
+{
+  "config": {
+    "models": [
+      {
+        "type": "prompted",
+        "tag": "hf-qwen7b-nf4-base",
+        "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@c03e6d358207e414f1eca0bb1891e29f1db0e242;quant=nf4",
+        "training_settings_provenance": "NOT RECORDED"
+      },
+      {
+        "type": "fine-tuned",
+        "tag": "hf-qwen7b-nf4-qlora",
+        "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@c03e6d358207e414f1eca0bb1891e29f1db0e242;adapter=qlora;quant=nf4",
+        "adapter_sha256": "eba7ae42144c22dd5302dbd908daf97f711568ec42a5dc9153d8ee75f646bd4e",
+        "training_settings_provenance": "NOT RECORDED"
+      },
+      {
+        "type": "fine-tuned",
+        "tag": "hf-qwen7b-nf4-rank32",
+        "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@c03e6d358207e414f1eca0bb1891e29f1db0e242;adapter=rank32;quant=nf4",
+        "adapter_sha256": "44de96ea9de52f7373b17f3a66dc0506e8232e2b0e4abc357e751d23bb9f4661",
+        "training_settings_provenance": "NOT RECORDED"
+      }
+    ],
+    "prompt_version": "p5-v1",
+    "generation_parameters": {
+      "temperature": 0.0,
+      "seed": 42,
+      "num_predict": 2048,
+      "num_ctx": 8192
+    },
+    "inference_timeout": 180,
+    "check_timeout": 180,
+    "image": "sha256:d8f383761b89b139aae56746d82011abcf84f72bc3c1176c368336c22802ddf4",
+    "memory": "1g",
+    "cpus": 1,
+    "pids_limit": 128,
+    "ollama_url": "http://127.0.0.1:11434",
+    "scanner_configuration": "project-original-v1",
+    "inference_backend": "replay",
+    "legacy_manifest": true,
+    "replay_metadata": {
+      "base_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "base_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+      "base_revision_status": "approximation",
+      "base_revision_source": "Latest Hugging Face history commit before 2026-11-20; not verified as the training revision",
+      "quantization": {
+        "load_in_4bit": true,
+        "bnb_4bit_quant_type": "nf4",
+        "bnb_4bit_compute_dtype": "float16",
+        "bnb_4bit_use_double_quant": true
+      },
+      "model_dtype": "NOT RECORDED",
+      "device_map": "auto",
+      "gpu_devices_used": "NOT RECORDED",
+      "legacy_runner_sha256": "0fd47ed6030ec12002d728fc422ef12f2777e81628234fd60918031d21a75596",
+      "tokenizer_sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    }
+  },
+  "code_hashes": {
+    "model-compare/Dockerfile": "90fe0ca1c24fe5a94b8d336100d7372a1d01d8332a024062841acdcbaa5e74bd",
+    "model-compare/case_checks.py": "08d80241f1de9e5f1896acbc5c595c0bfbd40f3693b08bf907cd9564a456e7a9",
+    "model-compare/docs/evaluation-methodology.md": "72d579d1290372cf9992e2c4799d831bf72e85c0c4b582a3d8c0193cefd8991e",
+    "model-compare/docs/p5-offline-replay.md": "f183514ed3dad00b92e4649d2d64b13fa3d41b45faf91f4d2368193f557433ca",
+    "model-compare/evaluation.py": "d5a5fbfd4dc6efebed242b452a18c1b3f7f5b5d082df9d4eaec90a3074c12499",
+    "model-compare/inference.py": "b07f0ff5a86969ad286f8d77103664759ca6272d944254cc656cfafd315ef2ed",
+    "model-compare/p5_eval.py": "c859a04ebf5c9f886685052f12fb2e9d9f854c5cdedd062c70bc736c67ec6e83",
+    "model-compare/p5_kaggle_inference.py": "ad1608a8efe27bb7933923d40b36a769dccd805300824a9c7f6fcb67a633c956",
+    "model-compare/prompts/v1.txt": "2e5cceebbe662e811c125245bbf4df0e5dde8790e4fb54dc5f5a3fbd13f41e1a",
+    "model-compare/replay.py": "75752418e25d24cbacbea80edca4d3cb43d1564ebd2214660d38b864160ee204",
+    "model-compare/run.py": "40a3275ab715c4c90a396805c9760fd693eebd1c79bd05444e7ab29cfcf0d0e8",
+    "model-compare/worker.py": "c789aa8c18645ca372e9d02f3234802bba9ed30a3a719f9ca1d551b8fd26cfcc",
+    "patcher/prompts.py": "ffdb9734a799940e918df64a58dd130c93688cc6bfc994f594913d44995fdbf4",
+    "requirements-scanners.txt": "129f3b77843d4b4d466307aedc353cb54d0a5d77704c057097e85e4e03ff41de",
+    "scanner/__init__.py": "6b0a880c81490b9bd15ac37382f6508d67923f8e344553377e775bce846041c4",
+    "scanner/rules/c.yaml": "386ad680cd1df17ddc474c873254f8692badf3c5a217df60ca0d7386ba40981d",
+    "scanner/rules/python.yaml": "b8947d7a16785d932c63ce16a0bd4eca3ae3ebfeba08234e330db92e7c0db2b0",
+    "scanner/scan.py": "822ffe96e51ddbdfbe0675e4558ef492470fe722d46666ca15066ed7b47fadb7"
+  },
+  "environment": {
+    "tools": {
+      "python3": "Python 3.12.3",
+      "gcc": "gcc (Debian 12.2.0-14+deb12u1) 12.2.0\nCopyright (C) 2022 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+      "git": "git version 2.39.5",
+      "semgrep": "1.181.0",
+      "bandit": "bandit 1.9.4\n  python version = 3.12.3 (main, May 14 2024, 07:34:56) [GCC 12.2.0]",
+      "flawfinder": "2.0.20",
+      "cppcheck": "Cppcheck 2.10"
+    },
+    "models": []
+  },
+  "frozen_at": "2026-11-26T04:17:53.768100+00:00"
+}
