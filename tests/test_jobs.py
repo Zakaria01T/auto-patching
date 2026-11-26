@@ -1,6 +1,9 @@
+import json
+import re
+from pathlib import Path
+
 import pytest
 from fastapi.testclient import TestClient
-from pathlib import Path
 from api import main
 
 client = TestClient(main.app)
@@ -105,8 +108,47 @@ def test_invalid_status_is_refused():
     with pytest.raises(ValueError):
         main.to_contract({"id": "x", "status": "done"})
         
+JOB_DOC = Path(__file__).resolve().parents[1] / "docs" / "job.md"
+SPRINT4_STATUSES = {"scanning", "patching", "validating", "accepted", "needs_human"}
+ATTEMPT_FIELDS = {
+    "attempt_number", "raw_model_answer", "corrected_function", "diff",
+    "validation_result", "timestamp",
+}
+VALIDATION_FIELDS = {
+    "ok", "failed_step", "apply_log", "test_output", "scanner_findings", "exploit_output",
+}
+
+
 def test_job_doc_lists_every_field_and_status():
-    doc = Path(__file__).resolve().parent.parent / "docs" / "job.md"
-    text = doc.read_text(encoding="utf-8")
-    for name in main.CONTRACT_FIELDS + main.STATUSES:
-        assert f"`{name}`" in text, f"docs/job.md does not mention {name}"
+    text = JOB_DOC.read_text(encoding="utf-8")
+    sections = dict(re.findall(r"^## \d+\. ([^\n]+)\n(.*?)(?=^## |\Z)", text, re.M | re.S))
+    for heading, expected in {
+        "Job lifecycle and status transitions": SPRINT4_STATUSES,
+        "Job schema": set(main.CONTRACT_FIELDS),
+        "Attempt log schema": ATTEMPT_FIELDS,
+        "Validation result schema": VALIDATION_FIELDS,
+    }.items():
+        documented = re.findall(r"^\| `(\w+)` \|", sections[heading], re.M)
+        assert set(documented) == expected, heading
+
+
+def test_job_doc_examples_cover_both_acceptance_paths():
+    text = JOB_DOC.read_text(encoding="utf-8")
+    jobs = [json.loads(block) for block in re.findall(r"^```json\n(.*?)\n```$", text, re.M | re.S)]
+    assert {job["status"] for job in jobs} == SPRINT4_STATUSES
+    accepted = [job for job in jobs if job["status"] == "accepted"]
+    assert {job["diff"] is None for job in accepted} == {True, False}
+    for job in jobs:
+        assert set(job) == set(main.CONTRACT_FIELDS)
+        for attempt in job["attempts"]:
+            assert set(attempt) == ATTEMPT_FIELDS
+            if attempt["validation_result"] is not None:
+                assert set(attempt["validation_result"]) == VALIDATION_FIELDS
+    for job in accepted:
+        assert job["decision"] == "accepted"
+        if job["diff"] is None:
+            assert job["findings"] == [] and job["attempts"] == []
+        else:
+            final_attempt = job["attempts"][-1]
+            assert final_attempt["diff"] == job["diff"]
+            assert final_attempt["validation_result"]["ok"] is True
