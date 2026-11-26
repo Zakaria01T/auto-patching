@@ -4,13 +4,16 @@ import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import re
 import subprocess
 import tempfile
 import time
 import uuid
+import hashlib
 
 from evaluation import ROOT, digest, finalize, load_cases, reports, validate_patch
 from inference import IdentityError, generate, identity
+from p5_eval import ReplayInputError, build_case_prompts, function_response_to_diff
 
 
 def stamp():
@@ -18,22 +21,64 @@ def stamp():
 
 
 def code_hashes():
-    paths = list((ROOT / 'model-compare').glob('*.py')) + list((ROOT / 'model-compare/prompts').glob('*.txt')) + list((ROOT / 'scanner').glob('*.py')) + list((ROOT / 'scanner/rules').glob('*.yaml')) + [ROOT / 'model-compare/Dockerfile', ROOT / 'requirements-scanners.txt']
+    paths = list((ROOT / 'model-compare').glob('*.py')) + list((ROOT / 'model-compare/prompts').glob('*.txt')) + list((ROOT / 'scanner').glob('*.py')) + list((ROOT / 'scanner/rules').glob('*.yaml')) + [ROOT / 'model-compare/Dockerfile', ROOT / 'requirements-scanners.txt', ROOT / 'patcher/prompts.py']
+    paths += [ROOT / 'model-compare/docs/evaluation-methodology.md', ROOT / 'model-compare/docs/p5-offline-replay.md']
     return {str(p.relative_to(ROOT)): digest(p) for p in sorted(paths)}
 
 
-def read_config(path):
+def read_config(path, calibration_only=False):
     c = json.loads(path.read_text())
     required = {'models', 'prompt_version', 'generation_parameters', 'inference_timeout', 'check_timeout', 'image', 'memory', 'cpus', 'pids_limit', 'ollama_url', 'scanner_configuration'}
-    if set(c) != required:
+    optional = {'inference_backend', 'replay_metadata', 'calibration_only'}
+    if not required <= set(c) or set(c) - required - optional:
         raise ValueError(f'configuration fields must be exactly {sorted(required)}')
-    if not c['models'] or len({m['type'] for m in c['models']}) != len(c['models']):
-        raise ValueError('configure one entry per model type')
+    c.setdefault('inference_backend', 'ollama')
+    if c.get('calibration_only', False) is not calibration_only:
+        raise ValueError('calibration_only config is valid only for calibrate-dev')
+    if c['inference_backend'] not in ('ollama', 'replay'):
+        raise ValueError('inference_backend must be ollama or replay')
+    if not c['models'] or len({m.get('tag') for m in c['models']}) != len(c['models']):
+        raise ValueError('configure one entry per unique model tag')
     for m in c['models']:
-        if set(m) != {'type', 'tag', 'checkpoint'} or m['type'] not in ('prompted', 'fine-tuned') or not m['checkpoint']:
-            raise ValueError('model needs type, actual tag and immutable checkpoint digest')
-    if c['prompt_version'] != 'v1' or c['scanner_configuration'] != 'project-original-v1':
+        allowed_model_fields = (
+            {'type', 'tag', 'checkpoint'},
+            {'type', 'tag', 'checkpoint', 'adapter_sha256'},
+            {'type', 'tag', 'checkpoint', 'training_settings_provenance'},
+            {'type', 'tag', 'checkpoint', 'adapter_sha256', 'training_settings_provenance'},
+        )
+        if set(m) not in allowed_model_fields or m['type'] not in ('prompted', 'fine-tuned') or not m['checkpoint']:
+            raise ValueError('model needs type, tag and immutable checkpoint identity')
+        if 'training_settings_provenance' in m and not isinstance(m['training_settings_provenance'], str):
+            raise ValueError('training_settings_provenance must be a string')
+        if m.get('adapter_sha256') is not None and not re.fullmatch(r'[0-9a-f]{64}', m['adapter_sha256']):
+            raise ValueError('adapter_sha256 must be a lowercase SHA-256 digest')
+    if c['prompt_version'] not in ('v1', 'p5-v1') or c['scanner_configuration'] != 'project-original-v1':
         raise ValueError('unsupported prompt/scanner configuration')
+    if c['prompt_version'] == 'p5-v1':
+        if c['inference_backend'] != 'replay' or 'replay_metadata' not in c:
+            raise ValueError('p5-v1 currently requires the offline replay backend and replay_metadata')
+        metadata = c['replay_metadata']
+        if not isinstance(metadata, dict) or not all(metadata.get(k) for k in ('base_model', 'base_revision', 'quantization')):
+            raise ValueError('replay_metadata requires base_model, base_revision and quantization')
+        if metadata.get('base_revision_status', 'verified') not in ('verified', 'approximation'):
+            raise ValueError('base_revision_status must be verified or approximation')
+        if metadata['quantization'].get('load_in_4bit') is not True or metadata['quantization'].get('bnb_4bit_quant_type') != 'nf4':
+            raise ValueError('replay requires the approved 4-bit NF4 base configuration')
+        if not calibration_only and (metadata['quantization'].get('bnb_4bit_compute_dtype') not in ('float16', 'bfloat16', 'float32') or type(metadata['quantization'].get('bnb_4bit_use_double_quant')) is not bool):
+            raise ValueError('replay_metadata must pin NF4 compute dtype and double-quant setting')
+        if not all(re.fullmatch(r'[0-9a-f]{64}', metadata.get(k, '')) for k in ('tokenizer_sha256', 'chat_template_sha256')):
+            raise ValueError('replay_metadata must pin tokenizer and chat-template SHA-256 digests')
+        if metadata.get('model_dtype') != 'float16' or metadata.get('device_map') != {'': 0} or metadata.get('gpu_devices_used') != [0]:
+            raise ValueError('p5-v1 requires float16 model dtype and a single-GPU device_map={"": 0}')
+        expected = {'temperature': 0.0, 'seed': 42, 'num_predict': 2048, 'num_ctx': 8192}
+        if c['generation_parameters'] != expected:
+            raise ValueError(f'p5-v1 replay generation_parameters must be exactly {expected}')
+        if len(c['models']) != 3 or sum(m['type'] == 'prompted' for m in c['models']) != 1 or sum(m['type'] == 'fine-tuned' for m in c['models']) != 2:
+            raise ValueError('p5-v1 replay requires one prompted and two fine-tuned models')
+        if any(m['type'] == 'fine-tuned' and not m.get('adapter_sha256') for m in c['models']):
+            raise ValueError('each replayed fine-tuned model requires adapter_sha256')
+    elif c['inference_backend'] != 'ollama':
+        raise ValueError('offline replay currently requires p5-v1')
     if 'temperature' not in c['generation_parameters']:
         raise ValueError('temperature is required')
     if not c['image'].startswith('sha256:') or len(c['image']) != 71:
@@ -56,7 +101,7 @@ def preflight(c, include_models=True):
     script = "import json,subprocess; print(json.dumps({x:subprocess.check_output([x,'--version'],stderr=subprocess.STDOUT,text=True).strip() for x in ['python3','gcc','git','semgrep','bandit','flawfinder','cppcheck']}))"
     proc = subprocess.run(docker_base(c) + ['--entrypoint=python3', c['image'], '-c', script], capture_output=True, text=True, timeout=120, check=True)
     versions = json.loads(proc.stdout)
-    return dict(tools=versions, models=[identity(c, m) for m in c['models']] if include_models else [])
+    return dict(tools=versions, models=[identity(c, m) for m in c['models']] if include_models and c.get('inference_backend', 'ollama') == 'ollama' else [])
 
 
 def check(c, folder, mode):
@@ -81,11 +126,11 @@ def scanner_keys(payload, cwe):
     return {(f['cwe'], f['rule_id']) for f in payload['findings'] if f['cwe'] == cwe}
 
 
-def evaluate(c, model, case, directory, run_id, split):
+def evaluate(c, model, case, directory, run_id, split, response_provider=None):
     start = time.monotonic()
     folder = directory / case['id']
     folder.mkdir()
-    record = dict(run_id=run_id, dataset_split=split, case_id=case['id'], vulnerability_class=case['class'], model_type=model['type'], model_tag=model['tag'], checkpoint_identity=model['checkpoint'], prompt_version=c['prompt_version'], temperature=c['generation_parameters']['temperature'], generation_parameters=c['generation_parameters'], timestamp=stamp(), raw_output_path=None, patch_path=None, valid_output=False, git_apply=False, functional_test_pass=None, attack_blocked=None, scanner_cleared=None, failure_reasons=[], execution_status='completed')
+    record = dict(run_id=run_id, dataset_split=split, case_id=case['id'], vulnerability_class=case['class'], model_type=model['type'], model_tag=model['tag'], checkpoint_identity=model['checkpoint'], training_settings_provenance=model.get('training_settings_provenance', 'unspecified'), prompt_version=c['prompt_version'], temperature=c['generation_parameters']['temperature'], generation_parameters=c['generation_parameters'], timestamp=stamp(), raw_output_path=None, patch_path=None, raw_format_valid=None, valid_output=False, git_apply=False, functional_test_pass=None, attack_blocked=None, scanner_cleared=None, failure_reasons=[], execution_status='completed')
     try:
         spec = json.loads(case['spec'].read_text())
         if spec['class'] != case['class'] or spec['test_sha256'] != digest(case['test']):
@@ -99,11 +144,25 @@ def evaluate(c, model, case, directory, run_id, split):
         if not baseline_function['passed'] or baseline_attack['passed'] or baseline_attack.get('reason') == 'compilation_failed' or not original_keys:
             raise RuntimeError('baseline calibration failed: expected normal pass, exploitable attack and original CWE finding')
         original = case['source'].read_text()
-        prompt = (ROOT / 'model-compare/prompts' / (c['prompt_version'] + '.txt')).read_text().format(filename=case['source'].name, vulnerability=case['class'], target=spec['target'], source=original)
-        (folder / 'prompt.txt').write_text(prompt)
+        prompt_provenance = None
+        if c['prompt_version'] == 'p5-v1':
+            prompt, prompt_provenance = build_case_prompts(case, original, baseline_scanner['findings'], spec['target'])
+            prompt_bytes = json.dumps(prompt, sort_keys=True, ensure_ascii=False).encode('utf-8')
+            record['prompt_sha256'] = hashlib.sha256(prompt_bytes).hexdigest()
+            record['prompt_provenance'] = prompt_provenance
+            (folder / 'prompt.json').write_text(json.dumps(prompt, ensure_ascii=False, indent=2))
+        else:
+            prompt = (ROOT / 'model-compare/prompts' / (c['prompt_version'] + '.txt')).read_text().format(filename=case['source'].name, vulnerability=case['class'], target=spec['target'], source=original)
+            (folder / 'prompt.txt').write_text(prompt)
         try:
-            raw = generate(c, model, prompt)
-        except IdentityError:
+            if response_provider is not None:
+                raw, provenance = response_provider(model, case, prompt)
+                record['inference_provenance'] = provenance
+            elif c['prompt_version'] == 'p5-v1':
+                raise RuntimeError('p5-v1 responses must be supplied through offline replay')
+            else:
+                raw = generate(c, model, prompt)
+        except (IdentityError, ReplayInputError):
             raise
         except Exception as exc:
             record['execution_status'] = 'model_failure'
@@ -114,9 +173,19 @@ def evaluate(c, model, case, directory, run_id, split):
             return finalize(record)
         (folder / 'raw.txt').write_text(raw)
         record['raw_output_path'] = str((folder / 'raw.txt').relative_to(directory.parent))
+        patch_input = raw
+        if c['prompt_version'] == 'p5-v1':
+            converted = function_response_to_diff(raw, original, case['source'].name, case['language'], spec['target'])
+            record['raw_format_valid'] = converted['raw_format_valid']
+            record['raw_format_failure_reasons'] = converted['failure_reasons']
+            patch_input = converted['patch']
+            if not converted['raw_format_valid']:
+                record['failure_reasons'].extend(converted['failure_reasons'])
+                record['execution_status'] = 'model_failure'
+                return finalize(record)
         with tempfile.TemporaryDirectory(prefix='p6-patch-') as tmp:
             work = Path(tmp)
-            validation = validate_patch(raw, original, case['source'].name, case['language'], spec['target'], work)
+            validation = validate_patch(patch_input, original, case['source'].name, case['language'], spec['target'], work)
             patch = validation.pop('patch', '')
             (folder / 'repair.diff').write_text(patch)
             record['patch_path'] = str((folder / 'repair.diff').relative_to(directory.parent))
@@ -180,7 +249,9 @@ def main():
         print(f'DEV: validated {len(cases)} case manifests; no generated code executed')
         return
     if args.config is None: parser.error('--config required')
-    c = read_config(args.config)
+    c = read_config(args.config, calibration_only=args.action == 'calibrate-dev')
+    if c['inference_backend'] == 'replay' and args.action == 'run':
+        parser.error('use model-compare/replay.py for offline p5-v1 evaluation')
     hashes = code_hashes()
     if args.action == 'calibrate-dev':
         cases = load_cases('dev')
@@ -202,6 +273,16 @@ def main():
                 item['attack'] = check(c, case['source'].parent, 'attack')
                 item['scanner'] = check(c, case['source'].parent, 'scanner')
                 item['calibrated'] = bool(item['functional']['passed'] and not item['attack']['passed'] and item['attack'].get('reason') != 'compilation_failed' and scanner_keys(item['scanner'], case['cwe']))
+                if item['calibrated'] and c['prompt_version'] == 'p5-v1':
+                    spec = json.loads(case['spec'].read_text())
+                    prompt, provenance = build_case_prompts(case, case['source'].read_text(), item['scanner']['findings'], spec['target'])
+                    prompt_path = directory / 'prompts' / (case['id'] + '.json')
+                    prompt_path.parent.mkdir(parents=True, exist_ok=True)
+                    prompt_bytes = json.dumps(prompt, sort_keys=True, ensure_ascii=False).encode('utf-8')
+                    prompt_path.write_bytes(json.dumps(prompt, ensure_ascii=False, indent=2).encode('utf-8'))
+                    item['prompt_sha256'] = hashlib.sha256(prompt_bytes).hexdigest()
+                    item['prompt_provenance'] = provenance
+                    item['prompt_artifact_path'] = str(prompt_path.relative_to(directory))
             except Exception as exc:
                 item.update(calibrated=False, infrastructure_error=str(exc))
             results.append(item)

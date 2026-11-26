@@ -178,4 +178,13 @@ def reports(records, directory):
         for reason in r['failure_reasons']:
             reasons[reason] = reasons.get(reason, 0) + 1
     lines += ['', 'Failure reasons (multiple per case):', '', json.dumps(reasons, indent=2), '', 'See manifest.json for frozen conditions and records.jsonl for skipped checks, durations and evidence.']
+    p5_records = [r for r in records if r.get('prompt_version') == 'p5-v1']
+    if p5_records:
+        lines += ['', 'Raw function-response format compliance (separate from the five P1 metrics):', '', '| Model | Valid raw format | Assigned |', '|---|---:|---:|']
+        for model in sorted({r['model_type'] + ':' + r['model_tag'] for r in p5_records}):
+            selected = [r for r in p5_records if r['model_type'] + ':' + r['model_tag'] == model]
+            count = sum(r.get('raw_format_valid') is True for r in selected)
+            percent = 100 * count / len(selected) if selected else 0.0
+            lines.append(f'| {model} | {count}/{len(selected)} ({percent:.2f}%) | {len(selected)} |')
+        lines += ['', 'P1 metrics are computed after the strict p5-v1 function-to-diff adapter. P1 originally judged raw unified diffs; see the evaluation methodology for this documented extension.']
     (directory / 'report.md').write_text('\n'.join(lines) + '\n')

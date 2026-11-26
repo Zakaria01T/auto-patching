@@ -1,0 +1,1528 @@
+{
+  "environment": {
+    "tools": {
+      "python3": "Python 3.12.3",
+      "gcc": "gcc (Debian 12.2.0-14+deb12u1) 12.2.0\nCopyright (C) 2022 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+      "git": "git version 2.39.5",
+      "semgrep": "1.181.0",
+      "bandit": "bandit 1.9.4\n  python version = 3.12.3 (main, May 14 2024, 07:34:56) [GCC 12.2.0]",
+      "flawfinder": "2.0.20",
+      "cppcheck": "Cppcheck 2.10"
+    },
+    "models": []
+  },
+  "config": {
+    "models": [
+      {
+        "type": "prompted",
+        "tag": "hf-qwen7b-nf4-base",
+        "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@REPLACE_WITH_BASE_REVISION;quant=nf4"
+      },
+      {
+        "type": "fine-tuned",
+        "tag": "hf-qwen7b-nf4-qlora",
+        "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@REPLACE_WITH_BASE_REVISION;adapter=qlora;quant=nf4",
+        "adapter_sha256": "eba7ae42144c22dd5302dbd908daf97f711568ec42a5dc9153d8ee75f646bd4e"
+      },
+      {
+        "type": "fine-tuned",
+        "tag": "hf-qwen7b-nf4-rank32",
+        "checkpoint": "Qwen/Qwen2.5-Coder-7B-Instruct@REPLACE_WITH_BASE_REVISION;adapter=rank32;quant=nf4",
+        "adapter_sha256": "44de96ea9de52f7373b17f3a66dc0506e8232e2b0e4abc357e751d23bb9f4661"
+      }
+    ],
+    "prompt_version": "p5-v1",
+    "generation_parameters": {
+      "temperature": 0.0,
+      "seed": 42,
+      "num_predict": 2048,
+      "num_ctx": 8192
+    },
+    "inference_timeout": 180,
+    "check_timeout": 180,
+    "image": "sha256:d8f383761b89b139aae56746d82011abcf84f72bc3c1176c368336c22802ddf4",
+    "memory": "1g",
+    "cpus": 1,
+    "pids_limit": 128,
+    "ollama_url": "http://127.0.0.1:11434",
+    "scanner_configuration": "project-original-v1",
+    "inference_backend": "replay",
+    "replay_metadata": {
+      "base_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "base_revision": "UNRESOLVED_CALIBRATION_ONLY",
+      "quantization": {
+        "load_in_4bit": true,
+        "bnb_4bit_quant_type": "nf4",
+        "bnb_4bit_compute_dtype": null,
+        "bnb_4bit_use_double_quant": null
+      },
+      "tokenizer_sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    },
+    "calibration_only": true
+  },
+  "code_hashes": {
+    "model-compare/Dockerfile": "90fe0ca1c24fe5a94b8d336100d7372a1d01d8332a024062841acdcbaa5e74bd",
+    "model-compare/case_checks.py": "08d80241f1de9e5f1896acbc5c595c0bfbd40f3693b08bf907cd9564a456e7a9",
+    "model-compare/docs/evaluation-methodology.md": "72d579d1290372cf9992e2c4799d831bf72e85c0c4b582a3d8c0193cefd8991e",
+    "model-compare/docs/p5-offline-replay.md": "f7a8fe5d5e4ffed7870b1506d03a1fce56015425b656887d0ebc8b10dd58a0e0",
+    "model-compare/evaluation.py": "a4b24834c25d3a75da539f3e138ef78f36f02bb14687b361a81fdc9c6e52cb53",
+    "model-compare/inference.py": "b07f0ff5a86969ad286f8d77103664759ca6272d944254cc656cfafd315ef2ed",
+    "model-compare/p5_eval.py": "256988fc7eae8149bc00d20c284790d9900a98a339af2915ea7e8b7ac2509ede",
+    "model-compare/prompts/v1.txt": "2e5cceebbe662e811c125245bbf4df0e5dde8790e4fb54dc5f5a3fbd13f41e1a",
+    "model-compare/replay.py": "a2701e59eb12aa3b0a7bdeb5fc84a518c0804cb49003ef676d3674c70258062d",
+    "model-compare/run.py": "eb5d730948e09e66b4a1f549cd758d8b1254e68b9ece68158d103673d0153d19",
+    "model-compare/worker.py": "c789aa8c18645ca372e9d02f3234802bba9ed30a3a719f9ca1d551b8fd26cfcc",
+    "patcher/prompts.py": "ffdb9734a799940e918df64a58dd130c93688cc6bfc994f594913d44995fdbf4",
+    "requirements-scanners.txt": "129f3b77843d4b4d466307aedc353cb54d0a5d77704c057097e85e4e03ff41de",
+    "scanner/__init__.py": "6b0a880c81490b9bd15ac37382f6508d67923f8e344553377e775bce846041c4",
+    "scanner/rules/c.yaml": "386ad680cd1df17ddc474c873254f8692badf3c5a217df60ca0d7386ba40981d",
+    "scanner/rules/python.yaml": "b8947d7a16785d932c63ce16a0bd4eca3ae3ebfeba08234e330db92e7c0db2b0",
+    "scanner/scan.py": "822ffe96e51ddbdfbe0675e4558ef492470fe722d46666ca15066ed7b47fadb7"
+  },
+  "results": [
+    {
+      "case_id": "bof_01",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "Alice\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "=================================================================\n==12==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffc613d28e0 at pc 0x79a3495dd2ca bp 0x7ffc613d2890 sp 0x7ffc613d2040\nWRITE of size 4097 at 0x7ffc613d28e0 thread T0\n    #0 0x79a3495dd2c9 in __interceptor_strcpy ../../../../src/libsanitizer/asan/asan_interceptors.cpp:425\n    #1 0x401210 in copy_name /work/source.c:6\n    #2 0x401270 in main /work/driver.c:2\n    #3 0x79a3493c2249  (/lib/x86_64-linux-gnu/libc.so.6+0x27249)\n    #4 0x79a3493c2304 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x27304)\n    #5 0x4010c0 in _start (/work/check+0x4010c0)\n\nAddress 0x7ffc613d28e0 is located in stack of thread T0 at offset 48 in frame\n    #0 0x401195 in copy_name /work/source.c:4\n\n  This frame has 1 object(s):\n    [32, 48) 'buf' (line 5) <== Memory access at offset 48 overflows this variable\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../src/libsanitizer/asan/asan_interceptors.cpp:425 in __interceptor_strcpy\nShadow bytes around the buggy address:\n  0x10000c2724c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c2724d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c2724e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c2724f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c272500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n=>0x10000c272510: 00 00 00 00 00 00 f1 f1 f1 f1 00 00[f3]f3 00 00\n  0x10000c272520: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c272530: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c272540: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c272550: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10000c272560: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==12==ABORTING\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 6,
+            "cwe": "CWE-120",
+            "severity": "high",
+            "rule_id": "FF1001",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "0c75ab8f9e721766ef148d07ccdc64e17066f35ced3fd7f1905d612dd8ceeaad",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 6,
+          "cwe": "CWE-120",
+          "severity": "high",
+          "rule_id": "FF1001",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_01.json"
+    },
+    {
+      "case_id": "bof_02",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "Hello Bob\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "AddressSanitizer:DEADLYSIGNAL\n=================================================================\n==11==ERROR: AddressSanitizer: stack-overflow on address 0x7fffd4d17000 (pc 0x75bb1632cd8a bp 0x000000000d68 sp 0x7fffd4d154d8 T0)\nAddressSanitizer:DEADLYSIGNAL\nAddressSanitizer: nested bug in the same thread, aborting.\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 4,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-120",
+            "severity": "high",
+            "rule_id": "FF1015",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "5827085743a838ae7aa93cc51210598d9575b0b8452d6cc4f24cf86cc32b3991",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 5,
+          "cwe": "CWE-120",
+          "severity": "high",
+          "rule_id": "FF1015",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_02.json"
+    },
+    {
+      "case_id": "bof_03",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "/home/alice\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "=================================================================\n==12==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffe08ad5110 at pc 0x7cb1723dd6f8 bp 0x7ffe08ad50b0 sp 0x7ffe08ad4860\nWRITE of size 4097 at 0x7ffe08ad5110 thread T0\n    #0 0x7cb1723dd6f7 in __interceptor_strcat ../../../../src/libsanitizer/asan/asan_interceptors.cpp:377\n    #1 0x4012b1 in build_path /work/source.c:6\n    #2 0x401329 in main /work/driver.c:2\n    #3 0x7cb1721da249  (/lib/x86_64-linux-gnu/libc.so.6+0x27249)\n    #4 0x7cb1721da304 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x27304)\n    #5 0x4010d0 in _start (/work/check+0x4010d0)\n\nAddress 0x7ffe08ad5110 is located in stack of thread T0 at offset 64 in frame\n    #0 0x4011a5 in build_path /work/source.c:4\n\n  This frame has 1 object(s):\n    [32, 64) 'path' (line 5) <== Memory access at offset 64 overflows this variable\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../src/libsanitizer/asan/asan_interceptors.cpp:377 in __interceptor_strcat\nShadow bytes around the buggy address:\n  0x1000411529d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x1000411529e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x1000411529f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100041152a00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100041152a10: 00 00 00 00 00 00 00 00 00 00 f1 f1 f1 f1 00 00\n=>0x100041152a20: 00 00[f3]f3 f3 f3 00 00 00 00 00 00 00 00 00 00\n  0x100041152a30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100041152a40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100041152a50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100041152a60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100041152a70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==12==ABORTING\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 6,
+            "cwe": "CWE-120",
+            "severity": "high",
+            "rule_id": "FF1005",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "b805fa009c946d80fe49cb6f0c0bda6cfe6eb8389ffaacee2ffb493be2360fec",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 6,
+          "cwe": "CWE-120",
+          "severity": "high",
+          "rule_id": "FF1005",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_03.json"
+    },
+    {
+      "case_id": "bof_04",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "hello"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "=================================================================\n==12==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffd87cc6ab0 at pc 0x741182763061 bp 0x7ffd87cc6a60 sp 0x7ffd87cc6220\nWRITE of size 64 at 0x7ffd87cc6ab0 thread T0\n    #0 0x741182763060 in __interceptor_read ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:1025\n    #1 0x4011ff in read_line /work/source.c:6\n    #2 0x401297 in main /work/driver.c:2\n    #3 0x74118255c249  (/lib/x86_64-linux-gnu/libc.so.6+0x27249)\n    #4 0x74118255c304 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x27304)\n    #5 0x4010b0 in _start (/work/check+0x4010b0)\n\nAddress 0x7ffd87cc6ab0 is located in stack of thread T0 at offset 48 in frame\n    #0 0x401185 in read_line /work/source.c:4\n\n  This frame has 1 object(s):\n    [32, 48) 'line' (line 5) <== Memory access at offset 48 overflows this variable\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:1025 in __interceptor_read\nShadow bytes around the buggy address:\n  0x100030f90d00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90d10: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90d20: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90d30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90d40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n=>0x100030f90d50: f1 f1 f1 f1 00 00[f3]f3 00 00 00 00 00 00 00 00\n  0x100030f90d60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90d70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90d80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90d90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100030f90da0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==12==ABORTING\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 6,
+            "cwe": "CWE-120",
+            "severity": "low",
+            "rule_id": "FF1029",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "6458741869780395a87d29eda53d12199860c9514583bfa15499430cf4937269",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 6,
+          "cwe": "CWE-120",
+          "severity": "low",
+          "rule_id": "FF1029",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_04.json"
+    },
+    {
+      "case_id": "bof_05",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "A7-red\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "AddressSanitizer:DEADLYSIGNAL\n=================================================================\n==12==ERROR: AddressSanitizer: stack-overflow on address 0x7ffdbab81000 (pc 0x7b0b83fc6d8a bp 0x000000000d68 sp 0x7ffdbab7f8e8 T0)\nAddressSanitizer:DEADLYSIGNAL\nAddressSanitizer: nested bug in the same thread, aborting.\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 4,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-120",
+            "severity": "high",
+            "rule_id": "FF1015",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "d41b96b32e371aa9a7b2de7e1725096ea35082bf1093fd5105c7c5f788302dce",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 5,
+          "cwe": "CWE-120",
+          "severity": "high",
+          "rule_id": "FF1015",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_05.json"
+    },
+    {
+      "case_id": "bof_06",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "cat\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "=================================================================\n==12==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffd94000e48 at pc 0x79312e0b96c5 bp 0x7ffd94000cd0 sp 0x7ffd94000480\nWRITE of size 4097 at 0x7ffd94000e48 thread T0\nAddressSanitizer:DEADLYSIGNAL\nAddressSanitizer: nested bug in the same thread, aborting.\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 4,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "invalidscanf",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-120",
+            "severity": "high",
+            "rule_id": "FF1020",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "088c658d119b42eadae557a4f851d668f033f4a1c99962c5df5117effa9abcda",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 5,
+          "cwe": "CWE-120",
+          "severity": "high",
+          "rule_id": "FF1020",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_06.json"
+    },
+    {
+      "case_id": "bof_07",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "Sara Lee\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "=================================================================\n==12==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffe44c96724 at pc 0x7c532cfa42ca bp 0x7ffe44c966d0 sp 0x7ffe44c95e80\nWRITE of size 4097 at 0x7ffe44c96724 thread T0\n    #0 0x7c532cfa42c9 in __interceptor_strcpy ../../../../src/libsanitizer/asan/asan_interceptors.cpp:425\n    #1 0x401259 in full_name /work/source.c:6\n    #2 0x40131b in main /work/driver.c:2\n    #3 0x7c532cd89249  (/lib/x86_64-linux-gnu/libc.so.6+0x27249)\n    #4 0x7c532cd89304 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x27304)\n    #5 0x4010f0 in _start (/work/check+0x4010f0)\n\nAddress 0x7ffe44c96724 is located in stack of thread T0 at offset 52 in frame\n    #0 0x4011c5 in full_name /work/source.c:4\n\n  This frame has 1 object(s):\n    [32, 52) 'name' (line 5) <== Memory access at offset 52 overflows this variable\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../src/libsanitizer/asan/asan_interceptors.cpp:425 in __interceptor_strcpy\nShadow bytes around the buggy address:\n  0x10004898ac90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898aca0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898acb0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898acc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898acd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f1 f1\n=>0x10004898ace0: f1 f1 00 00[04]f3 f3 f3 f3 f3 00 00 00 00 00 00\n  0x10004898acf0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898ad00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898ad10: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898ad20: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x10004898ad30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==12==ABORTING\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 5,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 6,
+            "cwe": "CWE-120",
+            "severity": "high",
+            "rule_id": "FF1001",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 7,
+            "cwe": "CWE-120",
+            "severity": "low",
+            "rule_id": "FF1005",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 8,
+            "cwe": "CWE-120",
+            "severity": "high",
+            "rule_id": "FF1005",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "56412177054687e1dce2c906f92765651b8ab19d03257bb29e083e7a1ccfd28b",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 6,
+          "cwe": "CWE-120",
+          "severity": "high",
+          "rule_id": "FF1001",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_07.json"
+    },
+    {
+      "case_id": "bof_08",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "abcde\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "sanitizer_error",
+        "log": "=================================================================\n==12==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7fff254e19d0 at pc 0x7c3c26e2b061 bp 0x7fff254e1980 sp 0x7fff254e1130\nWRITE of size 4096 at 0x7fff254e19d0 thread T0\n    #0 0x7c3c26e2b060 in __interceptor_memcpy ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:827\n    #1 0x401218 in copy_data /work/source.c:7\n    #2 0x401294 in main /work/driver.c:2\n    #3 0x7c3c26c28249  (/lib/x86_64-linux-gnu/libc.so.6+0x27249)\n    #4 0x7c3c26c28304 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x27304)\n    #5 0x4010c0 in _start (/work/check+0x4010c0)\n\nAddress 0x7fff254e19d0 is located in stack of thread T0 at offset 48 in frame\n    #0 0x401195 in copy_data /work/source.c:5\n\n  This frame has 1 object(s):\n    [32, 48) 'buf' (line 6) <== Memory access at offset 48 overflows this variable\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:827 in __interceptor_memcpy\nShadow bytes around the buggy address:\n  0x100064a942e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a942f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a94300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a94310: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a94320: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n=>0x100064a94330: 00 00 00 00 f1 f1 f1 f1 00 00[f3]f3 00 00 00 00\n  0x100064a94340: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a94350: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a94360: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a94370: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x100064a94380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==12==ABORTING\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.c",
+            "line": 6,
+            "cwe": "CWE-119",
+            "severity": "medium",
+            "rule_id": "FF1013",
+            "language": "c",
+            "owasp": null
+          },
+          {
+            "file": "source.c",
+            "line": 7,
+            "cwe": "CWE-120",
+            "severity": "medium",
+            "rule_id": "FF1004",
+            "language": "c",
+            "owasp": null
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "fa0ab8da988d148141433cf40f9e4348dbf25eae8bb9d5edf89f00e5b5d5e09d",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.c",
+          "line": 7,
+          "cwe": "CWE-120",
+          "severity": "medium",
+          "rule_id": "FF1004",
+          "language": "c",
+          "owasp": null
+        },
+        "example": "corpus/train/gold_bof_01"
+      },
+      "prompt_artifact_path": "prompts/bof_08.json"
+    },
+    {
+      "case_id": "cmdi_01",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": "PING localhost(localhost (::1)) 56 data bytes\n64 bytes from localhost (::1): icmp_seq=1 ttl=64 time=0.032 ms\n\n--- localhost ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.032/0.032/0.032/0.000 ms\n"
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "PING localhost(localhost (::1)) 56 data bytes\n64 bytes from localhost (::1): icmp_seq=1 ttl=64 time=0.020 ms\n\n--- localhost ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.020/0.020/0.020/0.000 ms\nTraceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-command-shell",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "d5fca132a33f58173812f2dd367defad82e55e7caf4b4dc2067b705e215d8650",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-command-shell",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_01.json"
+    },
+    {
+      "case_id": "cmdi_02",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-command-shell",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "9df8860fea815d860e4ec56cded382190b8d08ead7a4a90efc199624a21d9ceb",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-command-shell",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_02.json"
+    },
+    {
+      "case_id": "cmdi_03",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-command-shell",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "ff6b381276ad15aeb233d5d39b3d6e9846fce4ce036f752c2a8a9690bf0d1e19",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-command-shell",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_03.json"
+    },
+    {
+      "case_id": "cmdi_04",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-command-shell",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "93d52f4d5d7556cc35e15b535ddcc8688c0c4765eebdce1d3d8c38bd91458646",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-command-shell",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_04.json"
+    },
+    {
+      "case_id": "cmdi_05",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "B602",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "74d631a7f384f1bf59ea62c8ab9dc4759bef80970872f34a7a87a56db1a5c3d1",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "B602",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_05.json"
+    },
+    {
+      "case_id": "cmdi_06",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-command-shell",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "44a97762f28cb5886851dab465143d61b2469d70239149ef3e8242bfee48b909",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-command-shell",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_06.json"
+    },
+    {
+      "case_id": "cmdi_07",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-command-shell",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "187538e0f652e142a1f68544c22f3a874f37446f02b170ad93e9a122a368a092",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-command-shell",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_07.json"
+    },
+    {
+      "case_id": "cmdi_08",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 91, in python_check\n    assert not Path('pwned').exists()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 5,
+            "cwe": "CWE-78",
+            "severity": "high",
+            "rule_id": "B605",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "945c3e08de57490f81a7bf3eee9c0b75089f98d58517cb44451b4cb6de018cee",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 5,
+          "cwe": "CWE-78",
+          "severity": "high",
+          "rule_id": "B605",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_cmdi_01"
+      },
+      "prompt_artifact_path": "prompts/cmdi_08.json"
+    },
+    {
+      "case_id": "sqli_01",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 49, in sql_check\n    if scenario in (1,2,6,7): assert result == []\n                                     ^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-sql-string-concat",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "0d72fe71ca9c21abeda5f7678577512271206f4ca439492853381c7cd7779df4",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-sql-string-concat",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_01.json"
+    },
+    {
+      "case_id": "sqli_02",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 49, in sql_check\n    if scenario in (1,2,6,7): assert result == []\n                                     ^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-sql-fstring",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "3d58dc34181907796039231ece8bd90b69d2d49b53b055444bbc94de3e427dfd",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-sql-fstring",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_02.json"
+    },
+    {
+      "case_id": "sqli_03",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 50, in sql_check\n    if scenario == 3: assert not conn.execute(\"SELECT * FROM users WHERE name='injected'\").fetchall()\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-sql-string-concat",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "4ed3738d97937e957bb0471c3770771fb6bf0b37fe0ecb7a78940904485a9042",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-sql-string-concat",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_03.json"
+    },
+    {
+      "case_id": "sqli_04",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 53, in sql_check\n    assert after[0] == before[0][0] and len(after) == len(before[0])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "medium",
+            "rule_id": "B608",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "1d437ae91dc36bd4c89c97d6acbc523764dc3534daea625e455158813bf9c7bf",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "medium",
+          "rule_id": "B608",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_04.json"
+    },
+    {
+      "case_id": "sqli_05",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 54, in sql_check\n    if scenario == 5: assert conn.execute('SELECT * FROM sessions').fetchall() == before[1]\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "high",
+            "rule_id": "repo.scanner.rules.python-sql-string-concat",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "25e40a4983042484043b448be0e24396012d9fccebe481a491b46b3f1fbfc11d",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "high",
+          "rule_id": "repo.scanner.rules.python-sql-string-concat",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_05.json"
+    },
+    {
+      "case_id": "sqli_06",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 49, in sql_check\n    if scenario in (1,2,6,7): assert result == []\n                                     ^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "medium",
+            "rule_id": "B608",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "c5af7a2660b85f737706ca0592711b9580deb19afc86d774196493ea95cdfcb4",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "medium",
+          "rule_id": "B608",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_06.json"
+    },
+    {
+      "case_id": "sqli_07",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 49, in sql_check\n    if scenario in (1,2,6,7): assert result == []\n                                     ^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "medium",
+            "rule_id": "B608",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "5368f1240c8db3c286dc422e31e696da1b7703352a77282eb35d4756b1a1cdb3",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "medium",
+          "rule_id": "B608",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_07.json"
+    },
+    {
+      "case_id": "sqli_08",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 63, in python_check\n    return sql_check(fn, scenario, attack)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/repo/model-compare/case_checks.py\", line 55, in sql_check\n    if scenario == 8: assert not conn.execute(\"SELECT * FROM logins WHERE username='injected'\").fetchall()\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-89",
+            "severity": "medium",
+            "rule_id": "B608",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "9b56ba89af71ecaac908043ad1b9f1840405c8a945a5d94c3063f128eb5c6900",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-89",
+          "severity": "medium",
+          "rule_id": "B608",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_sqli_01"
+      },
+      "prompt_artifact_path": "prompts/sqli_08.json"
+    },
+    {
+      "case_id": "xss_01",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-concat",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "f1f577e0731a2644392f3413e0cfb811a4c2cf301c1f8b4b67490b0e0d1b6b1f",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-concat",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_01.json"
+    },
+    {
+      "case_id": "xss_02",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-fstring",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "daa1ee9573db24ec5fe17246fcd378a87c880d9a9340c654e597e8f747379a9f",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-fstring",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_02.json"
+    },
+    {
+      "case_id": "xss_03",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-concat",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "e134f4a422bee3f58b387ec49c60e3718d070e06231e50004aaa2a9ef83f2744",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-concat",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_03.json"
+    },
+    {
+      "case_id": "xss_04",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-fstring",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "c572d74285f2ad6b9878ddc004b9f09005f04420fa0b0800146a724bda7cf113",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-fstring",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_04.json"
+    },
+    {
+      "case_id": "xss_05",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-concat",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "46e834660eb370405c81bda09389b36cd9266574cc05f7a38dfd8b153f54926f",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-concat",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_05.json"
+    },
+    {
+      "case_id": "xss_06",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-fstring",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "5cfb1414fb26db209d241a9314907ffc63898d9d710365e3d1158e2e5a3b90a8",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-fstring",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_06.json"
+    },
+    {
+      "case_id": "xss_07",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-concat",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "338dadc0f69d1f62c9662078760d593e1c9de43d210c43b22fe30f7934a310af",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-concat",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_07.json"
+    },
+    {
+      "case_id": "xss_08",
+      "dataset_split": "dev",
+      "functional": {
+        "passed": true,
+        "reason": "functional_test_failed",
+        "log": ""
+      },
+      "attack": {
+        "passed": false,
+        "reason": "attack_not_blocked",
+        "log": "Traceback (most recent call last):\n  File \"/repo/model-compare/case_checks.py\", line 125, in <module>\n    python_check(Path('/work/source.py'), spec, sys.argv[1] == 'attack')\n  File \"/repo/model-compare/case_checks.py\", line 74, in python_check\n    assert isinstance(result, str) and '<script' not in result.lower()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "scanner": {
+        "findings": [
+          {
+            "file": "source.py",
+            "line": 2,
+            "cwe": "CWE-79",
+            "severity": "medium",
+            "rule_id": "repo.scanner.rules.python-html-fstring",
+            "language": "python",
+            "owasp": "A03:2021-Injection"
+          }
+        ]
+      },
+      "calibrated": true,
+      "prompt_sha256": "d1e2a255ea1586f90818440a9ce56976d8651928cf7f8ba5405b3f1cc93bd7dc",
+      "prompt_provenance": {
+        "finding": {
+          "file": "source.py",
+          "line": 2,
+          "cwe": "CWE-79",
+          "severity": "medium",
+          "rule_id": "repo.scanner.rules.python-html-fstring",
+          "language": "python",
+          "owasp": "A03:2021-Injection"
+        },
+        "example": "corpus/train/gold_xss_01"
+      },
+      "prompt_artifact_path": "prompts/xss_08.json"
+    }
+  ]
+}
